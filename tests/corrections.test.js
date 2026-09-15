@@ -121,6 +121,29 @@ const spitfire = VEHICLES.find((v) => v.id === "spitfire");
   ok("re-added alias answers", VSMatch.check("Spitfire", C.apply(spitfire)).verdict === "correct");
 }
 
+/* --- dropping a single bad photo ----------------------------------------- */
+{
+  const multi = VEHICLES.filter((v) => v.images && v.images.length > 1)[0];
+  if (multi) {
+    const { C } = freshCorrections();
+    const first = multi.images[0].url;
+    check("starts with every photo", C.apply(multi).images.length, multi.images.length);
+
+    C.dropImage(multi.id, first);
+    const left = C.apply(multi).images.map((i) => i.url);
+    check("the dropped photo is gone", left.indexOf(first), -1);
+    check("the others remain", left.length, multi.images.length - 1);
+    check("the dataset row is untouched", multi.images.length > left.length, true);
+
+    C.restoreImage(multi.id, first);
+    check("restoring brings it back", C.apply(multi).images.length, multi.images.length);
+
+    // An entry with no photo is unplayable, so the last one cannot be removed.
+    multi.images.forEach((img) => C.dropImage(multi.id, img.url));
+    ok("one photo always survives", C.apply(multi).images.length >= 1);
+  }
+}
+
 /* --- hiding -------------------------------------------------------------- */
 {
   const { C } = freshCorrections();

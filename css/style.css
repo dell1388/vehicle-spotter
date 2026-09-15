@@ -617,3 +617,50 @@ body.playing .sitefoot { display: none; }
   padding: 2px 7px;
 }
 .browse-mark-off { color: var(--bad); border-color: var(--bad); }
+
+/* ------------------------------------------------------- photo chips --- */
+
+.photo-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.photo-chip {
+  appearance: none;
+  position: relative;
+  width: 84px;
+  height: 60px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-sunk);
+  cursor: pointer;
+}
+.photo-chip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-chip:hover { border-color: var(--bad); }
+
+.photo-chip-x {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(13, 16, 20, 0.85);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 18px;
+  text-align: center;
+}
+.photo-chip:hover .photo-chip-x { background: var(--bad); color: #fff; }
+
+.photo-chip-off { border-style: dashed; }
+.photo-chip-off img { opacity: .4; }
+.photo-chip-off:hover { border-color: var(--good); }
+.photo-chip-off:hover img { opacity: .8; }
+.photo-chip-off:hover .photo-chip-x { background: var(--good); color: #fff; }
+
+.panel-note {
+  margin: 10px 0 0;
+  color: var(--text-faint);
+  font-size: 12px;
+  line-height: 1.5;
+}

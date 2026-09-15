@@ -31,7 +31,7 @@ const Corrections = (function () {
   let state = load();
   let merged = Object.create(null);   // id -> vehicle with corrections applied
 
-  function blank() { return { names: {}, aliases: {}, dropped: {}, hidden: {} }; }
+  function blank() { return { names: {}, aliases: {}, dropped: {}, images: {}, hidden: {} }; }
 
   function strings(value, cap) {
     if (!Array.isArray(value)) return null;
@@ -59,7 +59,7 @@ const Corrections = (function () {
         }
       });
     }
-    ["aliases", "dropped"].forEach(function (field) {
+    ["aliases", "dropped", "images"].forEach(function (field) {
       const src = parsed[field];
       if (!src || typeof src !== "object") return;
       Object.keys(src).forEach(function (id) {
@@ -95,11 +95,22 @@ const Corrections = (function () {
     const rename = state.names[vehicle.id];
     const extra = state.aliases[vehicle.id];
     const dropped = state.dropped[vehicle.id];
-    if (!rename && !extra && !dropped) return vehicle;
+    const badImages = state.images[vehicle.id];
+    if (!rename && !extra && !dropped && !badImages) return vehicle;
     if (merged[vehicle.id]) return merged[vehicle.id];
 
     const copy = {};
     Object.keys(vehicle).forEach(function (k) { copy[k] = vehicle[k]; });
+
+    /* A photo that shows the wrong thing is a smaller problem than a wrong
+     * entry, so it can be struck off on its own. Never leave none: an entry
+     * with no photo is unplayable, so the last one stands. */
+    if (badImages && vehicle.images && vehicle.images.length > 1) {
+      const kept = vehicle.images.filter(function (img) {
+        return badImages.indexOf(img.url) === -1;
+      });
+      copy.images = kept.length ? kept : vehicle.images.slice(0, 1);
+    }
 
     let aliases = (vehicle.aliases || []).slice();
     if (dropped) {
@@ -216,6 +227,28 @@ const Corrections = (function () {
     return (state.dropped[id] || []).some(function (d) { return sameText(d, text); });
   }
 
+  /* -------------------------------------------------------------- images -- */
+
+  function dropImage(id, url) {
+    if (!url) return;
+    const list = state.images[id] || [];
+    if (list.indexOf(url) === -1) list.push(url);
+    state.images[id] = list;
+    save();
+  }
+
+  function restoreImage(id, url) {
+    const list = state.images[id];
+    if (!list) return;
+    state.images[id] = list.filter(function (u) { return u !== url; });
+    if (!state.images[id].length) delete state.images[id];
+    save();
+  }
+
+  function isImageDropped(id, url) {
+    return (state.images[id] || []).indexOf(url) !== -1;
+  }
+
   /* --------------------------------------------------------------- flags -- */
 
   function flag(id, reason, note) {
@@ -235,7 +268,7 @@ const Corrections = (function () {
 
   function count() {
     let n = Object.keys(state.hidden).length + Object.keys(state.names).length;
-    ["aliases", "dropped"].forEach(function (field) {
+    ["aliases", "dropped", "images"].forEach(function (field) {
       Object.keys(state[field]).forEach(function (id) { n += state[field][id].length; });
     });
     return n;
@@ -258,6 +291,11 @@ const Corrections = (function () {
         out.push({ kind: "dropped", id: id, value: alias });
       });
     });
+    Object.keys(state.images).forEach(function (id) {
+      state.images[id].forEach(function (url) {
+        out.push({ kind: "image", id: id, value: url });
+      });
+    });
     Object.keys(state.hidden).forEach(function (id) {
       out.push({ kind: "hidden", id: id, value: REASONS[state.hidden[id].reason] || "Flagged",
                  note: state.hidden[id].note });
@@ -269,6 +307,7 @@ const Corrections = (function () {
     if (item.kind === "name") clearName(item.id);
     else if (item.kind === "alias") removeAlias(item.id, item.value);
     else if (item.kind === "dropped") restoreAlias(item.id, item.value);
+    else if (item.kind === "image") restoreImage(item.id, item.value);
     else if (item.kind === "hidden") unflag(item.id);
   }
 
@@ -281,6 +320,7 @@ const Corrections = (function () {
     nameFor: nameFor, isRenamed: isRenamed, rename: rename, clearName: clearName,
     aliasesFor: aliasesFor, addAlias: addAlias, removeAlias: removeAlias,
     dropAlias: dropAlias, restoreAlias: restoreAlias, isDropped: isDropped,
+    dropImage: dropImage, restoreImage: restoreImage, isImageDropped: isImageDropped,
     flag: flag, unflag: unflag, isHidden: isHidden, hiddenIds: hiddenIds,
     count: count, entries: entries, undo: undo,
     exportJSON: exportJSON, clearAll: clearAll,

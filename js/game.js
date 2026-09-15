@@ -15,7 +15,8 @@
 
   const el = {
     setup: $("setupScreen"), game: $("gameScreen"), results: $("resultsScreen"),
-    categoryChips: $("categoryChips"), eraChips: $("eraChips"), difficultyChips: $("difficultyChips"),
+    categoryChips: $("categoryChips"), eraChips: $("eraChips"),
+    difficultyChips: $("difficultyChips"), sourceChips: $("sourceChips"),
     timerToggle: $("timerToggle"), endlessToggle: $("endlessToggle"),
     skipLearnedToggle: $("skipLearnedToggle"),
     progressPanel: $("progressPanel"), progressNote: $("progressNote"),
@@ -124,7 +125,8 @@
   const filters = {
     categories: new Set(CATEGORIES),
     eras: new Set(ERAS),
-    difficulties: new Set([1, 2, 3])
+    difficulties: new Set([1, 2, 3]),
+    sources: new Set(SOURCES)
   };
 
   const DIFFICULTY_LABELS = { 1: "Easy", 2: "Medium", 3: "Hard" };
@@ -162,6 +164,7 @@
       return filters.categories.has(v.category) &&
              filters.eras.has(v.era) &&
              filters.difficulties.has(v.difficulty) &&
+             filters.sources.has(v.source || "photo") &&
              !Corrections.isHidden(v.id);
     });
   }
@@ -281,11 +284,19 @@
   function corrected(vehicle) { return Corrections.apply(vehicle); }
   function current() { return corrected(game.current); }
 
+  /* Each vehicle carries up to three photos, and a round shows one at random,
+   * so a vehicle cannot be answered by recognising a particular picture. */
+  function pickImage(vehicle) {
+    const images = (vehicle && vehicle.images) || [];
+    if (!images.length) return null;
+    return images[Math.floor(Math.random() * images.length)];
+  }
+
   const game = {
     round: 0, score: 0, streak: 0, streakBefore: 0, bestStreak: 0, correct: 0,
     history: [], current: null, upcoming: null, hintsUsed: 0, retried: false,
     timerId: null, remaining: 0, endless: false, timed: false, awaiting: false,
-    lastAnswer: "", resolvedAs: null,
+    lastAnswer: "", resolvedAs: null, image: null, upcomingImage: null,
     used: Object.create(null), correctIds: Object.create(null), skipLearned: true
   };
 
@@ -338,7 +349,9 @@
 
     // The lookahead was already chosen (and its photo fetched) last round.
     game.current = game.upcoming || chooseNext(game.round);
+    game.image = game.upcoming ? game.upcomingImage : pickImage(corrected(game.current));
     game.upcoming = null;
+    game.upcomingImage = null;
     if (!game.current) return endGame();
     game.used[game.current.id] = true;
 
@@ -365,14 +378,14 @@
     el.difficultyTag.textContent = DIFFICULTY_LABELS[game.current.difficulty];
 
     paintHint();
-    loadPhoto(game.current);
+    loadPhoto(current(), game.image);
     preloadNext();
     el.input.focus();
 
     if (game.timed) startTimer();
   }
 
-  function loadPhoto(vehicle) {
+  function loadPhoto(vehicle, image) {
     el.image.classList.remove("ready");
     el.photoLoading.hidden = false;
     el.photoLoading.textContent = "Loading photo…";
@@ -385,7 +398,7 @@
       el.photoLoading.hidden = false;
       el.photoLoading.textContent = "Photo unavailable — answer from the tags below.";
     };
-    el.image.src = vehicle.imageUrl;
+    el.image.src = image ? image.url : "";
   }
 
   /* Choose the following vehicle now and start fetching its photo, so the next
@@ -395,7 +408,8 @@
   function preloadNext() {
     if (!game.endless && game.round + 1 >= ROUNDS_PER_GAME) return;
     game.upcoming = chooseNext(game.round + 1);
-    if (game.upcoming) { const img = new Image(); img.src = game.upcoming.imageUrl; }
+    game.upcomingImage = pickImage(corrected(game.upcoming));
+    if (game.upcomingImage) { const img = new Image(); img.src = game.upcomingImage.url; }
   }
 
   /* ------------------------------------------------------------- timer -- */
@@ -455,8 +469,9 @@
 
   function flatten(s) { return String(s).toLowerCase().replace(/[^a-z0-9]/g, ""); }
 
-  function creditHtml(vehicle) {
-    return '<p class="fb-credit">Photo: ' + escapeHtml(vehicle.credit) + "</p>";
+  function creditHtml() {
+    const credit = game.image && game.image.credit;
+    return credit ? '<p class="fb-credit">Photo: ' + escapeHtml(credit) + "</p>" : "";
   }
 
   /* --------------------------------------------------------- resolution -- */
@@ -532,7 +547,7 @@
     }
 
     if (vehicle.fact) parts.push('<p class="fb-fact">' + escapeHtml(vehicle.fact) + "</p>");
-    parts.push(creditHtml(vehicle));
+    parts.push(creditHtml());
 
     const last = !game.endless && game.round >= ROUNDS_PER_GAME;
     parts.push('<div class="fb-actions">' +
@@ -658,6 +673,33 @@
           }).join("")
         : '<span class="modal-quiet">No other spellings accepted.</span>';
 
+      /* Photos, so a picture showing the wrong thing can be struck off without
+       * losing the whole entry. Hidden when there is only one, since the last
+       * photo cannot be removed. */
+      const shots = (vehicle.images || []);
+      const photos = shots.length > 1
+        ? '<div class="field"><span>Photos — click to remove</span><div class="photo-chips">' +
+          shots.map(function (img, i) {
+            return '<button type="button" class="photo-chip" data-photo="' +
+                   escapeHtml(img.url) + '" title="Remove this photo">' +
+                   '<img src="' + escapeHtml(img.url) + '" alt="Photo ' + (i + 1) + '" loading="lazy">' +
+                   '<span class="photo-chip-x" aria-hidden="true">×</span></button>';
+          }).join("") + "</div></div>"
+        : "";
+
+      const droppedShots = Corrections.entries().filter(function (e) {
+        return e.kind === "image" && e.id === row.id;
+      });
+      const restoreShots = droppedShots.length
+        ? '<div class="field"><span>Removed photos</span><div class="photo-chips">' +
+          droppedShots.map(function (e) {
+            return '<button type="button" class="photo-chip photo-chip-off" data-photo-restore="' +
+                   escapeHtml(e.value) + '" title="Put this photo back">' +
+                   '<img src="' + escapeHtml(e.value) + '" alt="Removed photo" loading="lazy">' +
+                   '<span class="photo-chip-x" aria-hidden="true">+</span></button>';
+          }).join("") + "</div></div>"
+        : "";
+
       const droppedList = Corrections.entries().filter(function (e) {
         return e.kind === "dropped" && e.id === row.id;
       });
@@ -683,7 +725,7 @@
              '” <em>— only matters if you change the name</em></span></label>' +
              '<div class="field"><span>Also accepted — click to remove</span>' +
              '<div class="alias-chips">' + chips + "</div></div>" +
-             restore;
+             restore + photos + restoreShots;
     }
 
     function wire() {
@@ -730,6 +772,34 @@
           reopen();
         });
       });
+
+      Array.prototype.forEach.call(el.modalBody.querySelectorAll("[data-photo]"), function (btn) {
+        btn.addEventListener("click", function () {
+          Corrections.dropImage(row.id, btn.getAttribute("data-photo"));
+          reshootIfShowing();
+          reopen();
+        });
+      });
+
+      Array.prototype.forEach.call(el.modalBody.querySelectorAll("[data-photo-restore]"), function (btn) {
+        btn.addEventListener("click", function () {
+          Corrections.restoreImage(row.id, btn.getAttribute("data-photo-restore"));
+          reopen();
+        });
+      });
+    }
+
+    /* If the photo just struck off is the one on screen, swap it out. */
+    function reshootIfShowing() {
+      if (!game.current || game.current.id !== row.id) return;
+      const fresh = corrected(row);
+      const stillThere = (fresh.images || []).some(function (img) {
+        return game.image && img.url === game.image.url;
+      });
+      if (stillThere) return;
+      game.image = pickImage(fresh);
+      loadPhoto(fresh, game.image);
+      if (game.resolvedAs) renderFeedback();
     }
 
     function reopen() {
@@ -953,7 +1023,9 @@
   /* --------------------------------------------------------------- wire -- */
 
   function countBy(field, value) {
-    return VEHICLES.filter(function (v) { return v[field] === value; }).length;
+    return VEHICLES.filter(function (v) {
+      return (field === "source" ? (v.source || "photo") : v[field]) === value;
+    }).length;
   }
 
   buildChips(el.categoryChips, CATEGORIES, filters.categories, categoryLabel,
@@ -963,6 +1035,9 @@
   buildChips(el.difficultyChips, [1, 2, 3], filters.difficulties,
              function (d) { return DIFFICULTY_LABELS[d]; },
              function (d) { return countBy("difficulty", d); });
+  buildChips(el.sourceChips, SOURCES, filters.sources,
+             function (s) { return SOURCE_LABELS[s] || s; },
+             function (s) { return countBy("source", s); });
 
   el.endlessToggle.addEventListener("change", updatePoolNote);
   el.skipLearnedToggle.addEventListener("change", updatePoolNote);

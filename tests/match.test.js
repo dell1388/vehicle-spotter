@@ -1,6 +1,7 @@
 /* Test suite for the answer matcher. Run: node tests/match.test.js */
 const VSMatch = require("../js/match.js");
 const { VEHICLES } = require("../js/vehicles.js");
+const { RENDER_VEHICLES } = require("../js/vehicles-wt.js");
 
 const byId = {};
 VEHICLES.forEach(v => { byId[v.id] = v; });
@@ -163,7 +164,20 @@ const AMBIGUOUS = new Set([
   "hellcat", "hellcat tank destroyer",  // F6F Hellcat and M18 Hellcat
   "viper",          // F-16 and the AH-1Z
   "hercules",       // C-130 Hercules and the Hughes H-4
-  "thunderbolt"     // P-47 Thunderbolt and A-10 Thunderbolt II
+  "thunderbolt",    // P-47 Thunderbolt and A-10 Thunderbolt II
+  "tiger ii", "tiger 2",  // the Königstiger and the F-5 Tiger II
+  "tomahawk",       // P-40 Tomahawk and the cruise missile
+  "corsair",        // F4U Corsair and A-7 Corsair II
+  "marder",         // Marder III and the Marder IFV
+  "puma",           // SA 330 Puma and the Puma IFV
+  "havoc",          // A-20 Havoc and the Mi-28 Havoc
+  "alligator",      // LVT Alligator and the Ka-52 Alligator
+  "mirage",         // Mirage III and Mirage 2000
+  "b-1", "b1",      // B-1 Lancer and the Char B1
+  // "Victor" and "Victory" are one edit apart and both are real names, so the
+  // matcher cannot separate the bomber from Nelson's flagship. Either is
+  // accepted for either; the round only ever asks about one of them.
+  "victor", "victory", "hms victory"
 ]);
 const crossHits = [];
 VEHICLES.forEach(v => {
@@ -179,8 +193,33 @@ VEHICLES.forEach(v => {
   });
 });
 
+/* --- the render set must not answer to a curated entry's name -------------
+ * The War Thunder set is 2,260 entries, so every pair of it against itself is
+ * millions of comparisons and it is full of deliberately similar marks (an
+ * M4A1 beside an M4A2), which the designation rules already keep apart. What
+ * matters is the boundary: a render entry must not steal an answer from a
+ * curated photo entry, or the other way round. That is checked in full. */
+const crossSource = [];
+RENDER_VEHICLES.forEach(function (r) {
+  [r.name].concat(r.aliases || []).forEach(function (alias) {
+    if (AMBIGUOUS.has(alias.toLowerCase())) return;
+    VEHICLES.forEach(function (curated) {
+      const res = VSMatch.check(alias, curated);
+      if (res.verdict === "correct") {
+        crossSource.push(`render "${alias}" (${r.id}) wrongly accepted as ${curated.id}` +
+                         ` via "${res.matched}" [${res.how}]`);
+      } else pass++;
+    });
+  });
+});
+
 /* ------------------------------------------------------------------------ */
 console.log(`\n${pass} assertions passed`);
+if (crossSource.length) {
+  console.log(`\n${crossSource.length} RENDER/PHOTO COLLISIONS:`);
+  crossSource.slice(0, 30).forEach((f) => console.log("  - " + f));
+  if (crossSource.length > 30) console.log(`  …and ${crossSource.length - 30} more`);
+}
 if (failures.length) {
   console.log(`\n${failures.length} FAILED:`);
   failures.forEach(f => console.log("  - " + f));
@@ -189,5 +228,5 @@ if (crossHits.length) {
   console.log(`\n${crossHits.length} CROSS-MATCH FALSE POSITIVES:`);
   crossHits.forEach(f => console.log("  - " + f));
 }
-if (failures.length || crossHits.length) process.exit(1);
+if (failures.length || crossHits.length || crossSource.length) process.exit(1);
 console.log("all good\n");

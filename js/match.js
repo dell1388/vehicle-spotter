@@ -30,7 +30,7 @@ const VSMatch = (function () {
   const STOPWORDS = new Set(["the", "a", "an", "of", "and", "is", "it"]);
 
   const FILLER = new Set([
-    "tank", "tanks", "panzerkampfwagen",
+    "tank", "tanks",
     "plane", "planes", "aircraft", "jet", "fighter", "bomber", "airplane",
     "aeroplane", "warplane", "interceptor",
     "car", "auto", "automobile", "motorcar", "vehicle",
@@ -46,6 +46,7 @@ const VSMatch = (function () {
   /* Spelling and abbreviation folding applied per word, both sides. */
   const SYNONYM = {
     messerschmidt: "messerschmitt", messerschmit: "messerschmitt",
+    panzerkampfwagen: "panzer", pzkpfw: "panzer", panzerkampfwagens: "panzer",
     vw: "volkswagen", volkswagon: "volkswagen",
     lambo: "lamborghini", lamborgini: "lamborghini", lamborghina: "lamborghini",
     chevy: "chevrolet", merc: "mercedes",
@@ -117,7 +118,12 @@ const VSMatch = (function () {
       return (i > 0 && isNumeric(toks[i - 1])) ||
              (i + 1 < toks.length && isNumeric(toks[i + 1]));
     });
-    return core.length ? core : toks;
+    if (!core.length) return toks;
+    /* Stripping filler from "Mark IV tank" leaves bare "4", which would then
+     * match anything else that reduces to a 4. When nothing identifying
+     * survives, keep the words as written. */
+    if (!distinctiveTokens(core).length && distinctiveTokens(toks).length) return toks;
+    return core;
   }
 
   function canonicalForm(raw) { return tokenize(raw).join(" "); }
@@ -180,9 +186,12 @@ const VSMatch = (function () {
     if (a === b) return true;
     if (isNumeric(a) || isNumeric(b)) return false;
     const shorter = Math.min(a.length, b.length);
-    // "chinook" vs "chinooks", "abram" vs "abrams"
+    // A plural is the same word: "chinook" and "chinooks". Any other trailing
+    // letters are not a free pass — "victor" is not "victory" and "lanc" is not
+    // "lancer" — but they may still be within the typo budget below.
     if (shorter >= 4 && (a.indexOf(b) === 0 || b.indexOf(a) === 0)) {
-      return Math.abs(a.length - b.length) <= 1;
+      const tail = (a.length > b.length ? a : b).slice(shorter);
+      if (tail === "s" || tail === "es") return true;
     }
     if (a[0] !== b[0]) return false;
     return editDistance(a, b) <= typoBudget(shorter);
@@ -253,8 +262,15 @@ const VSMatch = (function () {
     const key = distinctiveTokens(targetToks);
     if (!key.length) return false;
 
+    /* One edit at most on a key word. Two is enough to turn "Volksjäger" into
+     * "Volkswagen", and the gist rule has no other evidence to lean on. */
+    const closeEnough = function (a, k) {
+      if (!tokensEqual(a, k)) return false;
+      return a === k || editDistance(a, k) <= 1;
+    };
+
     const covered = key.every(function (k) {
-      return answerToks.some(function (a) { return tokensEqual(a, k); });
+      return answerToks.some(function (a) { return closeEnough(a, k); });
     });
     if (!covered) return false;
 
@@ -270,6 +286,10 @@ const VSMatch = (function () {
     if (!aFull || !fFull) return { score: 0, how: "none" };
 
     if (aFull === fFull) return { score: 1, how: "exact" };
+    // Same letters, different spacing: "flyingfortress" is "Flying Fortress".
+    if (aFull.replace(/ /g, "") === fFull.replace(/ /g, "")) {
+      return { score: 1, how: "exact" };
+    }
 
     // Compare with spaces removed too: "flyingfortress" vs "flying fortress".
     const strSim = Math.max(
@@ -286,7 +306,13 @@ const VSMatch = (function () {
       return { score: Math.min(strSim, ACCEPT - 0.03), how: "number-mismatch" };
     }
 
-    let best = strSim;
+    /* Whole-string similarity alone will call "Hornet" a misspelling of
+     * "Kornet" and "panzer faust" a misspelling of "panzer maus". Only treat it
+     * as a typo when the two line up word for word. */
+    const pairedWordForWord = aCore.length === fCore.length &&
+      aCore.every(function (t, i) { return tokensEqual(t, fCore[i]); });
+
+    let best = pairedWordForWord ? strSim : Math.min(strSim, ACCEPT - 0.03);
     let how = "typo";
 
     const setSim = tokenSetScore(aCore, fCore) * 0.95;
@@ -308,7 +334,14 @@ const VSMatch = (function () {
     const out = [];
     const words = toks.filter(function (t) { return !isNumeric(t) && t.length >= 4; });
     if (words.length && words.length < toks.length) out.push(words.join(" "));
-    if (toks.length > 2) out.push(toks.slice(1).join(" "));
+    /* "Boeing CH-47 Chinook" without "Boeing" is still a name. "Tu-22M" without
+     * "Tu", or "Panzer 38(t)" without "Panzer", is a bare designation that
+     * belongs to nobody — and collides with every other entry shaped like it. */
+    const rest = toks.slice(1);
+    const restHasAName = rest.some(function (t) { return !isNumeric(t) && t.length >= 4; });
+    if (toks.length > 2 && toks[0].length >= 4 && !isNumeric(toks[0]) && restHasAName) {
+      out.push(rest.join(" "));
+    }
     return out;
   }
 
