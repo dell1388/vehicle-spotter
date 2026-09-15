@@ -216,6 +216,13 @@ answer panel has a **Fix entry** button:
   click one to drop it. A picture showing the wrong thing is a smaller problem
   than a wrong entry, so it can go on its own — though the last photo always
   stays, since an entry with no picture is unplayable.
+
+There is also a **Bad picture** button, on the round itself and in the answer
+panel, which strikes off the photo currently on screen in one click and offers
+an undo. It is safe to press mid-round: it swaps in another picture of the same
+vehicle, so it never gives the answer away. An entry down to its last photo
+cannot lose it, so there the button offers to hide the entry instead, with
+"photo does not match" already chosen.
 - **Hide the entry** — wrong photo, duplicate, beyond saving — which drops it
   from the rotation.
 

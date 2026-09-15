@@ -664,3 +664,27 @@ body.playing .sitefoot { display: none; }
   font-size: 12px;
   line-height: 1.5;
 }
+
+/* ------------------------------------------------------------- toast --- */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Sits under the header rather than at the foot of the screen: the bottom of
+   * a round is where Skip, Hint and Next live, and a toast must not cover them. */
+  top: calc(62px + env(safe-area-inset-top, 0px));
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: calc(100vw - 32px);
+  white-space: nowrap;   /* a wrapped pill turns into a blob on a phone */
+  padding: 10px 12px 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-raised);
+  color: var(--text);
+  font-size: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .45);
+}

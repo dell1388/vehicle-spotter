@@ -126,6 +126,8 @@
     <div class="hint-row">
       <button class="btn btn-ghost" id="hintBtn" type="button">Hint <span class="cost">−25</span></button>
       <button class="btn btn-ghost" id="skipBtn" type="button">Skip</button>
+      <button class="btn btn-ghost" id="badPicBtn" type="button"
+              title="This photo does not show the vehicle">Bad picture</button>
       <button class="btn btn-ghost" id="endBtn" type="button" hidden>End game</button>
       <span class="hint-display" id="hintDisplay"></span>
     </div>
@@ -150,6 +152,12 @@
 </main>
 
 <!-- ------------------------------------------------------------- DIALOG -->
+<!-- Transient confirmation with an undo, for one-click actions. -->
+<div class="toast" id="toast" hidden aria-live="polite">
+  <span id="toastText"></span>
+  <button class="btn btn-ghost btn-tiny" type="button" id="toastUndo">Undo</button>
+</div>
+
 <div class="modal" id="modal" hidden>
   <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <h2 class="modal-title" id="modalTitle"></h2>

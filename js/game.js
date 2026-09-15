@@ -31,6 +31,8 @@
     categoryTag: $("categoryTag"), eraTag: $("eraTag"), difficultyTag: $("difficultyTag"),
     form: $("answerForm"), input: $("answerInput"), submitBtn: $("submitBtn"),
     hintBtn: $("hintBtn"), skipBtn: $("skipBtn"), endBtn: $("endBtn"),
+    badPicBtn: $("badPicBtn"),
+    toast: $("toast"), toastText: $("toastText"), toastUndo: $("toastUndo"),
     hintDisplay: $("hintDisplay"), feedback: $("feedback"),
     resultsTitle: $("resultsTitle"), finalScore: $("finalScore"),
     finalCorrect: $("finalCorrect"), finalStreak: $("finalStreak"), finalBest: $("finalBest"),
@@ -246,6 +248,27 @@
     });
   }
 
+  /* -------------------------------------------------------------- toast -- */
+
+  let toastTimer = null;
+
+  function showToast(message, onUndo) {
+    el.toastText.textContent = message;
+    el.toastUndo.hidden = !onUndo;
+    el.toast.hidden = false;
+    el.toastUndo.onclick = function () {
+      hideToast();
+      if (onUndo) onUndo();
+    };
+    if (toastTimer) window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(hideToast, 7000);
+  }
+
+  function hideToast() {
+    el.toast.hidden = true;
+    if (toastTimer) { window.clearTimeout(toastTimer); toastTimer = null; }
+  }
+
   /* -------------------------------------------------------------- modal -- */
 
   let modalCleanup = null;
@@ -368,6 +391,7 @@
 
     el.feedback.hidden = true;
     el.feedback.innerHTML = "";
+    hideToast();
     el.skipBtn.disabled = false;
     el.input.value = "";
     el.input.disabled = false;
@@ -557,6 +581,7 @@
         ? '<button class="btn btn-ghost" id="acceptBtn">I was right</button>' : "") +
       '<button class="btn btn-fix" id="fixBtn">' +
       '<span class="fix-glyph" aria-hidden="true">✎</span>Fix entry</button>' +
+      '<button class="btn btn-ghost btn-tiny" id="fbBadPicBtn">Bad picture</button>' +
       "</div>");
 
     el.feedback.className = "feedback " + kind;
@@ -572,7 +597,8 @@
 
     const accept = $("acceptBtn");
     if (accept) accept.addEventListener("click", openAcceptDialog);
-    $("fixBtn").addEventListener("click", openFixDialog);
+    $("fixBtn").addEventListener("click", function () { openFixDialog(); });
+    $("fbBadPicBtn").addEventListener("click", reportBadPicture);
   }
 
   /* A near miss: no points lost, one retry, and a nudge about what is off. */
@@ -644,6 +670,46 @@
     el.score.textContent = game.score;
     el.streak.textContent = game.streak;
     renderFeedback();
+  }
+
+  /* "Bad picture" — strike off the photo on screen without touching the rest of
+   * the entry. Safe to use mid-round: it swaps in another picture of the same
+   * vehicle, so it never gives the answer away. An entry with only one picture
+   * cannot lose it, so that case offers to hide the entry instead. */
+  function reportBadPicture() {
+    const row = game.current;
+    if (!row || !game.image) return;
+
+    const before = corrected(row);
+    if ((before.images || []).length <= 1) {
+      openReportDialog(row, null, "photo");
+      return;
+    }
+
+    const dropped = game.image;
+    Corrections.dropImage(row.id, dropped.url);
+    swapPhoto(row);
+    renderCorrections();
+
+    showToast("Photo removed.", function () {
+      Corrections.restoreImage(row.id, dropped.url);
+      if (game.current && game.current.id === row.id) {
+        game.image = dropped;
+        loadPhoto(corrected(row), game.image);
+        if (game.resolvedAs) renderFeedback();
+      }
+      renderCorrections();
+    });
+  }
+
+  /* Show a different picture of the vehicle on screen. */
+  function swapPhoto(row) {
+    if (!game.current || game.current.id !== row.id) return;
+    const fresh = corrected(row);
+    game.image = pickImage(fresh);
+    loadPhoto(fresh, game.image);
+    // The credit line names the picture that was showing.
+    if (game.resolvedAs) renderFeedback();
   }
 
   /* Names another entry in the set would also accept. */
@@ -792,14 +858,10 @@
     /* If the photo just struck off is the one on screen, swap it out. */
     function reshootIfShowing() {
       if (!game.current || game.current.id !== row.id) return;
-      const fresh = corrected(row);
-      const stillThere = (fresh.images || []).some(function (img) {
+      const stillThere = (corrected(row).images || []).some(function (img) {
         return game.image && img.url === game.image.url;
       });
-      if (stillThere) return;
-      game.image = pickImage(fresh);
-      loadPhoto(fresh, game.image);
-      if (game.resolvedAs) renderFeedback();
+      if (!stillThere) swapPhoto(row);
     }
 
     function reopen() {
@@ -905,12 +967,13 @@
     render();
   }
 
-  function openReportDialog(entry, onDone) {
+  function openReportDialog(entry, onDone, preset) {
     const row = entry || game.current;
     const vehicle = corrected(row);
     const options = Object.keys(Corrections.REASONS).map(function (key, i) {
+      const checked = preset ? key === preset : i === 0;
       return '<label class="radio"><input type="radio" name="reason" value="' + key + '"' +
-             (i === 0 ? " checked" : "") + "> " +
+             (checked ? " checked" : "") + "> " +
              escapeHtml(Corrections.REASONS[key]) + "</label>";
     }).join("");
 
@@ -1068,6 +1131,7 @@
   el.form.addEventListener("submit", submitAnswer);
   el.hintBtn.addEventListener("click", takeHint);
   el.skipBtn.addEventListener("click", function () { resolve(null, "skipped"); });
+  el.badPicBtn.addEventListener("click", reportBadPicture);
   el.endBtn.addEventListener("click", endGame);
   el.againBtn.addEventListener("click", startGame);
   el.changeBtn.addEventListener("click", function () { show("setup"); });
@@ -1102,6 +1166,7 @@
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && !el.modal.hidden) { closeModal(); return; }
+    if (e.key === "Escape" && !el.toast.hidden) { hideToast(); return; }
     // Enter advances from the feedback panel without reaching for the mouse.
     if (e.key === "Enter" && !game.awaiting && !el.game.hidden && el.modal.hidden) {
       const btn = $("continueBtn");
