@@ -1130,7 +1130,7 @@ const VEHICLES = [
     id: "ka52", name: "Kamov Ka-52", category: "helicopter", era: "Modern", difficulty: 3,
     aliases: ["Ka-52", "Ka52", "Alligator"],
     fact: "A two-seat Ka-50 with the crew sitting side by side.",
-    imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Russian_Air_Force_Kamov_Ka-50.jpg?width=1000",
+    imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Kamov_Ka-52.jpg/1280px-Kamov_Ka-52.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     credit: "Dmitriy Pichugin / Wikimedia Commons (GFDL 1.2)"
   },
   {
