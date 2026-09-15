@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vehicle Spotter</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1 class="wordmark">Vehicle&nbsp;Spotter</h1>
+  <div class="best" id="bestBadge" hidden>
+    <span class="best-label">Best</span>
+    <span class="best-value" id="bestValue">0</span>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- ------------------------------------------------------------ SETUP -->
+  <section class="screen" id="setupScreen">
+    <p class="lede">
+      Name the vehicle in the photo. Spelling is forgiving — nicknames,
+      designations and typos all count.
+    </p>
+
+    <div class="panel">
+      <h2 class="panel-title">Categories</h2>
+      <div class="chips" id="categoryChips"></div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">Eras</h2>
+      <div class="chips" id="eraChips"></div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">Options</h2>
+      <label class="toggle">
+        <input type="checkbox" id="timerToggle">
+        <span>Timer mode <em>— 30 seconds a round, faster answers score more</em></span>
+      </label>
+      <label class="toggle">
+        <input type="checkbox" id="endlessToggle">
+        <span>Endless <em>— keep going until you want to stop</em></span>
+      </label>
+    </div>
+
+    <p class="pool-note" id="poolNote"></p>
+    <button class="btn btn-primary btn-lg" id="startBtn">Start game</button>
+  </section>
+
+  <!-- ------------------------------------------------------------- GAME -->
+  <section class="screen" id="gameScreen" hidden>
+    <div class="hud">
+      <div class="stat"><span class="stat-label">Round</span><span class="stat-value" id="roundValue">1</span></div>
+      <div class="stat"><span class="stat-label">Score</span><span class="stat-value" id="scoreValue">0</span></div>
+      <div class="stat"><span class="stat-label">Streak</span><span class="stat-value" id="streakValue">0</span></div>
+      <div class="stat stat-timer" id="timerStat" hidden>
+        <span class="stat-label">Time</span><span class="stat-value" id="timerValue">30</span>
+      </div>
+    </div>
+    <div class="timer-track" id="timerTrack" hidden><div class="timer-fill" id="timerFill"></div></div>
+
+    <figure class="photo">
+      <div class="photo-frame">
+        <img id="vehicleImage" alt="Photograph of the vehicle to identify">
+        <div class="photo-loading" id="photoLoading">Loading photo…</div>
+      </div>
+      <figcaption class="photo-meta">
+        <span class="tag" id="categoryTag"></span>
+        <span class="tag tag-quiet" id="eraTag"></span>
+        <span class="tag tag-quiet" id="difficultyTag"></span>
+      </figcaption>
+    </figure>
+
+    <form class="answer" id="answerForm" autocomplete="off">
+      <input type="text" id="answerInput" class="answer-input"
+             placeholder="What is it?" aria-label="Your answer"
+             autocapitalize="off" autocorrect="off" spellcheck="false">
+      <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+    </form>
+
+    <div class="hint-row">
+      <button class="btn btn-ghost" id="hintBtn" type="button">Hint <span class="cost">−25</span></button>
+      <button class="btn btn-ghost" id="skipBtn" type="button">Skip</button>
+      <button class="btn btn-ghost" id="endBtn" type="button" hidden>End game</button>
+      <span class="hint-display" id="hintDisplay"></span>
+    </div>
+
+    <div class="feedback" id="feedback" hidden aria-live="polite"></div>
+  </section>
+
+  <!-- ---------------------------------------------------------- RESULTS -->
+  <section class="screen" id="resultsScreen" hidden>
+    <h2 class="results-title" id="resultsTitle">Game over</h2>
+    <div class="final-score"><span id="finalScore">0</span><small>points</small></div>
+    <div class="results-grid">
+      <div class="stat"><span class="stat-label">Correct</span><span class="stat-value" id="finalCorrect">0</span></div>
+      <div class="stat"><span class="stat-label">Best streak</span><span class="stat-value" id="finalStreak">0</span></div>
+      <div class="stat"><span class="stat-label">High score</span><span class="stat-value" id="finalBest">0</span></div>
+    </div>
+    <div class="review" id="review"></div>
+    <div class="results-actions">
+      <button class="btn btn-primary btn-lg" id="againBtn">Play again</button>
+      <button class="btn btn-ghost" id="changeBtn">Change filters</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="sitefoot">
+  <span id="creditLine"></span>
+  <span>Photos from Wikimedia Commons, used under their respective licences.</span>
+</footer>
+
+<script src="js/vehicles.js"></script>
+<script src="js/match.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
