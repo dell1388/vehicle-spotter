@@ -50,6 +50,20 @@
         <input type="checkbox" id="endlessToggle">
         <span>Endless <em>— keep going until you want to stop</em></span>
       </label>
+      <label class="toggle">
+        <input type="checkbox" id="skipLearnedToggle" checked>
+        <span>Hold back ones you know <em>— vehicles you have named correctly
+          wait until the rest have been seen</em></span>
+      </label>
+    </div>
+
+    <div class="panel" id="progressPanel" hidden>
+      <h2 class="panel-title">Progress</h2>
+      <p class="progress-note" id="progressNote"></p>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="corrections-actions">
+        <button class="btn btn-ghost" type="button" id="resetProgressBtn">Reset progress</button>
+      </div>
     </div>
 
     <div class="panel" id="correctionsPanel" hidden>
@@ -142,6 +156,7 @@
 
 <script src="js/vehicles.js"></script>
 <script src="js/match.js"></script>
+<script src="js/picker.js"></script>
 <script src="js/corrections.js"></script>
 <script src="js/game.js"></script>
 </body>

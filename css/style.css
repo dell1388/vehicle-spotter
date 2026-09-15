@@ -530,3 +530,22 @@ body.playing .sitefoot { display: none; }
 
 .toggle-compact { padding: 8px 0 2px; font-size: 13px; }
 .toggle-compact em { font-size: 12px; }
+
+/* ---------------------------------------------------------- progress --- */
+
+.progress-note { margin: 0 0 8px; color: var(--text-dim); font-size: 13px; }
+
+.progress-bar {
+  height: 6px;
+  background: var(--bg-sunk);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: var(--good);
+  border-radius: 3px;
+  transition: width .3s;
+}

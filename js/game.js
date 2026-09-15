@@ -17,6 +17,9 @@
     setup: $("setupScreen"), game: $("gameScreen"), results: $("resultsScreen"),
     categoryChips: $("categoryChips"), eraChips: $("eraChips"), difficultyChips: $("difficultyChips"),
     timerToggle: $("timerToggle"), endlessToggle: $("endlessToggle"),
+    skipLearnedToggle: $("skipLearnedToggle"),
+    progressPanel: $("progressPanel"), progressNote: $("progressNote"),
+    progressFill: $("progressFill"), resetProgressBtn: $("resetProgressBtn"),
     poolNote: $("poolNote"), startBtn: $("startBtn"),
     correctionsPanel: $("correctionsPanel"), correctionsList: $("correctionsList"),
     exportBtn: $("exportBtn"), clearCorrectionsBtn: $("clearCorrectionsBtn"),
@@ -47,17 +50,30 @@
   /* Private browsing and blocked site data both make localStorage throw, so
    * every access is guarded and the game plays fine without it. */
   function loadStore() {
+    const blank = { highScore: 0, bestStreak: 0, learned: {} };
+    let parsed;
     try {
       const raw = window.localStorage.getItem(STORE_KEY);
-      if (!raw) return { highScore: 0, bestStreak: 0 };
-      const parsed = JSON.parse(raw);
-      return {
-        highScore: Number(parsed.highScore) || 0,
-        bestStreak: Number(parsed.bestStreak) || 0
-      };
+      if (!raw) return blank;
+      parsed = JSON.parse(raw);
     } catch (e) {
-      return { highScore: 0, bestStreak: 0 };
+      return blank;
     }
+    if (!parsed || typeof parsed !== "object") return blank;
+
+    const learned = {};
+    if (parsed.learned && typeof parsed.learned === "object") {
+      Object.keys(parsed.learned).forEach(function (id) {
+        const rec = parsed.learned[id];
+        const times = Number(rec && rec.n);
+        if (times > 0) learned[id] = { n: times, at: Number(rec.at) || 0 };
+      });
+    }
+    return {
+      highScore: Number(parsed.highScore) || 0,
+      bestStreak: Number(parsed.bestStreak) || 0,
+      learned: learned
+    };
   }
 
   function saveStore(s) {
@@ -65,6 +81,38 @@
   }
 
   let store = loadStore();
+
+  /* ---------------------------------------------------------- progress -- */
+
+  /* A vehicle counts as known once it has been named correctly. The record is
+   * kept so the picker can hold it back in later games too, not just this one. */
+  function isLearned(id) {
+    return Object.prototype.hasOwnProperty.call(store.learned, id);
+  }
+
+  function markLearned(id) {
+    const prev = store.learned[id];
+    store.learned[id] = { n: (prev ? prev.n : 0) + 1, at: Date.now() };
+    saveStore(store);
+  }
+
+  /* Known vehicles that the current filters could actually show. */
+  function learnedInPool(available) {
+    return available.filter(function (v) { return isLearned(v.id); }).length;
+  }
+
+  function renderProgress() {
+    const total = VEHICLES.length;
+    const known = Object.keys(store.learned).filter(function (id) {
+      return VEHICLES.some(function (v) { return v.id === id; });
+    }).length;
+
+    el.progressPanel.hidden = known === 0;
+    if (!known) return;
+
+    el.progressNote.textContent = known + " of " + total + " named correctly.";
+    el.progressFill.style.width = Math.round(known / total * 100) + "%";
+  }
 
   function renderBest() {
     el.bestValue.textContent = store.highScore;
@@ -119,20 +167,34 @@
   }
 
   function updatePoolNote() {
-    const n = pool().length;
-    const target = el.endlessToggle.checked ? 1 : ROUNDS_PER_GAME;
+    const available = pool();
+    const n = available.length;
     const hidden = Corrections.hiddenIds().length;
+    const known = learnedInPool(available);
+    const skipping = el.skipLearnedToggle.checked;
+    // How many rounds can run before known vehicles have to be reused.
+    const supply = skipping ? n - known : n;
+    const target = el.endlessToggle.checked ? 1 : ROUNDS_PER_GAME;
+
     let text = n + (n === 1 ? " vehicle" : " vehicles") + " in this mix";
+    if (known) {
+      text += ", " + known + " you have already named";
+    }
     if (hidden) text += ", " + hidden + " hidden by your corrections";
     text += ".";
+
+    el.poolNote.classList.remove("warn");
     if (n === 0) {
       text = "Nothing matches these filters.";
+      el.poolNote.classList.add("warn");
+    } else if (skipping && known && supply < target) {
+      text += supply === 0
+        ? " You have named them all — known ones will come round again."
+        : " Only " + supply + " new, so known ones will come round again.";
       el.poolNote.classList.add("warn");
     } else if (n < target) {
       text += " Rounds will repeat vehicles.";
       el.poolNote.classList.add("warn");
-    } else {
-      el.poolNote.classList.remove("warn");
     }
     el.poolNote.textContent = text;
     el.startBtn.disabled = n === 0;
@@ -220,50 +282,25 @@
   function current() { return corrected(game.current); }
 
   const game = {
-    queue: [], round: 0, score: 0, streak: 0, streakBefore: 0, bestStreak: 0, correct: 0,
-    history: [], current: null, hintsUsed: 0, retried: false,
+    round: 0, score: 0, streak: 0, streakBefore: 0, bestStreak: 0, correct: 0,
+    history: [], current: null, upcoming: null, hintsUsed: 0, retried: false,
     timerId: null, remaining: 0, endless: false, timed: false, awaiting: false,
-    lastAnswer: "", resolvedAs: null
+    lastAnswer: "", resolvedAs: null,
+    used: Object.create(null), correctIds: Object.create(null), skipLearned: true
   };
 
-  /* Difficulty scaling: early rounds stay on the easier end of whatever the
-   * player has enabled, and the ceiling lifts as the game goes on. */
-  function difficultyCeiling(roundIndex) {
-    if (roundIndex < 3) return 1;
-    if (roundIndex < 6) return 2;
-    return 3;
-  }
-
-  function pickVehicle(roundIndex, recentIds, available) {
-    const ceiling = difficultyCeiling(roundIndex);
-
-    let eligible = available.filter(function (v) { return v.difficulty <= ceiling; });
-    if (!eligible.length) eligible = available.slice();
-
-    // Prefer the hardest tier available once the game has warmed up.
-    if (roundIndex >= 3) {
-      const top = eligible.filter(function (v) { return v.difficulty === ceiling; });
-      if (top.length && Math.random() < 0.6) eligible = top;
-    }
-
-    const fresh = eligible.filter(function (v) { return recentIds.indexOf(v.id) === -1; });
-    const from = fresh.length ? fresh : eligible;
-    return from[Math.floor(Math.random() * from.length)];
-  }
-
-  function buildQueue() {
-    const available = pool();
-    const total = game.endless ? 300 : ROUNDS_PER_GAME;
-    const queue = [];
-    const seen = [];
-    const window_ = Math.max(1, Math.min(available.length - 1, 25));
-    for (let i = 0; i < total; i++) {
-      const v = pickVehicle(i, seen, available);
-      queue.push(v);
-      seen.push(v.id);
-      if (seen.length >= window_) seen.shift();
-    }
-    return queue;
+  /* Round selection lives in js/picker.js so its rules can be tested directly.
+   * Selection happens a round at a time rather than up front, because the
+   * choice has to react to what the player actually gets right. */
+  function chooseNext(roundIndex) {
+    return Picker.chooseNext({
+      available: pool(),
+      used: game.used,
+      correctIds: game.correctIds,
+      learned: store.learned,
+      skipLearned: game.skipLearned,
+      roundIndex: roundIndex
+    });
   }
 
   function show(screen) {
@@ -272,13 +309,16 @@
     el.results.hidden = screen !== "results";
     // Only the game screen is locked to the viewport; the others may scroll.
     document.body.classList.toggle("playing", screen === "game");
-    if (screen === "setup") { renderCorrections(); updatePoolNote(); }
+    if (screen === "setup") { renderCorrections(); renderProgress(); updatePoolNote(); }
   }
 
   function startGame() {
     game.endless = el.endlessToggle.checked;
     game.timed = el.timerToggle.checked;
-    game.queue = buildQueue();
+    game.skipLearned = el.skipLearnedToggle.checked;
+    game.used = Object.create(null);
+    game.correctIds = Object.create(null);
+    game.upcoming = null;
     game.round = 0;
     game.score = 0;
     game.streak = 0;
@@ -296,7 +336,12 @@
     stopTimer();
     if (!game.endless && game.round >= ROUNDS_PER_GAME) return endGame();
 
-    game.current = game.queue[game.round % game.queue.length];
+    // The lookahead was already chosen (and its photo fetched) last round.
+    game.current = game.upcoming || chooseNext(game.round);
+    game.upcoming = null;
+    if (!game.current) return endGame();
+    game.used[game.current.id] = true;
+
     game.hintsUsed = 0;
     game.retried = false;
     game.awaiting = true;
@@ -343,9 +388,14 @@
     el.image.src = vehicle.imageUrl;
   }
 
+  /* Choose the following vehicle now and start fetching its photo, so the next
+   * round appears instantly. Picking one round early is safe: the current
+   * vehicle is already marked as used, so this round's result cannot change
+   * which vehicle is eligible next. */
   function preloadNext() {
-    const next = game.queue[(game.round + 1) % game.queue.length];
-    if (next) { const img = new Image(); img.src = next.imageUrl; }
+    if (!game.endless && game.round + 1 >= ROUNDS_PER_GAME) return;
+    game.upcoming = chooseNext(game.round + 1);
+    if (game.upcoming) { const img = new Image(); img.src = game.upcoming.imageUrl; }
   }
 
   /* ------------------------------------------------------------- timer -- */
@@ -430,6 +480,7 @@
       game.correct += 1;
       game.streak += 1;
       if (game.streak > game.bestStreak) game.bestStreak = game.streak;
+      recordCorrect();
       game.resolvedAs = { outcome: "correct", points: pts, result: result };
     } else {
       game.streak = 0;
@@ -445,6 +496,13 @@
     el.score.textContent = game.score;
     el.streak.textContent = game.streak;
     renderFeedback();
+  }
+
+  /* Named correctly: keep it out of the rest of this game, and remember it for
+   * later games so the picker can hold it back there too. */
+  function recordCorrect() {
+    game.correctIds[game.current.id] = true;
+    markLearned(game.current.id);
   }
 
   function renderFeedback() {
@@ -557,6 +615,7 @@
     const pts = pointsFor(game.current);
     game.score += pts;
     game.correct += 1;
+    recordCorrect();
 
     game.resolvedAs = {
       outcome: "correct", points: pts,
@@ -721,9 +780,9 @@
           const note = $("reportNote");
           Corrections.flag(game.current.id, picked ? picked.value : "other", note ? note.value : "");
           closeModal();
-          // Drop it from the rest of this game too.
-          game.queue = game.queue.filter(function (v) { return v.id !== game.current.id; });
-          if (!game.queue.length) return endGame();
+          // pool() already excludes hidden entries, so the picker will not
+          // offer it again; just make sure it is not the one queued up next.
+          if (game.upcoming && game.upcoming.id === game.current.id) game.upcoming = null;
           nextRound();
         }
       }
@@ -807,6 +866,7 @@
              said + "</div>";
     }).join("");
 
+    renderProgress();
     show("results");
     el.againBtn.focus();
   }
@@ -826,9 +886,28 @@
              function (d) { return countBy("difficulty", d); });
 
   el.endlessToggle.addEventListener("change", updatePoolNote);
+  el.skipLearnedToggle.addEventListener("change", updatePoolNote);
   renderCorrections();
+  renderProgress();
   updatePoolNote();
   renderBest();
+
+  el.resetProgressBtn.addEventListener("click", function () {
+    const known = Object.keys(store.learned).length;
+    openModal("Reset progress",
+      "<p>Forget the " + known + " vehicle" + (known === 1 ? "" : "s") +
+      " you have named correctly, so every one is treated as new again?</p>" +
+      '<p class="modal-quiet">Your high score and corrections are kept.</p>', [
+      { label: "Cancel", onClick: closeModal },
+      { label: "Reset", primary: true, onClick: function () {
+          store.learned = {};
+          saveStore(store);
+          closeModal();
+          renderProgress();
+          updatePoolNote();
+        } }
+    ]);
+  });
 
   el.startBtn.addEventListener("click", startGame);
   el.form.addEventListener("submit", submitAnswer);

@@ -11,9 +11,11 @@ index.html          markup for the three screens (setup, game, results)
 css/style.css       styles
 js/vehicles.js      the dataset — 171 vehicles
 js/match.js         answer matching
+js/picker.js        which vehicle to ask about next
 js/corrections.js   player-supplied fixes to the dataset
 js/game.js          game loop, scoring, filters, persistence
-tests/match.test.js  matcher test suite — node tests/match.test.js
+tests/match.test.js        matcher — node tests/match.test.js
+tests/selection.test.js    round selection — node tests/selection.test.js
 tests/corrections.test.js  corrections overlay — node tests/corrections.test.js
 ```
 
@@ -80,6 +82,14 @@ fails on any cross-match. That sweep is what found every strictness rule above:
 caught a subtler one — `A-10` and `IS-2` lose their designation entirely if "a"
 and "is" are stripped as English filler, which made `Type 10` match the A-10.
 
+`node tests/selection.test.js` drives `js/picker.js` directly over 300 seeded
+games, with randomness injected so any failure is reproducible from its seed. It
+pins the precise invariant — a named vehicle returns only once everything else
+has been named too — rather than a blanket "never repeats", because with a pool
+smaller than the number of rounds, something has to repeat eventually. The first
+version of that test asserted the blanket rule and failed, which is how the real
+boundary got written down.
+
 `node tests/corrections.test.js` covers the corrections overlay separately:
 that renaming leaves the dataset row untouched, that a struck-off spelling
 really stops being accepted, that corrections survive a reload, that every kind
@@ -98,6 +108,8 @@ list is spelled out in the test file.
   updates live.
 - **Difficulty scaling** — the first rounds stay on well-known vehicles, then the
   ceiling lifts and later rounds favour the harder end of what is open.
+- **No repeats of what you know** — a vehicle you name correctly does not come
+  round again (see below).
 - **Timer mode** — 30 seconds a round, with a speed bonus for answering fast.
 - **Hints** — reveal one letter at a time, 25 points each.
 - **Scoring** — 100 × difficulty, plus 10 per streak step (capped at 10), plus up
@@ -112,6 +124,30 @@ between questions and the vehicle stays visible while you read what it was.
 
 The photo credit is deliberately held back until after you answer — photographer
 names and filenames give the answer away more often than you would think.
+
+## What you already know
+
+Being asked the same vehicle twice in one sitting, after getting it right the
+first time, is the annoying case. So a vehicle named correctly is not asked
+again, and the record persists: **Hold back ones you know** (on by default)
+keeps vehicles you have already named waiting until the rest have been seen.
+
+Rounds are chosen one at a time rather than as a queue up front, because the
+choice has to react to what you actually get right. Each round takes the first
+tier that has anything in it:
+
+1. not seen this game, and never named correctly before
+2. not seen this game — known ones, once the unknown run out
+3. seen this game but *not* named correctly — the ones you are still missing
+4. anything, when the filters leave too small a pool to do better
+
+Tier 3 is the one that does the work: a vehicle you named correctly can only
+reappear via tier 4, which needs every other tier to be empty — meaning you have
+named everything the filters allow. Tier 3 also means the ones you *missed* come
+back around, which is the half of the behaviour worth having.
+
+The setup screen shows how many you have named, and **Reset progress** clears
+that record without touching your high score or corrections.
 
 ## Correcting the data
 
