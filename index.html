@@ -36,6 +36,11 @@
     </div>
 
     <div class="panel">
+      <h2 class="panel-title">Difficulty</h2>
+      <div class="chips" id="difficultyChips"></div>
+    </div>
+
+    <div class="panel">
       <h2 class="panel-title">Options</h2>
       <label class="toggle">
         <input type="checkbox" id="timerToggle">
@@ -47,12 +52,21 @@
       </label>
     </div>
 
+    <div class="panel" id="correctionsPanel" hidden>
+      <h2 class="panel-title">Your corrections</h2>
+      <div id="correctionsList" class="corrections-list"></div>
+      <div class="corrections-actions">
+        <button class="btn btn-ghost" type="button" id="exportBtn">Export</button>
+        <button class="btn btn-ghost" type="button" id="clearCorrectionsBtn">Clear all</button>
+      </div>
+    </div>
+
     <p class="pool-note" id="poolNote"></p>
     <button class="btn btn-primary btn-lg" id="startBtn">Start game</button>
   </section>
 
   <!-- ------------------------------------------------------------- GAME -->
-  <section class="screen" id="gameScreen" hidden>
+  <section class="screen screen-game" id="gameScreen" hidden>
     <div class="hud">
       <div class="stat"><span class="stat-label">Round</span><span class="stat-value" id="roundValue">1</span></div>
       <div class="stat"><span class="stat-label">Score</span><span class="stat-value" id="scoreValue">0</span></div>
@@ -75,6 +89,10 @@
       </figcaption>
     </figure>
 
+    <!-- Shares the fixed-height column with the photo, which shrinks to make
+         room. The page never grows, and the vehicle stays visible. -->
+    <div class="feedback" id="feedback" hidden aria-live="polite"></div>
+
     <form class="answer" id="answerForm" autocomplete="off">
       <input type="text" id="answerInput" class="answer-input"
              placeholder="What is it?" aria-label="Your answer"
@@ -88,8 +106,6 @@
       <button class="btn btn-ghost" id="endBtn" type="button" hidden>End game</button>
       <span class="hint-display" id="hintDisplay"></span>
     </div>
-
-    <div class="feedback" id="feedback" hidden aria-live="polite"></div>
   </section>
 
   <!-- ---------------------------------------------------------- RESULTS -->
@@ -110,13 +126,23 @@
 
 </main>
 
+<!-- ------------------------------------------------------------- DIALOG -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <h2 class="modal-title" id="modalTitle"></h2>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-actions" id="modalActions"></div>
+  </div>
+</div>
+
 <footer class="sitefoot">
-  <span id="creditLine"></span>
-  <span>Photos from Wikimedia Commons, used under their respective licences.</span>
+  <span>Photos from Wikimedia Commons, used under their respective licences.
+        Each photo is credited once you have answered.</span>
 </footer>
 
 <script src="js/vehicles.js"></script>
 <script src="js/match.js"></script>
+<script src="js/corrections.js"></script>
 <script src="js/game.js"></script>
 </body>
 </html>

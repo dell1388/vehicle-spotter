@@ -20,6 +20,18 @@ function expect(id, answer, want) {
 }
 
 const correct = (id, ...answers) => answers.forEach(a => expect(id, a, "correct"));
+
+/* For answers that must never score. Whether they land as "wrong" or as the
+ * "close" retry tier is a presentation choice; that they are not accepted is
+ * the rule, so these assert only that. */
+function notCorrect(id, ...answers) {
+  answers.forEach(a => {
+    const r = VSMatch.check(a, byId[id]);
+    if (r.verdict !== "correct") pass++;
+    else failures.push(`${id} <- ${JSON.stringify(a)}  must not be accepted,` +
+      ` but matched "${r.matched}" via ${r.how} (${r.score.toFixed(2)})`);
+  });
+}
 const wrong   = (id, ...answers) => answers.forEach(a => expect(id, a, "wrong"));
 const close   = (id, ...answers) => answers.forEach(a => expect(id, a, "close"));
 
@@ -82,6 +94,47 @@ close("tiger_i", "Panzer IV", "PanzerIV");   // right family, wrong mark
 /* Two letters out of six in a short word is past a typo and into a guess. */
 close("chinook", "chinuk");
 
+/* --- designation prefixes are part of the name --------------------------
+ * The number alone is not enough: 47 belongs to a Chinook, an M47 Patton, a
+ * P-47 Thunderbolt and a C-47 Skytrain, and the letters are the difference. */
+correct("chinook", "CH-47", "ch47", "CH 47");
+notCorrect("chinook", "M47", "P-47", "C-47");
+notCorrect("m47", "CH-47", "P-47");
+notCorrect("p47", "CH-47", "C-47");
+correct("apache", "AH-64");
+notCorrect("t64", "AH-64");
+notCorrect("apache", "T-64");
+correct("osprey", "V-22", "MV-22");
+notCorrect("f22", "V-22");
+notCorrect("osprey", "F-22");
+correct("blackhawk", "UH-60", "Black Hawk", "blackhawk");
+notCorrect("m60", "UH-60");
+notCorrect("blackhawk", "Blackjack");   // Tu-160, and not one typo away
+correct("b52", "B-52", "b52");
+notCorrect("ju52", "B-52");
+notCorrect("ka52", "B-52");
+
+/* Single letters can be designations too: the A of A-10, the IS of IS-2.
+ * They must survive the filler-stripping that removes "a" and "is" as words. */
+correct("a10", "A-10", "A10");
+notCorrect("type10", "A-10");
+notCorrect("a10", "Type 10");
+correct("is2", "IS-2", "IS2");
+notCorrect("panzer_ii", "IS-2");
+notCorrect("a4", "Panzerkampfwagen IV");
+
+/* --- a bigger set means more real nicknames ----------------------------- */
+correct("stuka", "Stuka", "Ju 87", "ju87");
+correct("zero", "Zero", "A6M", "Zeke", "Mitsubishi Zero");
+correct("me262", "Me 262", "Schwalbe", "me262");
+correct("il2", "Sturmovik", "Il-2", "IL2");
+correct("mosquito", "Mossie", "Mosquito", "Wooden Wonder");
+correct("t55", "T-55", "T-54", "t55");
+correct("humvee", "Humvee", "HMMWV", "Hummer", "humvee");
+correct("tiger_ii", "King Tiger", "Königstiger", "konigstiger", "Tiger II");
+correct("hind", "Hind", "Mi-24", "Krokodil");
+correct("b747", "747", "Jumbo Jet", "Boeing 747", "jumbo");
+
 /* --- answers that identify nothing -------------------------------------- */
 wrong("m4_sherman", "tank", "a tank", "the", "", "   ", "?", "idk", "no idea");
 wrong("model_t", "T");                   // single letter must not ride the fuzz
@@ -102,7 +155,16 @@ VEHICLES.forEach(v => {
  * Except where the ambiguity is real: "Mustang" is honestly both a P-51 and a
  * Ford, so it is accepted for whichever vehicle the round is actually asking
  * about. Anything longer ("Ford Mustang", "P-51 Mustang") must still separate. */
-const AMBIGUOUS = new Set(["mustang"]);
+const AMBIGUOUS = new Set([
+  "mustang",        // P-51 Mustang and the Ford
+  "sherman", "sherman tank",  // a Firefly is a Sherman
+  "tiger", "tiger tank",      // Tiger I and Tiger II
+  "challenger", "leopard",    // marks 1 and 2 of each
+  "hellcat", "hellcat tank destroyer",  // F6F Hellcat and M18 Hellcat
+  "viper",          // F-16 and the AH-1Z
+  "hercules",       // C-130 Hercules and the Hughes H-4
+  "thunderbolt"     // P-47 Thunderbolt and A-10 Thunderbolt II
+]);
 const crossHits = [];
 VEHICLES.forEach(v => {
   [v.name].concat(v.aliases || []).forEach(alias => {

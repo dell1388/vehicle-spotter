@@ -1,15 +1,17 @@
 # Vehicle Spotter
 
-A browser quiz: name the vehicle in the photo. Tanks, aircraft, cars, ships and
-helicopters, 32 of them across five eras.
+A browser quiz: name the vehicle in the photo. 171 vehicles — tanks, armoured
+fighting vehicles, aircraft and helicopters, plus a few cars and ships — across
+five eras.
 
 No build step, no dependencies. Open `index.html` in a browser and play.
 
 ```
 index.html          markup for the three screens (setup, game, results)
 css/style.css       styles
-js/vehicles.js      the dataset — 32 vehicles
+js/vehicles.js      the dataset — 171 vehicles
 js/match.js         answer matching
+js/corrections.js   player-supplied fixes to the dataset
 js/game.js          game loop, scoring, filters, persistence
 tests/match.test.js matcher test suite — node tests/match.test.js
 ```
@@ -43,10 +45,11 @@ glued `PanzerIV`), and removes words that identify nothing — `the`, `tank`,
 Leniency has a floor. Three rules stop "forgiving" from becoming "wrong answers
 count":
 
-- **Numbers must match exactly.** An F-16 is not an F-15, a Bf 109 is not a
-  Bf 110, an M4A1 is not an M1A1. If the player commits to a number, it has to
-  be the right one. Omitting numbers entirely is still fine — `Sherman` passes
-  for `M4 Sherman`.
+- **Designations must match exactly.** An F-16 is not an F-15, and 47 alone is
+  not an answer — it belongs to a CH-47 Chinook, an M47 Patton, a P-47
+  Thunderbolt and a C-47 Skytrain alike, so the letters count as much as the
+  number. If the player commits to a designation it has to be the right one.
+  Omitting it entirely is still fine — `Sherman` passes for `M4 Sherman`.
 - **Short words get no typo budget.** At four letters, one edit turns `fork`
   into `ford`; that is a different word, not a slip.
 - **The first letter must agree.** Typos land in the middle of words. Without
@@ -68,18 +71,24 @@ trustworthy if the player can see why it let something through.
 
 ### Tests
 
-`node tests/match.test.js` runs ~6,800 assertions. Alongside the hand-written
+`node tests/match.test.js` runs ~128,000 assertions. Alongside the hand-written
 cases it sweeps every alias of every vehicle against every *other* vehicle and
-fails on any cross-match, which is what caught the `fork`/`ford`,
-`M4A1`/`M1A1` and `Panzer IV`/`Panzer VI` collisions in the first place.
+fails on any cross-match. That sweep is what found every strictness rule above:
+`fork`/`ford` and `M4A1`/`M1A1` at 32 vehicles, then `CH-47`/`M47`/`P-47`,
+`AH-64`/`T-64` and `blackjack`/`blackhawk` when the set grew to 171. It also
+caught a subtler one — `A-10` and `IS-2` lose their designation entirely if "a"
+and "is" are stripped as English filler, which made `Type 10` match the A-10.
 
-One ambiguity is allowed through on purpose: a bare "Mustang" is honestly both a
-P-51 and a Ford, so it is accepted for whichever vehicle the round is asking
-about. Anything longer still separates them.
+Some ambiguity is allowed through on purpose, because it is real: "Mustang" is
+honestly both a P-51 and a Ford, "Tiger" is both marks of Tiger, "Hellcat" is
+an F6F and an M18, and a Firefly *is* a Sherman. Each is accepted for whichever
+vehicle the round is asking about; anything longer still separates them. The
+list is spelled out in the test file.
 
 ## Game
 
-- **Filters** — pick any mix of categories and eras; the pool count updates live.
+- **Filters** — pick any mix of categories, eras and difficulty; the pool count
+  updates live.
 - **Difficulty scaling** — the first rounds stay on well-known vehicles, then the
   ceiling lifts and later rounds favour the harder end of what is open.
 - **Timer mode** — 30 seconds a round, with a speed bonus for answering fast.
@@ -89,6 +98,29 @@ about. Anything longer still separates them.
 - **Endless mode** — keep going until you stop; otherwise a game is 10 rounds.
 - **High score and best streak** persist in `localStorage`, guarded so the game
   still works where site data is blocked.
+
+The game screen is pinned to the viewport height: the photo shrinks to make room
+for the answer panel rather than pushing it down the page, so nothing scrolls
+between questions and the vehicle stays visible while you read what it was.
+
+The photo credit is deliberately held back until after you answer — photographer
+names and filenames give the answer away more often than you would think.
+
+## Correcting the data
+
+The dataset is hand-written, so some of it is wrong. Rather than leave you
+arguing with the screen, both kinds of error can be fixed from inside the game:
+
+- **"I was right"** on a wrong answer accepts what you typed as an alias for
+  that vehicle from then on, and re-scores the round. If the spelling also
+  matches something else in the set, the dialog says so before you commit.
+- **"Report entry"** flags a bad entry — wrong photo, wrong name, duplicate —
+  and drops it from the rotation.
+
+Corrections live in `localStorage`, are merged over the dataset at runtime, and
+are listed on the setup screen where each one can be undone. **Export** gives you
+the JSON, so a correction can be folded back into `js/vehicles.js` and shared
+rather than living in one browser.
 
 ## Adding a vehicle
 
@@ -104,7 +136,9 @@ Append to `VEHICLES` in `js/vehicles.js`:
 
 Aliases only need the forms a person would actually type — the matcher derives
 the obvious variations itself. Then re-run the tests: the cross-match sweep will
-tell you if a new alias collides with something already in the set.
+tell you if a new alias collides with something already in the set. Avoid
+aliases that reduce to a single generic word once filler is stripped ("Flying
+tank" becomes just "flying"), since those collide with everything.
 
 ## Images
 
@@ -113,3 +147,6 @@ demand, so no images are stored in this repo. Each entry carries a `credit`
 string (author and licence) shown in the footer while that vehicle is on screen.
 Licences vary by file — public domain, CC0, CC BY and CC BY-SA — and each file's
 Commons page carries the authoritative terms.
+
+Images were sourced by taking each vehicle's Wikipedia lead image and verifying
+every URL returns an image before it went into the dataset.

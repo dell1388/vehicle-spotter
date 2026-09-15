@@ -24,8 +24,12 @@ const VSMatch = (function () {
 
   /* Words that carry no identifying information. Dropped before comparing, so
    * "the sherman tank" and "Sherman" reduce to the same thing. */
+  /* English filler that is only filler in prose. "A" and "IS" are also the
+   * designations of the A-4 Skyhawk and the IS-2, so these are dropped only
+   * when they are not sitting against a number. */
+  const STOPWORDS = new Set(["the", "a", "an", "of", "and", "is", "it"]);
+
   const FILLER = new Set([
-    "the", "a", "an", "of", "and", "is", "it",
     "tank", "tanks", "panzerkampfwagen",
     "plane", "planes", "aircraft", "jet", "fighter", "bomber", "airplane",
     "aeroplane", "warplane", "interceptor",
@@ -106,7 +110,13 @@ const VSMatch = (function () {
    * so a lone "Jeep"-style answer still has something to compare. */
   function coreTokens(raw) {
     const toks = tokenize(raw);
-    const core = toks.filter(function (t) { return !FILLER.has(t); });
+    const core = toks.filter(function (t, i) {
+      if (FILLER.has(t)) return false;
+      if (!STOPWORDS.has(t)) return true;
+      // Keep a stopword that is really a designation: the "A" of "A-10".
+      return (i > 0 && isNumeric(toks[i - 1])) ||
+             (i + 1 < toks.length && isNumeric(toks[i + 1]));
+    });
     return core.length ? core : toks;
   }
 
@@ -157,8 +167,8 @@ const VSMatch = (function () {
    * and that is a different word, not a slip. */
   function typoBudget(len) {
     if (len <= 4) return 0;
-    if (len <= 6) return 1;
-    if (len <= 9) return 2;
+    if (len <= 9) return 1;
+    if (len <= 14) return 2;
     return 3;
   }
 
@@ -172,15 +182,26 @@ const VSMatch = (function () {
     const shorter = Math.min(a.length, b.length);
     // "chinook" vs "chinooks", "abram" vs "abrams"
     if (shorter >= 4 && (a.indexOf(b) === 0 || b.indexOf(a) === 0)) {
-      return Math.abs(a.length - b.length) <= 2;
+      return Math.abs(a.length - b.length) <= 1;
     }
     if (a[0] !== b[0]) return false;
     return editDistance(a, b) <= typoBudget(shorter);
   }
 
-  /* The numbers in a phrase, in order. */
-  function numbersIn(tokens) {
-    return tokens.filter(isNumeric).sort();
+  /* The designation codes in a phrase: the numbers, plus the short letter groups
+   * sitting next to them. In "CH-47" the "CH" is not noise — it is the whole
+   * difference between a Chinook, an M47 Patton and a P-47 Thunderbolt. */
+  function codesIn(tokens) {
+    const out = [];
+    for (let i = 0; i < tokens.length; i++) {
+      const t = tokens[i];
+      if (isNumeric(t)) { out.push(t); continue; }
+      if (t.length > 3) continue;
+      const nextNum = i + 1 < tokens.length && isNumeric(tokens[i + 1]);
+      const prevNum = i > 0 && isNumeric(tokens[i - 1]);
+      if (nextNum || prevNum) out.push(t);
+    }
+    return out.sort();
   }
 
   /* An answer that states numbers must state the right ones: an M4A1 is not an
@@ -188,9 +209,9 @@ const VSMatch = (function () {
    * Omitting numbers entirely is fine — "Sherman" is a fair answer for "M4
    * Sherman" — so this only bites when the player actually commits to a number. */
   function numbersContradict(answerToks, formToks) {
-    const a = numbersIn(answerToks);
+    const a = codesIn(answerToks);
     if (!a.length) return false;
-    const f = numbersIn(formToks);
+    const f = codesIn(formToks);
     return a.length !== f.length || a.some(function (n, i) { return n !== f[i]; });
   }
 
@@ -223,9 +244,11 @@ const VSMatch = (function () {
   }
 
   /* True when the answer names every distinctive word of the target and adds no
-   * distinctive word of its own. The second half matters: "Ford Mustang" names
-   * the "Ford" in "Ford Model T", but "Mustang" is a live disagreement, not
-   * spare padding, so it must not pass as a loose hit. */
+   * word of its own that the target does not answer for. The second half
+   * matters twice over: "Ford Mustang" names the "Ford" in "Ford Model T", but
+   * "Mustang" is a live disagreement rather than spare padding; and "CH-47"
+   * shares its 47 with "M47" while the "CH" says they are different machines.
+   * Filler is already gone by this point, so "the sherman tank" still passes. */
   function coversDistinctive(answerToks, targetToks) {
     const key = distinctiveTokens(targetToks);
     if (!key.length) return false;
@@ -235,7 +258,7 @@ const VSMatch = (function () {
     });
     if (!covered) return false;
 
-    return distinctiveTokens(answerToks).every(function (a) {
+    return answerToks.every(function (a) {
       return targetToks.some(function (t) { return tokensEqual(a, t); });
     });
   }
@@ -259,7 +282,7 @@ const VSMatch = (function () {
 
     /* Wrong numbers cap the result below the accept bar, so a near miss on a
      * designation comes back as "close" (a free retry) rather than correct. */
-    if (numbersContradict(tokenize(answer), tokenize(form))) {
+    if (numbersContradict(aCore, fCore)) {
       return { score: Math.min(strSim, ACCEPT - 0.03), how: "number-mismatch" };
     }
 

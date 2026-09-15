@@ -76,6 +76,34 @@ main {
   padding: 24px var(--pad) 0;
 }
 
+/* While a round is on screen the whole game is pinned to the viewport, so
+ * answering never scrolls the page or shifts the photo. The setup and results
+ * screens are lists and are allowed to scroll normally. */
+html { height: 100%; }
+
+body.playing {
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+body.playing main {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  padding-top: 12px;
+}
+body.playing .sitefoot { display: none; }
+
+.screen-game {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  min-height: 0;
+}
+
 .sitefoot {
   max-width: 720px;
   margin: 40px auto 0;
@@ -172,11 +200,7 @@ main {
 
 /* --------------------------------------------------------------- hud --- */
 
-.hud {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 12px;
-}
+.hud { display: flex; gap: 10px; flex: 0 0 auto; }
 
 .stat {
   flex: 1;
@@ -198,13 +222,20 @@ main {
 .stat-value { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .stat-timer.low .stat-value { color: var(--bad); }
 
-.timer-track { height: 3px; background: var(--bg-sunk); border-radius: 2px; overflow: hidden; margin-bottom: 14px; }
+.timer-track { height: 3px; background: var(--bg-sunk); border-radius: 2px; overflow: hidden; flex: 0 0 auto; }
 .timer-fill { height: 100%; width: 100%; background: var(--accent); transition: width .25s linear; }
 .timer-fill.low { background: var(--bad); }
 
 /* ------------------------------------------------------------- photo --- */
 
-.photo { margin: 0 0 14px; }
+.photo {
+  margin: 0;
+  flex: 1 1 auto;
+  min-height: 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 .photo-frame {
   position: relative;
@@ -212,7 +243,8 @@ main {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  flex: 1 1 auto;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -232,7 +264,7 @@ main {
   font-size: 13px;
 }
 
-.photo-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.photo-meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; flex: 0 0 auto; }
 
 .tag {
   font-size: 11px;
@@ -248,7 +280,7 @@ main {
 
 /* ------------------------------------------------------------ answer --- */
 
-.answer { display: flex; gap: 8px; margin-bottom: 10px; }
+.answer { display: flex; gap: 8px; margin: 0; flex: 0 0 auto; }
 
 .answer-input {
   flex: 1;
@@ -264,7 +296,7 @@ main {
 .answer-input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
 .answer-input::placeholder { color: var(--text-faint); }
 
-.hint-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-height: 38px; }
+.hint-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 0 0 auto; min-height: 34px; }
 .hint-row .btn { padding: 7px 12px; font-size: 13px; }
 
 .hint-display {
@@ -276,8 +308,15 @@ main {
 
 /* ---------------------------------------------------------- feedback --- */
 
+/* Shares the game screen's fixed height with the photo: when an answer comes
+ * in, the photo gives up space and this takes it. The page itself never grows,
+ * so there is nothing to scroll between questions, and the vehicle stays on
+ * screen while the player reads what it was. */
 .feedback {
-  margin-top: 14px;
+  flex: 0 1 auto;
+  min-height: 0;
+  max-height: 58%;
+  overflow-y: auto;
   border: 1px solid var(--line);
   border-left-width: 3px;
   border-radius: var(--radius);
@@ -297,8 +336,11 @@ main {
 .fb-note { color: var(--text-dim); font-size: 14px; margin: 0 0 4px; }
 .fb-fact { color: var(--text-faint); font-size: 13px; margin: 6px 0 0; }
 .fb-why { color: var(--text-faint); font-size: 12px; margin: 6px 0 0; font-style: italic; }
+/* Held back until the answer is in — a filename or photographer often names
+ * the vehicle outright. */
+.fb-credit { color: var(--text-faint); font-size: 11px; margin: 8px 0 0; opacity: .8; }
 .fb-points { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
-.fb-actions { margin-top: 12px; }
+.fb-actions { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 
 /* ----------------------------------------------------------- results --- */
 
@@ -336,9 +378,12 @@ main {
 /* ------------------------------------------------------------ mobile --- */
 
 @media (max-width: 480px) {
-  .hud { flex-wrap: wrap; }
-  .stat { min-width: calc(50% - 5px); flex: 1 1 calc(50% - 5px); }
-  .stat-value { font-size: 18px; }
+  .hud { gap: 6px; }
+  .stat { padding: 6px 8px; flex: 1 1 0; }
+  .stat-label { font-size: 9px; letter-spacing: 0.06em; }
+  .stat-value { font-size: 16px; }
+  .feedback { max-height: 62%; padding: 11px 12px; }
+  .fb-actions .btn { padding: 8px 12px; }
   .final-score { font-size: 44px; }
   .answer { flex-wrap: wrap; }
   .answer .btn { width: 100%; }
@@ -348,4 +393,101 @@ main {
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
+}
+
+/* ------------------------------------------------------- corrections --- */
+
+.corrections-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+
+.correction-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  padding: 7px 10px;
+  background: var(--bg-sunk);
+  border-radius: 8px;
+}
+.correction-name { font-weight: 600; }
+.correction-what { color: var(--text-dim); flex: 1 1 auto; min-width: 0; }
+
+.corrections-actions { display: flex; gap: 8px; }
+
+.btn-tiny { padding: 4px 10px !important; font-size: 12px !important; font-weight: 600; }
+
+/* ------------------------------------------------------------ modal ---- */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(8, 10, 13, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--pad);
+}
+
+.modal-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  width: 100%;
+  max-width: 440px;
+  max-height: 85dvh;
+  overflow-y: auto;
+}
+
+.modal-title { margin: 0 0 10px; font-size: 18px; }
+.modal-body p { margin: 0 0 10px; color: var(--text-dim); font-size: 14px; }
+.modal-body strong { color: var(--text); }
+.modal-warn { color: var(--near) !important; }
+.modal-quiet { color: var(--text-faint) !important; font-size: 12px !important; }
+
+.modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 14px; flex-wrap: wrap; }
+
+.radio { display: flex; align-items: center; gap: 8px; padding: 5px 0; font-size: 14px; cursor: pointer; }
+.radio input { accent-color: var(--accent); width: 16px; height: 16px; }
+
+.field { display: flex; flex-direction: column; gap: 5px; margin-top: 10px; }
+.field span { font-size: 12px; color: var(--text-faint); }
+.field input {
+  background: var(--bg-sunk);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 11px;
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+}
+
+.export-box {
+  width: 100%;
+  background: var(--bg-sunk);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text-dim);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  padding: 10px;
+  resize: vertical;
+}
+
+/* --------------------------------------------- tighter on short screens - */
+
+@media (max-height: 700px) {
+  .topbar { padding-top: calc(9px + env(safe-area-inset-top, 0px)); padding-bottom: 9px; }
+  .stat-value { font-size: 17px; }
+  .stat { padding: 6px 9px; }
+  body.playing main { padding-top: 8px; }
+  .screen-game { gap: 8px; }
+  .fb-name { font-size: 17px; }
+  .fb-fact { display: none; }
+}
+
+@media (max-height: 560px) {
+  .photo-meta { display: none; }
+  .hint-row { min-height: 0; }
 }
