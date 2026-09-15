@@ -146,12 +146,25 @@
     if (!items.length) return;
 
     const names = {};
-    VEHICLES.forEach(function (v) { names[v.id] = v.name; });
+    VEHICLES.forEach(function (v) { names[v.id] = v.name; });   // the dataset's own name
 
     el.correctionsList.innerHTML = items.map(function (item, i) {
-      const what = item.kind === "alias"
-        ? '“' + escapeHtml(item.value) + '” also accepted'
-        : "hidden — " + escapeHtml(item.value) + (item.note ? ": " + escapeHtml(item.note) : "");
+      let what;
+      switch (item.kind) {
+        case "name":
+          what = 'renamed to “' + escapeHtml(item.value) + '”' +
+                 (item.keepOld ? " (old name still accepted)" : "");
+          break;
+        case "alias":
+          what = '“' + escapeHtml(item.value) + '” also accepted';
+          break;
+        case "dropped":
+          what = '“' + escapeHtml(item.value) + '” no longer accepted';
+          break;
+        default:
+          what = "hidden — " + escapeHtml(item.value) +
+                 (item.note ? ": " + escapeHtml(item.note) : "");
+      }
       return '<div class="correction-row">' +
              '<span class="correction-name">' + escapeHtml(names[item.id] || item.id) + "</span>" +
              '<span class="correction-what">' + what + "</span>" +
@@ -161,9 +174,7 @@
 
     Array.prototype.forEach.call(el.correctionsList.querySelectorAll("[data-undo]"), function (btn) {
       btn.addEventListener("click", function () {
-        const item = items[Number(btn.getAttribute("data-undo"))];
-        if (item.kind === "alias") Corrections.removeAlias(item.id, item.value);
-        else Corrections.unflag(item.id);
+        Corrections.undo(items[Number(btn.getAttribute("data-undo"))]);
         renderCorrections();
         updatePoolNote();
       });
@@ -201,6 +212,12 @@
   el.modal.addEventListener("click", function (e) { if (e.target === el.modal) closeModal(); });
 
   /* -------------------------------------------------------------- game -- */
+
+  /* The entry as corrected by the player: renamed, with aliases added or
+   * dropped. Everything on screen and everything the matcher sees uses this,
+   * never the raw dataset row. */
+  function corrected(vehicle) { return Corrections.apply(vehicle); }
+  function current() { return corrected(game.current); }
 
   const game = {
     queue: [], round: 0, score: 0, streak: 0, streakBefore: 0, bestStreak: 0, correct: 0,
@@ -293,8 +310,6 @@
 
     el.feedback.hidden = true;
     el.feedback.innerHTML = "";
-    el.hintDisplay.textContent = "";
-    el.hintBtn.disabled = false;
     el.skipBtn.disabled = false;
     el.input.value = "";
     el.input.disabled = false;
@@ -304,6 +319,7 @@
     el.eraTag.textContent = game.current.era;
     el.difficultyTag.textContent = DIFFICULTY_LABELS[game.current.difficulty];
 
+    paintHint();
     loadPhoto(game.current);
     preloadNext();
     el.input.focus();
@@ -432,7 +448,7 @@
   }
 
   function renderFeedback() {
-    const vehicle = game.current;
+    const vehicle = current();
     const state = game.resolvedAs;
     const parts = [];
     let kind;
@@ -466,7 +482,7 @@
       (last ? "See results" : "Next vehicle") + "</button>" +
       (state.outcome !== "correct" && game.lastAnswer
         ? '<button class="btn btn-ghost" id="acceptBtn">I was right</button>' : "") +
-      '<button class="btn btn-ghost btn-tiny" id="reportBtn">Report entry</button>' +
+      '<button class="btn btn-ghost btn-tiny" id="fixBtn">Fix entry</button>' +
       "</div>");
 
     el.feedback.className = "feedback " + kind;
@@ -482,7 +498,7 @@
 
     const accept = $("acceptBtn");
     if (accept) accept.addEventListener("click", openAcceptDialog);
-    $("reportBtn").addEventListener("click", openReportDialog);
+    $("fixBtn").addEventListener("click", openFixDialog);
   }
 
   /* A near miss: no points lost, one retry, and a nudge about what is off. */
@@ -504,14 +520,9 @@
   /* "I was right" — the player's answer becomes an accepted alias for this
    * vehicle from now on, and the round is re-scored as correct. */
   function openAcceptDialog() {
-    const vehicle = game.current;
+    const vehicle = current();
     const answer = game.lastAnswer;
-
-    // Warn if this spelling already belongs to something else in the set.
-    const clashes = VEHICLES.filter(function (v) {
-      return v.id !== vehicle.id &&
-             VSMatch.check(answer, Corrections.apply(v)).verdict === "correct";
-    }).map(function (v) { return v.name; });
+    const clashes = clashesWith(answer, vehicle.id);
 
     let body = "<p>Accept <strong>“" + escapeHtml(answer) + "”</strong> as a name for " +
                "<strong>" + escapeHtml(vehicle.name) + "</strong> from now on?</p>";
@@ -528,7 +539,7 @@
       {
         label: "Accept it", primary: true,
         onClick: function () {
-          const problem = Corrections.addAlias(vehicle.id, answer);
+          const problem = Corrections.addAlias(game.current.id, answer);
           closeModal();
           if (problem && problem !== "Already added.") return;
           awardRetroactively();
@@ -560,8 +571,137 @@
     renderFeedback();
   }
 
+  /* Names another entry in the set would also accept. */
+  function clashesWith(text, exceptId) {
+    if (!text) return [];
+    return VEHICLES.filter(function (v) {
+      return v.id !== exceptId &&
+             VSMatch.check(text, Corrections.apply(v)).verdict === "correct";
+    }).map(function (v) { return Corrections.apply(v).name; });
+  }
+
+  /* "Fix entry" — edit the name the game calls this vehicle, and prune any
+   * aliases that should not be accepted. The dataset row is never touched;
+   * everything is an overlay saved in this browser. */
+  function openFixDialog() {
+    const row = game.current;                 // dataset entry, for ids and originals
+    const vehicle = current();                // as the player currently sees it
+
+    function body() {
+      const aliases = vehicle.aliases || [];
+      const chips = aliases.length
+        ? aliases.map(function (a) {
+            return '<button type="button" class="alias-chip" data-drop="' +
+                   escapeHtml(a) + '" title="Stop accepting this answer">' +
+                   escapeHtml(a) + '<span aria-hidden="true">×</span></button>';
+          }).join("")
+        : '<span class="modal-quiet">No other spellings accepted.</span>';
+
+      const droppedList = Corrections.entries().filter(function (e) {
+        return e.kind === "dropped" && e.id === row.id;
+      });
+      const restore = droppedList.length
+        ? '<div class="field"><span>No longer accepted</span><div class="alias-chips">' +
+          droppedList.map(function (e) {
+            return '<button type="button" class="alias-chip alias-chip-off" data-restore="' +
+                   escapeHtml(e.value) + '" title="Accept this again">' +
+                   escapeHtml(e.value) + '<span aria-hidden="true">+</span></button>';
+          }).join("") + "</div></div>"
+        : "";
+
+      return '<label class="field"><span>Name</span>' +
+             '<input type="text" id="fixName" maxlength="80" value="' +
+             escapeHtml(vehicle.name) + '"></label>' +
+             '<p class="fix-clash" id="fixClash" hidden></p>' +
+             (Corrections.isRenamed(row.id)
+               ? '<p class="modal-quiet">The dataset calls this “' +
+                 escapeHtml(row.name) + '”.</p>'
+               : "") +
+             '<label class="toggle toggle-compact"><input type="checkbox" id="fixKeepOld">' +
+             '<span>Still accept “' + escapeHtml(row.name) +
+             '” <em>— only matters if you change the name</em></span></label>' +
+             '<div class="field"><span>Also accepted — click to remove</span>' +
+             '<div class="alias-chips">' + chips + "</div></div>" +
+             restore;
+    }
+
+    function wire() {
+      const input = $("fixName");
+      const clash = $("fixClash");
+
+      // Live warning: renaming onto a name the set already uses is allowed, but
+      // the player should know both entries will answer to it.
+      function checkClash() {
+        const names = clashesWith(input.value.trim(), row.id);
+        clash.hidden = names.length === 0;
+        if (names.length) {
+          clash.textContent = "Heads up: " + names.slice(0, 3).join(", ") +
+                              (names.length > 3 ? " and others" : "") + " also answer to that.";
+        }
+      }
+      input.addEventListener("input", checkClash);
+      checkClash();
+
+      const keep = $("fixKeepOld");
+      const stored = Corrections.isRenamed(row.id);
+      if (stored) keep.checked = (vehicle.aliases || []).some(function (a) {
+        return a.toLowerCase() === row.name.toLowerCase();
+      });
+
+      Array.prototype.forEach.call(el.modalBody.querySelectorAll("[data-drop]"), function (btn) {
+        btn.addEventListener("click", function () {
+          const alias = btn.getAttribute("data-drop");
+          // The player's own additions are removed outright; dataset ones are
+          // suppressed, so they can be restored later.
+          if (Corrections.aliasesFor(row.id).some(function (a) {
+                return a.toLowerCase() === alias.toLowerCase(); })) {
+            Corrections.removeAlias(row.id, alias);
+          } else {
+            Corrections.dropAlias(row.id, alias);
+          }
+          reopen();
+        });
+      });
+
+      Array.prototype.forEach.call(el.modalBody.querySelectorAll("[data-restore]"), function (btn) {
+        btn.addEventListener("click", function () {
+          Corrections.restoreAlias(row.id, btn.getAttribute("data-restore"));
+          reopen();
+        });
+      });
+    }
+
+    function reopen() {
+      const typed = $("fixName") ? $("fixName").value : null;
+      closeModal();
+      openFixDialog();
+      if (typed !== null && $("fixName")) $("fixName").value = typed;
+    }
+
+    openModal("Fix this entry", body(), [
+      { label: "Cancel", onClick: closeModal },
+      { label: "Hide entry…", onClick: function () { closeModal(); openReportDialog(); } },
+      {
+        label: "Save", primary: true,
+        onClick: function () {
+          const problem = Corrections.rename(row, $("fixName").value, $("fixKeepOld").checked);
+          if (problem) { $("fixClash").hidden = false; $("fixClash").textContent = problem; return; }
+          closeModal();
+          refreshAfterFix();
+        }
+      }
+    ]);
+    wire();
+  }
+
+  /* After an edit, redraw whatever is showing the old name. */
+  function refreshAfterFix() {
+    if (game.resolvedAs) renderFeedback();
+    if (game.hintsUsed) paintHint();   // the mask spelled out the old name
+  }
+
   function openReportDialog() {
-    const vehicle = game.current;
+    const vehicle = current();
     const options = Object.keys(Corrections.REASONS).map(function (key, i) {
       return '<label class="radio"><input type="radio" name="reason" value="' + key + '"' +
              (i === 0 ? " checked" : "") + "> " +
@@ -579,10 +719,10 @@
         onClick: function () {
           const picked = el.modalBody.querySelector('input[name="reason"]:checked');
           const note = $("reportNote");
-          Corrections.flag(vehicle.id, picked ? picked.value : "other", note ? note.value : "");
+          Corrections.flag(game.current.id, picked ? picked.value : "other", note ? note.value : "");
           closeModal();
           // Drop it from the rest of this game too.
-          game.queue = game.queue.filter(function (v) { return v.id !== vehicle.id; });
+          game.queue = game.queue.filter(function (v) { return v.id !== game.current.id; });
           if (!game.queue.length) return endGame();
           nextRound();
         }
@@ -599,7 +739,7 @@
     const answer = el.input.value.trim();
     if (!answer) return;
 
-    const result = VSMatch.check(answer, Corrections.apply(game.current));
+    const result = VSMatch.check(answer, current());
 
     if (result.verdict === "correct") return resolve(result, "correct");
 
@@ -611,26 +751,31 @@
     resolve(result, "wrong");
   }
 
-  function takeHint() {
-    if (!game.awaiting) return;
-    const name = game.current.name;
-    const letters = name.split("");
+  /* "M4 Sherman" with two letters revealed -> "M 4  _ _ _ _ _ _ _" */
+  function maskedName(name, revealCount) {
     let revealed = 0;
     let shown = "";
-
-    game.hintsUsed += 1;
-
-    for (let i = 0; i < letters.length; i++) {
-      const ch = letters[i];
+    for (let i = 0; i < name.length; i++) {
+      const ch = name[i];
       if (/\s/.test(ch)) { shown += "  "; continue; }
       if (!/[A-Za-z0-9]/.test(ch)) { shown += ch + " "; continue; }
-      if (revealed < game.hintsUsed) { shown += ch + " "; revealed += 1; }
+      if (revealed < revealCount) { shown += ch + " "; revealed += 1; }
       else shown += "_ ";
     }
+    return shown.trim();
+  }
 
-    el.hintDisplay.textContent = shown.trim();
+  function paintHint() {
+    const name = current().name;
+    el.hintDisplay.textContent = game.hintsUsed ? maskedName(name, game.hintsUsed) : "";
     const hideable = name.replace(/[^A-Za-z0-9]/g, "").length;
-    if (game.hintsUsed >= hideable) el.hintBtn.disabled = true;
+    el.hintBtn.disabled = !game.awaiting || game.hintsUsed >= hideable;
+  }
+
+  function takeHint() {
+    if (!game.awaiting) return;
+    game.hintsUsed += 1;
+    paintHint();
     el.input.focus();
   }
 
@@ -657,7 +802,7 @@
           : (h.said ? "you said “" + escapeHtml(h.said) + "”" : "no answer")) +
         "</span>";
       return '<div class="review-row ' + (h.correct ? "good" : "bad") + '">' +
-             '<span class="review-name">' + escapeHtml(h.vehicle.name) + "</span>" +
+             '<span class="review-name">' + escapeHtml(corrected(h.vehicle).name) + "</span>" +
              '<span class="tag tag-quiet">' + escapeHtml(categoryLabel(h.vehicle.category)) + "</span>" +
              said + "</div>";
     }).join("");

@@ -491,3 +491,42 @@ body.playing .sitefoot { display: none; }
   .photo-meta { display: none; }
   .hint-row { min-height: 0; }
 }
+
+/* ------------------------------------------------- fix-entry dialog ----- */
+
+.alias-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.alias-chip {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  background: var(--bg-sunk);
+  color: var(--text-dim);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.alias-chip:hover { border-color: var(--bad); color: var(--text); }
+.alias-chip span { opacity: .55; font-size: 14px; line-height: 1; }
+.alias-chip:hover span { opacity: 1; color: var(--bad); }
+
+.alias-chip-off {
+  border-style: dashed;
+  color: var(--text-faint);
+  text-decoration: line-through;
+}
+.alias-chip-off:hover { border-color: var(--good); color: var(--text); text-decoration: none; }
+.alias-chip-off:hover span { color: var(--good); }
+
+.fix-clash {
+  color: var(--near) !important;
+  font-size: 12px !important;
+  margin: 6px 0 0 !important;
+}
+
+.toggle-compact { padding: 8px 0 2px; font-size: 13px; }
+.toggle-compact em { font-size: 12px; }

@@ -327,6 +327,21 @@ const VSMatch = (function () {
 
   /* --------------------------------------------------------------- public */
 
+  /* Spellings the player has explicitly struck off this entry. Removing an alias
+   * has to veto the answer outright rather than just delete a list item: the
+   * matcher derives "Sherman" from the name "M4 Sherman" all on its own, and
+   * folds "Spit" into "Spitfire", so deleting the alias alone changes nothing.
+   * Compared on core words, so "the sherman tank" is struck off too. */
+  function isRejected(vehicle, answer) {
+    const list = vehicle && vehicle.rejected;
+    if (!list || !list.length) return false;
+    const aFull = canonicalForm(answer);
+    const aCore = coreTokens(answer).join(" ");
+    return list.some(function (r) {
+      return canonicalForm(r) === aFull || coreTokens(r).join(" ") === aCore;
+    });
+  }
+
   /* Returns { verdict: "correct"|"close"|"wrong", score, matched, how }.
    * `matched` is the spelling the answer was judged against, so the UI can
    * show *why* something loose was accepted. */
@@ -334,6 +349,11 @@ const VSMatch = (function () {
     const result = { verdict: "wrong", score: 0, matched: null, how: "none" };
     const aFull = canonicalForm(answer);
     if (!aFull) return result;
+
+    if (isRejected(vehicle, answer)) {
+      result.how = "rejected";
+      return result;
+    }
 
     const forms = acceptedForms(vehicle);
 
@@ -365,7 +385,7 @@ const VSMatch = (function () {
     _internal: {
       normalize: normalize, tokenize: tokenize, coreTokens: coreTokens,
       editDistance: editDistance, tokensEqual: tokensEqual,
-      acceptedForms: acceptedForms, scoreForm: scoreForm
+      acceptedForms: acceptedForms, scoreForm: scoreForm, isRejected: isRejected
     }
   };
 })();

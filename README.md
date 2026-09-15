@@ -13,7 +13,8 @@ js/vehicles.js      the dataset — 171 vehicles
 js/match.js         answer matching
 js/corrections.js   player-supplied fixes to the dataset
 js/game.js          game loop, scoring, filters, persistence
-tests/match.test.js matcher test suite — node tests/match.test.js
+tests/match.test.js  matcher test suite — node tests/match.test.js
+tests/corrections.test.js  corrections overlay — node tests/corrections.test.js
 ```
 
 ## The matching problem
@@ -79,6 +80,12 @@ fails on any cross-match. That sweep is what found every strictness rule above:
 caught a subtler one — `A-10` and `IS-2` lose their designation entirely if "a"
 and "is" are stripped as English filler, which made `Type 10` match the A-10.
 
+`node tests/corrections.test.js` covers the corrections overlay separately:
+that renaming leaves the dataset row untouched, that a struck-off spelling
+really stops being accepted, that corrections survive a reload, that every kind
+can be undone, and that corrupt or hostile stored JSON is ignored rather than
+trusted.
+
 Some ambiguity is allowed through on purpose, because it is real: "Mustang" is
 honestly both a P-51 and a Ford, "Tiger" is both marks of Tiger, "Hellcat" is
 an F6F and an M18, and a Firefly *is* a Sherman. Each is accepted for whichever
@@ -109,18 +116,34 @@ names and filenames give the answer away more often than you would think.
 ## Correcting the data
 
 The dataset is hand-written, so some of it is wrong. Rather than leave you
-arguing with the screen, both kinds of error can be fixed from inside the game:
+arguing with the screen, an entry can be fixed from inside the game. Every
+answer panel has a **Fix entry** button:
 
-- **"I was right"** on a wrong answer accepts what you typed as an alias for
-  that vehicle from then on, and re-scores the round. If the spelling also
-  matches something else in the set, the dialog says so before you commit.
-- **"Report entry"** flags a bad entry — wrong photo, wrong name, duplicate —
-  and drops it from the rotation.
+- **Rename it.** The name field is the entry's canonical name — correct it and
+  the game uses the new one everywhere: the answer panel, the hint mask, the
+  end-of-game review, and what the matcher accepts. By default the old name
+  stops being accepted, since you have just said it was wrong; a checkbox keeps
+  it as an alias if it was merely incomplete rather than incorrect.
+- **Remove an alias.** Every accepted spelling is listed as a chip; click one to
+  strike it off. Struck-off spellings can be restored from the same dialog.
+- **Hide the entry** — wrong photo, duplicate, beyond saving — which drops it
+  from the rotation.
+
+And on a wrong answer, **"I was right"** accepts what you typed as an alias from
+then on and re-scores the round. If that spelling also matches something else in
+the set, the dialog says so before you commit, and renaming warns the same way.
+
+Removing an alias is a veto, not a list deletion, and it has to be: the matcher
+invents variants from the canonical name by itself, so deleting "Sherman" from
+the alias list would not stop `Sherman` being derived from "M4 Sherman", and
+"Spit" folds into "Spitfire" before any list is consulted. A struck-off spelling
+is therefore rejected outright, compared on its meaningful words — striking off
+"Sherman" also strikes off "the sherman tank".
 
 Corrections live in `localStorage`, are merged over the dataset at runtime, and
-are listed on the setup screen where each one can be undone. **Export** gives you
-the JSON, so a correction can be folded back into `js/vehicles.js` and shared
-rather than living in one browser.
+never touch the dataset rows themselves. Each one is listed on the setup screen
+and individually undoable. **Export** gives you the JSON, so a correction can be
+folded back into `js/vehicles.js` and shared rather than living in one browser.
 
 ## Adding a vehicle
 
