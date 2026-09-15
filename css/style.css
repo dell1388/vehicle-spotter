@@ -549,3 +549,71 @@ body.playing .sitefoot { display: none; }
   border-radius: 3px;
   transition: width .3s;
 }
+
+/* --------------------------------------------------- fix entry button --- */
+
+/* Was a tiny ghost pill next to two full-size buttons and read as a caption
+ * rather than a control, so nobody found it. */
+.btn-fix {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn-fix:hover { background: rgba(240, 161, 50, 0.12); }
+.fix-glyph { font-size: 14px; line-height: 1; }
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--text-dim);
+  margin-top: 8px;
+}
+.btn-secondary:hover { color: var(--text); border-color: var(--text-faint); }
+
+/* ------------------------------------------------------ entry browser --- */
+
+.browse-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 46dvh;
+  overflow-y: auto;
+  margin: 10px 0;
+  padding-right: 2px;
+}
+
+.browse-row {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  background: var(--bg-sunk);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 9px 11px;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.browse-row:hover { border-color: var(--accent); }
+.browse-name { font-weight: 600; flex: 1 1 auto; min-width: 0; }
+.browse-edit { color: var(--accent); opacity: .7; font-size: 14px; }
+.browse-row:hover .browse-edit { opacity: 1; }
+
+.browse-mark {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--good);
+  border: 1px solid var(--good);
+  border-radius: 999px;
+  padding: 2px 7px;
+}
+.browse-mark-off { color: var(--bad); border-color: var(--bad); }

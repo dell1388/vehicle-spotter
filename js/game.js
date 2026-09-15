@@ -20,7 +20,7 @@
     skipLearnedToggle: $("skipLearnedToggle"),
     progressPanel: $("progressPanel"), progressNote: $("progressNote"),
     progressFill: $("progressFill"), resetProgressBtn: $("resetProgressBtn"),
-    poolNote: $("poolNote"), startBtn: $("startBtn"),
+    poolNote: $("poolNote"), startBtn: $("startBtn"), browseBtn: $("browseBtn"),
     correctionsPanel: $("correctionsPanel"), correctionsList: $("correctionsList"),
     exportBtn: $("exportBtn"), clearCorrectionsBtn: $("clearCorrectionsBtn"),
     round: $("roundValue"), score: $("scoreValue"), streak: $("streakValue"),
@@ -540,7 +540,8 @@
       (last ? "See results" : "Next vehicle") + "</button>" +
       (state.outcome !== "correct" && game.lastAnswer
         ? '<button class="btn btn-ghost" id="acceptBtn">I was right</button>' : "") +
-      '<button class="btn btn-ghost btn-tiny" id="fixBtn">Fix entry</button>' +
+      '<button class="btn btn-fix" id="fixBtn">' +
+      '<span class="fix-glyph" aria-hidden="true">✎</span>Fix entry</button>' +
       "</div>");
 
     el.feedback.className = "feedback " + kind;
@@ -642,9 +643,10 @@
   /* "Fix entry" — edit the name the game calls this vehicle, and prune any
    * aliases that should not be accepted. The dataset row is never touched;
    * everything is an overlay saved in this browser. */
-  function openFixDialog() {
-    const row = game.current;                 // dataset entry, for ids and originals
-    const vehicle = current();                // as the player currently sees it
+  function openFixDialog(entry, onDone) {
+    const row = entry || game.current;        // dataset entry, for ids and originals
+    const vehicle = corrected(row);           // as the player currently sees it
+    const back = onDone || closeModal;
 
     function body() {
       const aliases = vehicle.aliases || [];
@@ -733,34 +735,109 @@
     function reopen() {
       const typed = $("fixName") ? $("fixName").value : null;
       closeModal();
-      openFixDialog();
+      openFixDialog(row, onDone);
       if (typed !== null && $("fixName")) $("fixName").value = typed;
     }
 
     openModal("Fix this entry", body(), [
-      { label: "Cancel", onClick: closeModal },
-      { label: "Hide entry…", onClick: function () { closeModal(); openReportDialog(); } },
+      { label: "Cancel", onClick: back },
+      { label: "Hide entry…", onClick: function () { closeModal(); openReportDialog(row, onDone); } },
       {
         label: "Save", primary: true,
         onClick: function () {
           const problem = Corrections.rename(row, $("fixName").value, $("fixKeepOld").checked);
           if (problem) { $("fixClash").hidden = false; $("fixClash").textContent = problem; return; }
           closeModal();
-          refreshAfterFix();
+          refreshAfterFix(row);
+          if (onDone) onDone();
         }
       }
     ]);
     wire();
   }
 
-  /* After an edit, redraw whatever is showing the old name. */
-  function refreshAfterFix() {
+  /* After an edit, redraw whatever is showing the old name. Only the round on
+   * screen needs it — edits made from the setup screen have nothing to redraw. */
+  function refreshAfterFix(row) {
+    renderCorrections();
+    if (!game.current || (row && row.id !== game.current.id)) return;
     if (game.resolvedAs) renderFeedback();
     if (game.hintsUsed) paintHint();   // the mask spelled out the old name
   }
 
-  function openReportDialog() {
-    const vehicle = current();
+  /* Browse every entry and fix any of them, at any time. Without this the only
+   * way to reach the fix dialog is the answer panel of the round you happen to
+   * be on — notice a wrong name, hit Next, and it is gone. */
+  function openBrowser(prefill) {
+    const LIMIT = 40;
+    let query = prefill || "";
+
+    function matches(row) {
+      if (!query) return true;
+      const v = corrected(row);
+      const hay = (v.name + " " + row.name + " " + (v.aliases || []).join(" ") + " " +
+                   v.category + " " + v.era).toLowerCase();
+      return hay.indexOf(query.toLowerCase()) !== -1;
+    }
+
+    function rows() {
+      const found = VEHICLES.filter(matches);
+      const shown = found.slice(0, LIMIT);
+      const list = shown.map(function (row) {
+        const v = corrected(row);
+        const marks = [];
+        if (Corrections.isRenamed(row.id)) marks.push('<span class="browse-mark">renamed</span>');
+        if (Corrections.isHidden(row.id)) marks.push('<span class="browse-mark browse-mark-off">hidden</span>');
+        return '<button type="button" class="browse-row" data-id="' + escapeHtml(row.id) + '">' +
+               '<span class="browse-name">' + escapeHtml(v.name) + "</span>" +
+               '<span class="tag tag-quiet">' + escapeHtml(categoryLabel(v.category)) + "</span>" +
+               marks.join("") +
+               '<span class="browse-edit" aria-hidden="true">✎</span></button>';
+      }).join("");
+
+      const more = found.length > LIMIT
+        ? '<p class="modal-quiet">Showing ' + LIMIT + " of " + found.length +
+          " — keep typing to narrow it down.</p>"
+        : (found.length ? "" : '<p class="modal-quiet">Nothing matches that.</p>');
+      return '<div class="browse-list">' + list + "</div>" + more;
+    }
+
+    function render() {
+      openModal("Browse entries",
+        '<label class="field"><span>Search by name, nickname, category or era</span>' +
+        '<input type="text" id="browseSearch" placeholder="sherman, apache, WW2…" value="' +
+        escapeHtml(query) + '"></label>' +
+        '<div id="browseResults">' + rows() + "</div>",
+        [{ label: "Done", primary: true, onClick: function () { closeModal(); updatePoolNote(); } }]);
+
+      const search = $("browseSearch");
+      search.addEventListener("input", function () {
+        query = search.value;
+        $("browseResults").innerHTML = rows();
+        wireRows();
+      });
+      // Keep the caret where the player left it.
+      search.focus();
+      search.setSelectionRange(search.value.length, search.value.length);
+      wireRows();
+    }
+
+    function wireRows() {
+      Array.prototype.forEach.call(el.modalBody.querySelectorAll(".browse-row"), function (btn) {
+        btn.addEventListener("click", function () {
+          const row = VEHICLES.filter(function (v) { return v.id === btn.getAttribute("data-id"); })[0];
+          closeModal();
+          openFixDialog(row, function () { closeModal(); render(); });
+        });
+      });
+    }
+
+    render();
+  }
+
+  function openReportDialog(entry, onDone) {
+    const row = entry || game.current;
+    const vehicle = corrected(row);
     const options = Object.keys(Corrections.REASONS).map(function (key, i) {
       return '<label class="radio"><input type="radio" name="reason" value="' + key + '"' +
              (i === 0 ? " checked" : "") + "> " +
@@ -772,18 +849,20 @@
       '<label class="field"><span>Note (optional)</span>' +
       '<input type="text" id="reportNote" maxlength="200" placeholder="What should it say?"></label>' +
       '<p class="modal-quiet">The entry is hidden from future rounds in this browser.</p>', [
-      { label: "Cancel", onClick: closeModal },
+      { label: "Cancel", onClick: onDone || closeModal },
       {
         label: "Hide this entry", primary: true,
         onClick: function () {
           const picked = el.modalBody.querySelector('input[name="reason"]:checked');
           const note = $("reportNote");
-          Corrections.flag(game.current.id, picked ? picked.value : "other", note ? note.value : "");
+          Corrections.flag(row.id, picked ? picked.value : "other", note ? note.value : "");
           closeModal();
+          renderCorrections();
           // pool() already excludes hidden entries, so the picker will not
           // offer it again; just make sure it is not the one queued up next.
-          if (game.upcoming && game.upcoming.id === game.current.id) game.upcoming = null;
-          nextRound();
+          if (game.upcoming && game.upcoming.id === row.id) game.upcoming = null;
+          if (onDone) return onDone();
+          if (game.current && row.id === game.current.id) nextRound();
         }
       }
     ]);
@@ -910,6 +989,7 @@
   });
 
   el.startBtn.addEventListener("click", startGame);
+  el.browseBtn.addEventListener("click", function () { openBrowser(""); });
   el.form.addEventListener("submit", submitAnswer);
   el.hintBtn.addEventListener("click", takeHint);
   el.skipBtn.addEventListener("click", function () { resolve(null, "skipped"); });
