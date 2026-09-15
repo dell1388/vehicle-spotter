@@ -1673,9 +1673,8 @@ const VEHICLES = [
     aliases: ["Ka-52", "Ka52", "Alligator"],
     fact: "A two-seat Ka-50 with the crew sitting side by side.",
     images: [
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Russian_Air_Force_Kamov_Ka-50.jpg?width=1000", credit: "Dmitriy Pichugin / Wikimedia Commons (GFDL 1.2)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Kamov_Ka-52%2C_Russia_-_Air_Force_AN1676203.jpg?width=1000", credit: "Oleg V. Belyakov - AirTeamImages / Wikimedia Commons (CC BY-SA 3.0)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Kamov_Ka-52.jpg?width=1000", credit: "Alex Beltyukov / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Kamov_Ka-52%2C_Russia_-_Air_Force_AN1676203.jpg?width=1000", credit: "Oleg V. Belyakov - AirTeamImages / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
