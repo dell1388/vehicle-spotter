@@ -44,9 +44,11 @@ ALL.forEach(function (v, i) {
   check(lowered.indexOf(v.name.toLowerCase().trim()) === -1,
         where + ": the canonical name is repeated in aliases");
 
-  // Photos: at least one, never more than three, each with a credit.
-  check(Array.isArray(v.images) && v.images.length >= 1 && v.images.length <= 3,
-        where + ": needs between one and three images");
+  /* Photos: at least one, never more than four, each with a credit. Three come
+   * from the harvest; a fourth can arrive when someone identifies a picture in
+   * the builder and attaches it to an entry that was already full. */
+  check(Array.isArray(v.images) && v.images.length >= 1 && v.images.length <= 4,
+        where + ": needs between one and four images");
   const urls = [];
   (v.images || []).forEach(function (img) {
     check(img && typeof img.url === "string" && img.url.indexOf("https://") === 0,

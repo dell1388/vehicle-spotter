@@ -35,6 +35,7 @@ const VEHICLES = [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Tank_T-34.JPG?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Early_T-34_at_the_U.S._Army_Armor_%26_Cavalry_Collection.jpg?width=1000", credit: "Schierbecker / Wikimedia Commons (CC BY-SA 4.0)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/215%E8%99%9FT-34%E5%9D%A6%E5%85%8B.jpg?width=1000", credit: "中國軍方攝影師 / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Char_T-34.jpg?width=1000", credit: "Antonov14 / Wikimedia Commons (CC BY-SA 2.5)" },
     ]
   },
   {
@@ -3423,6 +3424,7 @@ const VEHICLES = [
     fact: "The SO-152 (Russian: СО-152), usually known by its GRAU designation 2S3 ( Russian: 2С3 ), is a Soviet 152.4 mm self-propelled gun developed in 1968, as a response to the American 155 mm M109 howitzer.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/2S3_Akatsiya_3261.jpg?width=1000", credit: "Zimin.V.G. / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/ParkPatriot2015part6-08.jpg?width=1000", credit: "Vitaly V. Kuzmin / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
   },
   {
@@ -3559,6 +3561,8 @@ const VEHICLES = [
     fact: "The BA-10 ( Russian: Броневой автомобиль 10 модель (БА-10), romanized: Bronevoy avtomobil' 10 model', lit.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Ba10_parola_1.jpg?width=1000", credit: "User:Balcer . / Wikimedia Commons (CC BY 2.5)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SovietArmouredVehicle.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_101I-013-0068-18A%2C_Polen%2C_Treffen_deutscher_und_sowjetischer_Soldaten.jpg?width=1000", credit: "Höllenthal / Wikimedia Commons (CC BY-SA 3.0 de)" },
     ]
   },
   {
@@ -3607,6 +3611,7 @@ const VEHICLES = [
     fact: "The Bishop, formal designation Ordnance QF 25-pdr on Carrier Valentine 25-pdr Mk 1, was a British self-propelled gun vehicle based on the Valentine tank and armed with the QF 25-po",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IWM-E-17430-Bishop-SP-gun-19420925.jpg?width=1000", credit: "No 1 Army Film & Photographic Unit : James (Sgt) / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/The_British_Army_in_Italy_1943_NA7710.jpg?width=1000", credit: "Gade (Lt), No 2 Army Film & Photographic Unit / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -3639,6 +3644,8 @@ const VEHICLES = [
     fact: "The BMD-2 is a Soviet airborne infantry fighting vehicle, introduced in 1985.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/BMD-2_airborne_combat_vehicle.jpg?width=1000", credit: "Rockybrown / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/106th_Guards_Airborne_Division_%28394-1%29.jpg?width=1000", credit: "Vitaly V. Kuzmin / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SlavicBrotherhood2020-09.jpg?width=1000", credit: "Ministry of Defence of the Russian Federation / Wikimedia Commons (CC BY 4.0)" },
     ]
   },
   {
@@ -3655,6 +3662,8 @@ const VEHICLES = [
     fact: "The BRDM-2 ( Russian: Боевая Разведывательная Дозорная Машина; Boyevaya Razvedyvatelnaya Dozornaya Mashina, literally \"Combat Reconnaissance/Patrol Vehicle\") is an amphibious armou",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/BRDM-2_%281964%29_owned_by_James_Stewart_pic1.JPG?width=1000", credit: "AlfvanBeem / Wikimedia Commons (CC0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SPW-40P2_%28Ch%29%2C_12._Internationales_Maritimes-Fahrzeugtreffen%2C_Ribnitz-Damgarten_%28P1060695%29.jpg?width=1000", credit: "Matti Blume / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Battle_of_Konotop_18.jpg?width=1000", credit: "ZomBear / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
   },
   {
@@ -3671,6 +3680,8 @@ const VEHICLES = [
     fact: "The BTR-60 is the first vehicle in a series of Soviet eight-wheeled armoured personnel carriers (APCs).",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/BTR-60PB_NVA.JPG?width=1000", credit: "Billyhill / Wikimedia Commons (CC BY 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/ZiL-153_in_Kubinka.JPG?width=1000", credit: "Rave ( talk ) / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Military_Vehicles_Moscow_1964.jpg?width=1000", credit: "Thomas Taylor Hammond (1920-1993) / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
   },
   {
@@ -4047,6 +4058,8 @@ const VEHICLES = [
     fact: "The 2S1 Gvozdika ( Russian: 2С1 «Гвоздика», \" Carnation \") is a Soviet self-propelled howitzer introduced in 1972 and is in service in Russia and other countries as of 2026.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/6742_-_Moscow_-_Poklonnaya_Hill_-_Tank.JPG?width=1000", credit: "Andrew Bossi / Wikimedia Commons (CC BY-SA 2.5)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%A3_%D0%9A%D0%B8%D1%94%D0%B2%D1%96_%D0%BD%D0%B0_%D0%A5%D1%80%D0%B5%D1%89%D0%B0%D1%82%D0%B8%D0%BA%D1%83_%D0%BF%D1%80%D0%BE%D0%B9%D1%88%D0%BE%D0%B2_%D0%B2%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BF%D0%B0%D1%80%D0%B0%D0%B4_%D0%B7_%D0%BD%D0%B0%D0%B3%D0%BE%D0%B4%D0%B8_27-%D1%97_%D1%80%D1%96%D1%87%D0%BD%D0%B8%D1%86%D1%96_%D0%9D%D0%B5%D0%B7%D0%B0%D0%BB%D0%B5%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%96_%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B8_%2829384512417%29.jpg?width=1000", credit: "Ministry of Defense of Ukraine / Wikimedia Commons (CC BY-SA 2.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/M1974-sp-howitzer-19910304.jpg?width=1000", credit: "SSGT Robert Reeve / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -4087,6 +4100,8 @@ const VEHICLES = [
     fact: "The Hotchkiss H35 or Char léger modèle 1935 H was a French cavalry tank developed prior to World War II.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Hotchkiss-H-39-latrun-2.jpg?width=1000", credit: "No machine-readable author provided. Bukvoed assumed (based on copyright claims). / Wikimedia Commons (CC BY 2.5)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/H_1935.jpg?width=1000", credit: "US War Department / Wikimedia Commons (PDM)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Panzer_Frankreich_1940_%28RaBoe%29.jpg?width=1000", credit: "Der Großvater von Ra Boe / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
@@ -4143,6 +4158,8 @@ const VEHICLES = [
     fact: "The Type 89 medium tank I-Go ( 八九式中戦車 イ号, Hachikyū-shiki chū-sensha I-gō ) is a medium tank used by the Imperial Japanese Army from 1932 to 1942 in combat operations of the Second",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Type_89_Yi-Go_at_Tsuchira.jpg?width=1000", credit: "User:Megapixie / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IJA_Experimental_tank_No1_01.jpg?width=1000", credit: "日本語: 日本陸軍 English: Imperial Japanese Army / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Typ_89_otsu.jpg?width=1000", credit: "Imperial Japanese Army / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -4191,6 +4208,7 @@ const VEHICLES = [
     fact: "The ISU-122 (acronym of Istrebitelnaja - or Iosif Stalin -based - Samokhodnaya Ustanovka 122 ) was a Soviet assault gun used during World War II, mostly in the anti-tank role.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/ISU-122_skos_RB.jpg?width=1000", credit: "Unknown / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Dzia%C5%82o_samobie%C5%BCne_w_Malborku.jpg?width=1000", credit: "PiotrMig / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
   },
   {
@@ -4215,6 +4233,8 @@ const VEHICLES = [
     fact: "The Jagdpanzer IV / Sd.Kfz. 162, was a German tank destroyer based on the Panzer IV chassis and built in three main variants.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Panzermuseum_Munster_2010_0449.JPG?width=1000", credit: "Banznerfahrer / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SdKfz162.jpg?width=1000", credit: "baku13 / Wikimedia Commons (CC BY-SA 2.1 jp)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/0623_-_Moskau_2015_-_Panzermuseum_Kubinka_%2826374499726%29.jpg?width=1000", credit: "Uwe Brodrecht / Wikimedia Commons (CC BY-SA 2.0)" },
     ]
   },
   {
@@ -4359,6 +4379,8 @@ const VEHICLES = [
     fact: "The LAV-25 ( Light Armored Vehicle ) is a member of the LAV II family.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/LAV-25A2.jpg?width=1000", credit: "Cpl. Nayelly Nieves-Nieves / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Marines_with_2nd_Light_Armored_Vehicle_Battalion_float_test_Light_Armored_Vehicles_140326-M-SF718-007.jpg?width=1000", credit: "Lance Cpl. Tyler Andersen / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/USMC-110314-M-2740R-106.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -4415,6 +4437,7 @@ const VEHICLES = [
     fact: "The M36 tank destroyer, formally 90 mm Gun Motor Carriage, M36, was an American tank destroyer used during World War II.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/American_tank_destroyers.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Vojna_po%C5%A1ta_Maribor_s_tankom_na_kamionu_na_dan_%C5%A1ofejev_1958.jpg?width=1000", credit: "Jože Gal (–2018) / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -4447,6 +4470,7 @@ const VEHICLES = [
     fact: "The 105 mm howitzer motor carriage M7 was an American self-propelled artillery vehicle produced during World War II.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/M7_Priest_at_APG.jpg?width=1000", credit: "en:user:Yellowute / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/The_British_Army_in_the_Normandy_Campaign_1944_B6657.2.jpg?width=1000", credit: "Christie (Sgt), No 5 Army Film & Photographic Unit / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -4603,7 +4627,7 @@ const VEHICLES = [
   },
   {
     id: "mtlb", name: "MT-LB", category: "afv", era: "Cold War", difficulty: 3,
-    aliases: ["9P149", "MT-LBT", "MT-LBV", "MTP-LB", "MT-LB TJ", "MT-LBu-P", "MT-LBu-PS", "MT-LBu-TP"],
+    aliases: ["MT-LBT", "MT-LBV", "MTP-LB", "MT-LB TJ", "MT-LBu-P", "MT-LBu-PS", "MT-LBu-TP"],
     fact: "The MT-LB ( Russian: Многоцелевой Тягач Легкий Бронированный (МТ-ЛБ), romanized: Mnogotselevoy tyagach legky bronirovanny, lit.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/RWS2017-37.jpg?width=1000", credit: "Vitaly V. Kuzmin / Wikimedia Commons (CC BY-SA 4.0)" },
@@ -4695,6 +4719,8 @@ const VEHICLES = [
     fact: "The P 26/40 was an Italian World War II heavy tank (sometimes defined medium tank when compared to tanks of other nations).",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/P26-40_tank.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Ansaldo_P40_01.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Army_parade_of_Italy_2011_46.jpg?width=1000", credit: "Nicholas Gemini / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
@@ -4743,6 +4769,7 @@ const VEHICLES = [
     fact: "The Panzerkampfwagen 35(t), commonly shortened to Panzer 35(t) or abbreviated as Pz.Kpfw.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Panzer-35.jpg?width=1000", credit: "No machine-readable author provided. MoRsE assumed (based on copyright claims). / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Pz_35T_001_russian_41.jpg?width=1000", credit: "ConnorMac12 / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
   },
   {
@@ -4902,6 +4929,8 @@ const VEHICLES = [
     fact: "The Renault R35, an abbreviation of Char léger Modèle 1935 R or R35, was a French light infantry tank of the Second World War.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Renault-R-35-latrun-2.jpg?width=1000", credit: "No machine-readable author provided. Bukvoed assumed (based on copyright claims). / Wikimedia Commons (CC BY 2.5)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/1_FI_5_49_-_Revue_militaire%2C_place_Broglie._04_octobre_1938_%28archives_de_Strasbourg%29.jpg?width=1000", credit: "Archives de Strasbourg 1 FI 5 49 (Unknown photographer) / Wikimedia Commons (see file page)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/R-35-Aberdeen.0003kprx.jpg?width=1000", credit: "User:Fat yankey / Wikimedia Commons (CC BY-SA 2.5)" },
     ]
   },
   {
@@ -4981,6 +5010,7 @@ const VEHICLES = [
     fact: "The Sd.Kfz. 234 ( Sonderkraftfahrzeug 234, Special Purpose Vehicle 234), was a family of armoured cars designed and built in Germany during World War II.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sd.Kfz_234-2_front-diagonal_view.jpg?width=1000", credit: "Unknown author / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Niemieckie_samochody_pancerne_%282-13060%29.jpg?width=1000", credit: "Kempe / Wikimedia Commons (PDM)" },
     ]
   },
   {
@@ -5117,6 +5147,7 @@ const VEHICLES = [
     fact: "The Sturmgeschütz IV (StuG IV) (Sd.Kfz.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sturmgeschutz_iv_Muzeum_Broni_Pancernej_CSWL_2.JPG?width=1000", credit: "Maciej Borun ( Maciej.borun ( talk )) / Wikimedia Commons (CC BY 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Przybycie_niemieckich_posi%C5%82k%C3%B3w_wojskowych_do_Salonik_%282-597%29.jpg?width=1000", credit: "Teschendorf / Wikimedia Commons (PDM)" },
     ]
   },
   {
@@ -5165,6 +5196,7 @@ const VEHICLES = [
     fact: "The SU-76 ( Samokhodnaya Ustanovka 76 ) was a Soviet light self-propelled gun used during and after World War II.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Su76_nn.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/National_Museum_of_Military_History%2C_Bulgaria%2C_Sofia_2012_PD_229.jpg?width=1000", credit: "Bin im Garten / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
@@ -5221,6 +5253,7 @@ const VEHICLES = [
     fact: "The T-44 was a medium tank developed and produced near the end of World War II by the Soviet Union.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T_44_in_Linija_Stalina_%28Belarus%29.jpg?width=1000", credit: "Yozas gubka / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%A1%D1%80%D0%B5%D0%B4%D0%BD%D0%B8%D0%B9_%D1%82%D0%B0%D0%BD%D0%BA_%D0%A2-44_%D0%B7%D0%BD%D0%B0%D0%BC%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_pic1.JPG?width=1000", credit: "Alf van Beem / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -5245,6 +5278,7 @@ const VEHICLES = [
     fact: "The T-60 scout tank was a light tank produced by the Soviet Union from 1941 to 1942.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T-60_%E2%80%98A_-_2317%E2%80%99_-_Patriot_Museum%2C_Kubinka_%2824524755458%29.jpg?width=1000", credit: "Alan Wilson from Stilton, Peterborough, Cambs, UK / Wikimedia Commons (CC BY-SA 2.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_183-J19893%2C_Russland%2C_Cholm_russischer_Beutepanzer.jpg?width=1000", credit: "Muck, Richard / Wikimedia Commons (CC BY-SA 3.0 de)" },
     ]
   },
   {
@@ -5253,6 +5287,7 @@ const VEHICLES = [
     fact: "The T-70 is a light tank used by the Red Army during World War II, replacing both the T-60 scout tank for reconnaissance and the T-50 light infantry tank for infantry support.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T-70%2C_technical_museum%2C_Togliatti-1.jpg?width=1000", credit: "ShinePhantom / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%A2%D0%B0%D0%BD%D0%BA_%D0%A2-70_%28%D0%9C%D0%B5%D0%BB%D0%B8%D1%82%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C%2C_2018%29.jpg?width=1000", credit: "Стоялов Максим / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
   },
   {
@@ -5389,6 +5424,8 @@ const VEHICLES = [
     fact: "The Universal Carrier, popularly known as the Bren Gun Carrier from its light machine gun armament, was a British armoured tracked vehicle of the Second World War.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Universal_carrier_%28mortar_carrier%29_9-08-2008_14-53-48_%282%29.JPG?width=1000", credit: "Paul Hermans / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/The_British_Army_in_the_United_Kingdom_1939-45_H25279.jpg?width=1000", credit: "Lockeyear W T (Lt), War Office official photographer / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/The_British_Army_in_France_1939-40_O570.jpg?width=1000", credit: "Keating G (Lt), War Office official photographer / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -5429,6 +5466,7 @@ const VEHICLES = [
     fact: "The Wiesel is a German light air-transportable armoured fighting vehicle or armoured weapons carrier ( German: Waffenträger ), produced by Rheinmetall.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/LLWaTrg_Wiesel_1.JPG?width=1000", credit: "Billyhill / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Panzermuseum_Munster_2010_1007_%281%29.JPG?width=1000", credit: "Banznerfahrer / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
@@ -5485,6 +5523,48 @@ const VEHICLES = [
     fact: "The ZSU-57-2 Ob'yekt 500 is a Soviet self-propelled anti-aircraft gun (SPAAG), armed with two 57 mm autocannons.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/ZSU-57-2_Hun_2010_02.jpg?width=1000", credit: "User:VargaA / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+
+  /* -------------------------------------------- IDENTIFIED BY HAND */
+  {
+    id: "tacam_r2", name: "TACAM R-2", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["Tank Destroyer Tacam R-2"],
+    fact: "The TACAM R-2 (Tun Anticar pe Afet Mobil R-2 – \"Anti-tank gun on R-2 mobile gun carriage\") was a Romanian tank destroyer used during World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/TACAM_R-2_tank_destroyer.JPG?width=1000", credit: "Mircea87 / Wikimedia Commons (GFDL)" },
+    ]
+  },
+  {
+    id: "maresal", name: "Mareșal", category: "tank", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Mareșal (meaning \"marshal\"), also known as the M-tank, was a Romanian-produced light tank destroyer from World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mare%C8%99al_tank_destroyer_M-00_prototype.jpg?width=1000", credit: "Unknown author / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "ozelot", name: "Ozelot", category: "afv", era: "Modern", difficulty: 3,
+    aliases: ["LeFlaSys Ozelot", "Wiesel 2 Ozelot", "LeFlaSys"],
+    fact: "A Wiesel 2 carrying four Stinger missiles, small enough to be flown in by helicopter.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Ozelot.jpg?width=1000", credit: "Thomas Hartwig, / Wikimedia Commons (CC BY 2.0 de)" },
+    ]
+  },
+  {
+    id: "shturm_s", name: "Shturm-S", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["9P149", "9K114 Shturm", "Shturm", "AT-6 Spiral"],
+    fact: "An MT-LB carrying a retractable launcher for AT-6 Spiral anti-tank missiles.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%A8%D1%82%D1%83%D1%80%D0%BC-%D0%A1_-_%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0_%D0%BA%D1%83%D1%80%D1%81%D0%B0%D0%BD%D1%82%D0%BE%D0%B2_%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D1%86%D0%B5%D0%BD%D1%82%D1%80%D0%B0_%D0%B1%D0%BE%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F_%D1%80%D0%B0%D0%BA%D0%B5%D1%82%D0%BD%D1%8B%D1%85_%D0%B2%D0%BE%D0%B9%D1%81%D0%BA_%D0%B8_%D0%B0%D1%80%D1%82%D0%B8%D0%BB%D0%BB%D0%B5%D1%80%D0%B8%D0%B8_02.jpg?width=1000", credit: "Ольги Балашовой, Вадима Савицкого / Wikimedia Commons (CC BY 4.0)" },
+    ]
+  },
+  {
+    id: "sparka", name: "Sparka", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["ZSU-57-2 Sparka", "Type 80 SPAAG"],
+    fact: "A twin 57 mm self-propelled anti-aircraft gun; 'sparka' is Russian for a coupled pair.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Type_80_57mm_anti-aircraft_artillery_20251112.jpg?width=1000", credit: "颐园居 / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
   },
 ];

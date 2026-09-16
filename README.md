@@ -4,8 +4,8 @@ A browser quiz: name what is in the photo. Tanks, armoured fighting vehicles,
 aircraft, helicopters, missiles and artillery, plus a few cars and ships, across
 six eras from the Age of Sail to the present.
 
-621 entries. Many carry two or three different photographs and a round shows one
-of them at random, so a vehicle cannot be answered by memorising one picture.
+626 entries. Many carry several different photographs and a round shows one of
+them at random, so a vehicle cannot be answered by memorising one picture.
 
 No build step, no dependencies. Open `index.html` in a browser and play.
 

@@ -1,0 +1,91 @@
+[
+ {
+  "id": "tacam_r2",
+  "name": "TACAM R-2",
+  "category": "tank",
+  "era": "WW2",
+  "difficulty": 3,
+  "aliases": [
+   "Tank Destroyer Tacam R-2"
+  ],
+  "fact": "The TACAM R-2 (Tun Anticar pe Afet Mobil R-2 \u2013 \"Anti-tank gun on R-2 mobile gun carriage\") was a Romanian tank destroyer used during World War II.",
+  "images": [
+   {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/TACAM_R-2_tank_destroyer.JPG?width=1000",
+    "credit": "Mircea87 / Wikimedia Commons (GFDL)"
+   }
+  ]
+ },
+ {
+  "id": "maresal",
+  "name": "Mare\u0219al",
+  "category": "tank",
+  "era": "WW2",
+  "difficulty": 3,
+  "aliases": [],
+  "fact": "The Mare\u0219al (meaning \"marshal\"), also known as the M-tank, was a Romanian-produced light tank destroyer from World War II.",
+  "images": [
+   {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mare%C8%99al_tank_destroyer_M-00_prototype.jpg?width=1000",
+    "credit": "Unknown author / Wikimedia Commons (CC BY-SA 3.0)"
+   }
+  ]
+ },
+ {
+  "id": "ozelot",
+  "name": "Ozelot",
+  "category": "afv",
+  "era": "Modern",
+  "difficulty": 3,
+  "aliases": [
+   "LeFlaSys Ozelot",
+   "Wiesel 2 Ozelot",
+   "LeFlaSys"
+  ],
+  "fact": "A Wiesel 2 carrying four Stinger missiles, small enough to be flown in by helicopter.",
+  "images": [
+   {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ozelot.jpg?width=1000",
+    "credit": "Thomas Hartwig, / Wikimedia Commons (CC BY 2.0 de)"
+   }
+  ]
+ },
+ {
+  "id": "shturm_s",
+  "name": "Shturm-S",
+  "category": "afv",
+  "era": "Cold War",
+  "difficulty": 3,
+  "aliases": [
+   "9P149",
+   "9K114 Shturm",
+   "Shturm",
+   "AT-6 Spiral"
+  ],
+  "fact": "An MT-LB carrying a retractable launcher for AT-6 Spiral anti-tank missiles.",
+  "images": [
+   {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%A8%D1%82%D1%83%D1%80%D0%BC-%D0%A1_-_%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0_%D0%BA%D1%83%D1%80%D1%81%D0%B0%D0%BD%D1%82%D0%BE%D0%B2_%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D1%86%D0%B5%D0%BD%D1%82%D1%80%D0%B0_%D0%B1%D0%BE%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F_%D1%80%D0%B0%D0%BA%D0%B5%D1%82%D0%BD%D1%8B%D1%85_%D0%B2%D0%BE%D0%B9%D1%81%D0%BA_%D0%B8_%D0%B0%D1%80%D1%82%D0%B8%D0%BB%D0%BB%D0%B5%D1%80%D0%B8%D0%B8_02.jpg?width=1000",
+    "credit": "\u041e\u043b\u044c\u0433\u0438 \u0411\u0430\u043b\u0430\u0448\u043e\u0432\u043e\u0439, \u0412\u0430\u0434\u0438\u043c\u0430 \u0421\u0430\u0432\u0438\u0446\u043a\u043e\u0433\u043e / Wikimedia Commons (CC BY 4.0)"
+   }
+  ]
+ },
+ {
+  "id": "sparka",
+  "name": "Sparka",
+  "category": "afv",
+  "era": "Cold War",
+  "difficulty": 3,
+  "aliases": [
+   "ZSU-57-2 Sparka",
+   "Type 80 SPAAG"
+  ],
+  "fact": "A twin 57 mm self-propelled anti-aircraft gun; 'sparka' is Russian for a coupled pair.",
+  "images": [
+   {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Type_80_57mm_anti-aircraft_artillery_20251112.jpg?width=1000",
+    "credit": "\u9890\u56ed\u5c45 / Wikimedia Commons (CC BY-SA 4.0)"
+   }
+  ]
+ }
+]

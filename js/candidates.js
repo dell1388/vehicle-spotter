@@ -8,82 +8,10 @@
  */
 const CANDIDATES = [
   {
-    id: "panzer35t__pz_35t_001_russian_41_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Pz_35T_001_russian_41.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Panzer 35(t)", entry: "panzer35t", category: "tank", era: "WW2"
-  },
-  {
-    id: "panzer35t__tacam_r_2_tank_destroyer_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/TACAM_R-2_tank_destroyer.JPG?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Panzer 35(t)", entry: "panzer35t", category: "tank", era: "WW2"
-  },
-  {
-    id: "stug4__przybycie_niemieckich_posi_k_w_wojskowyc",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Przybycie_niemieckich_posi%C5%82k%C3%B3w_wojskowych_do_Salonik_%282-597%29.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Sturmgeschütz IV", entry: "stug4", category: "tank", era: "WW2"
-  },
-  {
-    id: "jagdpanzer4__sdkfz162_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/SdKfz162.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Jagdpanzer IV", entry: "jagdpanzer4", category: "tank", era: "WW2"
-  },
-  {
-    id: "jagdpanzer4__0623_moskau_2015_panzermuseum_kubinka_26",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/0623_-_Moskau_2015_-_Panzermuseum_Kubinka_%2826374499726%29.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Jagdpanzer IV", entry: "jagdpanzer4", category: "tank", era: "WW2"
-  },
-  {
     id: "su76__ungheria_jpg",
     url: "https://commons.wikimedia.org/wiki/Special:FilePath/UNGHERIA.jpg?width=1000",
     credit: "Wikimedia Commons — see the file page",
     hint: "SU-76", entry: "su76", category: "tank", era: "WW2"
-  },
-  {
-    id: "su76__national_museum_of_military_history_bulg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/National_Museum_of_Military_History%2C_Bulgaria%2C_Sofia_2012_PD_229.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "SU-76", entry: "su76", category: "tank", era: "WW2"
-  },
-  {
-    id: "isu122__dzia_o_samobie_ne_w_malborku_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Dzia%C5%82o_samobie%C5%BCne_w_Malborku.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "ISU-122", entry: "isu122", category: "tank", era: "WW2"
-  },
-  {
-    id: "t44__char_t_34_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Char_T-34.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "T-44", entry: "t44", category: "tank", era: "WW2"
-  },
-  {
-    id: "t44___44_pic1_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%A1%D1%80%D0%B5%D0%B4%D0%BD%D0%B8%D0%B9_%D1%82%D0%B0%D0%BD%D0%BA_%D0%A2-44_%D0%B7%D0%BD%D0%B0%D0%BC%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_pic1.JPG?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "T-44", entry: "t44", category: "tank", era: "WW2"
-  },
-  {
-    id: "t60__bundesarchiv_bild_183_j19893_russland_ch",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_183-J19893%2C_Russland%2C_Cholm_russischer_Beutepanzer.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "T-60 tank", entry: "t60", category: "tank", era: "WW2"
-  },
-  {
-    id: "t60__mare_al_tank_destroyer_m_00_prototype_jp",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mare%C8%99al_tank_destroyer_M-00_prototype.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "T-60 tank", entry: "t60", category: "tank", era: "WW2"
-  },
-  {
-    id: "t70___70_2018_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%A2%D0%B0%D0%BD%D0%BA_%D0%A2-70_%28%D0%9C%D0%B5%D0%BB%D0%B8%D1%82%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C%2C_2018%29.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "T-70", entry: "t70", category: "tank", era: "WW2"
   },
   {
     id: "m8_greyhound__t22_armored_car_haugh_jpg",
@@ -104,64 +32,10 @@ const CANDIDATES = [
     hint: "M36 tank destroyer", entry: "m36", category: "tank", era: "WW2"
   },
   {
-    id: "m36__vojna_po_ta_maribor_s_tankom_na_kamionu_",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Vojna_po%C5%A1ta_Maribor_s_tankom_na_kamionu_na_dan_%C5%A1ofejev_1958.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "M36 tank destroyer", entry: "m36", category: "tank", era: "WW2"
-  },
-  {
-    id: "m7_priest__the_british_army_in_the_normandy_campaig",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/The_British_Army_in_the_Normandy_Campaign_1944_B6657.2.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "M7 Priest", entry: "m7_priest", category: "artillery", era: "WW2"
-  },
-  {
-    id: "bishop__the_british_army_in_italy_1943_na7710_jp",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/The_British_Army_in_Italy_1943_NA7710.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Bishop", entry: "bishop", category: "artillery", era: "WW2"
-  },
-  {
     id: "comet_tank__armoured_maintenance_vehicle_jpg",
     url: "https://commons.wikimedia.org/wiki/Special:FilePath/Armoured_Maintenance_Vehicle.jpg?width=1000",
     credit: "Wikimedia Commons — see the file page",
     hint: "Comet", entry: "comet_tank", category: "tank", era: "WW2"
-  },
-  {
-    id: "renault_r35__1_fi_5_49_revue_militaire_place_broglie_",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/1_FI_5_49_-_Revue_militaire%2C_place_Broglie._04_octobre_1938_%28archives_de_Strasbourg%29.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Renault R35", entry: "renault_r35", category: "tank", era: "WW2"
-  },
-  {
-    id: "renault_r35__r_35_aberdeen_0003kprx_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/R-35-Aberdeen.0003kprx.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Renault R35", entry: "renault_r35", category: "tank", era: "WW2"
-  },
-  {
-    id: "hotchkiss_h35__h_1935_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/H_1935.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Hotchkiss H35", entry: "hotchkiss_h35", category: "tank", era: "WW2"
-  },
-  {
-    id: "hotchkiss_h35__panzer_frankreich_1940_raboe_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Panzer_Frankreich_1940_%28RaBoe%29.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Hotchkiss H35", entry: "hotchkiss_h35", category: "tank", era: "WW2"
-  },
-  {
-    id: "p2640__ansaldo_p40_01_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Ansaldo_P40_01.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "P26/40 tank", entry: "p2640", category: "tank", era: "WW2"
-  },
-  {
-    id: "p2640__army_parade_of_italy_2011_46_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Army_parade_of_Italy_2011_46.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "P26/40 tank", entry: "p2640", category: "tank", era: "WW2"
   },
   {
     id: "ab41__desant_strzelc_w_niemieckich_na_froncie_",
@@ -182,24 +56,6 @@ const CANDIDATES = [
     hint: "Type 4 Chi-To medium tank", entry: "chi_to", category: "tank", era: "WW2"
   },
   {
-    id: "igo__ija_experimental_tank_no1_01_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/IJA_Experimental_tank_No1_01.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Type 89 I-Go medium tank", entry: "igo", category: "tank", era: "WW2"
-  },
-  {
-    id: "igo__typ_89_otsu_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Typ_89_otsu.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Type 89 I-Go medium tank", entry: "igo", category: "tank", era: "WW2"
-  },
-  {
-    id: "sdkfz234__niemieckie_samochody_pancerne_2_13060_jp",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Niemieckie_samochody_pancerne_%282-13060%29.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Sd.Kfz. 234", entry: "sdkfz234", category: "afv", era: "WW2"
-  },
-  {
     id: "sdkfz234__tatra103_jpg",
     url: "https://commons.wikimedia.org/wiki/Special:FilePath/Tatra103.jpg?width=1000",
     credit: "Wikimedia Commons — see the file page",
@@ -210,30 +66,6 @@ const CANDIDATES = [
     url: "https://commons.wikimedia.org/wiki/Special:FilePath/SdKfz222.jpg?width=1000",
     credit: "Wikimedia Commons — see the file page",
     hint: "Leichter Panzerspähwagen", entry: "sdkfz222", category: "afv", era: "WW2"
-  },
-  {
-    id: "ba10__sovietarmouredvehicle_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/SovietArmouredVehicle.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "BA-10", entry: "ba10", category: "afv", era: "WW2"
-  },
-  {
-    id: "ba10__bundesarchiv_bild_101i_013_0068_18a_pole",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_101I-013-0068-18A%2C_Polen%2C_Treffen_deutscher_und_sowjetischer_Soldaten.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "BA-10", entry: "ba10", category: "afv", era: "WW2"
-  },
-  {
-    id: "universal_carrier__the_british_army_in_the_united_kingdom_1",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/The_British_Army_in_the_United_Kingdom_1939-45_H25279.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Universal Carrier", entry: "universal_carrier", category: "afv", era: "WW2"
-  },
-  {
-    id: "universal_carrier__the_british_army_in_france_1939_40_o570_",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/The_British_Army_in_France_1939-40_O570.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Universal Carrier", entry: "universal_carrier", category: "afv", era: "WW2"
   },
   {
     id: "dukw__mobyduck_jpg",
@@ -254,48 +86,6 @@ const CANDIDATES = [
     hint: "Flakpanzer Gepard", entry: "gepard", category: "afv", era: "Cold War"
   },
   {
-    id: "wiesel__ozelot_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Ozelot.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Wiesel", entry: "wiesel", category: "afv", era: "Modern"
-  },
-  {
-    id: "wiesel__panzermuseum_munster_2010_1007_1_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Panzermuseum_Munster_2010_1007_%281%29.JPG?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "Wiesel", entry: "wiesel", category: "afv", era: "Modern"
-  },
-  {
-    id: "brdm2__spw_40p2_ch_12_internationales_maritimes",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/SPW-40P2_%28Ch%29%2C_12._Internationales_Maritimes-Fahrzeugtreffen%2C_Ribnitz-Damgarten_%28P1060695%29.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "BRDM-2", entry: "brdm2", category: "afv", era: "Cold War"
-  },
-  {
-    id: "brdm2__battle_of_konotop_18_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Battle_of_Konotop_18.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "BRDM-2", entry: "brdm2", category: "afv", era: "Cold War"
-  },
-  {
-    id: "btr60__zil_153_in_kubinka_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/ZiL-153_in_Kubinka.JPG?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "BTR-60", entry: "btr60", category: "afv", era: "Cold War"
-  },
-  {
-    id: "btr60__military_vehicles_moscow_1964_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Military_Vehicles_Moscow_1964.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "BTR-60", entry: "btr60", category: "afv", era: "Cold War"
-  },
-  {
-    id: "mtlb___02_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%A8%D1%82%D1%83%D1%80%D0%BC-%D0%A1_-_%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0_%D0%BA%D1%83%D1%80%D1%81%D0%B0%D0%BD%D1%82%D0%BE%D0%B2_%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D1%86%D0%B5%D0%BD%D1%82%D1%80%D0%B0_%D0%B1%D0%BE%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F_%D1%80%D0%B0%D0%BA%D0%B5%D1%82%D0%BD%D1%8B%D1%85_%D0%B2%D0%BE%D0%B9%D1%81%D0%BA_%D0%B8_%D0%B0%D1%80%D1%82%D0%B8%D0%BB%D0%BB%D0%B5%D1%80%D0%B8%D0%B8_02.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "MT-LB", entry: "mtlb", category: "afv", era: "Cold War"
-  },
-  {
     id: "mtlb__mt_lbmb_with_mb2_combat_module_bronnitsy",
     url: "https://commons.wikimedia.org/wiki/Special:FilePath/MT-LBMB_with_MB2_combat_module_-_Bronnitsy_test_range.jpg?width=1000",
     credit: "Wikimedia Commons — see the file page",
@@ -314,52 +104,16 @@ const CANDIDATES = [
     hint: "BMP-3", entry: "bmp3", category: "afv", era: "Modern"
   },
   {
-    id: "bmd2__106th_guards_airborne_division_394_1_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/106th_Guards_Airborne_Division_%28394-1%29.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "BMD-2", entry: "bmd2", category: "afv", era: "Cold War"
-  },
-  {
-    id: "bmd2__slavicbrotherhood2020_09_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/SlavicBrotherhood2020-09.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "BMD-2", entry: "bmd2", category: "afv", era: "Cold War"
-  },
-  {
     id: "shilka__naboj23_mm_jpg",
     url: "https://commons.wikimedia.org/wiki/Special:FilePath/Naboj23_mm.jpg?width=1000",
     credit: "Wikimedia Commons — see the file page",
     hint: "ZSU-23-4 Shilka", entry: "shilka", category: "afv", era: "Cold War"
   },
   {
-    id: "zsu572__type_80_57mm_anti_aircraft_artillery_202",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Type_80_57mm_anti-aircraft_artillery_20251112.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "ZSU-57-2", entry: "zsu572", category: "afv", era: "Cold War"
-  },
-  {
     id: "zsu572__iranian_army_ground_forces_new_equipment",
     url: "https://commons.wikimedia.org/wiki/Special:FilePath/Iranian_Army_Ground_Forces_New_Equipment_2019_%2832%29.jpg?width=1000",
     credit: "Wikimedia Commons — see the file page",
     hint: "ZSU-57-2", entry: "zsu572", category: "afv", era: "Cold War"
-  },
-  {
-    id: "gvozdika___27_29384512417_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%A3_%D0%9A%D0%B8%D1%94%D0%B2%D1%96_%D0%BD%D0%B0_%D0%A5%D1%80%D0%B5%D1%89%D0%B0%D1%82%D0%B8%D0%BA%D1%83_%D0%BF%D1%80%D0%BE%D0%B9%D1%88%D0%BE%D0%B2_%D0%B2%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BF%D0%B0%D1%80%D0%B0%D0%B4_%D0%B7_%D0%BD%D0%B0%D0%B3%D0%BE%D0%B4%D0%B8_27-%D1%97_%D1%80%D1%96%D1%87%D0%BD%D0%B8%D1%86%D1%96_%D0%9D%D0%B5%D0%B7%D0%B0%D0%BB%D0%B5%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%96_%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B8_%2829384512417%29.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "2S1 Gvozdika", entry: "gvozdika", category: "artillery", era: "Cold War"
-  },
-  {
-    id: "gvozdika__m1974_sp_howitzer_19910304_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/M1974-sp-howitzer-19910304.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "2S1 Gvozdika", entry: "gvozdika", category: "artillery", era: "Cold War"
-  },
-  {
-    id: "akatsiya__parkpatriot2015part6_08_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/ParkPatriot2015part6-08.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "2S3 Akatsiya", entry: "akatsiya", category: "artillery", era: "Cold War"
   },
   {
     id: "m110__mk33_jpg",
@@ -384,18 +138,6 @@ const CANDIDATES = [
     url: "https://commons.wikimedia.org/wiki/Special:FilePath/FLCross.jpg?width=1000",
     credit: "Wikimedia Commons — see the file page",
     hint: "M88 recovery vehicle", entry: "m88", category: "afv", era: "Cold War"
-  },
-  {
-    id: "lav25__marines_with_2nd_light_armored_vehicle_b",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Marines_with_2nd_Light_Armored_Vehicle_Battalion_float_test_Light_Armored_Vehicles_140326-M-SF718-007.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "LAV-25", entry: "lav25", category: "afv", era: "Modern"
-  },
-  {
-    id: "lav25__usmc_110314_m_2740r_106_jpg",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/USMC-110314-M-2740R-106.jpg?width=1000",
-    credit: "Wikimedia Commons — see the file page",
-    hint: "LAV-25", entry: "lav25", category: "afv", era: "Modern"
   },
   {
     id: "aav7__aav_australia_jpg",
@@ -1206,6 +948,264 @@ const CANDIDATES = [
     url: "https://commons.wikimedia.org/wiki/Special:FilePath/C32-B_air_to_air_UARRSI.jpg?width=1000",
     credit: "Wikimedia Commons — see the file page",
     hint: "Boeing 757", entry: "b757", category: "plane", era: "Cold War"
+  },
+  {
+    id: "b757__hp_2010dae_aerial_view_of_accident_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/HP-2010DAE_aerial_view_of_accident.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Boeing 757", entry: "b757", category: "plane", era: "Cold War"
+  },
+  {
+    id: "b767__oe_lax_pek_20190730085828_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/OE-LAX%40PEK_%2820190730085828%29.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Boeing 767", entry: "b767", category: "plane", era: "Cold War"
+  },
+  {
+    id: "b767__n107fe_pek_20190520150305_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/N107FE%40PEK_%2820190520150305%29.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Boeing 767", entry: "b767", category: "plane", era: "Cold War"
+  },
+  {
+    id: "il18__il_18_700px_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/IL-18-700px.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Ilyushin Il-18", entry: "il18", category: "plane", era: "Cold War"
+  },
+  {
+    id: "il18__hans_grade_museum_03_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Hans-Grade-Museum_03.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Ilyushin Il-18", entry: "il18", category: "plane", era: "Cold War"
+  },
+  {
+    id: "il62__il62_1_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/IL62_1.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Ilyushin Il-62", entry: "il62", category: "plane", era: "Cold War"
+  },
+  {
+    id: "il62__il62_2_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/IL62_2.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Ilyushin Il-62", entry: "il62", category: "plane", era: "Cold War"
+  },
+  {
+    id: "tu134__ha_lbh_at_sinsheim_9517017343_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/HA-LBH_at_Sinsheim_%289517017343%29.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Tupolev Tu-134", entry: "tu134", category: "plane", era: "Cold War"
+  },
+  {
+    id: "tu154__kiev_ukraine_1076_state_aviation_museum_",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Kiev_ukraine_1076_state_aviation_museum_zhulyany_%2825%29_%285869577851%29.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Tupolev Tu-154", entry: "tu154", category: "plane", era: "Cold War"
+  },
+  {
+    id: "an12__001_an_12_malmo_airport_sweden_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/001_An-12%2C_Malmo_Airport%2C_Sweden.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Antonov An-12", entry: "an12", category: "plane", era: "Cold War"
+  },
+  {
+    id: "an22__an_22_front_view_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/An-22._Front_view.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Antonov An-22", entry: "an22", category: "plane", era: "Cold War"
+  },
+  {
+    id: "an22__an_22_bottom_view_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/An-22._Bottom_view.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Antonov An-22", entry: "an22", category: "plane", era: "Cold War"
+  },
+  {
+    id: "an26__antonow_an_26_inside_dmitry_belov_1898_j",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Antonow_An-26_inside_Dmitry_Belov_1898.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Antonov An-26", entry: "an26", category: "plane", era: "Cold War"
+  },
+  {
+    id: "an26__an_26_808_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/An-26_808.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Antonov An-26", entry: "an26", category: "plane", era: "Cold War"
+  },
+  {
+    id: "mig17__pzl_mielec_lim_5_408_13291122204_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/PZL-Mielec_Lim-5_%27408%27_%2813291122204%29.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Mikoyan-Gurevich MiG-17", entry: "mig17", category: "plane", era: "Cold War"
+  },
+  {
+    id: "mig17__luu_huy_chao_le_hai_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Luu_Huy_Chao_%26_Le_Hai.JPG?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Mikoyan-Gurevich MiG-17", entry: "mig17", category: "plane", era: "Cold War"
+  },
+  {
+    id: "mig27__sri_lanka_military_0031_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sri_Lanka_Military_0031.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Mikoyan MiG-27", entry: "mig27", category: "plane", era: "Cold War"
+  },
+  {
+    id: "su7__su_7b_fitter_a_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Su-7B_Fitter_A.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Sukhoi Su-7", entry: "su7", category: "plane", era: "Cold War"
+  },
+  {
+    id: "su7__su_20_military_museum_of_egypt_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Su-20_Military_Museum_of_Egypt.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Sukhoi Su-7", entry: "su7", category: "plane", era: "Cold War"
+  },
+  {
+    id: "su17__su_7_and_su_17_side_by_side_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/SU-7_and_Su-17_side_by_side.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Sukhoi Su-17", entry: "su17", category: "plane", era: "Cold War"
+  },
+  {
+    id: "su17__su_17m_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Su-17M.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Sukhoi Su-17", entry: "su17", category: "plane", era: "Cold War"
+  },
+  {
+    id: "il28__c01_152_il_28_hecksch_tzenstand_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/C01_152_Il_28%2C_Hecksch%C3%BCtzenstand.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Ilyushin Il-28", entry: "il28", category: "plane", era: "Cold War"
+  },
+  {
+    id: "il28__il_28_bomb_rack_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Il-28_bomb_rack.JPG?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Ilyushin Il-28", entry: "il28", category: "plane", era: "Cold War"
+  },
+  {
+    id: "m4_bison__soviet_m_4_bison_bomber_in_flight_1982_j",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Soviet_M-4_Bison_bomber_in_flight_1982.JPEG?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Myasishchev M-4", entry: "m4_bison", category: "plane", era: "Cold War"
+  },
+  {
+    id: "m4_bison__f_14a_tomcat_vf_102_intercepting_myasisc",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/F-14A_Tomcat_VF-102_intercepting_Myasischev_3M_Bison_c1983.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Myasishchev M-4", entry: "m4_bison", category: "plane", era: "Cold War"
+  },
+  {
+    id: "sea_fury__airplane_in_museo_giron_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Airplane_in_Museo_Giron.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Hawker Sea Fury", entry: "sea_fury", category: "plane", era: "Cold War"
+  },
+  {
+    id: "sea_vixen__xj565_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Xj565.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "de Havilland Sea Vixen", entry: "sea_vixen", category: "plane", era: "Cold War"
+  },
+  {
+    id: "scimitar_jet__us_navy_and_royal_navy_aircraft_refuelin",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/US_Navy_and_Royal_Navy_aircraft_refueling_c1962.jpeg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Supermarine Scimitar", entry: "scimitar_jet", category: "plane", era: "Cold War"
+  },
+  {
+    id: "draken__a_sample_of_the_new_swedish_fighter_plan",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/A-sample-of-the-new-Swedish-fighter-plane-Dragon-391772991791.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Saab 35 Draken", entry: "draken", category: "plane", era: "Cold War"
+  },
+  {
+    id: "draken__fvmf_002888_cropped_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/FVMF.002888_%28cropped%29.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Saab 35 Draken", entry: "draken", category: "plane", era: "Cold War"
+  },
+  {
+    id: "viggen__goteborg_volvo_museum_09_rm8_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Goteborg_Volvo_Museum_09_RM8.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Saab 37 Viggen", entry: "viggen", category: "plane", era: "Cold War"
+  },
+  {
+    id: "viggen__ja_37d_tail_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/JA_37D_tail.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Saab 37 Viggen", entry: "viggen", category: "plane", era: "Cold War"
+  },
+  {
+    id: "tunnan__j_29_jets_in_the_congo_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/J-29_jets_in_the_Congo.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Saab 29 Tunnan", entry: "tunnan", category: "plane", era: "Cold War"
+  },
+  {
+    id: "tunnan__j_29a2_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/J_29A2.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Saab 29 Tunnan", entry: "tunnan", category: "plane", era: "Cold War"
+  },
+  {
+    id: "super_etendard__cdg_photo173_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/CdG-photo173.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Dassault-Breguet Super Étendard", entry: "super_etendard", category: "plane", era: "Cold War"
+  },
+  {
+    id: "super_etendard__suereabasteciendo1_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/SUEreabasteciendo1.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Dassault-Breguet Super Étendard", entry: "super_etendard", category: "plane", era: "Cold War"
+  },
+  {
+    id: "ouragan__ic578_13988546811_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/IC578_%2813988546811%29.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Dassault Ouragan", entry: "ouragan", category: "plane", era: "Cold War"
+  },
+  {
+    id: "g91__g_91_r_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/G_91_r.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Fiat G.91", entry: "g91", category: "plane", era: "Cold War"
+  },
+  {
+    id: "g91__g_91_at_malignani_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/G-91_at_Malignani.JPG?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Fiat G.91", entry: "g91", category: "plane", era: "Cold War"
+  },
+  {
+    id: "mb339__al_fursan_2016_marrakech_airshow_8_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Al_Fursan_-_2016_Marrakech_Airshow_%288%29.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Aermacchi MB-339", entry: "mb339", category: "plane", era: "Cold War"
+  },
+  {
+    id: "mb339__freccetricolori01_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/FrecceTricolori01.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Aermacchi MB-339", entry: "mb339", category: "plane", era: "Cold War"
+  },
+  {
+    id: "alpha_jet__alfa_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Alfa.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Dassault/Dornier Alpha Jet", entry: "alpha_jet", category: "plane", era: "Cold War"
+  },
+  {
+    id: "shackleton__aps_20_radar_jpg",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/APS-20_Radar.jpg?width=1000",
+    credit: "Wikimedia Commons — see the file page",
+    hint: "Avro Shackleton", entry: "shackleton", category: "plane", era: "Cold War"
   },
 ];
 
