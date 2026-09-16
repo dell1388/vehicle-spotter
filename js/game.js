@@ -232,6 +232,12 @@
         case "dropped":
           what = '“' + escapeHtml(item.value) + '” no longer accepted';
           break;
+        case "added":
+          what = "a picture you attached";
+          break;
+        case "image":
+          what = "a picture you removed";
+          break;
         default:
           what = "hidden — " + escapeHtml(item.value) +
                  (item.note ? ": " + escapeHtml(item.note) : "");
@@ -1137,6 +1143,7 @@
   Builder.init({
     openModal: openModal,
     closeModal: closeModal,
+    showToast: showToast,
     // A new entry changes the pool, so the counts and note have to catch up.
     onChange: function () { updatePoolNote(); renderProgress(); }
   });

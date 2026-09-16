@@ -144,6 +144,38 @@ const spitfire = VEHICLES.find((v) => v.id === "spitfire");
   }
 }
 
+/* --- attaching a picture to an existing entry ---------------------------- */
+{
+  const { C } = freshCorrections();
+  const url = "https://example.org/found-on-its-own-page.jpg";
+  const before = sherman.images.length;
+
+  check("attached", C.addImage(sherman.id, url, "Someone / CC BY"), null);
+  const after = C.apply(sherman).images;
+  check("the picture is there", after.length, before + 1);
+  check("it keeps its credit", after[after.length - 1].credit, "Someone / CC BY");
+  check("the dataset row is untouched", sherman.images.length, before);
+  ok("duplicate refused", C.addImage(sherman.id, url, "x"));
+  check("counted as a correction", C.count(), 1);
+
+  C.removeAddedImage(sherman.id, url);
+  check("removing it puts the entry back", C.apply(sherman).images.length, before);
+
+  // Removing an attached picture takes it away rather than striking it off,
+  // which is what happens to pictures the dataset shipped.
+  C.addImage(sherman.id, url, "Someone / CC BY");
+  C.dropImage(sherman.id, url);
+  check("dropping an attached picture removes it", C.apply(sherman).images.length, before);
+  check("and leaves nothing behind", C.count(), 0);
+
+  // Attaching one that had been struck off un-strikes it.
+  const shipped = sherman.images[0].url;
+  C.dropImage(sherman.id, shipped);
+  check("shipped picture struck off", C.apply(sherman).images.length, before - 1);
+  C.addImage(sherman.id, shipped, "back again");
+  check("attaching it again restores it", C.apply(sherman).images.length, before);
+}
+
 /* --- hiding -------------------------------------------------------------- */
 {
   const { C } = freshCorrections();

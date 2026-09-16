@@ -52,7 +52,20 @@ const Builder = (function () {
 
   function resetSkips() { saveSkips([]); rebuildQueue(); }
 
+  function unskip(id) {
+    saveSkips(loadSkips().filter(function (x) { return x !== id; }));
+  }
+
   /* ------------------------------------------------------------- queue -- */
+
+  /* The entry whose article this picture was found on, if it is still in the
+   * set and still playable. */
+  function hostEntry(candidate) {
+    if (!candidate || !candidate.entry) return null;
+    const row = VEHICLES.filter(function (v) { return v.id === candidate.entry; })[0];
+    if (!row || Corrections.isHidden(row.id)) return null;
+    return Corrections.apply(row);
+  }
 
   function rebuildQueue() {
     const pool = (typeof CANDIDATES !== "undefined" && CANDIDATES) || [];
@@ -81,6 +94,17 @@ const Builder = (function () {
     img.onload = function () { img.classList.add("ready"); $("candidateLoading").hidden = true; };
     img.onerror = function () { $("candidateLoading").textContent = "Picture would not load — skip it."; };
     img.src = current.url;
+
+    /* Most of these pictures really are of the vehicle whose article they sat
+     * on — the filename just does not say so. Offer that in one click. */
+    const attach = $("identifyAttach");
+    const host = hostEntry(current);
+    attach.hidden = !host;
+    if (host) {
+      attach.innerHTML = '<span class="fix-glyph" aria-hidden="true">+</span>Add to ' +
+                         escapeHtml(host.name);
+      attach.title = "This is a picture of the " + host.name;
+    }
 
     $("candidateHint").innerHTML = current.hint
       ? "Found on the <strong>" + escapeHtml(current.hint) + "</strong> page, but the " +
@@ -191,6 +215,29 @@ const Builder = (function () {
       if (problem) { window.alert(problem); return; }
       onChange();
       rebuildQueue();
+    });
+
+    $("identifyAttach").addEventListener("click", function () {
+      if (!current) return;
+      const host = hostEntry(current);
+      if (!host) return;
+
+      const candidate = current;
+      const problem = Corrections.addImage(candidate.entry, candidate.url, candidate.credit);
+      if (problem) { window.alert(problem); return; }
+
+      skip(candidate.id);
+      onChange();
+      rebuildQueue();
+
+      if (options.showToast) {
+        options.showToast("Added to " + host.name + ".", function () {
+          Corrections.removeAddedImage(candidate.entry, candidate.url);
+          unskip(candidate.id);
+          onChange();
+          rebuildQueue();
+        });
+      }
     });
 
     $("identifySkip").addEventListener("click", function () {

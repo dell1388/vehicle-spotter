@@ -20,6 +20,7 @@ const Corrections = (function () {
   const KEY = "vehicleSpotter.corrections.v1";
   const MAX_NAME_LENGTH = 80;
   const MAX_ALIAS_LENGTH = 60;
+  const MAX_ADDED = 5;   // photos a player may attach to one entry
 
   const REASONS = {
     photo: "Photo does not match",
@@ -31,7 +32,9 @@ const Corrections = (function () {
   let state = load();
   let merged = Object.create(null);   // id -> vehicle with corrections applied
 
-  function blank() { return { names: {}, aliases: {}, dropped: {}, images: {}, hidden: {} }; }
+  function blank() {
+    return { names: {}, aliases: {}, dropped: {}, images: {}, added: {}, hidden: {} };
+  }
 
   function strings(value, cap) {
     if (!Array.isArray(value)) return null;
@@ -67,6 +70,18 @@ const Corrections = (function () {
         if (list) out[field][id] = list;
       });
     });
+    if (parsed.added && typeof parsed.added === "object") {
+      Object.keys(parsed.added).forEach(function (id) {
+        const list = parsed.added[id];
+        if (!Array.isArray(list)) return;
+        const good = list.filter(function (i) {
+          return i && typeof i.url === "string" && i.url;
+        }).map(function (i) {
+          return { url: i.url, credit: String(i.credit || "Added by hand") };
+        }).slice(0, MAX_ADDED);
+        if (good.length) out.added[id] = good;
+      });
+    }
     if (parsed.hidden && typeof parsed.hidden === "object") out.hidden = parsed.hidden;
     return out;
   }
@@ -96,7 +111,8 @@ const Corrections = (function () {
     const extra = state.aliases[vehicle.id];
     const dropped = state.dropped[vehicle.id];
     const badImages = state.images[vehicle.id];
-    if (!rename && !extra && !dropped && !badImages) return vehicle;
+    const added = state.added[vehicle.id];
+    if (!rename && !extra && !dropped && !badImages && !added) return vehicle;
     if (merged[vehicle.id]) return merged[vehicle.id];
 
     const copy = {};
@@ -110,6 +126,15 @@ const Corrections = (function () {
         return badImages.indexOf(img.url) === -1;
       });
       copy.images = kept.length ? kept : vehicle.images.slice(0, 1);
+    }
+
+    /* Photographs the player has attached, usually one the builder found on
+     * this vehicle's own article and could not prove belonged to it. */
+    if (added && added.length) {
+      const have = {};
+      (copy.images || vehicle.images || []).forEach(function (i) { have[i.url] = true; });
+      copy.images = (copy.images || vehicle.images || []).concat(
+        added.filter(function (i) { return !have[i.url]; }));
     }
 
     let aliases = (vehicle.aliases || []).slice();
@@ -231,6 +256,12 @@ const Corrections = (function () {
 
   function dropImage(id, url) {
     if (!url) return;
+    /* A picture the player attached is removed outright rather than struck off:
+     * striking off is for pictures the dataset shipped. */
+    if (hasAddedImage(id, url)) {
+      removeAddedImage(id, url);
+      return;
+    }
     const list = state.images[id] || [];
     if (list.indexOf(url) === -1) list.push(url);
     state.images[id] = list;
@@ -247,6 +278,35 @@ const Corrections = (function () {
 
   function isImageDropped(id, url) {
     return (state.images[id] || []).indexOf(url) !== -1;
+  }
+
+  /* Attach a photograph to an entry. Returns a refusal message, or null. */
+  function addImage(id, url, credit) {
+    if (!url) return "No picture to add.";
+    const list = state.added[id] || [];
+    if (list.some(function (i) { return i.url === url; })) return "Already added.";
+    if (list.length >= MAX_ADDED) return "That entry has enough pictures.";
+    list.push({ url: url, credit: String(credit || "Added by hand") });
+    state.added[id] = list;
+    // Adding back one that was struck off should un-strike it.
+    if (state.images[id]) {
+      state.images[id] = state.images[id].filter(function (u) { return u !== url; });
+      if (!state.images[id].length) delete state.images[id];
+    }
+    save();
+    return null;
+  }
+
+  function removeAddedImage(id, url) {
+    const list = state.added[id];
+    if (!list) return;
+    state.added[id] = list.filter(function (i) { return i.url !== url; });
+    if (!state.added[id].length) delete state.added[id];
+    save();
+  }
+
+  function hasAddedImage(id, url) {
+    return (state.added[id] || []).some(function (i) { return i.url === url; });
   }
 
   /* --------------------------------------------------------------- flags -- */
@@ -268,7 +328,7 @@ const Corrections = (function () {
 
   function count() {
     let n = Object.keys(state.hidden).length + Object.keys(state.names).length;
-    ["aliases", "dropped", "images"].forEach(function (field) {
+    ["aliases", "dropped", "images", "added"].forEach(function (field) {
       Object.keys(state[field]).forEach(function (id) { n += state[field][id].length; });
     });
     return n;
@@ -296,6 +356,11 @@ const Corrections = (function () {
         out.push({ kind: "image", id: id, value: url });
       });
     });
+    Object.keys(state.added).forEach(function (id) {
+      state.added[id].forEach(function (img) {
+        out.push({ kind: "added", id: id, value: img.url });
+      });
+    });
     Object.keys(state.hidden).forEach(function (id) {
       out.push({ kind: "hidden", id: id, value: REASONS[state.hidden[id].reason] || "Flagged",
                  note: state.hidden[id].note });
@@ -308,6 +373,7 @@ const Corrections = (function () {
     else if (item.kind === "alias") removeAlias(item.id, item.value);
     else if (item.kind === "dropped") restoreAlias(item.id, item.value);
     else if (item.kind === "image") restoreImage(item.id, item.value);
+    else if (item.kind === "added") removeAddedImage(item.id, item.value);
     else if (item.kind === "hidden") unflag(item.id);
   }
 
@@ -321,6 +387,7 @@ const Corrections = (function () {
     aliasesFor: aliasesFor, addAlias: addAlias, removeAlias: removeAlias,
     dropAlias: dropAlias, restoreAlias: restoreAlias, isDropped: isDropped,
     dropImage: dropImage, restoreImage: restoreImage, isImageDropped: isImageDropped,
+    addImage: addImage, removeAddedImage: removeAddedImage, hasAddedImage: hasAddedImage,
     flag: flag, unflag: unflag, isHidden: isHidden, hiddenIds: hiddenIds,
     count: count, entries: entries, undo: undo,
     exportJSON: exportJSON, clearAll: clearAll,

@@ -172,6 +172,11 @@ so it can be folded into `js/vehicles.js` permanently.
   for comparison, or something else entirely. The page shows one at a time, says
   which article it came from, and asks what it is. Skip, or mark "not a vehicle",
   and it leaves the queue.
+
+  Often, though, the picture really is of the vehicle whose article it sat on —
+  the filename just does not say so. **Add to <em>that vehicle</em>** does it in
+  one click: the photograph joins that entry rather than starting a new one, and
+  the entry then has another picture to show. It is undoable from the toast.
 - **Add your own** — a picture (a link, or a file from the device) and a name.
   Aliases, category, era, difficulty, a fact and a credit are all optional.
 - **Your entries** — what you have made, with export and import.
@@ -193,7 +198,8 @@ answer panel has a **Fix entry** button:
 - **Remove an alias.** Every accepted spelling is listed as a chip; click one to
   strike it off. Struck-off spellings can be restored from the same dialog.
 - **Remove a photo.** Entries with more than one photo show them as thumbnails;
-  click one to drop it. A picture showing the wrong thing is a smaller problem
+  click one to drop it. A photograph attached from the builder is removed
+  outright; one the dataset shipped is struck off and can be restored. A picture showing the wrong thing is a smaller problem
   than a wrong entry, so it can go on its own — though the last photo always
   stays, since an entry with no picture is unplayable.
 
