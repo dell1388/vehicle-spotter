@@ -4,8 +4,8 @@ A browser quiz: name what is in the photo. Tanks, armoured fighting vehicles,
 aircraft, helicopters, missiles and artillery, plus a few cars and ships, across
 six eras from the Age of Sail to the present.
 
-Most entries carry two or three different photographs and a round shows one of
-them at random, so a vehicle cannot be answered by memorising one picture.
+621 entries. Many carry two or three different photographs and a round shows one
+of them at random, so a vehicle cannot be answered by memorising one picture.
 
 No build step, no dependencies. Open `index.html` in a browser and play.
 
@@ -251,7 +251,22 @@ authoritative terms.
 They were harvested from each vehicle's Wikipedia article: the lead image, plus
 up to two more taken from the body of the article. Names, aliases and facts come
 from the same place — aliases from the article's redirects, which are exactly the
-alternative names people use, so "Warthog" and "Stringbag" arrive on their own. Article images
+alternative names people use, so "Warthog" and "Stringbag" arrive on their own.
+
+That harvest reads Wikipedia's *pages*, not its API. The API rate-limits this
+hard — down to one request a minute, and eventually a 429 to a single request —
+while ordinary article pages are served from the CDN and are not limited at all.
+Three pages carry everything needed: the article (name, opening sentence, lead
+photograph), `Special:WhatLinksHere` (the redirects) and the Commons file page
+(photographer and licence).
+
+Redirects are generous, so scraped aliases are pruned: `tools/prune.js` runs the
+matcher across the whole set and drops any scraped alias that answers better for
+a different entry — "Fighter China" pointed at the JF-17 but matched the Chi-Ha,
+"Infantry carrier" pointed at the Universal Carrier but matched three different
+infantry tanks. Fourteen of 1,383 were dropped that way. Generic type words
+("Jagdpanzer", "howitzer") and bare manufacturer names ("Vickers", "Robinson")
+are never taken as aliases at all. Article images
 are not all usable, so candidates are filtered hard — raster photos only, big
 enough to be worth showing, and rejected if the filename looks like a diagram,
 a map, an insignia or a component shot, because a photograph of an engine is not

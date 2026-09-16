@@ -177,7 +177,19 @@ const AMBIGUOUS = new Set([
   // matcher cannot separate the bomber from Nelson's flagship. Either is
   // accepted for either; the round only ever asks about one of them.
   "victor", "victory", "hms victory",
-  "stug", "stug iii", "stug 3"   // StuG alone is the III or the IV
+  "stug", "stug iii", "stug 3",   // StuG alone is the III or the IV
+  // Names two entries share outright, now that the set covers both halves:
+  "comet",          // de Havilland Comet and the Comet tank
+  "meteor",         // Gloster Meteor and the Meteor missile
+  "javelin",        // FGM-148 Javelin and the Gloster Javelin
+  "pershing",       // M26 Pershing and the Pershing missile
+  "wildcat",        // F4F Wildcat and the AW159 Wildcat
+  "duck",           // the 2CV's nickname and the DUKW's
+  "predator b",     // the Reaper is the Predator B
+  "vickers",        // Vickers built the 6-Ton, the VC10 and much else
+  "scorpion",       // the FV101 Scorpion and the M56 Scorpion
+  "huey", "cobra",  // the UH-1Y is a Huey; the SuperCobra is a Cobra
+  "robinson"        // the R22 and the R44 are both Robinsons
 ]);
 const crossHits = [];
 VEHICLES.forEach(v => {

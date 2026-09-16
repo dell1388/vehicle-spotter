@@ -3338,11 +3338,875 @@ const VEHICLES = [
 
   /* ------------------------------------------ BUILT FROM WIKIPEDIA */
   {
+    id: "a3", name: "Douglas A-3 Skywarrior", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["EA-3B", "TA-3B", "KA-3B", "RA-3B", "ERA-3B", "Skywarrior", "Skywarrier"],
+    fact: "The Douglas A-3 Skywarrior is a jet-powered strategic bomber that was developed and produced by the Douglas Aircraft Company.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/EA-3B_VQ-1_in_flight_South_China_Sea_1974.jpeg?width=1000", credit: "U.S. Navy / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "a321", name: "Airbus A321", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["A321", "A-321", "A321ceo", "A321-200", "A321-111", "A321-112", "A321-131", "A321-211"],
+    fact: "The Airbus A321 is a member of the Airbus A320 family of short to medium range, narrow-body, commercial passenger twin engine jet airliners; it carries 185 to 239 passengers.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Airbus_A321-231%28w%29_%E2%80%98N915US%E2%80%99_American_Airlines_%2828442733186%29.jpg?width=1000", credit: "Alan Wilson from Stilton, Peterborough, Cambs, UK / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "a37", name: "Cessna A-37 Dragonfly", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["AT-37", "OA-37", "A-37B", "Cessna A-37", "A-37 Dragonfly", "OA-37 Dragonfly", "A-37B Dragonfly", "A-37A Dragonfly"],
+    fact: "The Cessna A-37 Dragonfly, or Super Tweet, is a jet-powered, light attack aircraft that was designed and produced by American aircraft manufacturer Cessna.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/OA-37B-1_%28centered%29.jpg?width=1000", credit: "TSGT KEN HAMMOND / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "a400m", name: "Airbus A400M Atlas", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["A400M", "A-400M", "Atlas C1", "Airbus A400", "A400M Atlas", "Airbus A400m", "Airbus Atlas", "Future Large Aircraft"],
+    fact: "The Airbus A400M Atlas is a European four-engine turboprop military transport aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/German_Air_Force_Airbus_A400M_%28out_cropped%29.jpg?width=1000", credit: "Peng Chen / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "a5", name: "North American A-5 Vigilante", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["RA-5", "RA5C", "RA-5C", "NR-349", "A5 Vigilante", "A3J Vigilante", "A-5 Vigilante", "A-5A Vigilante"],
+    fact: "The North American A-5 Vigilante is an American carrier-based supersonic bomber and reconnaissance aircraft designed and built by North American Aviation (NAA) for the United States Navy.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/A-5_Vigilante_ECN-231.jpg?width=1000", credit: "NASA Dryden Flight Research Center / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "aav7", name: "Assault Amphibious Vehicle", category: "afv", era: "Modern", difficulty: 3,
+    aliases: [],
+    fact: "The Assault Amphibious Vehicle ( AAV )—official designation AAV7 ( Assault Amphibious Vehicle, Model 7 ), formerly known as LVT7 ( Landing Vehicle, Tracked, Model 7 )—is a fully tr",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/170606-N-PF515-398_%2834973155842%29.jpg?width=1000", credit: "Commander, U.S. Naval Forces Europe-Africa/U.S. 6th Fleet / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "ab41", name: "Autoblindo Fiat-Ansaldo", category: "afv", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Autoblindo 40, 41 and 43 (abbreviated AB 40, 41 and 43 ) were Italian armoured cars produced by Fiat - Ansaldo and which saw service mainly during World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Autoblinda-AB-41-haugh-1.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "achilles", name: "Archer", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["Valentine Archer"],
+    fact: "The self-propelled 17-pdr, Valentine, Mk I, Archer was a British tank destroyer of the Second World War based on the Valentine infantry tank chassis fitted with an Ordnance QF 17 pounder gun.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Archer_SP_17_pdr_Tank_Destroyer.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "achzarit", name: "Achzarit", category: "afv", era: "Modern", difficulty: 3,
+    aliases: ["Achzariot", "IDF Achzarit", "IDF Achzarith"],
+    fact: "The Achzarit ( אכזרית in Hebrew: \"cruel\", feminine inflection ) is a heavily armoured personnel carrier manufactured by the Israeli Defence Forces Corps of Ordnance.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Achzarit.jpg?width=1000", credit: "gkirok / Wikimedia Commons (CC BY-SA 2.5)" },
+    ]
+  },
+  {
+    id: "ah1w", name: "Bell AH-1 SuperCobra", category: "helicopter", era: "Cold War", difficulty: 3,
+    aliases: ["AH-1W", "AH-1J", "AH-1T", "SeaCobra", "AH-1 Viper", "AH-1 SeaCobra", "IAIO Toofan I", "AH-1 Sea Cobra"],
+    fact: "The Bell AH-1 SuperCobra is a twin-engined attack helicopter that was developed on behalf of, and primarily operated by, the United States Marine Corps (USMC).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/AH-1W_Super_Cobra_assigned_to_HMLA_167.jpg?width=1000", credit: "Communication Specialist Seaman Mark Hays / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "akatsiya", name: "2S3 Akatsiya", category: "artillery", era: "Cold War", difficulty: 3,
+    aliases: ["2S3", "2C3", "M1973", "M-1973", "SO-152", "CO-152", "Akatsiya", "2S3 Akatsia"],
+    fact: "The SO-152 (Russian: СО-152), usually known by its GRAU designation 2S3 ( Russian: 2С3 ), is a Soviet 152.4 mm self-propelled gun developed in 1968, as a response to the American 155 mm M109 howitzer.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/2S3_Akatsiya_3261.jpg?width=1000", credit: "Zimin.V.G. / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "al_khalid", name: "Al-Khalid tank", category: "tank", era: "Modern", difficulty: 3,
+    aliases: ["MBT-2000", "MBT 2000", "Al Khalid", "Al-Khalid", "VT1A tank", "Type 90-IIM", "Al Khalid II", "Al-Khalid MBT"],
+    fact: "The Al-Khalid/VT-1A ( Urdu: الخالد ٹینک — Al-Xālid Ṫaiŋk, pronounced [ əlˈxaːlɪd̪ ʈɛːŋk ], literal translation</span>\"}]],\"parts\":[{\"template\":{\"target\":{\"wt\":\"Lit\",\"href\":\"./Templ",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Al-Khalid_IDEAS_2012.jpg?width=1000", credit: "Photo by Guy Martin / Pakistan and China to jointly market Al Khalid tank / Wikimedia Commons (CC BY 1.0)" },
+    ]
+  },
+  {
+    id: "alpha_jet", name: "Dassault/Dornier Alpha Jet", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Alphajet", "Alpha jet", "Alphajets", "Alpha-Jet", "Alpha Jets", "Dornier Alpha", "Dornier Alpha Jet", "Dassault Alpha Jet"],
+    fact: "The Dassault/Dornier Alpha Jet is a light attack jet and advanced jet trainer co-manufactured by Dassault Aviation of France and Dornier Flugzeugwerke of Germany.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Alpha_Jet_-_RIAT_2007_%282544737153%29.jpg?width=1000", credit: "Tim Felce (Airwolfhound) / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "altay", name: "Altay", category: "tank", era: "Modern", difficulty: 3,
+    aliases: ["Altay MBT", "MITUP Altay", "MİTÜP Altay", "Altay main battle tank", "MİTÜP Altay main battle tank", "Mitup Turkish National Tank Project", "MİTÜP Turkish National Tank Project", "Altay MİTÜP Turkish National Tank Project"],
+    fact: "Altay ( Turkish for Red foal/colt ) is a Turkish fourth generation main battle tank designed by Otokar, based on the South Korean K2 Black Panther.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Altay_Tank.jpg?width=1000", credit: "Emir GEÇİR / Wikimedia Commons (CC0)" },
+    ]
+  },
+  {
+    id: "amx10rc", name: "AMX-10 RC", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: [],
+    fact: "The AMX-10 RC is a French armoured fighting vehicle manufactured by Nexter Systems for armoured reconnaissance purposes.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/AMX-10_RC%2C_nouvelles_couleurs_Arm%C3%A9e_de_terre_%2814_juillet_2021%29_%282%29.jpg?width=1000", credit: "Kevin.B / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "amx13", name: "AMX-13", category: "tank", era: "Cold War", difficulty: 3,
+    aliases: ["AMX-13P", "AMX-13 DCA", "SOFAM howitzer"],
+    fact: "The AMX-13 is a French light tank produced from 1952 to 1987.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Amx-13_tankfest_2023.JPG?width=1000", credit: "Geni / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "an12", name: "Antonov An-12", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["An12", "AN-12", "An-12BP", "An-12 Cub", "Antonov 12", "Antonov 12V", "Antonov An-42", "Antonov AN-12V"],
+    fact: "The Antonov An-12 ( Russian: Антонов Ан-12; NATO reporting name: Cub ) is a four-engined turboprop cargo/military transport aircraft designed in the Soviet Union.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Antonov_An-12BK%2C_Russia_-_Air_Force_AN1879625.jpg?width=1000", credit: "Igor Dvurekov / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "an22", name: "Antonov An-22", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["An-22", "Antonov 22", "Antonov An-22 Antheus"],
+    fact: "The Antonov An-22 \"Antei\" ( Russian: Ан-22 Антей, romanized: An-22 Antey; literal translation</span>\"}]],\"parts\":[{\"template\":{\"target\":{\"wt\":\"lit\",\"href\":\"./Template:Lit\"},\"params",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Antonov_An-22A_Antei%2C_Russia_-_Air_Force_AN2203462.jpg?width=1000", credit: "Toshi Aoki - JP Spotters / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "an26", name: "Antonov An-26", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["An-26", "An-26B", "Antonov 26", "Antonov-26", "Antonov An-26B", "Antonov 26 plane", "Antonov An-26-100", "Utair Flight 9706"],
+    fact: "The Antonov An-26 ( NATO reporting name: Curl, nicknamed Nastia in the USSR) is a twin-engined turboprop regional airliner and military transport aircraft, designed and produced in",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/An-26_Ni%C2%B5_Nishava_Serbien_Marko_Stojkovic_IMG_2634-1-2.jpg?width=1000", credit: "Marko Stojkovic / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "ar196", name: "Arado Ar 196", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["AR 196", "Ar-196", "Arado 196", "Arado Ar 196 V4"],
+    fact: "The Arado Ar 196 is a shipboard reconnaissance low-wing monoplane aircraft designed and produced by the German aircraft manufacturer Arado.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Arado_Ar_196A-2_taxiing_1940.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "at4", name: "AT4", category: "missile", era: "Modern", difficulty: 3,
+    aliases: ["AT8", "M136", "ILAW", "AT4 CS", "AT4-HS", "AT4-CS", "AT-4CS", "M136AT4"],
+    fact: "The AT4 is a Swedish 84 mm (3.31 in) unguided, man-portable, disposable, shoulder-fired recoilless anti-tank weapon manufactured by Saab Bofors Dynamics.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/AT4_2.jpg?width=1000", credit: "KASP / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "b21", name: "Northrop Grumman B-21 Raider", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["B-21", "B-3 bomber", "B21 bomber", "B-21 Bomber", "B-21 Raider", "Northrop B-3", "Strike Bomber", "Northrop Grumman B-3"],
+    fact: "The Northrop Grumman B-21 Raider is an American nuclear-capable subsonic stealth strategic bomber in development for the United States Air Force (USAF) by Northrop Grumman.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/B-21-in-flight.jpg?width=1000", credit: "USAF / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "b5n", name: "Nakajima B5N", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["B5N", "B5N1", "B5N2", "B5N Kate", "Nakajima K", "Nakajima Kate", "Nakajima B5N2", "Nakajima B5N1-K"],
+    fact: "The Nakajima B5N ( Allied reporting name \" Kate \") was a carrier-based torpedo bomber designed and produced by the Nakajima Aircraft Company.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Nakajima_B5N.jpg?width=1000", credit: "SDASM / Wikimedia Commons (No known restrictions)" },
+    ]
+  },
+  {
+    id: "b727", name: "Boeing 727", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["B727", "B722", "C-22B", "B-727", "B 727", "727-200", "727-230", "727-100"],
+    fact: "The Boeing 727 is an American narrow-body trijet that was developed and produced by Boeing Commercial Airplanes.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/B-727_Iberia_%28cropped%29.jpg?width=1000", credit: "Iberia Airlines / Wikimedia Commons (CC BY 2.0)" },
+    ]
+  },
+  {
+    id: "b737max", name: "Boeing 737 MAX", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["7M7", "7M8", "7M9", "B37M", "B38M", "B39M", "B3JM", "B3XM"],
+    fact: "The Boeing 737 MAX is a series of narrow-body aircraft developed by Boeing Commercial Airplanes as the fourth generation of the Boeing 737.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Alaska_737_Max_9.jpg?width=1000", credit: "KirkXWB / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "b757", name: "Boeing 757", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["B757", "B752", "B753", "B-757", "B 757", "B752SF", "757-200", "757-300"],
+    fact: "The Boeing 757 is an American narrow-body airliner designed and built by Boeing Commercial Airplanes.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Delta_757-200_N713TW_on_final_approach_to_Boston_Dec_2024_2.jpg?width=1000", credit: "4300streetcar / Wikimedia Commons (CC BY 4.0)" },
+    ]
+  },
+  {
+    id: "b767", name: "Boeing 767", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["76W", "B767", "B763", "B764", "B762", "B761", "B-767", "B 767"],
+    fact: "The Boeing 767 is an American wide-body airliner developed and manufactured by Boeing Commercial Airplanes.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Delta_Air_Lines_B767-332_N130DL.jpg?width=1000", credit: "Richard Snyder from San Jose, CA, United States of America derivative wo / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "ba10", name: "BA-10", category: "afv", era: "WW2", difficulty: 3,
+    aliases: ["BA-10N"],
+    fact: "The BA-10 ( Russian: Броневой автомобиль 10 модель (БА-10), romanized: Bronevoy avtomobil' 10 model', lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Ba10_parola_1.jpg?width=1000", credit: "User:Balcer . / Wikimedia Commons (CC BY 2.5)" },
+    ]
+  },
+  {
+    id: "beaufort", name: "Bristol Beaufort", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["DAP Beaufort", "Beaufort bomber", "Bristol Type 156 Beaufort", "Bristol Type 152 Beaufort"],
+    fact: "The Bristol Beaufort (manufacturer designation Type 152 ) is a British twin-engined torpedo bomber designed by the Bristol Aeroplane Company, and developed from experience gained d",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bristol_Beauforts_217_Squadron_in_flight.jpg?width=1000", credit: "RAF official. The original uploader was Minorhistorian at English Wikipedia . 2 April 2008, (1 April 2008 (ori / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "bell412", name: "Bell 412", category: "helicopter", era: "Modern", difficulty: 3,
+    aliases: ["B412", "AB-412", "Bell 412EP", "Bell 412SP", "Griffin HT1", "Bell Griffin", "Griffin HAR2", "Bell 412 EPI"],
+    fact: "The Bell 412 is a utility helicopter of the Huey family manufactured by Bell Helicopter.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%281%29Police_Helicopter_039.jpg?width=1000", credit: "Sardaka / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "bf110", name: "Messerschmitt Bf 110", category: "plane", era: "WW2", difficulty: 2,
+    aliases: ["Me110", "Bf110", "Bf 110", "Me 110", "Bf-110", "Me-110", "Dackelbauch", "Bf-110 Zerstorer"],
+    fact: "The Messerschmitt Bf 110, often known unofficially as the Me 110, is a twin-engined Zerstörer (destroyer, heavy fighter ), fighter-bomber ( Jagdbomber or Jabo ), and night fighter",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_101I-377-2801-013%2C_Flugzeug_Messerschmitt_Me_110.jpg?width=1000", credit: "Jakobsen [Jacobsen] / Wikimedia Commons (CC BY-SA 3.0 de)" },
+    ]
+  },
+  {
+    id: "big_bertha", name: "Big Bertha", category: "artillery", era: "WW1", difficulty: 3,
+    aliases: ["M-Gerät", "Gamma-Gerat", "Dicke Berta", "Krupp 420-mm", "Krupp 420 mm", "Gamma-Geraet", "Dicke Bertha", "Krupp 420-mm howitzer"],
+    fact: "The 42 centimeter kurze Marinekanone 14 L/12 (short naval cannon), or Minenwerfer -Gerät ( M-Gerät ), popularly known by the name of Big Bertha, was a German siege howitzer built b",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Musee-de-lArmee-IMG_0984.jpg?width=1000", credit: "Rama . / Wikimedia Commons (CC BY-SA 2.0 fr)" },
+    ]
+  },
+  {
+    id: "bird_dog", name: "Cessna O-1 Bird Dog", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: [],
+    fact: "The Cessna O-1 Bird Dog is a liaison and observation aircraft that first flew on December 14, 1949, and entered service in 1950 as the L-19 in the Korean War.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Cessna_O-1A_Bird_Dog_US_Army_in_flight.jpg?width=1000", credit: "U.S. Army / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "bishop", name: "Bishop", category: "artillery", era: "WW2", difficulty: 3,
+    aliases: ["Bishop artillery"],
+    fact: "The Bishop, formal designation Ordnance QF 25-pdr on Carrier Valentine 25-pdr Mk 1, was a British self-propelled gun vehicle based on the Valentine tank and armed with the QF 25-po",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IWM-E-17430-Bishop-SP-gun-19420925.jpg?width=1000", credit: "No 1 Army Film & Photographic Unit : James (Sgt) / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "black_prince", name: "Black Prince", category: "tank", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "Tank, Infantry, Black Prince (A43) is the name that was assigned to an experimental development of the Churchill tank with a larger, wider hull and a QF 17-pounder (76.2 mm) gun.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Black_Prince_tank_side_view.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "blenheim", name: "Bristol Blenheim", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Blenheim 1", "Bristol Bisley", "Blenheim bomber", "Bristol Type 142", "Bristol Blenheim I", "Bristol Blenheim V", "Bristol Blenheim IV", "Bristol Blenheim Mk.I"],
+    fact: "The Bristol Blenheim is a British light bomber designed and built by the Bristol Aeroplane Company, which was used extensively in the first two years of the Second World War, with",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Blenheim_-_RIAT_2015_%2819998104414%29.jpg?width=1000", credit: "Airwolfhound from Hertfordshire, UK / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "bloodhound", name: "Bloodhound", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: [],
+    fact: "The Bristol Bloodhound is a British ramjet powered surface-to-air missile developed during the 1950s.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bloodhound_SAM_at_the_RAF_Museum.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "bmd2", name: "BMD-2", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: [],
+    fact: "The BMD-2 is a Soviet airborne infantry fighting vehicle, introduced in 1985.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/BMD-2_airborne_combat_vehicle.jpg?width=1000", credit: "Rockybrown / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "bmp3", name: "BMP-3", category: "afv", era: "Modern", difficulty: 3,
+    aliases: ["2s38", "2S18", "BVP-3", "BMP-3F", "BREM-L", "Osteogenin", "BMP-3 Dragoon"],
+    fact: "The BMP-3 is a Soviet and Russian infantry fighting vehicle, successor to the BMP-1 and BMP-2.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Army2016demo-011.jpg?width=1000", credit: "Vitaly V. Kuzmin / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "brdm2", name: "BRDM-2", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["9P148", "9P122", "BTR-40PB", "BTR-40P-2", "GAZ 41-08", "BRDM-2M-96", "GAZ 41-08.", "BRDM-2M-96i"],
+    fact: "The BRDM-2 ( Russian: Боевая Разведывательная Дозорная Машина; Boyevaya Razvedyvatelnaya Dozornaya Mashina, literally \"Combat Reconnaissance/Patrol Vehicle\") is an amphibious armou",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/BRDM-2_%281964%29_owned_by_James_Stewart_pic1.JPG?width=1000", credit: "AlfvanBeem / Wikimedia Commons (CC0)" },
+    ]
+  },
+  {
+    id: "brimstone", name: "Brimstone", category: "missile", era: "Modern", difficulty: 3,
+    aliases: ["SPEAR2", "SPEAR 2", "Sea Spear", "Brimstone ATGM", "MBDA Brimstone", "Brimstone missile", "Brimstone missiles"],
+    fact: "Brimstone is a ground or air-launched ground attack missile developed by MBDA UK for the UK's Royal Air Force.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Missile_MBDA_Brimstone.jpg?width=1000", credit: "Duch.seb / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "btr60", name: "BTR-60", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["BTR-60s", "R-145BM", "BTR-60P", "BTR-60PB", "BTR-60PA", "BTR-60PZ", "BTR-60PBK", "BTR-60PUM"],
+    fact: "The BTR-60 is the first vehicle in a series of Soviet eight-wheeled armoured personnel carriers (APCs).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/BTR-60PB_NVA.JPG?width=1000", credit: "Billyhill / Wikimedia Commons (CC BY 3.0)" },
+    ]
+  },
+  {
+    id: "buffalo", name: "Brewster F2A Buffalo", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["B239", "F2A Buffalo", "Brewster F2A", "F2A Brewster", "Brewster B239", "Brewster B-239", "Brewster B-339", "Brewster B-439"],
+    fact: "The Brewster F2A Buffalo is an American fighter aircraft which saw service early in World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Brewster_F2A-3_Buffalo_in_flight_near_NAS_Miami%2C_Florida_%28USA%29%2C_on_2_August_1942_%28NH_97540%29.jpg?width=1000", credit: "Unknown / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "buk", name: "Buk missile system", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: ["9K37", "Sa11", "Sa17", "9М38", "9M38", "Sa-11", "SA-17", "9M317"],
+    fact: "The Buk ( Russian: Бук, lit. ' beech ', / b ʊ k / BOOK ) is a family of self-propelled, medium-range surface-to-air missile systems developed by the Soviet Union and its successor",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Buk-M1-2_air_defence_system_in_2010.jpg?width=1000", credit: "Vitaly V. Kuzmin / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "c119", name: "Fairchild C-119 Flying Boxcar", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["R4Q", "C119", "C-119", "Fairchild R4Q", "Flying Boxcar", "Fairchild C-119", "Fairchild C-119G", "R4Q Flying Boxcar"],
+    fact: "The Fairchild C-119 Flying Boxcar (Navy and Marine Corps designation R4Q ) is an American military transport aircraft developed from the World War II -era Fairchild C-82 Packet, de",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Fairchild_C-119B_of_the_314th_Troop_Carrier_Group_in_flight%2C_1952_%28021001-O-9999G-016%29.jpg?width=1000", credit: "U.S. Air Force / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "c141", name: "Lockheed C-141 Starlifter", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["C141", "C-141", "CC-141", "C-141C", "C-141B", "Starlifter", "Lockheed L-300", "C-141 StarLifter"],
+    fact: "The Lockheed C-141 Starlifter is a retired four-engine military strategic airlifter that served with the Military Air Transport Service (MATS), its successor organization the Milit",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/C-141_Starlifter_58-4561.jpg?width=1000", credit: "U.S. Air Force / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "c46", name: "Curtiss C-46 Commando", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["R5C", "C-46", "Curtiss C-46", "R5C Commando", "C-55 Commando", "C-46 Commando", "Curtiss C-46F", "Curtiss C-46A"],
+    fact: "The Curtiss C-46 Commando is a low-wing, twin-engine aircraft derived from the Curtiss CW-20 pressurized high-altitude airliner design.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/C-46_Commando.jpg?width=1000", credit: "usaf / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "centauro", name: "Centauro", category: "afv", era: "Modern", difficulty: 3,
+    aliases: [],
+    fact: "The Centauro is a family of Italian military vehicles originating from a wheeled tank destroyer for light to medium territorial defense and tactical reconnaissance.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Centauro01.JPEG?width=1000", credit: "PH2 Jeffery Russell / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "cf105", name: "Avro Canada CF-105 Arrow", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Cf105", "CF-105", "Avro Aero", "Avro arrow", "Cf-105 Arrow", "Avro CF-105 Arrow", "Avro Canada Arrow", "Avro Canada CF-105"],
+    fact: "The Avro Canada CF-105 Arrow was an interceptor aircraft designed and built by Avro Canada.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Unveiling_of_CF-105_D%C3%A9voilement_de_l%E2%80%99a%C3%A9ronef_CF-105_%2849553834541%29.jpg?width=1000", credit: "Robert Lansdale. Federal News Photos. Library and Archives Canada / Wikimedia Commons (CC BY 2.0)" },
+    ]
+  },
+  {
+    id: "challenger3", name: "Challenger 3", category: "tank", era: "Modern", difficulty: 3,
+    aliases: ["Challenger III"],
+    fact: "Challenger 3 ( CR3 ) is a British fourth-generation main battle tank in development for the British Army.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Challenger_3_ATD.jpg?width=1000", credit: "Sergeant Ben Beale / Wikimedia Commons (OGL 3)" },
+    ]
+  },
+  {
+    id: "char2c", name: "Char 2C", category: "tank", era: "WW1", difficulty: 3,
+    aliases: ["FCM 2C"],
+    fact: "The Char 2C, also known as the FCM 2C, was a French post WWI heavy tank landship, later considered a super-heavy tank.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Berry_in_1928_%28moar_contrast_%2B_cropped%29.jpg?width=1000", credit: "Toyota Corolla E140 , After Agence Rol Description French English: photo agency Français : Agence de photograp / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "chi_nu", name: "Type 3 Chi-Nu medium tank", category: "tank", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "Type 3 medium tank Chi-Nu ( 三式中戦車 チヌ, San-shiki chū-sensha Chi-nu; \"Imperial Year 2603 Medium tank Model 10\") was a medium tank of the Imperial Japanese Army in World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Japanese_Type_3_Chi-Nu_tank_1.jpg?width=1000", credit: "User:Megapixie / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "chi_to", name: "Type 4 Chi-To medium tank", category: "tank", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Type 4 medium tank Chi-To ( 四式中戦車 チト, Yonshiki chūsensha Chi-To ) (\"Imperial Year 2604 Medium Tank Model 7\") was one of several medium tanks developed by the Imperial Japanese",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Chi-To.JPG?width=1000", credit: "Unknown / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "comet_tank", name: "Comet", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["A-34 Comet", "Cruiser Tank Comet"],
+    fact: "The Comet tank or Tank, Cruiser, Comet I (A34) was a British cruiser tank that first saw use near the end of the Second World War, during the Western Allied invasion of Germany.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Comet_tank_tankfest_2023.JPG?width=1000", credit: "Geni / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "cr42", name: "Fiat CR.42 Falco", category: "plane", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Fiat CR.42 Falco (Falcon, plural: Falchi ) is a single-seat sesquiplane fighter developed and produced by Italian aircraft manufacturer Fiat Aviazione.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Fiat_CR.42_-_Aegean_Islands.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "cv90", name: "Combat Vehicle 90", category: "afv", era: "Modern", difficulty: 3,
+    aliases: ["CV90", "CV 90", "CV-90", "CV9030", "CV9040", "Strf 90", "CV90120", "CV90105"],
+    fact: "The Combat Vehicle 90 ( CV90 ) ( Swedish: stridsfordon 90, strf 90 or Stridsfordon 90) is a family of Swedish tracked armoured combat vehicles designed by the Swedish Defence Mater",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Stridsfordon_90_Revinge_2012-2.jpg?width=1000", credit: "Jorchr / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "d3a", name: "Aichi D3A", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["D3A", "D3A1", "D3A Val", "Val bomber", "Aichi D3A1", "Aichi D3A-1", "Aichi AM-17", "Aichi D3A2-K"],
+    fact: "The Aichi D3A (Navy full designation \" Type 99 Carrier Bomber \"; Allied reporting name \"Val\" ) is a carrier-borne dive bomber designed and produced by Aichi Kokuki KK.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/D3A1_Akagi.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "d4y", name: "Yokosuka D4Y Suisei", category: "plane", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Yokosuka D4Y Suisei ( 彗星, comet ) is a twin-seat carrier-based dive bomber developed by the Japanese defence manufacturer Yokosuka Naval Air Technical Arsenal.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Yokosuka_D4Y3_in_the_field.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "dc8", name: "Douglas DC-8", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["DC8", "DC-8", "DC 8", "EC-24A", "DC-8-73", "DC-8-62", "DC-8-70", "DC-8-60"],
+    fact: "The Douglas DC-8 (sometimes McDonnell Douglas DC-8 ) is an early long-range narrow-body jetliner designed and produced by the American Douglas Aircraft Company.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/DC-8_Airborne_Laboratory_in_flight_over_snow-capped_Sierra_Nevada_mountain_range.jpg?width=1000", credit: "NASA Photo by: Jim Ross / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "defiant", name: "Boulton Paul Defiant", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["BP Defiant", "Defiant Mk.I", "Defiant Mk.II", "Bolton-Paul Defiant", "Boulton Paul P.82 Defiant", "Boulton Paul Defiant Mk.II"],
+    fact: "The Boulton Paul Defiant is a British interceptor aircraft that served with the Royal Air Force (RAF) during World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mk1_Defiant.jpg?width=1000", credit: "RAF / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "devastator", name: "Douglas TBD Devastator", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["TBD-1", "Douglas TBD", "TBD Devastator", "Douglas Devastator", "Douglas TBD-1 Devastator"],
+    fact: "The Douglas TBD Devastator was an American torpedo bomber of the United States Navy.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Douglas_TBD-1_VT-6_in_flight_c1938.jpeg?width=1000", credit: "U.S. Navy / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "dh2", name: "Airco DH.2", category: "plane", era: "WW1", difficulty: 3,
+    aliases: ["D.H.2", "De Havilland DH.2"],
+    fact: "The Airco DH.2 was a single-seat pusher biplane fighter aircraft which operated during the First World War.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Airco_D.H.2_ExCC.jpg?width=1000", credit: "British official photographer / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "do217", name: "Dornier Do 217", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Do 217", "Do-217", "Dornier 217", "Dornier Do 217R", "Dornier Do 217J"],
+    fact: "The Dornier Do 217 was a bomber used by the German Luftwaffe during World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Do_217E-2_NAN15Jul43.jpg?width=1000", credit: "U.S. Navy / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "draken", name: "Saab 35 Draken", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["J35A", "Sk 35C", "Saab35", "Saab 35", "Saab J35", "Saab 35A", "Saab 35B", "Saab 35C"],
+    fact: "The Saab 35 Draken ( IPA: [ ²drɑːkɛn ]; The Kite, ambiguous with The Dragon ) is a Swedish fighter-interceptor developed and manufactured by Svenska Aeroplan Aktiebolaget ( SAAB )",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/J_35F_1972_%28cropped%2C_removal_of_damage_and_dirt_using_clone_tool%29.jpg?width=1000", credit: "Blockhaj / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "dukw", name: "DUKW", category: "afv", era: "WW2", difficulty: 2,
+    aliases: ["Duck boats", "DUKW amphibious truck", "Duplex Universal Karrier, Wheeled"],
+    fact: "The DUKW (GMC type nomenclature, colloquially known as Duck ) is a six-wheel-drive amphibious modification of the GMC CCKW \"deuce-and-a-half\" 2½-ton trucks used by the US military",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/DUKW.image2.army.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "e2", name: "Grumman E-2 Hawkeye", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: [],
+    fact: "The Northrop Grumman E-2 Hawkeye is an American all-weather, carrier-capable, tactical airborne early warning (AEW) aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/E-2D_Advanced_Hawkeye_aircraft_conduct_a_test_flight.jpg?width=1000", credit: "US Navy / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "e3", name: "Boeing E-3 Sentry", category: "plane", era: "Cold War", difficulty: 2,
+    aliases: ["E-3A", "E-3C", "E-3B", "E-3D", "E-3F", "E-3G", "Awacs", "E-3 AWACS"],
+    fact: "The Boeing E-3 Sentry is an American airborne early warning and control (AEW&C) aircraft developed by Boeing.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/E-3_Sentry_Airborne_Warning_and_Control_System_%28AWACS%29_conducts_a_mission.jpg?width=1000", credit: "Senior Airman Roslyn Ward / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "e7", name: "Boeing E-7 Wedgetail", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["E-7A", "E-7A Wedgetail", "Boeing wedgtail", "Wedgetail AWACS", "Boeing Wedgetail", "Boeing 737 AEW&C", "Project Wedgetail", "Boeing Peace Eagle"],
+    fact: "The Boeing E-7 Wedgetail, also marketed as the Boeing 737 AEW&C, is a twin-engine airborne early warning and control aircraft originally designed for the Royal Australian Air Force (RAAF).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/A30-001_in_flight_over_the_United_States_in_April_2025_%28cropped%29.jpg?width=1000", credit: "US Air Force photo by Richard Gonzales / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "ea6b", name: "Grumman EA-6B Prowler", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: [],
+    fact: "The Northrop Grumman (formerly Grumman ) EA-6B Prowler is a twin-engined, four-seat, mid-wing electronic-warfare aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Prowler_Final_Flight_division_flight_%28cropped%29.jpg?width=1000", credit: "Cpl. Neysa Huertas Quinones / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "ebr", name: "Panhard EBR", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["EBR ETT"],
+    fact: "The Panhard EBR ( French: Engin Blindé de Reconnaissance, lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Panhard_EBR_150808_01.jpg?width=1000", credit: "Vassil / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "eindecker", name: "Fokker Eindecker fighters", category: "plane", era: "WW1", difficulty: 3,
+    aliases: ["Eindecker", "Fokker Eindekker", "Fokker Eindecker"],
+    fact: "The Fokker Eindecker fighters were a series of German World War I monoplane single-seat fighter aircraft designed by Dutch engineer Anthony Fokker.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Fokker_EIII_210-16.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "f101", name: "McDonnell F-101 Voodoo", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["F-101", "RF-101", "RF-101C", "F-101 VooDoo", "RF-101 Voodoo", "F-101B Voodoo", "RF-101C Voodo", "F-101A Voodoo"],
+    fact: "The McDonnell F-101 Voodoo is a supersonic jet fighter designed and produced by the American McDonnell Aircraft Corporation.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/F-101B_New_York_ANG_in_flight_1978.jpeg?width=1000", credit: "USAF / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "f102", name: "Convair F-102 Delta Dagger", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["F102", "F-102", "F-102A", "PQM-102", "Delta Dagger", "Convair F-102", "Convair Model 8", "Convair PQM-102"],
+    fact: "The Convair F-102 Delta Dagger is an interceptor aircraft designed and produced by the American aircraft manufacturer Convair.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Convair_YF-102_FC-782.jpg?width=1000", credit: "USAF / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "f106", name: "Convair F-106 Delta Dart", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["F-106", "F-106A", "Delta Dart", "Convair F-106", "F106 Delta Dart", "F-106 Delta Dart", "F-106 Delta Darts", "F-106A Delta Dart"],
+    fact: "The Convair F-106 Delta Dart is an all-weather interceptor aircraft designed and produced by the American aircraft manufacturer Convair, a division of General Dynamics.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/F-106A_Chase_Dart.JPEG?width=1000", credit: "Staff Sgt. John K. McDowell / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "f15e", name: "McDonnell Douglas F-15E Strike Eagle", category: "plane", era: "Modern", difficulty: 2,
+    aliases: ["F15E", "F-15E", "F-15I", "F-15T", "F-15K", "F-15S", "F-15SG", "F-15QA"],
+    fact: "The McDonnell Douglas (now Boeing ) F-15E Strike Eagle is an American all-weather multirole strike fighter derived from the McDonnell Douglas F-15 Eagle.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/F-15E_takes_on_fuel_from_KC-10.jpg?width=1000", credit: "Staff Sgt. Sean Carnes / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "f2_jap", name: "Mitsubishi F-2", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["FS-X", "F-2A", "JF-2A", "Viper Zero", "Mitsubishi F2A", "Mitsubishi F2B", "Mitsubishi F-2A", "Mitsubishi F-2B"],
+    fact: "The Mitsubishi F-2 is a multirole fighter that was derived from the General Dynamics F-16 Fighting Falcon, and manufactured by Mitsubishi Heavy Industries and Lockheed Martin for t",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mitsubishi_F-2.jpg?width=1000", credit: "航空自衛隊 / Wikimedia Commons (CC BY 4.0)" },
+    ]
+  },
+  {
+    id: "f84", name: "Republic F-84 Thunderjet", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["F-84", "F-84G", "Thunderjet", "Republic F-84", "Republic XP-84", "P-84 Thunderjet", "F-84 Thunderjet", "F-84E Thuderjet"],
+    fact: "The Republic F-84 Thunderjet is an American turbojet fighter-bomber aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/F-84E_of_9th_Fighter-Bomber_Squadron_in_Korea.jpg?width=1000", credit: "USAF / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "f89", name: "Northrop F-89 Scorpion", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["P-89", "XF-89", "F-89J", "XP-89", "Northrop F-89", "F-89 Scorpion", "Northrop N-24", "Northrop N-35"],
+    fact: "The Northrop F-89 Scorpion is an all-weather, twin-engined interceptor aircraft designed and produced by the American aircraft manufacturer Northrop Corporation.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/59fis-f-89-goosebay.jpg?width=1000", credit: "USAF / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "ferret", name: "Ferret armoured car", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["Daimler Ferret", "Ferret scout car", "Ferret armored car", "Ferret Army Vehicle", "Ferret armoured scout car"],
+    fact: "The Ferret armoured car, also commonly called the Ferret scout car, is a British armoured fighting vehicle designed and built for reconnaissance purposes.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Aldham_Old_Time_Rally_2015_-_18081932993.jpg?width=1000", credit: "kitmasterbloke / Wikimedia Commons (CC BY 2.0)" },
+    ]
+  },
+  {
+    id: "fh70", name: "FH70", category: "artillery", era: "Cold War", difficulty: 3,
+    aliases: ["FH70 howitzer"],
+    fact: "The FH70 (field howitzer for the 1970s) is a towed 155 mm howitzer used by several nations.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/FH_70_155mm_gun_%286065127314%29.jpg?width=1000", credit: "Hugh Llewelyn Description British photographer / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "g55", name: "Fiat G.55 Centauro", category: "plane", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Fiat G.55 Centauro ( Italian: \" Centaur \") is a single-engine single-seat monoplane fighter aircraft designed and produced by the Italian aircraft manufacturer Fiat Aviazione.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/FIAT_G-55_Centauro_%281%29.jpg?width=1000", credit: "Lorenzo Tomasi / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "g91", name: "Fiat G.91", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["G91", "G.91", "Fiat G91Y", "Alenia G.91", "Fiat G.91PAN", "Aeritalia G91R", "Aeritalia G91Y", "Aeritalia G91T"],
+    fact: "The Fiat G.91 is a jet fighter aircraft designed and built by the Italian aircraft manufacturer Fiat Aviazione, which later merged into Aeritalia.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Luftwaffe_Museum_Fiat_G91_2007.jpg?width=1000", credit: "Pajx / Wikimedia Commons (CC BY-SA 2.5)" },
+    ]
+  },
+  {
+    id: "gepard", name: "Flakpanzer Gepard", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["PRTL", "Gepard Flakpanzer", "Gepard anti-aircraft system", "Flugabwehrkanonenpanzer Gepard"],
+    fact: "The Flugabwehrkanonenpanzer Gepard (\"anti-aircraft-gun tank 'Cheetah ' \", also known as Flakpanzer Gepard ) is an all-weather-capable West German self-propelled anti-aircraft gun (",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/010_FZD_030.jpg?width=1000", credit: "Maverikkk / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "gladiator", name: "Gloster Gladiator", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["J8A", "Gloster J8A", "Sea Gladiator", "Gloster Galdiator", "Gloster Gladiators", "Gloster Gladiator I", "Gloster Gladiator II", "Gloucester Gladiator"],
+    fact: "The Gloster Gladiator is a biplane fighter aircraft designed and produced by the British aviation firm Gloster Aircraft Company, Ltd..",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Gloster_Gladiator_7985K.jpg?width=1000", credit: "Airwolfhound / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "global_hawk", name: "Northrop Grumman RQ-4 Global Hawk", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["RQ4", "RQ-4", "EQ-4B", "RQ-4A", "RQ-4B", "FORTE10", "FORTE11", "Tier II+"],
+    fact: "The Northrop Grumman RQ-4 Global Hawk is a high-altitude, remotely-piloted surveillance aircraft introduced in 2001.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Global_Hawk_1.jpg?width=1000", credit: "U.S. Air Force photo by Bobbi Zapka / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "gnat", name: "Folland Gnat", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["HS Gnat", "Gnat T.1", "Sabre slayer", "Folland Gnats", "Folland FO-141", "Folland Gnat T.1", "Folland Gnat F.1", "Folland Gnat Mk.1"],
+    fact: "The Folland Gnat is a British compact, swept-wing, subsonic, fighter aircraft that was developed and produced by Folland Aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Gnat_%28cropped%29.jpg?width=1000", credit: "Tim Felce / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "gotha", name: "Gotha G.V", category: "plane", era: "WW1", difficulty: 3,
+    aliases: ["Gotha G Vb", "Gother bomber", "Gotha bombers"],
+    fact: "The Gotha G.V was a heavy bomber used by the Luftstreitkräfte (Imperial German Air Service) during World War I.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/GothaG5.jpg?width=1000", credit: "Unknown / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "growler", name: "Boeing EA-18G Growler", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["EA-18", "EA-18G", "Ef-18G", "F-18 Growler", "F-18G Growler", "EA-18 Growler", "Boeing EA-18G", "EA-18G Growler"],
+    fact: "The Boeing EA-18G Growler is an American carrier-based electronic warfare aircraft, a specialized version of the two-seat Boeing F/A-18F Super Hornet.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/U.S._Navy_EA-18G_Growler_breaks_away_from_a_U.S._Air_Force_KC-135_%28altered%29.jpg?width=1000", credit: "Senior Airman John Linzmeier / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "gvozdika", name: "2S1 Gvozdika", category: "artillery", era: "Cold War", difficulty: 3,
+    aliases: ["2S1", "2S34", "M1974", "M1971", "M-1974", "SAU-122", "Gvozdika", "2S1 122mm"],
+    fact: "The 2S1 Gvozdika ( Russian: 2С1 «Гвоздика», \" Carnation \") is a Soviet self-propelled howitzer introduced in 1972 and is in service in Russia and other countries as of 2026.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/6742_-_Moscow_-_Poklonnaya_Hill_-_Tank.JPG?width=1000", credit: "Andrew Bossi / Wikimedia Commons (CC BY-SA 2.5)" },
+    ]
+  },
+  {
+    id: "h8k", name: "Kawanishi H8K", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["H8K", "Kawanishi G9K", "Kawanishi H8K2-L", "H8K Emily Flying Boat", "Kawanishi Navy Type 2 Flying Boat", "Kawanishi Navy Type 2 Flying-Boat", "Kawanishi Navy Transport Flying Boat Seiku", "Kawanishi Navy Transport Flying-Boat Seiku"],
+    fact: "The Kawanishi H8K was a large four- engined flying boat designed and produced by the Japanese aviation manufacturer Kawanishi.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Kawanishi_H8K2_%28Emily%29_flying_boat.jpg?width=1000", credit: "Max Smith / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "hampden", name: "Handley Page Hampden", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["HP.52", "Hp hampden", "Hampden bomber", "Flying Suitcase", "Handley Page Hereford", "Handley-Page Hereford", "Handley Page HP.52 Hampden", "Handley Page H.P.52 Hampden"],
+    fact: "The Handley Page HP.52 Hampden was a British twin-engine medium bomber that was operated by the Royal Air Force (RAF).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Handley_Page_Hampden_in_the_air.jpg?width=1000", credit: "Royal Air Force official photographer; The original uploader was Bzuk at English Wikipedia ., 28 May 2007 (ori / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "he177", name: "Heinkel He 177 Greif", category: "plane", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Heinkel He 177 Greif ( Griffin ) was a long-range heavy bomber flown by the Luftwaffe during World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Heinkel_He_177A-02_in_flight_1942.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "hh60", name: "Sikorsky HH-60 Pave Hawk", category: "helicopter", era: "Modern", difficulty: 3,
+    aliases: ["HH60", "HH-60", "MH-60G", "HH-60G", "HH-60W", "Pave Hawk", "HH-60 Pavehawk", "HH-60G Pavehawk"],
+    fact: "The Sikorsky MH-60/HH-60 Pave Hawk and HH-60W Jolly Green II are a four-blade, twin-engine, medium-lift utility military helicopter manufactured by Sikorsky Aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/HH-60G_Pave_Hawk_helicopter_operated_by_the_56th_Rescue_Squadron.jpg?width=1000", credit: "Airman Thomas S. Keisler IV / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "hotchkiss_h35", name: "Hotchkiss H35", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["Char H35", "Hotchkiss H38", "Hotchkiss H39", "PzKpfw 38H735", "Hotchkiss H-39", "Hotchkiss tanks"],
+    fact: "The Hotchkiss H35 or Char léger modèle 1935 H was a French cavalry tank developed prior to World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Hotchkiss-H-39-latrun-2.jpg?width=1000", credit: "No machine-readable author provided. Bukvoed assumed (based on copyright claims). / Wikimedia Commons (CC BY 2.5)" },
+    ]
+  },
+  {
+    id: "hs129", name: "Henschel Hs 129", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Hs 129", "Hs-129", "Henschel Hs 129B"],
+    fact: "The Henschel Hs 129 was a ground-attack aircraft designed and produced by the German aircraft manufacturer Henschel Flugzeugwerke AG.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Henschel_Hs_129B.jpg?width=1000", credit: "USAAF; original uploader to en.wikipedia was en:user:Maury Markowitz / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "hudson", name: "Lockheed Hudson", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["PBO Hudson", "A-29 Hudson", "A-28 Hudson", "C-63 Hudson", "AT-18 Hudson", "Lockheed 414", "Lockheed PBO", "Lockheed A-29"],
+    fact: "The Lockheed Hudson is a light bomber and coastal reconnaissance aircraft built by the American Lockheed Aircraft Corporation.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Lockheed_A-29_Hudson_USAAF_in_flight_c1941.jpg?width=1000", credit: "USAAF / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "i153", name: "Polikarpov I-153", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["I-153", "Polikarpov I-190", "Polikarpov I-195"],
+    fact: "The Polikarpov I-153 Chaika ( Russian: Чайка, lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Poliakarpov_I-153_Musee_du_Bourget_P1010993.JPG?width=1000", credit: "Pline / Wikimedia Commons (CC BY-SA 2.5)" },
+    ]
+  },
+  {
+    id: "i16", name: "Polikarpov I-16", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["TsKB-12", "TsKB-18", "TsKB-29", "I-16 Rata", "Polikarpov SPB", "Polikarpov UTI-2", "Polikarpov UTI-3", "Polikarpov UTI-4"],
+    fact: "The Polikarpov I-16 ( Russian: Поликарпов И-16 ) is a Soviet single-engine single-seat fighter aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Polikarpov_I-16_republicano.jpg?width=1000", credit: "Angelmersaenz / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "iar80", name: "IAR 80", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["IAR 81", "IAR-81", "I.A.R. 81"],
+    fact: "The IAR 80 was a Romanian World War II low-wing monoplane, all-metal monocoque fighter and ground-attack aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IAR-80.jpg?width=1000", credit: "Sorin Tulea / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "igla", name: "9K38 Igla", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: ["9K38", "SA24", "Sa18", "Sa16", "SA-16", "SA-24", "SA 24", "SA 16"],
+    fact: "The 9K38 Igla ( Russian: Игла́, lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IGLA-S_MANPADS_at_IDELF-2008.jpg?width=1000", credit: "Vitaly V. Kuzmin / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "igo", name: "Type 89 I-Go medium tank", category: "tank", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Type 89 medium tank I-Go ( 八九式中戦車 イ号, Hachikyū-shiki chū-sensha I-gō ) is a medium tank used by the Imperial Japanese Army from 1932 to 1942 in combat operations of the Second",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Type_89_Yi-Go_at_Tsuchira.jpg?width=1000", credit: "User:Megapixie / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "il18", name: "Ilyushin Il-18", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Il-18D", "Il-18V", "Il-22M", "Ilyushin Il-20", "Ilyushin Il-24", "Ilyushin Il-18V", "Ilyushin Il-18A", "Ilyushin Il-18B"],
+    fact: "The Ilyushin Il-18 ( Russian: Илью́шин Ил-18; NATO reporting name: Coot ) is a large turboprop airliner that first flew in 1957 and became one of the best known Soviet aircraft of its era.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Rossiya_Ilyushin_Il-18.jpg?width=1000", credit: "Sergey Riabsev / Wikimedia Commons (GFDL 1.2)" },
+    ]
+  },
+  {
+    id: "il28", name: "Ilyushin Il-28", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Hong H-5", "Harbin H-5", "Harbin B-5", "H-5 bomber", "H-5 Beagle", "Avia B-228", "Il-28 Beagle", "IIyushin II-28"],
+    fact: "The Ilyushin Il-28 ( Russian: Илью́шин Ил-28; NATO reporting name: Beagle ) is a medium-range jet bomber, originally manufactured for the Soviet Air Forces, in service since 1950.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/I%C5%82_28_%282%29.jpg?width=1000", credit: "Wisnia6522 / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "il4", name: "Ilyushin Il-4", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Il-4 Bob"],
+    fact: "The Ilyushin Il-4 (DB-3F) ( Russian: Ильюшин Ил-4 (ДБ-3Ф); NATO reporting name: Bob ) is a Soviet twin-engined long-range bomber and torpedo bomber, widely used by the Soviet Air F",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Il-4_front_view_Moscow.jpg?width=1000", credit: "Mike1979 Russia / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "il62", name: "Ilyushin Il-62", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["IL62", "Il-62", "Il-62M", "Ilyushin 62", "Ilyushin 62M", "Lyushin IL-62M", "ČSA Flight 542", "Ilyushin Il-62M"],
+    fact: "The Ilyushin Il-62 ( Russian: Илью́шин Ил-62; NATO reporting name: Classic ) is a Soviet long-range narrow-body jetliner conceived in 1960 by Ilyushin.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Air-to-air_with_a_Russian_Air_Force_Ilyushin_Il-62M_%28retouched%29.jpg?width=1000", credit: "Sergey Lysenko / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "iris_t", name: "IRIS-T", category: "missile", era: "Modern", difficulty: 3,
+    aliases: [],
+    fact: "The IRIS-T (infrared imaging system tail/thrust vector-controlled) is a short range infrared homing air-to-air missile.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IRIS-T_expo_front.JPG?width=1000", credit: "HaraF / Wikimedia Commons (GFDL)" },
+    ]
+  },
+  {
     id: "isu122", name: "ISU-122", category: "tank", era: "WW2", difficulty: 3,
     aliases: [],
-    fact: "The ISU-122 (acronym of Istrebitelnaja - or Iosif Stalin-based - Samokhodnaya Ustanovka 122) was a Soviet assault gun used during World War II, mostly in the anti-tank role.",
+    fact: "The ISU-122 (acronym of Istrebitelnaja - or Iosif Stalin -based - Samokhodnaya Ustanovka 122 ) was a Soviet assault gun used during World War II, mostly in the anti-tank role.",
     images: [
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/ISU-122_skos_RB.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/ISU-122_skos_RB.jpg?width=1000", credit: "Unknown / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "j11", name: "Shenyang J-11", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["J-11D", "Jian-11", "J-11 fighters", "Shenyang J-11B", "Shenyang J-11D", "J-11 Flanker-B+"],
+    fact: "The Shenyang J-11 ( Chinese: 歼-11; NATO reporting name: Flanker-B+ / Flanker-L ), also known as Yinglong ( simplified Chinese: 应龙; traditional Chinese: 應龍; pinyin: yìnglóng; lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/J-11BChel.jpg?width=1000", credit: "Mil.ru / Wikimedia Commons (CC BY 4.0)" },
+    ]
+  },
+  {
+    id: "j2m", name: "Mitsubishi J2M Raiden", category: "plane", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Mitsubishi J2M Raiden (雷電, \"Lightning Bolt\") is a single-engined, land-based fighter aircraft used by the Imperial Japanese Navy Air Service in World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mitsubishi_J2M.JPG?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -3350,7 +4214,263 @@ const VEHICLES = [
     aliases: ["JagdPz IV", "Gerät 820", "Jagpazer 4", "Sd.Kfz. 162", "Jagpanzer IV", "Jagdpazner IV", "Jagpanzer four", "Jagdpazer four"],
     fact: "The Jagdpanzer IV / Sd.Kfz. 162, was a German tank destroyer based on the Panzer IV chassis and built in three main variants.",
     images: [
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Panzermuseum_Munster_2010_0449.JPG?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Panzermuseum_Munster_2010_0449.JPG?width=1000", credit: "Banznerfahrer / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "javelin_jet", name: "Gloster Javelin", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Gloster G.A.5", "Javelin FAW Mk.1", "Javelin FAW Mk.8", "Gloster Javelin FAW1", "Gloster Javelin FAW.1", "Gloster Javelin FAW Mk.7", "Gloster Javelin FAW Mk.8"],
+    fact: "The Gloster Javelin is a twin-engined all-weather interceptor aircraft designed and produced by the Gloster Aircraft Company.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Gloster_Javelin_46_Sqn_line_up%2C_XA628_nearest._%2851458866291%29.jpg?width=1000", credit: "tormentor4555 / Wikimedia Commons (PDM-owner)" },
+    ]
+  },
+  {
+    id: "jdam", name: "Joint Direct Attack Munition", category: "missile", era: "Modern", difficulty: 3,
+    aliases: [],
+    fact: "The Joint Direct Attack Munition ( JDAM ) is a guidance kit that converts unguided bombs, or \"dumb bombs\", into all-weather precision-guided munitions (PGMs).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/GBU-31_xxl.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "jf17", name: "CAC/PAC JF-17 Thunder", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["FC-1", "JF-17", "Jf 17", "CAC FC-1", "Chengdu FC-1", "JF-17 Thunder"],
+    fact: "The CAC/PAC JF-17 Thunder, also known as FC-1 Xiaolong, is a Sino-Pakistani single-engine lightweight supersonic multirole combat aircraft developed jointly by the Pakistan Aeronau",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Pakistan_Air_Force_Chengdu_JF-17_Gu.jpg?width=1000", credit: "Shimin Gu / Wikimedia Commons (GFDL 1.2)" },
+    ]
+  },
+  {
+    id: "jn4", name: "Curtiss JN Jenny", category: "plane", era: "WW1", difficulty: 3,
+    aliases: [],
+    fact: "The Curtiss JN \"Jenny\" is a series of biplanes built by the Glenn Curtiss Aeroplane Company of Hammondsport, New York, later the Curtiss Aeroplane and Motor Company.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Flying_jenny_cropped.jpg?width=1000", credit: "George Johnson, Aviation Section, US Army Signal Corps / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "ju88", name: "Junkers Ju 88", category: "plane", era: "WW2", difficulty: 2,
+    aliases: ["Ju88", "Ju 88", "Ju-88", "Ju.88", "Ju 88P", "Junkers 88", "Junkers JU88C", "Junkers JU88G"],
+    fact: "The Junkers Ju 88 is a twin-engined multirole combat aircraft designed and produced by the German aircraft manufacturer Junkers Aircraft and Motor Works.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_101I-363-2258-11%2C_Flugzeug_Junkers_Ju_88_%28cropped%29.jpg?width=1000", credit: "Rompel / Wikimedia Commons (CC BY-SA 3.0 de)" },
+    ]
+  },
+  {
+    id: "k1_tank", name: "K1 tank", category: "tank", era: "Modern", difficulty: 3,
+    aliases: [],
+    fact: "The K1, sometimes referred to as the 88 Tank (88 전차), is a South Korean main battle tank designed by Chrysler Defense (later General Dynamics Land Systems ) and Hyundai Precision I",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/2013.4.1_%EC%9C%A1%EA%B5%B011%EC%82%AC%EB%8B%A8_%EC%95%BC%EC%99%B8%EA%B8%B0%EB%8F%99%EC%A0%84%EC%88%A0%ED%9B%88%EB%A0%A8_Field_Training_Exercise%2C_Republic_of_Korea_Army_11th_Division_%288617306085%29.jpg?width=1000", credit: "대한민국 국군 Republic of Korea Armed Forces / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "ka25", name: "Kamov Ka-25", category: "helicopter", era: "Cold War", difficulty: 3,
+    aliases: ["Ka-25", "Ka-25 Hormone", "Kamov Ka-25PL", "Kamov Ka-25 Hormone"],
+    fact: "The Kamov Ka-25 ( NATO reporting name \" Hormone \") is a naval helicopter, developed for the Soviet Navy in the USSR from 1958.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Soviet_Ka-25_Hormone-C_%28cropped%29.jpg?width=1000", credit: "US Navy / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "ka26", name: "Kamov Ka-26", category: "helicopter", era: "Cold War", difficulty: 3,
+    aliases: ["Ka-26", "Ka-126", "Ka-128", "IAR Ka-26", "Kamov Ka-26SS"],
+    fact: "The Kamov Ka-26 ( NATO reporting name Hoodlum ) is a Soviet light utility helicopter with co-axial rotors.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Kamov_Ka-26%2C_RA-24308_%28remix%29.jpg?width=1000", credit: "English: Aleksandr Markin Русский: Александр Маркин / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "kc10", name: "McDonnell Douglas KC-10 Extender", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["KC10", "KC-10", "KDC-10", "KC-10A", "C-10 Extender", "KC-10 Extender", "KDC-10 Extender", "KC-10A Extender"],
+    fact: "The McDonnell Douglas KC-10 Extender is an American tanker and cargo aircraft that was operated by the United States Air Force (USAF) from 1981 to 2024.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/KC-10_Extender_%282151957820%29.jpg?width=1000", credit: "U.S. Air Force photo by Staff Sgt. Jerry Morrison / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "kc46", name: "Boeing KC-46 Pegasus", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["KC-46", "KC-46A", "Boeing KC-46", "Boeing KC-46A", "KC-46 Pegasus", "Frankentanker", "Boeing 767-2C", "Boeing Pegasus"],
+    fact: "The Boeing KC-46 Pegasus is an American military aerial refueling and strategic military transport aircraft developed by Boeing from its 767 jet airliner.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/KC-46_Pegasus_prepares_to_refuel_C-17_%28cropped%29.jpg?width=1000", credit: "USAF Christopher Okula / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "ki45", name: "Kawasaki Ki-45", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Ki-45", "Ki-38", "Kawasaki Ki-38", "Kawasaki Ki-45 Toryu", "Kawasaki Ki-45 Toryu \"Nick\"", "Kawasaki Army Type 2 Two-seat Fighter", "Kawasaki Army Type 2 Twin-seat Fighter"],
+    fact: "The Kawasaki Ki-45 Toryū ( 屠龍, Dragonslayer ) is a two-seat, twin-engine heavy fighter used by the Imperial Japanese Army in World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Ki_45_001.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "ki46", name: "Mitsubishi Ki-46", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Ki-46", "Mitsubishi Ki-46 Dinah", "Mitsubishi Ki-46-III KAI", "Mitsubishi Army Type 100 Assault Plane", "Mitsubishi Army Type 100 Assault Aircraft", "Mitsubishi Army Type 100 HQ Reconnaissance"],
+    fact: "The Mitsubishi Ki-46 is a twin-engine reconnaissance aircraft that was used by the Imperial Japanese Army in World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Ki-46_100sitei.jpg?width=1000", credit: "撮影者不明 / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "ki61", name: "Kawasaki Ki-61", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Ki-61", "Ki-61 Hien", "Hagakure-Tai", "Kawasaki hien", "Kawasaki Ki-61 Hien", "Kawasaki Ki-61-II KAI", "Japanese Messerschmitt", "Kawasaki Army Type 3 Fighter"],
+    fact: "The Kawasaki Ki-61 Hien (飛燕, \"flying swallow \") is a Japanese World War II fighter aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Kawasaki_Ki-61-14.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "ki84", name: "Nakajima Ki-84 Hayate", category: "plane", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Nakajima Ki-84 Hayate ( キ84 疾風; lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/The_Nakajima_Ki-84_Hayate_additional_prototype_of_the_Army_Air_Force.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "kingfisher", name: "Vought OS2U Kingfisher", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["OS2U", "Vought OS2U", "Vought XOS2U", "OS2U Kingfisher", "OS2N Kingfisher", "Vought Kingfisher", "Vought OSU Kingfisher", "Vought OS2U-2 Kingfisher"],
+    fact: "The Vought OS2U Kingfisher is an American catapult-launched observation floatplane.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/OS2U-2_Kingfisher_in_flight_1942.jpg?width=1000", credit: "U.S. Navy / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "l118", name: "L118 light gun", category: "artillery", era: "Cold War", difficulty: 3,
+    aliases: ["L118", "L119", "MKEK Boran", "105mm Light Gun", "105 mm Light Gun"],
+    fact: "The L118 light gun is a 105 mm towed howitzer.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Royal_Artillery_Firing_105mm_Light_Guns_MOD_45155621.jpg?width=1000", credit: "Richard Watt / Wikimedia Commons (OGL v1.0)" },
+    ]
+  },
+  {
+    id: "la7", name: "Lavochkin La-7", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["La-7", "La-7 Fin", "Lavochkin La-7R", "Lavochkin La-7TK"],
+    fact: "The Lavochkin La-7 ( Russian: Лавочкин Ла-7; NATO reporting name: Fin ) is a piston-engined single-seat fighter aircraft developed by the Soviet Union during World War II by the La",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Lavochkin_La-7_%E2%80%9927_white%E2%80%99_%2825168790698%29.jpg?width=1000", credit: "Alan Wilson from Stilton, Peterborough, Cambs, UK / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "lav25", name: "LAV-25", category: "afv", era: "Modern", difficulty: 3,
+    aliases: ["M1047", "LAV-M", "LAV-AD", "LAV-105"],
+    fact: "The LAV-25 ( Light Armored Vehicle ) is a member of the LAV II family.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/LAV-25A2.jpg?width=1000", credit: "Cpl. Nayelly Nieves-Nieves / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "long_tom", name: "155 mm gun M1", category: "artillery", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The 155 mm gun M1 was a 155 mm field gun developed and used by the United States military.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/155_mm_Long_Tom_2.jpg?width=1000", credit: "Mark Pellegrini / Wikimedia Commons (CC BY-SA 2.5)" },
+    ]
+  },
+  {
+    id: "luchs", name: "Spähpanzer Luchs", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["Spahpanzer Luchs", "Spaehpanzer Luchs", "Spahpanzer 2 Luchs"],
+    fact: "The Spähpanzer Luchs ( English: Scout Armored Car \" Lynx \", lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SpPz2_Luchs.JPG?width=1000", credit: "Billyhill / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "lysander", name: "Westland Lysander", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Westland Wendover", "Westland Lysander III", "Westland Lysander Mk.II", "Westland Lysander Mk.III"],
+    fact: "The Westland Lysander is a British army co-operation and liaison aircraft produced by Westland Aircraft that was used immediately before and during the Second World War.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Westland_Lysander_IIIa_%27V9367_MA-B%27_%28G-AZWT%29_%2851554135693%29.jpg?width=1000", credit: "Alan Wilson from Peterborough, Cambs, UK / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "m107", name: "M107 self-propelled gun", category: "artillery", era: "Cold War", difficulty: 3,
+    aliases: ["175 mm self-propelled gun", "M107 175mm Self-Propelled Gun"],
+    fact: "The M107 175 mm (6.9 in) self-propelled gun was used by the US Army and US Marine Corps from the early 1960s to the late 1970s.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Dutch_M107_175_mm_Self-propelled_Howitzer.jpg?width=1000", credit: "Leger Film- en Fotodienst (LFFD) / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "m110", name: "M110 howitzer", category: "artillery", era: "Cold War", difficulty: 3,
+    aliases: ["8-inch M110", "M110 gun motor carriage", "M110 Self Propelled Howitzer", "M110 203mm Self-Propelled Howitzer"],
+    fact: "The 8-inch (203 mm) M110 self-propelled howitzer is an American self-propelled artillery system consisting of an M115 203 mm howitzer installed on a purpose-built chassis.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Dutch_M110_203_mm_8_inch_Heavy_Self-propelled_Howitzer.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "m1128", name: "M1128 mobile gun system", category: "afv", era: "Modern", difficulty: 3,
+    aliases: [],
+    fact: "The M1128 mobile gun system (MGS) is an eight-wheeled assault gun of the Stryker family, mounting a 105 mm tank gun, based on the Canadian LAV III light-armored vehicle manufacture",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Exercise_Allied_Spirit_I%2C_Day_5_150117-A-EM105-337.jpg?width=1000", credit: "Sgt. William Tanner / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "m36", name: "M36 tank destroyer", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["M36 GMC", "M36 Jackson", "M36 Gun Motor Carriage", "M36B1 gun motor carriage", "90 mm Gun Motor Carriage T71", "90 mm Gun Motor Carriage, M36"],
+    fact: "The M36 tank destroyer, formally 90 mm Gun Motor Carriage, M36, was an American tank destroyer used during World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/American_tank_destroyers.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "m42_duster", name: "M42 Duster", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["M42A1 Duster", "M42 Duster SPAAG", "M42 Gun Motor Carriage", "M42 40 mm Self-Propelled Anti-Aircraft Gun"],
+    fact: "The M42 40 mm self-propelled anti-aircraft gun, or Duster, is an American armored light air-defense gun built for the United States Army from 1952 until December 1960, in service until 1988.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/M42_Duster_in_1968.jpg?width=1000", credit: "From the Robert L. Drieslein Collection (COLL/5643) at the Archives Branch, Marine Corps History Division / Wikimedia Commons (CC BY 2.0)" },
+    ]
+  },
+  {
+    id: "m4_bison", name: "Myasishchev M-4", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["M4 Bison", "M-4 Bison", "M-4 Molot", "Mya-4 Bison", "Bison bomber", "Myasishchev M", "Myasishchev 3M", "Myasishchev 2M"],
+    fact: "The Myasishchev M-4 Molot ( Russian: Молот (Hammer ), USAF /DoD reporting name \"Type 37\", ASCC reporting name Bison ) was a four-engined strategic bomber designed by Vladimir Mikha",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Myasischev_3MD_VVS_museum.jpg?width=1000", credit: "Mike1979 Russia / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "m56_scorpion", name: "M56 Scorpion", category: "tank", era: "Cold War", difficulty: 3,
+    aliases: ["M56 SPAA", "M56 Self Propelled Gun", "M56 self-propelled gun"],
+    fact: "The M56 \"Scorpion\" self-propelled gun is an American unarmored, airmobile self-propelled tank destroyer, which was armed with a 90 mm M54 gun with a simple blast shield, and an unp",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/M56_at_AAF_Tank_Museum.JPG?width=1000", credit: "Yellowute at English Wikipedia / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "m7_priest", name: "M7 Priest", category: "artillery", era: "WW2", difficulty: 3,
+    aliases: ["M7 Gun Motor Carriage", "Gun motor carriage M7", "M-7 Gun Motor Carriage", "M7 Howitzer Motor Carriage", "M-7 self-propelled artillery", "105 Millimeter Howitzer Motor Carriage M7"],
+    fact: "The 105 mm howitzer motor carriage M7 was an American self-propelled artillery vehicle produced during World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/M7_Priest_at_APG.jpg?width=1000", credit: "en:user:Yellowute / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "m88", name: "M88 recovery vehicle", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: [],
+    fact: "The M88 recovery vehicle is one of the largest armored recovery vehicles (ARV) in use by United States Armed Forces.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/M88_Armored_Recovery_Vehicle_in_pm.jpg?width=1000", credit: "baku13 / Wikimedia Commons (CC BY-SA 2.1 jp)" },
+    ]
+  },
+  {
+    id: "m8_greyhound", name: "M8 Greyhound", category: "afv", era: "WW2", difficulty: 3,
+    aliases: ["M20 Scout Car", "M20 greyhound", "M8 armored car", "M20 Utility Car", "M20 Armored Car", "T26 Armored Car", "T22 Armored Car", "Armored Car M-8"],
+    fact: "The M8 light armored car is a 6×6 armored car produced by the Ford Motor Company during World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/M8_Greyhound_U.S._Army_Armor_%26_Cavalry_Collection_2023.jpg?width=1000", credit: "Schierbecker / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "manchester", name: "Avro Manchester", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Manchester bomber", "Avro 679 Manchester"],
+    fact: "The Avro 679 Manchester was a British twin-engine heavy bomber developed and manufactured by the Avro aircraft company in the United Kingdom.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Avro_Manchester_ExCC.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -3359,15 +4479,636 @@ const VEHICLES = [
     fact: "The Marder II (marten in English) was a German tank destroyer of World War II based on the Panzer II chassis.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_101I-197-1238-16%2C_Russland-Mitte%2C_Panzerj%C3%A4ger_%22Marder_II%22.jpg?width=1000", credit: "Henisch / Wikimedia Commons (CC BY-SA 3.0 de)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_101I-197-1235-15%2C_Russland-Mitte%2C_Panzerj%C3%A4ger_%22Marder_II%22.jpg?width=1000", credit: "Henisch / Wikimedia Commons (CC BY-SA 3.0 de)" },
     ]
   },
   {
-    id: "panzer35t", name: "Panzer 35", category: "tank", era: "WW2", difficulty: 3,
-    aliases: ["35t", "LT-35", "LT vz 35", "LT vz.35", "R-2 tank", "LT vz. 35", "PzKpfw 35"],
+    id: "maverick", name: "AGM-65 Maverick", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: ["AGM65", "Rb-75", "AGM-65", "AGM 65", "AGM-65D", "AGM-65A", "AGM65F Maverick", "Maverick rocket"],
+    fact: "The AGM-65 Maverick is an air-to-ground missile (AGM) designed for close air support.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/AGM-65_Maverick_MG_1382.jpg?width=1000", credit: "Rama / Wikimedia Commons (CC BY-SA 2.0 fr)" },
+    ]
+  },
+  {
+    id: "mb339", name: "Aermacchi MB-339", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["MC-32", "Mb339", "MB.339", "MB-339", "MB-338", "Veltro 2", "Mb339pan", "T-Bird II"],
+    fact: "The Aermacchi MB-339 is a military jet trainer and light attack aircraft designed and manufactured by Italian aviation company Aermacchi.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MB339_-_RIAT_2008_%282674540983%29.jpg?width=1000", credit: "Tim Felce (Airwolfhound) / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "mc202", name: "Macchi C.202 Folgore", category: "plane", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Macchi C.202 Folgore ( Italian \"thunderbolt\") is an Italian fighter aircraft developed and manufactured by Macchi Aeronautica.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Macchi_M.C.202D_prototype.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "md500", name: "MD Helicopters MD 500", category: "helicopter", era: "Cold War", difficulty: 3,
+    aliases: ["MD500", "MD500E", "MD520N", "MD530F", "MD 530F", "MD 520N", "Hughes 500", "Hughes 369"],
+    fact: "The MD Helicopters MD 500 series is an American family of light utility civilian and military helicopters.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Md_helicopters_md-500e_g-sscl_arp.jpg?width=1000", credit: "Adrian Pingstone ( Arpingstone ) / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "me410", name: "Messerschmitt Me 410 Hornisse", category: "plane", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Messerschmitt Me 410 Hornisse (Hornet) is a heavy fighter and Schnellbomber (\"Fast Bomber\" in English) designed and produced by the German aircraft manufacturer Messerschmitt.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Messerschmitt_Me-410A-1-U2_Hornisse%2C_Germany_-_Air_Force_AN1139884.jpg?width=1000", credit: "Mike Freer - Touchdown-aviation / Wikimedia Commons (GFDL 1.2)" },
+    ]
+  },
+  {
+    id: "meteor_missile", name: "Meteor", category: "missile", era: "Modern", difficulty: 3,
+    aliases: ["JNAAM", "Mbda meteor", "Meteor missile", "Meteor missile system", "Joint New Air-to-Air Missile"],
+    fact: "The Meteor is a European active radar guided beyond-visual-range air-to-air missile (BVRAAM) developed and manufactured by MBDA.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/ILA_2008_PD_446.JPG?width=1000", credit: "ILA-boy / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "mh53", name: "Sikorsky MH-53", category: "helicopter", era: "Cold War", difficulty: 3,
+    aliases: ["MH53", "MH-53", "HH-53", "HH-53C", "HH-53B", "MH-53J", "Pavelow", "PAVE LOW"],
+    fact: "The Sikorsky MH-53 Pave Low series is a retired long-range special operations and combat search and rescue (CSAR) helicopter for the United States Air Force.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MH-53J_Pave_Low_Mission_Descent_%28altered%29.jpg?width=1000", credit: "Senior Airman Andy M. Kin / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "mi14", name: "Mil Mi-14", category: "helicopter", era: "Cold War", difficulty: 3,
+    aliases: ["Mi-14 Haze", "Mil Mi-14PL", "Mil Mi-14BT", "Mil Mi-14PS", "Mil Mi-14 Haze"],
+    fact: "The Mil Mi-14 ( Russian: Миль Ми-14, NATO reporting name: Haze ) is a Soviet shore-based nuclear-capable amphibious anti-submarine helicopter derived from the earlier Mi-8.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Manewry_NATO_Noble_Mariner_%28cropped%29.jpg?width=1000", credit: "Ministerstwo Obrony Narodowej / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "mi2", name: "Mil Mi-2", category: "helicopter", era: "Cold War", difficulty: 3,
+    aliases: ["PZL Mi-2", "PZL-Swidnik Mi-2", "Mil Mi-2 variants", "WSK-PZL Swidnik Mi-2"],
+    fact: "The Mil Mi-2 ( NATO reporting name: Hoplite ) is a small, three rotor blade Soviet -designed multi-purpose helicopter developed by the Mil Moscow Helicopter Plant, designed in the",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mil_mi-2%28modified%29.jpg?width=1000", credit: "bomberpilot / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "mi35", name: "List of Mil Mi-24 variants", category: "helicopter", era: "Modern", difficulty: 3,
+    aliases: [],
+    fact: "The Soviet and later Russian Mil Mi-24 helicopter has been produced in many variants, as described below.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mil_Mi-24_early_series_comparison_line_drawing.png?width=1000", credit: "Stingray, the Helicopter Guy / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "mi4", name: "Mil Mi-4", category: "helicopter", era: "Cold War", difficulty: 3,
+    aliases: ["Mil Mi-4A", "Mil Mi-4 variants"],
+    fact: "The Mil Mi-4 ( USAF /DoD reporting name \"Type 36\", NATO reporting name \"Hound\" ) is a Soviet transport helicopter that served in both military and civilian roles.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mi-4-JH01_%28remix%29.jpg?width=1000", credit: "Jan Hrdonka / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "mig17", name: "Mikoyan-Gurevich MiG-17", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["JJ-4", "Lim-5", "MiG-17", "Mig 17", "YF-114", "MiG-17F", "MiG-17PF", "MiG-17 Fresco"],
+    fact: "The Mikoyan-Gurevich MiG-17 ( Russian: Микоян и Гуревич МиГ-17; NATO reporting name: Fresco ) is a transonic fighter aircraft that was produced in the Soviet Union from 1952 and wa",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MiG-17_Takes_to_the_Sky_%28cropped%29.jpg?width=1000", credit: "Balon Greyjoy / Wikimedia Commons (CC0)" },
+    ]
+  },
+  {
+    id: "mig27", name: "Mikoyan MiG-27", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: [],
+    fact: "The Mikoyan MiG-27 ( Russian: Микоян МиГ-27; NATO reporting name: Flogger-D/J ) is a variable-sweep ground-attack aircraft, originally built by the Mikoyan-Gurevich design bureau i",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MiG-27_%28cropped%29.jpg?width=1000", credit: "Rob Schleiffert / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "mig3", name: "Mikoyan-Gurevich MiG-3", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["MiG-3", "MiG-7", "Mig 3", "Mig 7", "Mikoyan-Gurevich D", "Mikoyan-Gurevich 2D", "Mikoyan-Gurevich KhS", "Mikoyan-Gurevich IKh"],
+    fact: "The Mikoyan-Gurevich MiG-3 ( Russian: Микоян и Гуревич МиГ-3 ) is a Soviet interceptor used during World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mikoyan_MiG-3_65_red_%28RA-1563G%29_%288607661358%29.jpg?width=1000", credit: "Alan Wilson Description British photographer Aviation enthusiast from Weston, Spalding, Lincs, UK / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "milan", name: "MILAN", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: ["MILAN 2", "Milan ATGM", "Milan missile", "Milan Anti-Tank Weapon", "Milan anti tank missile"],
+    fact: "MILAN ( French: Missile d'Infanterie Léger Antichar, lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Tag_der_Bundeswehr_Jagel_2019_HJL_13_noBG.png?width=1000", credit: "https://commons.wikimedia.org/wiki/User:Marseille77 / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "mtlb", name: "MT-LB", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["9P149", "MT-LBT", "MT-LBV", "MTP-LB", "MT-LB TJ", "MT-LBu-P", "MT-LBu-PS", "MT-LBu-TP"],
+    fact: "The MT-LB ( Russian: Многоцелевой Тягач Легкий Бронированный (МТ-ЛБ), romanized: Mnogotselevoy tyagach legky bronirovanny, lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/RWS2017-37.jpg?width=1000", credit: "Vitaly V. Kuzmin / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "mystere", name: "Dassault Mystère IV", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Mystere IV", "Mystère IV", "Dassault Mystere IV", "Dassault Mystère IVB", "Dassault Mystere IVA", "Dassault MD 454 Mystère IV", "Dassault M.D.452 Mystère IVA", "Dassault MD 454 'Mystere IV'"],
+    fact: "The Dassault MD.454 Mystère IV is a 1950s French fighter-bomber aircraft, the first transonic aircraft to enter service with the French Air Force.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Dassault_Myst%C3%A8re_IV.jpg?width=1000", credit: "Jean-Christophe BENOIST / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "n1k", name: "Kawanishi N1K", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["H1K", "N1K", "N1K1", "Shiden Kai", "Shiden-Kai", "H1K George", "Kawanishi F1K", "Kawanishi N1K1"],
+    fact: "The Kawanishi N1K was a fighter aircraft designed and produced by the Japanese aircraft manufacturer Kawanishi Aircraft Company.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Kawanishi_N1K2-J_050317-F-1234P-015.jpg?width=1000", credit: "USAF / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "namer", name: "Namer", category: "afv", era: "Modern", difficulty: 3,
+    aliases: ["IDF Namer", "Namer APC", "Namer IFV", "BMP Namer", "Namer armored personnel carrier"],
+    fact: "Namer ( Hebrew: נָמֵר, pronounced [ naˈmeʁ ]; meaning \" leopard,\" and also a syllabic abbreviation of \" Na gmash\" (APC) and \" Mer kava\") is an Israeli armoured personnel carrier ba",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Flickr_-_Israel_Defense_Forces_-_13th_Battalion_of_the_Golani_Brigade_Holds_Drill_at_Golan_Heights_%288%29.jpg?width=1000", credit: "https://www.flickr.com/people/45644610@N03 / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "nebelwerfer", name: "Nebelwerfer", category: "artillery", era: "WW2", difficulty: 3,
+    aliases: ["Fog thrower", "Nebelwerfers", "Smoke thrower", "Nebelwerfer 41", "Nebelwerfer 42", "Moaning minnie", "Wurfgranate 41", "Wurfgranata 41"],
+    fact: "The Nebelwerfer ( translation</span>\"}]],\"parts\":[{\"template\":{\"target\":{\"wt\":\"translation\",\"href\":\"./Template:Translation\"},\"params\":{\"1\":{\"wt\":\"\\\"fog launcher\\\"\"}},\"i\":0}}]}'>transl.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/10cmNbW40.jpg?width=1000", credit: "US War Department / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "nike_hercules", name: "Nike Hercules", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: [],
+    fact: "The Nike Hercules, initially designated SAM-A-25 and later MIM-14, was a surface-to-air missile (SAM) used by US and NATO armed forces for medium- and high-altitude long-range air defense.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MIM-14_Nike-Hercules_02.jpg?width=1000", credit: "U.S. Army / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "oh1", name: "Kawasaki OH-1", category: "helicopter", era: "Modern", difficulty: 3,
+    aliases: ["Kawasaki OH-X"],
+    fact: "The Kawasaki OH-1 (nickname: \"Ninja\") is a military scout/observation helicopter developed and manufactured by the Kawasaki Aerospace Company.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%EF%BC%AF%EF%BC%A8%EF%BC%8D%EF%BC%91_%284%29.jpg?width=1000", credit: "陸上自衛隊 / Wikimedia Commons (CC BY 4.0)" },
+    ]
+  },
+  {
+    id: "ontos", name: "M50 Ontos", category: "tank", era: "Cold War", difficulty: 3,
+    aliases: ["T165", "Ontos tank", "M50 Self Propelled Rifle", "106mm Self-propelled Rifle M50", "Utility Vehicle, Tracked, Infantry, T55", "Utility Vehicle, Tracked, Infantry, T56"],
+    fact: "Ontos, officially the Rifle, Multiple 106 mm, Self-propelled, M50, was an American light armored tracked anti-tank vehicle developed in the 1950s.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Ontos.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "oplot", name: "T-84", category: "tank", era: "Modern", difficulty: 3,
+    aliases: ["BTMP-84", "BREM-84", "T-84-120", "BM Oplot", "T-84 Oplot", "Object 478", "Oplot tank", "Yatagan tank"],
+    fact: "The T-84 is a Ukrainian main battle tank (MBT), based on the Soviet T-80 MBT introduced in 1976, specifically the diesel engine version: T-80UD.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Strong_Europe_Tank_Challenge_2018_%2842054365704%29_%28cropped%29.jpg?width=1000", credit: "7th Army Training Command from Grafenwoehr, Germany / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "ouragan", name: "Dassault Ouragan", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Toofani", "Dassault Barougan", "Dassault MD 450 Ouragan", "Dassault M.D.450 Ouragan", "Dassault MD 450A Ouragan", "Dassault MD 450B Ouragan", "Dassault MD 450R Ouragan", "Dassault M.D.450A Ouragan"],
+    fact: "The Dassault M.D.450 Ouragan ( French: Hurricane ) is a French fighter-bomber developed and produced by Dassault Aviation.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Dassault_Ouragan.jpg?width=1000", credit: "Groumfy69 / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "p26", name: "Boeing P-26 Peashooter", category: "plane", era: "Pioneer", difficulty: 3,
+    aliases: ["Boeing 248", "Boeing 266", "Boeing 281", "Boeing 272", "Boeing P-26", "Boeing XP-936", "P-26 Peashooter", "Boeing Model 248"],
+    fact: "The Boeing P-26 \"Peashooter\" is the first American production all-metal fighter aircraft and the first pursuit monoplane to enter squadron service with the United States Army Air Corps.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Peashooter.arp.750pix.jpg?width=1000", credit: "Unknown photographer Unknown photographer / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "p2640", name: "P26/40 tank", category: "tank", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The P 26/40 was an Italian World War II heavy tank (sometimes defined medium tank when compared to tanks of other nations).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/P26-40_tank.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "p3", name: "Lockheed P-3 Orion", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["P3C", "P3V", "P-3C", "P-3A", "P3 orion", "P3V Orion", "PC3 Orion", "P-3 Orion"],
+    fact: "The Lockheed P-3 Orion is a four-engined, turboprop anti-submarine and maritime surveillance aircraft developed for the United States Navy and introduced in the 1960s.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/P-3c_03l_%28modified%29.jpg?width=1000", credit: "海上自衛隊 / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "p8", name: "Boeing P-8 Poseidon", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["P8A", "P-8A", "P-8i", "P-8A MMA", "Boeing P-8", "P8 Poseidon", "Boeing P-8A", "P-8 Poseidon"],
+    fact: "The Boeing P-8 Poseidon is an American maritime patrol and reconnaissance aircraft developed and produced by Boeing Defense, Space & Security.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/US_Navy_P-8_Poseidon_taking_off_at_Perth_Airport.jpg?width=1000", credit: "Darren Koch / Wikimedia Commons (GFDL 1.2)" },
+    ]
+  },
+  {
+    id: "pak40", name: "5 cm Pak 38", category: "artillery", era: "WW2", difficulty: 3,
+    aliases: ["PaK38", "Pak 38", "50 K 38"],
+    fact: "The 5 cm Pak 38 (L/60) ( 5 cm Panzerabwehrkanone 38 (L/60) ) was a German anti-tank gun of 50 mm calibre.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_101I-549-0743-13A%2C_Tunesien%2C_Soldaten_mit_Pak_38.jpg?width=1000", credit: "Appe [Arppe] / Wikimedia Commons (CC BY-SA 3.0 de)" },
+    ]
+  },
+  {
+    id: "pak43", name: "8.8 cm Pak 43", category: "artillery", era: "WW2", difficulty: 3,
+    aliases: ["PaK 43", "8,8 cm Panzerabwehrkanone"],
+    fact: "The Pak 43 ( Panzerabwehrkanone 43 and Panzerjägerkanone 43 ) was a German 8.8 cm anti-tank gun developed by Krupp in competition with the Rheinmetall 8.8 cm Flak 41 anti-aircraft",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_101I-698-0038-07%2C_Russland%2C_8%2C8cm_Pak.jpg?width=1000", credit: "Unknown Unknown / Wikimedia Commons (CC BY-SA 3.0 de)" },
+    ]
+  },
+  {
+    id: "pantsir", name: "Pantsir missile system", category: "missile", era: "Modern", difficulty: 3,
+    aliases: ["Sa22", "57E6", "SA-22", "Pantsir", "Pantsyr", "Pantsyr-S1", "Pantsyr S1", "Pantsir-S1"],
+    fact: "The Pantsir ( Russian: Панцирь, lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MAKS_Airshow_2013_%28Ramenskoye_Airport%2C_Russia%29_%28521-05%29.jpg?width=1000", credit: "Vitaly V. Kuzmin / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "panzer35t", name: "Panzer 35(t)", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["LT-35", "LT vz 35", "LT vz.35", "R-2 tank", "Panzer 35", "LT vz. 35", "PzKpfw 35"],
     fact: "The Panzerkampfwagen 35(t), commonly shortened to Panzer 35(t) or abbreviated as Pz.Kpfw.",
     images: [
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Panzer-35.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Panzer-35.jpg?width=1000", credit: "No machine-readable author provided. MoRsE assumed (based on copyright claims). / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "panzerschreck", name: "Panzerschreck", category: "missile", era: "WW2", difficulty: 3,
+    aliases: ["Tank terror", "Panzershrek", "Panzershreck", "Panzerschrek", "Raketenpanzerbüchse Panzerschreck"],
+    fact: "Panzerschreck ( literal translation</span>\"}]],\"parts\":[{\"template\":{\"target\":{\"wt\":\"lit\",\"href\":\"./Template:Lit\"},\"params\":{},\"i\":0}}]}'>lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_101I-671-7483-29%2C_Reichsgebiet%2C_Soldat_mit_Panzerabwehrwaffe.jpg?width=1000", credit: "Lysiak / Wikimedia Commons (CC BY-SA 3.0 de)" },
+    ]
+  },
+  {
+    id: "patria_amv", name: "Patria AMV", category: "afv", era: "Modern", difficulty: 3,
+    aliases: ["AMXVP", "AMVXP", "XA-360", "AMV 8x8", "XA 360P", "Hoefyster", "XA 360 AMOS", "Patria AMV 8x8"],
+    fact: "The Patria AMV ( Armoured Modular Vehicle ) is an 8×8 multi-role military vehicle produced by the Finnish defence industry company Patria.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Pansarterr%C3%A4ngbil_360_Revinge_2015-7.jpg?width=1000", credit: "Jorchr / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "paveway", name: "Paveway", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: ["GBU-49", "GBU-58", "Paveway 2", "Paveway 3", "Paveway II", "Paveway III", "Enhanced Paveway"],
+    fact: "Pave or PAVE is sometimes used as an acronym for precision avionics vectoring equipment; literally, electronics for controlling the speed and direction of aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Paveway_III_laser_guided_bomb_seeker_head.jpg?width=1000", credit: "uploaded by Megapixie / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "pe8", name: "Petlyakov Pe-8", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["PE8", "Pe-8", "PS-42", "ANT-42", "Tupolev TB-7", "Tupolev PS-42", "Petlyakov TB-7", "Petlyakov PS-42"],
+    fact: "The Petlyakov Pe-8 ( Russian: Петляков Пе-8 ) was a Soviet heavy bomber designed before World War II, and the only four-engine bomber the USSR built during the war.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Tupolev_TB-7_%28Ant-42%2C_Pe-8%29_%2814260356248%29.jpg?width=1000", credit: "SDASM Archives / Wikimedia Commons (No known restrictions)" },
+    ]
+  },
+  {
+    id: "pershing2", name: "MGM-31 Pershing", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: ["MGM-31", "Pershing I", "Pershing 1", "Pershing 1a", "Pershing IA", "Gilson Butte", "Pershing missile", "Gilson Butte, Utah"],
+    fact: "The MGM-31A Pershing was the missile used in the Pershing 1 and Pershing 1a field artillery missile systems.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Pershing_1_launch_%28Feb_16%2C_1966%29.png?width=1000", credit: "Warren C. Weaver / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "phalanx", name: "Phalanx CIWS", category: "missile", era: "Modern", difficulty: 2,
+    aliases: ["MK 15 Phalanx", "Vulcan Phalanx", "Phalanx weapon system", "Phalanx Close-In Weapon System", "Phalanx close-in weapons systems"],
+    fact: "The Phalanx CIWS ( SEE -wiz ) is an automated gun-based \" Close-In Weapon System \" to defend military watercraft automatically against incoming threats such as aircraft, missiles, and small boats.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Phalanx_CIWS_Block_1B_Full_Sized_USS_Elrod_FFG-55.jpg?width=1000", credit: "Chuck Homler d/b/a FocusOnWildlife / Wikimedia Commons (CC BY 4.0)" },
+    ]
+  },
+  {
+    id: "phoenix", name: "AIM-54 Phoenix", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: ["Aim54", "AIM-54", "AIM 54", "AIM-54C", "AIM-54A", "AAM-N-11", "Phoenix missile", "AIM-54A Phoenix"],
+    fact: "The AIM-54 Phoenix is an American active radar-guided, beyond-visual-range air-to-air missile (AAM), carried in clusters of up to six missiles on the Grumman F-14 Tomcat, its only",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/AIM-54A_%28left%29_on_F-14_at_NAS_Pax_1984.JPEG?width=1000", credit: "Don S. Montgomery, USN / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "piat", name: "PIAT", category: "missile", era: "WW2", difficulty: 3,
+    aliases: ["Projectile Infantry Anti-Tank", "Projector, Infantry, Anti Tank", "Projector Infantry Tank Attack"],
+    fact: "The Projector, Infantry, Anti Tank ( PIAT ) Mk I was a British man-portable anti-tank weapon developed during the Second World War.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/PIAT_cropped.jpg?width=1000", credit: "Ranger Steve / Wikimedia Commons (CC BY 3.0)" },
+    ]
+  },
+  {
+    id: "pion", name: "2S7 Pion", category: "artillery", era: "Cold War", difficulty: 3,
+    aliases: ["2A-44", "2S7M Malka"],
+    fact: "The 2S7 Pion (\" peony \") or 2S7M Malka is a Soviet self-propelled 203 mm cannon.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Army-2018-29.jpg?width=1000", credit: "Nickel nitride / Wikimedia Commons (CC0)" },
+    ]
+  },
+  {
+    id: "prachand", name: "HAL Prachand", category: "helicopter", era: "Modern", difficulty: 3,
+    aliases: ["HAL LCH", "HAL Light Combat Helicopter"],
+    fact: "The HAL Prachand ( literal translation</span>\"}]],\"parts\":[{\"template\":{\"target\":{\"wt\":\"Lit\",\"href\":\"./Template:Lit\"},\"params\":{\"1\":{\"wt\":\"Fierce/Intense\"}},\"i\":0}}]}'>lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/HAL_Prachand_%28ZF_4834%29.jpg?width=1000", credit: "IAF / Wikimedia Commons (GODL-India)" },
+    ]
+  },
+  {
+    id: "predator", name: "General Atomics MQ-1 Predator", category: "plane", era: "Modern", difficulty: 2,
+    aliases: ["MQ1", "RQ-1", "MQ-1", "RQ-1 Mariner", "Predator uav", "Q-1 Predator", "MQ1 Predator"],
+    fact: "The General Atomics MQ-1 Predator (often referred to as the Predator drone ) is an American remotely piloted aircraft (RPA) built by General Atomics that was used primarily by the",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MQ-1_Predator%2C_armed_with_AGM-114_Hellfire_missiles.jpg?width=1000", credit: "Lt. Col. Leslie Pratt / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "pzl_p11", name: "PZL P.11", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["PZL P.11c", "PZL P-11c"],
+    fact: "The PZL P.11 is a Polish fighter aircraft, designed and produced in the early 1930s by Państwowe Zakłady Lotnicze.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/PZL_P.11c_%2739_-_2%27_%2814336386246%29.jpg?width=1000", credit: "Alan Wilson Description British photographer Aviation enthusiast from Weston, Spalding, Lincs, UK / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "qf17", name: "Ordnance QF 17-pounder", category: "artillery", era: "WW2", difficulty: 3,
+    aliases: ["17 pdr", "QF17 pdr", "QF 17 pdr", "17 pounder", "17-pounder", "OQF 77mm HV", "77 mm HV gun", "QF 17-pounder"],
+    fact: "The Ordnance Quick-Firing 17-pounder or just 17-pdr, was a 76.2 mm (3 inch) gun developed by the United Kingdom during World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/QF-17-pounder-batey-haosef-1.jpg?width=1000", credit: "No machine-readable author provided. Bukvoed assumed (based on copyright claims). / Wikimedia Commons (CC BY 2.5)" },
+    ]
+  },
+  {
+    id: "qf25", name: "Ordnance QF 25-pounder", category: "artillery", era: "WW2", difficulty: 3,
+    aliases: ["25 pdr", "QF 25 pdr", "25 pounder", "25-pounder", "QF 25 pounder", "25 pounder gun", "25 pounder guns", "25pr Short Mark 1"],
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/25_Pounder_Gun.JPG?width=1000", credit: "Nhl4hamilton / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "qf6", name: "Ordnance QF 6-pounder", category: "artillery", era: "WW2", difficulty: 3,
+    aliases: ["Molins gun", "57mm Gun M1", "57 mm Gun M1", "OQF 6 Pounder", "QF 6pdr Class M", "QF 6 pounder gun", "Ordnance QF 6 pdr", "M-1 A Anti-Tank Gun"],
+    fact: "The Ordnance quick-firing 6-pounder 7 cwt, or just 6-pounder, was a British 57 mm gun, serving during the Second World War as a primary anti-tank gun of both the British and United",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Pak_army_QF-6_Pounder.jpg?width=1000", credit: "Xtreme o7 / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "r22", name: "Robinson R22", category: "helicopter", era: "Modern", difficulty: 3,
+    aliases: ["R22 Beta II", "Robinson R22 Beta", "Robinson Model R22", "Robinson 22 helicopter"],
+    fact: "The Robinson R22 is a two-seat, two-bladed, single-engined, light utility helicopter manufactured by Robinson Helicopter Company.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/R22_N4044D_%28cropped%29.jpg?width=1000", credit: "Jeroen Stroes Aviation Photography / Wikimedia Commons (CC BY 2.0)" },
+    ]
+  },
+  {
+    id: "r73", name: "R-73", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: ["R-74", "AA-11", "K-74M2", "AA-11 AAM", "Vympel R-73", "AA-11 Archer", "Izdeliye 760", "AA-11 'Archer'"],
+    fact: "The Vympel R-73 ( NATO reporting name AA-11 Archer ) is a short-range IR-homing air-to-air missile developed by Vympel NPO that entered service in 1984.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MAKS2015part7-21.jpg?width=1000", credit: "Vitaly V. Kuzmin / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "rapier", name: "Rapier", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: ["Rapier FSC", "Rapier 2000", "Rapier Missile", "Tracked Rapier", "Rapier Field Standard C"],
+    fact: "Rapier is a surface-to-air missile developed for the British Army to replace their towed Bofors 40/L70 anti-aircraft guns.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Swiss_rapier_missile.jpg?width=1000", credit: "Nirazul ( talk ) / Wikimedia Commons (CC BY-SA 2.0 de)" },
+    ]
+  },
+  {
+    id: "reaper", name: "General Atomics MQ-9 Reaper", category: "plane", era: "Modern", difficulty: 2,
+    aliases: ["MQ9", "MQ-9", "RQ-9", "MQ-9B", "CU-163", "Ikhana", "Predator B", "MQ9-Reaper"],
+    fact: "The General Atomics MQ-9 Reaper (sometimes called Predator B ) is a medium-altitude long-endurance unmanned aerial vehicle (UAV, one component of an unmanned aircraft system (UAS))",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MQ-9_Reaper_UAV_%28cropped%29.jpg?width=1000", credit: "Lt. Col. Leslie Pratt / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "renault_r35", name: "Renault R35", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["Char R35", "Vânătorul de care R35"],
+    fact: "The Renault R35, an abbreviation of Char léger Modèle 1935 R or R35, was a French light infantry tank of the Second World War.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Renault-R-35-latrun-2.jpg?width=1000", credit: "No machine-readable author provided. Bukvoed assumed (based on copyright claims). / Wikimedia Commons (CC BY 2.5)" },
+    ]
+  },
+  {
+    id: "rosomak", name: "KTO Rosomak", category: "afv", era: "Modern", difficulty: 3,
+    aliases: ["Rosomak"],
+    fact: "The KTO Rosomak ( Polish: Kołowy Transporter Opancerzony Rosomak, lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/KTO_Rosomak_IFV_with_ZSSW-30_RCWS.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (CC BY 3.0 pl)" },
+    ]
+  },
+  {
+    id: "s3", name: "Lockheed S-3 Viking", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["S-3B", "S-3A", "S3 Viking", "S-3 viking", "ES-3 Shadow", "ES-3 Viking", "S-3b viking", "S-3A Viking"],
+    fact: "The Lockheed S-3 Viking is a four-crew, twin-engine turbofan -powered subsonic anti-submarine jet aircraft designed and produced by the American aerospace manufacturer Lockheed Corporation.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/S-3A_%28cropped%29.jpg?width=1000", credit: "US Navy / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "s400", name: "S-400 missile system", category: "missile", era: "Modern", difficulty: 3,
+    aliases: ["Sa21", "40N6", "SA-21", "S-400", "9M96E", "С-400", "48N6E", "9M96E2"],
+    fact: "The S-400 Triumf ( Russian: C-400 Триумф – Triumf; translation: Triumph; NATO reporting name: SA-21 Growler ), previously known as the S-300 PMU-3, is a mobile surface-to-air missi",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%A1-400_%C2%AB%D0%A2%D1%80%D0%B8%D1%83%D0%BC%D1%84%C2%BB.JPG?width=1000", credit: "Соколрус / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "s61", name: "Sikorsky S-61", category: "helicopter", era: "Cold War", difficulty: 3,
+    aliases: ["Sikorsky S-61L", "Sikorsky S-61A", "Sikorsky S-61N", "Sikorsky S-61 Triton", "Sikorsky S-61L Mk II", "Sikorsky S-61N Mk II", "Sikorsky S-61T Triton", "Sikorsky S-61 Shortsky"],
+    fact: "The Sikorsky S-61L and S-61N are civil variants of the SH-3 Sea King military helicopter.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sikorsky_S-61N_Mk.II.jpg?width=1000", credit: "Peng Chen / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "s76", name: "Sikorsky S-76", category: "helicopter", era: "Modern", difficulty: 3,
+    aliases: ["S-76", "S76c", "S-76A", "H-76 Eagle", "Sikorsky H-76", "Sikorsky S-74", "Sikorsky S-76A", "Sikorsky S-76D"],
+    fact: "The Sikorsky S-76 is a medium-size commercial utility helicopter designed and produced by the American helicopter manufacturer Sikorsky Aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Pesca_1_%283737941060%29.jpg?width=1000", credit: "Contando Estrelas from Vigo, España / Spain / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "saracen", name: "Alvis Saracen", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: [],
+    fact: "The FV603 Saracen is a six-wheeled armoured personnel carrier designed and produced by Alvis from 1952 to 1976.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Alvis_Saracen_APC_%281953%29.jpg?width=1000", credit: "SG2012 / Wikimedia Commons (CC BY 2.0)" },
+    ]
+  },
+  {
+    id: "scimitar", name: "FV107 Scimitar", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["FV107", "Scimitar tank", "Alvis Scimitar"],
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Scimitar_Light_Tank_MOD_45149231.jpg?width=1000", credit: "Graeme Main / Wikimedia Commons (OGL v1.0)" },
+    ]
+  },
+  {
+    id: "scimitar_jet", name: "Supermarine Scimitar", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Supermarine 508", "Supermarine 529", "Supermarine Type 544", "Supermarine Type 543", "Supermarine Type 529", "Supermarine Type 508", "Supermarine Type 505", "Supermarine Type 576"],
+    fact: "The Supermarine Scimitar was a British single-seat naval strike aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Scimitars_62.jpg?width=1000", credit: "TSRL / Wikimedia Commons (GFDL)" },
+    ]
+  },
+  {
+    id: "sdkfz222", name: "Leichter Panzerspähwagen", category: "afv", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Leichter Panzerspähwagen (German: \"light armoured reconnaissance vehicle \") was a series of light four-wheel drive armoured cars produced by Nazi Germany from 1935 to 1944.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/The_British_Army_in_North_Africa_1941_E3776.jpg?width=1000", credit: "No 1 Army Film & Photographic Unit, Vanderson (Lieut) / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "sdkfz234", name: "Sd.Kfz. 234", category: "afv", era: "WW2", difficulty: 3,
+    aliases: ["Sd Kfz. 234 Puma"],
+    fact: "The Sd.Kfz. 234 ( Sonderkraftfahrzeug 234, Special Purpose Vehicle 234), was a family of armoured cars designed and built in Germany during World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sd.Kfz_234-2_front-diagonal_view.jpg?width=1000", credit: "Unknown author / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "sea_dart", name: "Sea Dart", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: [],
+    fact: "Sea Dart, or GWS.30 was a Royal Navy surface-to-air missile system designed in the 1960s and entering service in 1973.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Drill_Sea_Dart_Missiles_Onboard_HMS_Edinburgh_MOD_45153846.jpg?width=1000", credit: "LA(Phot) Dave Jenkins / Wikimedia Commons (OGL v1.0)" },
+    ]
+  },
+  {
+    id: "sea_fury", name: "Hawker Sea Fury", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Hawker Sea Fury FB.11"],
+    fact: "The Hawker Sea Fury is a British fighter aircraft designed and manufactured by Hawker Aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Hawker_Fury_FB.11_%E2%80%98SR661%E2%80%99_%28G-CBEL%29_%2835902999510%29.jpg?width=1000", credit: "Alan Wilson from Stilton, Peterborough, Cambs, UK / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "sea_vixen", name: "de Havilland Sea Vixen", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["XP924", "DH110", "DH.110", "DH 110", "Sea Vixen", "DH.110 jet fighter", "De Havilland DH.110", "De Havilland DH 110"],
+    fact: "The de Havilland DH.110 Sea Vixen is a British twin-engine, twin boom -tailed, two-seat, carrier-based fleet air-defence fighter flown by the Fleet Air Arm of the Royal Navy from t",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Duxford_Air_Festival_2017_-_sv3_%2834932299646%29.jpg?width=1000", credit: "wallycacsabre / Wikimedia Commons (CC BY 2.0)" },
+    ]
+  },
+  {
+    id: "seafire", name: "Supermarine Seafire", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Seafire Mk.IB", "Seafire Mk.IIC", "Seafire Mk.III", "Supermarine Type 357", "Supermarine Type 358", "Supermarine Type 375", "Supermarine Type 377", "Supermarine Type 386"],
+    fact: "The Supermarine Seafire is a naval version of the Supermarine Spitfire fighter adapted for operation from aircraft carriers.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Seafire_1.jpg?width=1000", credit: "Royal Canadian Air Force / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "sexton", name: "Sexton", category: "artillery", era: "WW2", difficulty: 3,
+    aliases: ["Sexton II", "Sexton artillery"],
+    fact: "The 25pdr SP, tracked, Sexton was a Canadian-designed self-propelled artillery vehicle of the Second World War.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sexton_25pdr_S223813_pic07.JPG?width=1000", credit: "Alf van Beem / Wikimedia Commons (CC0)" },
+    ]
+  },
+  {
+    id: "sh60", name: "Sikorsky SH-60 Seahawk", category: "helicopter", era: "Modern", difficulty: 3,
+    aliases: ["SH-60", "MH-60R", "MH-60S", "SH-60B", "SH-60F", "S-70B Seahawk", "MH-60 Seahawk", "H-60 Sea Hawk"],
+    fact: "The Sikorsky SH-60/MH-60 Seahawk (or Sea Hawk ) is a twin turboshaft engine, multi-mission United States Navy helicopter based on the United States Army UH-60 Black Hawk and a memb",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SH-60B_Seahawk2.jpg?width=1000", credit: "Unknown / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "shackleton", name: "Avro Shackleton", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Avro Shackelton", "Avro 696 Shackleton", "Avro Shackleton MR.3", "Avro Shackleton AEW.2"],
+    fact: "The Avro Shackleton is a British long-range maritime patrol aircraft (MPA) which was used by the Royal Air Force (RAF) and the South African Air Force (SAAF).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Avro_Shackleton_MR3_in_flight_c1955.jpg?width=1000", credit: "RAF / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "shilka", name: "ZSU-23-4 Shilka", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["ZSU23", "ZSU-23", "ZSU 23", "ZSU-24", "Gundish", "Gun Dish", "ZSU-23∙4", "ZSU-23x4"],
+    fact: "The ZSU-23-4 \" Shilka \" is a lightly armoured Soviet self-propelled, radar -guided anti-aircraft weapon system ( SPAAG ).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%97%D0%A1%D0%A3-23-4_%C2%AB%D0%A8%D0%B8%D0%BB%D0%BA%D0%B0%C2%BB_%D0%B2_%D0%9C%D1%83%D0%B7%D0%B5%D0%B5_%D0%BE%D1%82%D0%B5%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B9_%D0%B2%D0%BE%D0%B5%D0%BD%D0%BD%D0%BE%D0%B9_%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8.jpg?width=1000", credit: "Музей отечественной военной истории / Wikimedia Commons (GFDL)" },
+    ]
+  },
+  {
+    id: "sm79", name: "Savoia-Marchetti SM.79 Sparviero", category: "plane", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Savoia-Marchetti SM.79 Sparviero (Italian for sparrowhawk ) is a three-engined medium bomber developed and manufactured by the Italian aviation company Savoia-Marchetti.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Savoia_Marchetti_SM_79_Sparviero_in_volo.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "sopwith_pup", name: "Sopwith Pup", category: "plane", era: "WW1", difficulty: 3,
+    aliases: ["Sopwith Dove", "Sopwith Scout"],
+    fact: "The Sopwith Pup is a British single-seater biplane fighter aircraft built by the Sopwith Aviation Company.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Shuttleworth_Flying_Day_-_June_2013_%289124616838%29.jpg?width=1000", credit: "John5199 / Wikimedia Commons (CC BY 2.0)" },
+    ]
+  },
+  {
+    id: "sopwith_triplane", name: "Sopwith Triplane", category: "plane", era: "WW1", difficulty: 3,
+    aliases: ["Tripehound", "Sopwith Tripehound"],
+    fact: "The Sopwith Triplane is a British single-seat fighter aircraft designed and manufactured by the Sopwith Aviation Company during the First World War.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sopwith_Triplane_G-BOCK.jpg?width=1000", credit: "TSRL / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "sparrow", name: "AIM-7 Sparrow", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: ["Aim7", "AIM-7", "AIM 7", "AIM-7F", "AIM-7E", "AIM-7E4", "Sparrow AAM", "AIM-7M Sparrow"],
+    fact: "The AIM-7 Sparrow (Air Intercept Missile ) is an American medium-range semi-active radar homing air-to-air missile operated by the United States Air Force, United States Navy, Unit",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/AIM_7_HAFB_Museum.jpg?width=1000", credit: "Wilson44691 / Wikimedia Commons (CC0)" },
+    ]
+  },
+  {
+    id: "spike", name: "Spike", category: "missile", era: "Modern", difficulty: 3,
+    aliases: ["Spike ER", "Spike-ER", "Spike lr", "EUROSPIKE", "Euro-Spike", "Mini-Spike", "PstOhj 2000", "EuroSpike ER"],
+    fact: "Spike ( Hebrew: ספייק) is an Israeli fire-and-forget anti-tank guided missile and anti-personnel missile with a tandem-charge high-explosive anti-tank (HEAT) warhead.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SPIKE_ATGM.jpg?width=1000", credit: "Dave1185 ( talk ) / Wikimedia Commons (CC BY 3.0)" },
+    ]
+  },
+  {
+    id: "starstreak", name: "Starstreak", category: "missile", era: "Modern", difficulty: 3,
+    aliases: ["ATASK", "Starstreak HVM", "Starstreak missile", "Multi Mission System", "High Velocity Missile", "Thor missile launcher"],
+    fact: "Starstreak is a British short-range surface-to-air missile that can be used as a man-portable air-defence system (MANPADS) or used in heavier systems.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/CJOAX_fires_150417-A-BG594-015.jpg?width=1000", credit: "Capt. Joseph Bush / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "storch", name: "Fieseler Fi 156 Storch", category: "plane", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Fieseler Fi 156 Storch ( [ ʃtɔrç ], \" stork \") is a liaison aircraft designed and produced by the German aircraft manufacturer Fieseler.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Fieseler_Storch_3_%28cropped%29.jpg?width=1000", credit: "Tony Hisgett / Wikimedia Commons (CC BY 2.0)" },
+    ]
+  },
+  {
+    id: "strela", name: "9K32 Strela-2", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: ["Sa7", "SA-7", "9K32", "9M32", "SAM-7", "CA-94", "SA-N-5", "ItO 78"],
+    fact: "The 9K32 Strela-2 ( Russian: Cтрела, lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SA-7.jpg?width=1000", credit: "US Navy / Wikimedia Commons (PDM)" },
     ]
   },
   {
@@ -3375,24 +5116,103 @@ const VEHICLES = [
     aliases: ["StuG IV", "Sturmgeschutz IV", "Sturmgeschuetz IV"],
     fact: "The Sturmgeschütz IV (StuG IV) (Sd.Kfz.",
     images: [
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sturmgeschutz_iv_Muzeum_Broni_Pancernej_CSWL_2.JPG?width=1000", credit: "Maciej Borun (Maciej.borun (talk)) / Wikimedia Commons (CC BY 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sturmgeschutz_iv_Muzeum_Broni_Pancernej_CSWL_2.JPG?width=1000", credit: "Maciej Borun ( Maciej.borun ( talk )) / Wikimedia Commons (CC BY 3.0)" },
+    ]
+  },
+  {
+    id: "su15", name: "Sukhoi Su-15", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Su-15", "Su-21", "T-58VD", "Sukhoi T-58", "Sukhoi Su-21", "Su-15 Flagon", "Sukhoi Su-19", "Sukhoi T-58VD"],
+    fact: "The Sukhoi Su-15 ( NATO reporting name: Flagon ) is a twinjet supersonic interceptor aircraft developed by the Soviet Union.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SU-15.jpg?width=1000", credit: "Wojsyl / Wikimedia Commons (CC BY-SA 2.5)" },
+    ]
+  },
+  {
+    id: "su17", name: "Sukhoi Su-17", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Su-17", "Su-20", "Su-22", "YF-112", "Sukhoi-22", "Sukhoi 22", "Su-22M-3K", "Su-22M-4K"],
+    fact: "The Sukhoi Su-17 ( Russian: Су-17; NATO reporting name: Fitter ) is a variable-sweep wing fighter-bomber developed for the Soviet military.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Vietnamese_Su-22M4_with_Kh-25s.jpg?width=1000", credit: "Hoangprs5 / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "su30", name: "Sukhoi Su-30", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["Su30", "Su-30", "Su-30MK", "Su-27PU", "Su-30MK2", "Sukoi SU-30MK", "Su-30 Flanker", "Sukhoi Su-30M"],
+    fact: "The Sukhoi Su-30 ( Russian: Сухой Су-30; NATO reporting name: Flanker-C/G/H ) is a twin-engine, two-seat supermaneuverable fighter aircraft developed in the Soviet Union in the 198",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sukhoi_Su-30SM_in_flight_2014.jpg?width=1000", credit: "Alex Beltyukov / Wikimedia Commons (GFDL 1.2)" },
+    ]
+  },
+  {
+    id: "su35", name: "Sukhoi Su-35", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["Su35", "Su-35", "Su-35S", "Su-27M", "Su-35BM", "Su-35UB", "Super flanker", "Sukhoi Su-35S"],
+    fact: "The Sukhoi Su-35 ( Russian: Сухой Су -35; NATO reporting name: Flanker-E/M, occasionally nicknamed \" Super Flanker \" ) is the designation for two improved derivatives of the Russia",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Russian_Air_Force%2C_RF-81719%2C_Sukhoi_Su-35S_%2849581740157%29.jpg?width=1000", credit: "Anna Zvereva from Tallinn, Estonia / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "su7", name: "Sukhoi Su-7", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Su-7", "Su-7B", "Sukhoi Su-7B", "Sukhoi Su-7BM", "Su-7 Fitter-A", "Sukhoi Su-7IG", "Sukhoi Su-7BMK", "Sukhoi Su-7 Fitter"],
+    fact: "The Sukhoi Su-7 ( NATO designation name: Fitter-A ) is a swept wing, supersonic fighter aircraft developed by the Soviet Union in 1955.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sukhoi_Su-7BKL%2C_Poland_-_Air_Force_AN2202869.jpg?width=1000", credit: "Mike Freer - Touchdown-aviation / Wikimedia Commons (GFDL 1.2)" },
     ]
   },
   {
     id: "su76", name: "SU-76", category: "tank", era: "WW2", difficulty: 3,
     aliases: ["Su85b", "SU-76M", "SU-76B", "OSU-76", "SU-85B", "SU-85A", "Samokhodnaja Ustanovka 76"],
-    fact: "The SU-76 (Samokhodnaya Ustanovka 76) was a Soviet light self-propelled gun used during and after World War II.",
+    fact: "The SU-76 ( Samokhodnaya Ustanovka 76 ) was a Soviet light self-propelled gun used during and after World War II.",
     images: [
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Su76_nn.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Su76_nn.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
     ]
   },
   {
     id: "su85", name: "SU-85", category: "tank", era: "WW2", difficulty: 3,
     aliases: [],
-    fact: "The SU-85 (Samokhodnaya ustanovka 85) was a Soviet self-propelled gun used during World War II, based on the chassis of the T-34 medium tank.",
+    fact: "The SU-85 ( Samokhodnaya ustanovka 85) was a Soviet self-propelled gun used during World War II, based on the chassis of the T-34 medium tank.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SU-85_tank_destroyer_at_the_Muzeum_Polskiej_Techniki_Wojskowej_in_Warsaw.jpg?width=1000", credit: "SuperTank17 / Wikimedia Commons (CC BY-SA 3.0)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Su-85_TBiU_8_2.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "sunderland", name: "Short Sunderland", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Short S.25", "Short Hythe", "Sunderland Mk 2", "Flying Porcupine", "Shorts Sunderland", "Sunderland bomber", "Short Sunderland III", "Short S.25 Sunderland"],
+    fact: "The Short S.25 Sunderland is a British flying boat patrol bomber, developed and constructed by Short Brothers for the Royal Air Force (RAF).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Short_Sunderland_Mk_V_ExCC.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "super_etendard", name: "Dassault-Breguet Super Étendard", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Super Etendard", "Super Étendard", "Super-Etendard", "Super-Étendard", "SuperEtendards", "Super Etendards", "Dassault Super Etendard", "Dassault Super Étendard"],
+    fact: "The Dassault-Breguet Super Étendard ( Étendard is French for \" battle flag \", cognate to English \"standard\") is a French retired carrier-borne strike fighter aircraft designed and",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Super_Etendard_-_RIAT_2005_%28cropped%29.jpg?width=1000", credit: "Tim Felce (Airwolfhound) / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "super_hornet", name: "Boeing F/A-18E/F Super Hornet", category: "plane", era: "Modern", difficulty: 2,
+    aliases: ["F-18E", "F-18f", "Fa-18e", "F-18 Rhino", "Superhornet", "Super Hornet", "Super Hornets", "F18 super hornet"],
+    fact: "The Boeing F/A-18E and F/A-18F Super Hornet are a series of American supersonic twin-engine, carrier-capable, multirole fighter aircraft derived from the McDonnell Douglas F/A-18 Hornet.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/US_Navy_071203-N-8923M-074_An_F-A-18F_Super_Hornet%2C_from_the_Red_Rippers_of_Strike_Fighter_Squadron_%28VFA%29_11%2C_makes_a_sharp_turn_above_the_flight_deck_aboard_the_Nimitz-class_nuclear-powered_aircraft_carrier_USS_Harry_S._Truman.jpg?width=1000", credit: "U.S. Navy photo by Seaman Kevin T. Murray Jr. / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "t33", name: "Lockheed T-33", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: [],
+    fact: "The Lockheed T-33 Shooting Star (or T-Bird ) is a subsonic jet trainer designed and produced by the American aircraft manufacturer Lockheed.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Gjirokastra_US_airplane.jpg?width=1000", credit: "Marc Morell / Wikimedia Commons (GFDL)" },
+    ]
+  },
+  {
+    id: "t35", name: "T-35", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["T-35 Landship"],
+    fact: "The T-35 was a Soviet multi- turreted heavy tank of the interwar period and early Second World War that saw limited service with the Red Army.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/P68l.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -3401,7 +5221,22 @@ const VEHICLES = [
     fact: "The T-44 was a medium tank developed and produced near the end of World War II by the Soviet Union.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T_44_in_Linija_Stalina_%28Belarus%29.jpg?width=1000", credit: "Yozas gubka / Wikimedia Commons (CC BY-SA 4.0)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T44_Moscow%2C_Poklonnaya_Hill_3.JPG?width=1000", credit: "Harveyqs / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "t50", name: "KAI T-50 Golden Eagle", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["FA50", "KTX-2", "FA-50", "TA-50", "TA-50IQ", "FA-50PH", "FA-50GF", "KAI T-50"],
+    fact: "The KAI T-50 Golden Eagle ( Korean: 골든이글 ) is a family of advanced, supersonic, South Korean jet trainers, light combat aircraft, light strike fighters and multirole light fighters",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Philippine_Air_Force_FA-50PH.jpg?width=1000", credit: "Senior Airman Mitchell Corley / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "t6", name: "North American T-6 Texan", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["BC-1A", "SNJ-2", "SNJ-4", "SNB-5", "T6 Texan", "SNJ Texan", "T-6 Texan", "AT-6 Texan"],
+    fact: "The North American Aviation T-6 Texan is a single-engined advanced trainer aircraft designed and produced by the American aircraft manufacturer North American Aviation.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/AT-6C_Texans_in_flight_1943.jpg?width=1000", credit: "USAAF / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -3410,6 +5245,246 @@ const VEHICLES = [
     fact: "The T-60 scout tank was a light tank produced by the Soviet Union from 1941 to 1942.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T-60_%E2%80%98A_-_2317%E2%80%99_-_Patriot_Museum%2C_Kubinka_%2824524755458%29.jpg?width=1000", credit: "Alan Wilson from Stilton, Peterborough, Cambs, UK / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "t70", name: "T-70", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["T-70 tank", "T-70 light tank", "T-90 anti-aircraft tank", "T-90 self-propelled anti-aircraft gun"],
+    fact: "The T-70 is a light tank used by the Red Army during World War II, replacing both the T-60 scout tank for reconnaissance and the T-50 light infantry tank for infantry support.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T-70%2C_technical_museum%2C_Togliatti-1.jpg?width=1000", credit: "ShinePhantom / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "ta152", name: "Focke-Wulf Ta 152", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Ta-152", "Ta 152", "Focke Wulf Ta 152H"],
+    fact: "The Focke-Wulf Ta 152 is a German high-altitude fighter and interceptor aircraft designed by Kurt Tank and produced by Focke-Wulf.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Focke-Wulf_Ta-152_H_%2815269691122%29.jpg?width=1000", credit: "SDASM Archives / Wikimedia Commons (No known restrictions)" },
+    ]
+  },
+  {
+    id: "tejas", name: "HAL Tejas", category: "plane", era: "Modern", difficulty: 3,
+    aliases: ["HAL LCA", "ADA Tejas", "LCA Tejas", "HAL Tejas NP", "LCA Mk-1A jet", "HAL Tejas Mk1A", "Tejas aircraft", "Hindustan Tejas"],
+    fact: "The HAL Tejas ( literal translation</span>\"}]],\"parts\":[{\"template\":{\"target\":{\"wt\":\"Lit\",\"href\":\"./Template:Lit\"},\"params\":{\"1\":{\"wt\":\"Radiant\"}},\"i\":0}}]}'>lit.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Tejas_MK1_in_service_for_7_years.jpg?width=1000", credit: "Goverrnment of India / Wikimedia Commons (GODL-India)" },
+    ]
+  },
+  {
+    id: "thaad", name: "Terminal High Altitude Area Defense", category: "missile", era: "Modern", difficulty: 3,
+    aliases: ["THAAD", "FBX-T", "TPS-X", "Theater High Altitude Area Defense", "Forward Based X-Band Transportable", "Terminal High Altitude Area Defence", "Theater High Altitude Areal Defense", "Forward Based X-Band - Transportable"],
+    fact: "Terminal High Altitude Area Defense ( THAAD ), formerly Theater High Altitude Area Defense, is an American anti-ballistic missile defense system, deployed since 2008, designed to i",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/The_first_of_two_Terminal_High_Altitude_Area_Defense_%28THAAD%29_interceptors_is_launched_during_a_successful_intercept_test_-_US_Army.jpg?width=1000", credit: "The U.S. Army Ralph Scott/Missile Defense Agency/U.S. Department of Defense / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "tor", name: "Tor missile system", category: "missile", era: "Cold War", difficulty: 3,
+    aliases: ["Sa15", "SA-15", "9K331", "SA-N-9", "Tor-M1", "Tor m1", "Klinok", "Tor m2"],
+    fact: "The Tor ( Russian: Тор, lit. ' torus ' ) is an all-weather, low-to medium-altitude, short-range surface-to-air missile system designed for destroying airplanes, helicopters, cruise",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Tor-M1_SAM_%282%29.jpg?width=1000", credit: "Vitaly V. Kuzmin / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "tortoise", name: "Tortoise heavy assault tank", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["A39 Tortoise", "Tortoise tank"],
+    fact: "The Tortoise heavy assault tank (A39) was a British heavy assault gun tank design developed during the Second World War, but never put into mass production.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IWM-MH-9865-Tortoise.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "trimotor", name: "Ford Trimotor", category: "plane", era: "Pioneer", difficulty: 3,
+    aliases: ["Rr-5", "Ford JR", "Ford RR", "Ford C-3", "Ford C-4", "Ford C-9", "Ford 14A", "Ford 5-AT"],
+    fact: "The Ford Trimotor (also called the \"Tri-Motor\", and nicknamed the \"Tin Goose\" ) is an American three-engined transport aircraft.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Ford_Trimotor_EAA.jpg?width=1000", credit: "Alexf / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "tsr2", name: "BAC TSR-2", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["TSR-2", "TSR.2", "Supermarine Type 579", "Supermarine Type 571", "Supermarine Type 594", "English Electric TSR.2", "British Aircraft Corporation TSR.2", "British Aircraft Corporation TSR-2"],
+    fact: "The British Aircraft Corporation TSR-2 was a cancelled supersonic strike and reconnaissance aircraft designed by the British Aircraft Corporation (BAC).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/BAC_TSR-2_at_Duxford.jpg?width=1000", credit: "Andrew Belding / Wikimedia Commons (CC BY 2.0)" },
+    ]
+  },
+  {
+    id: "tu134", name: "Tupolev Tu-134", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Tu-134", "Tu 134", "Tu-134A", "Tu-134S", "Tu-134M", "Tu-134B", "Tu-124A", "Tu-134LK"],
+    fact: "The Tupolev Tu-134 ( NATO reporting name: Crusty ) is a twin-engined, narrow-body jet airliner built in the Soviet Union for short and medium-haul routes from 1966 to 1989.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Tretyakovo_Tupolev_Tu-134.jpg?width=1000", credit: "Leonid Faerberg (transport-photo.com) / Wikimedia Commons (GFDL 1.2)" },
+    ]
+  },
+  {
+    id: "tu154", name: "Tupolev Tu-154", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["TU154", "Tu-154", "TU154M", "Ty-154", "Ty 154", "Tu 154", "Ту-154", "Ty-154M"],
+    fact: "The Tupolev Tu-154 ( Russian: Туполев Ту-154; NATO reporting name: \" Careless \") is a three-engined, medium-range, narrow-body airliner designed in the mid-1960s and manufactured by Tupolev.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Tupolev_Tu-154M%2C_Iran_Air_Tours_JP6511800.jpg?width=1000", credit: "Aktug Ates / Wikimedia Commons (GFDL 1.2)" },
+    ]
+  },
+  {
+    id: "tunnan", name: "Saab 29 Tunnan", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["J 29", "Tunnan", "Saab 29", "Saab-29", "SAAB J29", "Saab J-29", "Saab J 29", "Saab J29B"],
+    fact: "The Saab 29 Tunnan (\"The Barrel\"), colloquially Flygande Tunnan, or The Flying Barrel in English, is an early jet-powered fighter aircraft designed and produced by the Swedish airc",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Saab_J_29F_Tunnan_29670_SE-DXB_p%C3%A5_uppvisning_i_Karlstad_2025_%28cropped%29.jpg?width=1000", credit: "TunaFish Spotting / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "type15", name: "Type 15 tank", category: "tank", era: "Modern", difficulty: 3,
+    aliases: ["ZTQ-15", "VT-5 tank", "Norinco VT-5", "Norinco ZTQ-15", "Norinco Type-15"],
+    fact: "The Type 15 ( Chinese: 15式轻型坦克; pinyin: yīwǔ shì qīngxíng tǎnkè, also designated ZTQ15 ), codenamed the Black Panther ( Chinese: 黑豹; pinyin: hēi bào ), is a Chinese third generatio",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Type_15_tank_20221020.jpg?width=1000", credit: "颐园居 / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "type16", name: "Type 16 MCV", category: "afv", era: "Modern", difficulty: 3,
+    aliases: [],
+    fact: "The Type 16 MCV ( 16式機動戦闘車, ichirokushiki kidousentousha; Type 16 Maneuver Combat Vehicle) is a wheeled armored fighting vehicle of the Japan Ground Self-Defense Force (JGSDF).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/JGSDF_Type_16_Maneuver_Combat_Vehicle_%2826-7978%29_left_front_view_at_JASDF_Hamamatsu_Air_Base_October_23%2C_2022_01.jpg?width=1000", credit: "Hunini / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "type63_mrl", name: "Type 63 multiple rocket launcher", category: "artillery", era: "Cold War", difficulty: 3,
+    aliases: ["BM-12", "T-107", "Fajr-1", "T-107 MBRL"],
+    fact: "The Type 63 multiple rocket launcher is a towed, 12-tube, 107mm rocket launcher produced by the People's Republic of China in the early 1960s and later exported and manufactured globally.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/H12_Type_63_multiple_rocket_launcher.JPG?width=1000", credit: "Bình Giang / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "type74", name: "Type 74 tank", category: "tank", era: "Cold War", difficulty: 3,
+    aliases: ["STB-1"],
+    fact: "The Type 74 ( 74式戦車, nana-yon-shiki-sensha ) was a main battle tank (MBT) of the Japan Ground Self-Defense Force (JGSDF).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Tank_type74_ja02.jpg?width=1000", credit: "Miya.m / Wikimedia Commons (CC BY-SA 2.1 jp)" },
+    ]
+  },
+  {
+    id: "type90", name: "Type 90 tank", category: "tank", era: "Modern", difficulty: 3,
+    aliases: ["Type 90 mbt", "Type 90 Kyu-maru", "Type 90 Kyū-maru"],
+    fact: "The Type 90 tank ( 90式戦車, Kyū-maru-shiki-sensha ) is a main battle tank (MBT) of the Japan Ground Self-Defense Force (JGSDF).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Firing_Type_90_tank.jpg?width=1000", credit: "refeia / Wikimedia Commons (CC BY 2.0)" },
+    ]
+  },
+  {
+    id: "uh1y", name: "Bell UH-1Y Venom", category: "helicopter", era: "Modern", difficulty: 3,
+    aliases: ["UH-1Y", "Bell UH-1Y", "UH-1Y Huey", "UH-1Y Venom", "UH-1Y Twin Huey", "Yankee helicopter", "UH-1Y Huey helicopter", "UH-1Y Huey helicopters"],
+    fact: "The Bell UH-1Y Venom (also called Super Huey ) is a twin-engine, 4-blade, medium-sized utility helicopter built by Bell Textron under the H-1 upgrade program of the United States Marine Corps.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/UH-1Y_Venom.jpg?width=1000", credit: "Cpl. Hailey D. Clay / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "universal_carrier", name: "Universal Carrier", category: "afv", era: "WW2", difficulty: 3,
+    aliases: ["T16 Carrier", "Bren Carrier", "Bren Gun Carrier", "Universal Carriers", "T16 Windsor Carrier", "British Universal Carrier"],
+    fact: "The Universal Carrier, popularly known as the Bren Gun Carrier from its light machine gun armament, was a British armoured tracked vehicle of the Second World War.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Universal_carrier_%28mortar_carrier%29_9-08-2008_14-53-48_%282%29.JPG?width=1000", credit: "Paul Hermans / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "vab", name: "Véhicule de l'Avant Blindé", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["Renault VAB", "Vehicule de l'Avant Blinde"],
+    fact: "Steel armour providing protection against 7.62 mm bullets, artillery shell splinters and anti-personnel mines Upgrades with MEXAS composite armour and mine protection",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Fin_de_d%C3%A9fil%C3%A9_14_juillet_2022%2C_Paris_Porte_d%27Orl%C3%A9ans_%281%29_04.jpg?width=1000", credit: "Ibex73 / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "vc10", name: "Vickers VC10", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["VC10", "BA VC10k", "BAC VC10", "BAC VC-10", "BAC Super VC10", "Vickers Super VC10", "Vickers Type 1100 VC10", "Vickers Type 1150 Super VC10"],
+    fact: "The Vickers VC10 is a retired mid-sized, narrow-body long-range British jet airliner designed and built by Vickers-Armstrongs (Aircraft) Ltd and first flown at Brooklands, Surrey, in 1962.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/RAF_Vickers_VC10_K3_over_the_North_Sea_Lofting.jpg?width=1000", credit: "Chris Lofting / Wikimedia Commons (GFDL 1.2)" },
+    ]
+  },
+  {
+    id: "viggen", name: "Saab 37 Viggen", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["JA 37", "AJ-37", "Viggen", "Saab 37", "37 Viggen", "Saab AJ37", "Saab Sk37", "Saab JA37"],
+    fact: "The Saab 37 Viggen ( The Tufted Duck; the word also means The Thunderbolt ) is a single-seat, single-engine multirole combat aircraft designed and produced by the Swedish aircraft manufacturer Saab.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Viggen_%2852526298757%29.jpg?width=1000", credit: "Airwolfhound from Hertfordshire, UK / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
+  {
+    id: "whitley", name: "Armstrong Whitworth Whitley", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["AW38", "AW.38", "AW 38", "A.W.38", "Whitley I", "Whitley II", "Whitley IV", "AW Whitley"],
+    fact: "The Armstrong Whitworth A.W.38 Whitley was a British medium/heavy bomber aircraft of the 1930s.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Armstrong_Whitworth_Whitley_in_flight_c1940.jpg?width=1000", credit: "RAF / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "wiesel", name: "Wiesel", category: "afv", era: "Modern", difficulty: 3,
+    aliases: [],
+    fact: "The Wiesel is a German light air-transportable armoured fighting vehicle or armoured weapons carrier ( German: Waffenträger ), produced by Rheinmetall.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/LLWaTrg_Wiesel_1.JPG?width=1000", credit: "Billyhill / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "wildcat_heli", name: "AgustaWestland AW159 Wildcat", category: "helicopter", era: "Modern", difficulty: 3,
+    aliases: ["AW159", "Future Lynx", "Wildcat AH1", "Lynx Wildcat", "Wildcat HMA2", "AW159 Wildcat", "Westland Wildcat", "AgustaWestland AW159"],
+    fact: "The AgustaWestland AW159 Wildcat (previously called the Future Lynx and Lynx Wildcat ) is a military helicopter, developed by the British-Italian helicopter manufacturer AgustaWest",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Royal_Navy_Wildcat_Helicopter_MOD_45158434.jpg?width=1000", credit: "PO(Phot) Si Ethell / Wikimedia Commons (OGL v1.0)" },
+    ]
+  },
+  {
+    id: "yak1", name: "Yakovlev Yak-1", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Yak-1", "YaK-1b", "Yak-1M", "Yakovlev I-26", "Yakovlev Yak-1M"],
+    fact: "The Yakovlev Yak-1 ( Russian: Яковлев Як-1 ) was a Soviet fighter aircraft of World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/I-26.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (PDM)" },
+    ]
+  },
+  {
+    id: "yak38", name: "Yakovlev Yak-38", category: "plane", era: "Cold War", difficulty: 3,
+    aliases: ["Yak-38", "Jak-38", "Yak-38U", "Yak-38 Forger", "Yakovlev Yak-39", "Yakovlev Yak-38U", "Yakovlev Yak-36M", "Yakovlev Yak-38A"],
+    fact: "The Yakovlev Yak-38 ( Russian: Яковлев Як-38; NATO reporting name: \" Forger \") was Soviet Naval Aviation 's only operational VTOL strike aircraft in addition to being its first ope",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Yak-38_%2814598742%29.jpg?width=1000", credit: "Vladimir Rodionov / Wikimedia Commons (CC BY-SA 3.0)" },
+    ]
+  },
+  {
+    id: "yak9", name: "Yakovlev Yak-9", category: "plane", era: "WW2", difficulty: 3,
+    aliases: ["Yak-9", "Yak 9", "Yak-9 Frank", "Yakovlev Yak-9P"],
+    fact: "The Yakovlev Yak-9 ( Russian: Яковлев Як-9; NATO reporting name: Frank ) is a single- engine, single-seat multipurpose fighter aircraft used by the Soviet Union and its allies duri",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Yak-9U_at_Central_Air_Force_Museum_Monino_pic1.JPG?width=1000", credit: "Alf van Beem / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "z20", name: "Harbin Z-20", category: "helicopter", era: "Modern", difficulty: 3,
+    aliases: ["Z-20", "Zhi-20"],
+    fact: "The Harbin Z-20 ( Chinese: 直-20 ) is a series of Chinese medium-lift utility helicopter produced by the Harbin Aircraft Industry Group (HAIG).",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Z-20_Airshow_China_2022_fly.jpg?width=1000", credit: "中文： ​中国新闻社 English: China News Service / Wikimedia Commons (CC BY 4.0)" },
+    ]
+  },
+  {
+    id: "zis3", name: "76 mm divisional gun M1942 (ZiS-3)", category: "artillery", era: "WW2", difficulty: 3,
+    aliases: ["ZIS-3", "76 K 42", "Ratsch-Bumm", "76mm M1942 divisional gun"],
+    fact: "The 76-mm divisional gun M1942 ( ZiS-3 ) ( Russian: 76-мм дивизионная пушка обр.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/76_mm_divisional_gun_M1942_%28ZiS-3%29_001.jpg?width=1000", credit: "Torin / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "zsu572", name: "ZSU-57-2", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["57 ITPSV SU 57-2", "ZSU-57-2 Ob'yekt 500"],
+    fact: "The ZSU-57-2 Ob'yekt 500 is a Soviet self-propelled anti-aircraft gun (SPAAG), armed with two 57 mm autocannons.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/ZSU-57-2_Hun_2010_02.jpg?width=1000", credit: "User:VargaA / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
   },
 ];
