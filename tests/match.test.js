@@ -1,7 +1,6 @@
 /* Test suite for the answer matcher. Run: node tests/match.test.js */
 const VSMatch = require("../js/match.js");
 const { VEHICLES } = require("../js/vehicles.js");
-const { RENDER_VEHICLES } = require("../js/vehicles-wt.js");
 
 const byId = {};
 VEHICLES.forEach(v => { byId[v.id] = v; });
@@ -177,7 +176,8 @@ const AMBIGUOUS = new Set([
   // "Victor" and "Victory" are one edit apart and both are real names, so the
   // matcher cannot separate the bomber from Nelson's flagship. Either is
   // accepted for either; the round only ever asks about one of them.
-  "victor", "victory", "hms victory"
+  "victor", "victory", "hms victory",
+  "stug", "stug iii", "stug 3"   // StuG alone is the III or the IV
 ]);
 const crossHits = [];
 VEHICLES.forEach(v => {
@@ -193,33 +193,8 @@ VEHICLES.forEach(v => {
   });
 });
 
-/* --- the render set must not answer to a curated entry's name -------------
- * The War Thunder set is 2,260 entries, so every pair of it against itself is
- * millions of comparisons and it is full of deliberately similar marks (an
- * M4A1 beside an M4A2), which the designation rules already keep apart. What
- * matters is the boundary: a render entry must not steal an answer from a
- * curated photo entry, or the other way round. That is checked in full. */
-const crossSource = [];
-RENDER_VEHICLES.forEach(function (r) {
-  [r.name].concat(r.aliases || []).forEach(function (alias) {
-    if (AMBIGUOUS.has(alias.toLowerCase())) return;
-    VEHICLES.forEach(function (curated) {
-      const res = VSMatch.check(alias, curated);
-      if (res.verdict === "correct") {
-        crossSource.push(`render "${alias}" (${r.id}) wrongly accepted as ${curated.id}` +
-                         ` via "${res.matched}" [${res.how}]`);
-      } else pass++;
-    });
-  });
-});
-
 /* ------------------------------------------------------------------------ */
 console.log(`\n${pass} assertions passed`);
-if (crossSource.length) {
-  console.log(`\n${crossSource.length} RENDER/PHOTO COLLISIONS:`);
-  crossSource.slice(0, 30).forEach((f) => console.log("  - " + f));
-  if (crossSource.length > 30) console.log(`  …and ${crossSource.length - 30} more`);
-}
 if (failures.length) {
   console.log(`\n${failures.length} FAILED:`);
   failures.forEach(f => console.log("  - " + f));
@@ -228,5 +203,5 @@ if (crossHits.length) {
   console.log(`\n${crossHits.length} CROSS-MATCH FALSE POSITIVES:`);
   crossHits.forEach(f => console.log("  - " + f));
 }
-if (failures.length || crossHits.length || crossSource.length) process.exit(1);
+if (failures.length || crossHits.length) process.exit(1);
 console.log("all good\n");

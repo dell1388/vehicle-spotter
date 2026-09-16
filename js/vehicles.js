@@ -19,7 +19,6 @@ const VEHICLES = [
   /* --------------------------------------------------------- TANKS */
   {
     id: "m4_sherman", name: "M4 Sherman", category: "tank", era: "WW2", difficulty: 1,
-    source: "photo",
     aliases: ["Sherman", "M4", "Sherman tank", "M4A3", "M4A1", "Medium Tank M4"],
     fact: "The most-produced Allied tank of WWII — around 49,000 were built.",
     images: [
@@ -30,7 +29,6 @@ const VEHICLES = [
   },
   {
     id: "t34", name: "T-34", category: "tank", era: "WW2", difficulty: 1,
-    source: "photo",
     aliases: ["T34", "T-34-85", "T-34/85", "T 34"],
     fact: "Its sloped armour forced a complete rethink of German tank design.",
     images: [
@@ -41,7 +39,6 @@ const VEHICLES = [
   },
   {
     id: "tiger_i", name: "Tiger I", category: "tank", era: "WW2", difficulty: 1,
-    source: "photo",
     aliases: ["Tiger", "Tiger 1", "Panzer VI", "Panzerkampfwagen VI", "PzKpfw VI", "Tiger tank"],
     fact: "So feared that Allied crews reported 'Tigers' far more often than existed.",
     images: [
@@ -52,7 +49,6 @@ const VEHICLES = [
   },
   {
     id: "tiger_ii", name: "Tiger II", category: "tank", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["King Tiger", "Königstiger", "Konigstiger", "Tiger 2", "Royal Tiger", "Panzer VI Ausf B", "Königstiger tank"],
     fact: "At nearly 70 tonnes it broke bridges and drank fuel.",
     images: [
@@ -63,7 +59,6 @@ const VEHICLES = [
   },
   {
     id: "panther", name: "Panther", category: "tank", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["Panther tank", "Panzer V", "Panzerkampfwagen V", "PzKpfw V", "Panther Ausf G"],
     fact: "Germany's answer to the T-34, rushed into service at Kursk.",
     images: [
@@ -74,7 +69,6 @@ const VEHICLES = [
   },
   {
     id: "panzer_iv", name: "Panzer IV", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Panzer 4", "Panzerkampfwagen IV", "PzKpfw IV", "Pz IV", "PanzerIV"],
     fact: "The only German tank in production for the entire war.",
     images: [
@@ -85,7 +79,6 @@ const VEHICLES = [
   },
   {
     id: "panzer_iii", name: "Panzer III", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Panzer 3", "Panzerkampfwagen III", "PzKpfw III", "Pz III"],
     fact: "The German mainstay early in the war, later outgunned.",
     images: [
@@ -96,7 +89,6 @@ const VEHICLES = [
   },
   {
     id: "panzer_ii", name: "Panzer II", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Panzer 2", "Panzerkampfwagen II", "PzKpfw II", "Pz II"],
     fact: "A light tank that carried the early blitzkrieg campaigns.",
     images: [
@@ -107,7 +99,6 @@ const VEHICLES = [
   },
   {
     id: "panzer38t", name: "Panzer 38(t)", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Panzer 38", "Pz 38(t)", "LT vz 38", "Panzerkampfwagen 38(t)"],
     fact: "A Czech design pressed into German service after 1939.",
     images: [
@@ -118,7 +109,6 @@ const VEHICLES = [
   },
   {
     id: "stug3", name: "Sturmgeschütz III", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["StuG III", "StuG 3", "StuG", "Sturmgeschutz III", "Assault gun StuG"],
     fact: "A turretless assault gun that became Germany's most-produced armoured vehicle.",
     images: [
@@ -129,7 +119,6 @@ const VEHICLES = [
   },
   {
     id: "jagdpanther", name: "Jagdpanther", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Jagd Panther", "Panzerjäger V", "Sd Kfz 173"],
     fact: "A Panther hull carrying the famous 88 mm anti-tank gun.",
     images: [
@@ -140,7 +129,6 @@ const VEHICLES = [
   },
   {
     id: "hetzer", name: "Hetzer", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Jagdpanzer 38", "Jagdpanzer 38(t)", "Hetzer tank destroyer"],
     fact: "Small, cheap and low — hard to spot and harder to hit.",
     images: [
@@ -151,7 +139,6 @@ const VEHICLES = [
   },
   {
     id: "elefant", name: "Elefant", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Ferdinand", "Elephant", "Panzerjäger Tiger (P)"],
     fact: "Built on a rejected Tiger hull design by Porsche.",
     images: [
@@ -161,7 +148,6 @@ const VEHICLES = [
   },
   {
     id: "maus", name: "Panzer VIII Maus", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Maus", "Mouse", "Panzer 8 Maus"],
     fact: "At 188 tonnes the heaviest tank ever built; only two were made.",
     images: [
@@ -172,7 +158,6 @@ const VEHICLES = [
   },
   {
     id: "kv1", name: "KV-1", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["KV1", "Kliment Voroshilov", "KV"],
     fact: "Early German anti-tank guns simply bounced off it.",
     images: [
@@ -183,7 +168,6 @@ const VEHICLES = [
   },
   {
     id: "is2", name: "IS-2", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["IS2", "JS-2", "Josef Stalin tank", "Iosif Stalin"],
     fact: "Built to crack fortifications with a 122 mm gun.",
     images: [
@@ -194,7 +178,6 @@ const VEHICLES = [
   },
   {
     id: "su100", name: "SU-100", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["SU100", "Su 100"],
     fact: "A T-34-based tank destroyer with a long 100 mm gun.",
     images: [
@@ -205,7 +188,6 @@ const VEHICLES = [
   },
   {
     id: "churchill", name: "Churchill", category: "tank", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["Churchill tank", "Churchill Mk VII", "Infantry Tank Mk IV"],
     fact: "Slow, but able to climb slopes other tanks could not.",
     images: [
@@ -216,7 +198,6 @@ const VEHICLES = [
   },
   {
     id: "cromwell", name: "Cromwell", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Cromwell tank", "Cruiser Mk VIII"],
     fact: "One of the fastest Allied tanks of the war.",
     images: [
@@ -226,7 +207,6 @@ const VEHICLES = [
   },
   {
     id: "matilda2", name: "Matilda II", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Matilda", "Matilda 2", "Infantry Tank Mk II", "Queen of the Desert"],
     fact: "Nearly immune to Italian guns in the early desert war.",
     images: [
@@ -235,7 +215,6 @@ const VEHICLES = [
   },
   {
     id: "valentine", name: "Valentine", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Valentine tank", "Infantry Tank Mk III"],
     fact: "Britain's most-produced tank design of the war.",
     images: [
@@ -246,7 +225,6 @@ const VEHICLES = [
   },
   {
     id: "crusader", name: "Crusader", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Crusader tank", "Cruiser Mk VI"],
     fact: "Fast across the desert, but mechanically fragile.",
     images: [
@@ -255,7 +233,6 @@ const VEHICLES = [
   },
   {
     id: "firefly", name: "Sherman Firefly", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Firefly", "Sherman VC", "M4 Firefly"],
     fact: "A Sherman rearmed with a 17-pounder that could kill a Tiger.",
     images: [
@@ -266,7 +243,6 @@ const VEHICLES = [
   },
   {
     id: "m3_lee", name: "M3 Lee", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Lee", "M3 Grant", "Grant", "General Lee"],
     fact: "Its main gun sat in a side sponson rather than the turret.",
     images: [
@@ -277,7 +253,6 @@ const VEHICLES = [
   },
   {
     id: "m3_stuart", name: "M3 Stuart", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Stuart", "Honey", "Light Tank M3"],
     fact: "British crews nicknamed it the Honey for its smooth ride.",
     images: [
@@ -286,7 +261,6 @@ const VEHICLES = [
   },
   {
     id: "m18_hellcat", name: "M18 Hellcat", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["M18", "M18 GMC", "Hellcat tank destroyer"],
     fact: "The fastest tracked armoured vehicle of the war.",
     images: [
@@ -295,7 +269,6 @@ const VEHICLES = [
   },
   {
     id: "m10", name: "M10 Wolverine", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["M10", "Wolverine", "M10 tank destroyer", "M10 GMC"],
     fact: "An open-topped tank destroyer built on a Sherman chassis.",
     images: [
@@ -306,7 +279,6 @@ const VEHICLES = [
   },
   {
     id: "chiha", name: "Type 97 Chi-Ha", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Chi-Ha", "Type 97", "ChiHa"],
     fact: "Japan's main medium tank of the war.",
     images: [
@@ -317,7 +289,6 @@ const VEHICLES = [
   },
   {
     id: "centurion", name: "Centurion", category: "tank", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["Centurion tank", "FV4007"],
     fact: "Arrived too late for WWII and served for decades after it.",
     images: [
@@ -328,7 +299,6 @@ const VEHICLES = [
   },
   {
     id: "t55", name: "T-54/55", category: "tank", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["T-55", "T-54", "T55", "T54"],
     fact: "The most-produced tank in history.",
     images: [
@@ -338,7 +308,6 @@ const VEHICLES = [
   },
   {
     id: "t62", name: "T-62", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["T62"],
     fact: "The first tank in service with a smoothbore main gun.",
     images: [
@@ -349,7 +318,6 @@ const VEHICLES = [
   },
   {
     id: "t64", name: "T-64", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["T64"],
     fact: "Introduced the autoloader that removed the fourth crewman.",
     images: [
@@ -360,7 +328,6 @@ const VEHICLES = [
   },
   {
     id: "t72", name: "T-72", category: "tank", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["T72"],
     fact: "Exported so widely it has fought on both sides of many wars.",
     images: [
@@ -371,7 +338,6 @@ const VEHICLES = [
   },
   {
     id: "t80", name: "T-80", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["T80"],
     fact: "A gas-turbine Soviet tank, fast and very thirsty.",
     images: [
@@ -382,7 +348,6 @@ const VEHICLES = [
   },
   {
     id: "m47", name: "M47 Patton", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["M47"],
     fact: "A stopgap Patton rushed out during the Korean War.",
     images: [
@@ -393,7 +358,6 @@ const VEHICLES = [
   },
   {
     id: "m48", name: "M48 Patton", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["M48", "M48A3"],
     fact: "The American mainstay of the Vietnam War.",
     images: [
@@ -404,7 +368,6 @@ const VEHICLES = [
   },
   {
     id: "m60", name: "M60 Patton", category: "tank", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["M60", "M60A1", "M60A3"],
     fact: "America's main battle tank until the Abrams arrived.",
     images: [
@@ -415,7 +378,6 @@ const VEHICLES = [
   },
   {
     id: "m103", name: "M103", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["M103 heavy tank"],
     fact: "A 120 mm heavy tank built to counter Soviet heavies.",
     images: [
@@ -426,7 +388,6 @@ const VEHICLES = [
   },
   {
     id: "chieftain", name: "Chieftain", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Chieftain tank", "FV4201"],
     fact: "Heavily armoured and famously underpowered.",
     images: [
@@ -437,7 +398,6 @@ const VEHICLES = [
   },
   {
     id: "challenger1", name: "Challenger 1", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Challenger I", "Chally 1", "CR1"],
     fact: "Dominated the 1991 Gulf War tank battles.",
     images: [
@@ -448,7 +408,6 @@ const VEHICLES = [
   },
   {
     id: "leopard1", name: "Leopard 1", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Leopard I", "Leo 1", "Leopard 1A5"],
     fact: "Chose speed and mobility over thick armour.",
     images: [
@@ -457,7 +416,6 @@ const VEHICLES = [
   },
   {
     id: "amx30", name: "AMX-30", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["AMX30", "AMX 30"],
     fact: "France's Cold War main battle tank.",
     images: [
@@ -468,7 +426,6 @@ const VEHICLES = [
   },
   {
     id: "sheridan", name: "M551 Sheridan", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Sheridan", "M551"],
     fact: "Light enough to be dropped by parachute.",
     images: [
@@ -479,7 +436,6 @@ const VEHICLES = [
   },
   {
     id: "pt76", name: "PT-76", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["PT76"],
     fact: "An amphibious light tank that swims under its own power.",
     images: [
@@ -490,7 +446,6 @@ const VEHICLES = [
   },
   {
     id: "m1_abrams", name: "M1 Abrams", category: "tank", era: "Modern", difficulty: 1,
-    source: "photo",
     aliases: ["Abrams", "M1", "M1A1", "M1A2", "M1A2 SEP", "Abrams tank"],
     fact: "Powered by a gas turbine — it whines rather than rumbles.",
     images: [
@@ -501,7 +456,6 @@ const VEHICLES = [
   },
   {
     id: "challenger2", name: "Challenger 2", category: "tank", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Challenger II", "Challenger", "Chally 2", "CR2"],
     fact: "Holds the record for the longest confirmed tank-on-tank kill.",
     images: [
@@ -512,7 +466,6 @@ const VEHICLES = [
   },
   {
     id: "leopard2", name: "Leopard 2", category: "tank", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Leopard II", "Leopard", "Leo 2", "Leopard 2A6", "Leopard 2A7"],
     fact: "Germany's main battle tank, used by more than a dozen armies.",
     images: [
@@ -523,7 +476,6 @@ const VEHICLES = [
   },
   {
     id: "t90", name: "T-90", category: "tank", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["T90", "T-90A", "T-90M"],
     fact: "A modernised descendant of the T-72 line.",
     images: [
@@ -534,7 +486,6 @@ const VEHICLES = [
   },
   {
     id: "t14", name: "T-14 Armata", category: "tank", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Armata", "T14"],
     fact: "Unmanned turret, with the crew in an armoured capsule.",
     images: [
@@ -544,7 +495,6 @@ const VEHICLES = [
   },
   {
     id: "merkava", name: "Merkava", category: "tank", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["Merkava Mk4", "Merkava 4"],
     fact: "Engine mounted at the front to shield the crew.",
     images: [
@@ -555,7 +505,6 @@ const VEHICLES = [
   },
   {
     id: "leclerc", name: "Leclerc", category: "tank", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["AMX Leclerc", "AMX-56 Leclerc"],
     fact: "France's autoloaded main battle tank.",
     images: [
@@ -566,7 +515,6 @@ const VEHICLES = [
   },
   {
     id: "ariete", name: "C1 Ariete", category: "tank", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Ariete"],
     fact: "Italy's main battle tank, built by Iveco and Oto Melara.",
     images: [
@@ -576,7 +524,6 @@ const VEHICLES = [
   },
   {
     id: "k2_panther", name: "K2 Black Panther", category: "tank", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["K2", "Black Panther"],
     fact: "South Korean, with a suspension that lets it kneel and lean.",
     images: [
@@ -587,7 +534,6 @@ const VEHICLES = [
   },
   {
     id: "type10", name: "Type 10", category: "tank", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Type 10 tank", "TK-X"],
     fact: "A light, compact Japanese tank built for narrow roads.",
     images: [
@@ -598,7 +544,6 @@ const VEHICLES = [
   },
   {
     id: "type99", name: "Type 99", category: "tank", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Type 99 tank", "ZTZ-99", "ZTZ99"],
     fact: "China's main battle tank.",
     images: [
@@ -609,7 +554,6 @@ const VEHICLES = [
   /* ------------------------------------ ARMOURED FIGHTING VEHICLES */
   {
     id: "bradley", name: "M2 Bradley", category: "afv", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["Bradley", "M2A2 Bradley", "Bradley IFV", "M2"],
     fact: "Carries infantry and kills tanks with TOW missiles.",
     images: [
@@ -618,7 +562,6 @@ const VEHICLES = [
   },
   {
     id: "bmp1", name: "BMP-1", category: "afv", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["BMP1", "BMP"],
     fact: "The first true infantry fighting vehicle.",
     images: [
@@ -629,7 +572,6 @@ const VEHICLES = [
   },
   {
     id: "bmp2", name: "BMP-2", category: "afv", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["BMP2"],
     fact: "A BMP-1 rebuilt around a 30 mm autocannon.",
     images: [
@@ -640,7 +582,6 @@ const VEHICLES = [
   },
   {
     id: "btr80", name: "BTR-80", category: "afv", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["BTR80", "BTR"],
     fact: "An eight-wheeled amphibious armoured personnel carrier.",
     images: [
@@ -650,7 +591,6 @@ const VEHICLES = [
   },
   {
     id: "m113", name: "M113", category: "afv", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["M113 APC", "M-113"],
     fact: "An aluminium box on tracks, built in enormous numbers.",
     images: [
@@ -659,7 +599,6 @@ const VEHICLES = [
   },
   {
     id: "stryker", name: "Stryker", category: "afv", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["M1126 Stryker", "Stryker ICV"],
     fact: "Eight wheels, air-transportable, built for rapid deployment.",
     images: [
@@ -670,7 +609,6 @@ const VEHICLES = [
   },
   {
     id: "warrior", name: "Warrior", category: "afv", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["FV510 Warrior", "Warrior IFV"],
     fact: "The British Army's tracked infantry fighting vehicle.",
     images: [
@@ -681,7 +619,6 @@ const VEHICLES = [
   },
   {
     id: "marder", name: "Marder", category: "afv", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Marder IFV", "Marder 1"],
     fact: "West Germany's IFV, in service for over fifty years.",
     images: [
@@ -692,7 +629,6 @@ const VEHICLES = [
   },
   {
     id: "scorpion", name: "FV101 Scorpion", category: "afv", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Scorpion", "FV101"],
     fact: "So light it could be carried by transport aircraft in pairs.",
     images: [
@@ -703,7 +639,6 @@ const VEHICLES = [
   },
   {
     id: "humvee", name: "Humvee", category: "afv", era: "Modern", difficulty: 1,
-    source: "photo",
     aliases: ["HMMWV", "Hummer", "High Mobility Multipurpose Wheeled Vehicle"],
     fact: "The Jeep's replacement, and the basis for the civilian Hummer.",
     images: [
@@ -714,7 +649,6 @@ const VEHICLES = [
   /* ------------------------------------------------------ AIRCRAFT */
   {
     id: "spitfire", name: "Supermarine Spitfire", category: "plane", era: "WW2", difficulty: 1,
-    source: "photo",
     aliases: ["Spitfire", "Spit", "Supermarine Spit", "Spitfire Mk IX"],
     fact: "Its elliptical wing was chosen for aerodynamics, not looks.",
     images: [
@@ -725,7 +659,6 @@ const VEHICLES = [
   },
   {
     id: "hurricane", name: "Hawker Hurricane", category: "plane", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["Hurricane", "Hurri"],
     fact: "Shot down more enemy aircraft in the Battle of Britain than the Spitfire.",
     images: [
@@ -734,7 +667,6 @@ const VEHICLES = [
   },
   {
     id: "p51", name: "North American P-51 Mustang", category: "plane", era: "WW2", difficulty: 1,
-    source: "photo",
     aliases: ["P-51 Mustang", "P-51", "P51", "Mustang", "P-51D"],
     fact: "A British-requested Merlin engine turned it into a long-range escort.",
     images: [
@@ -745,7 +677,6 @@ const VEHICLES = [
   },
   {
     id: "p47", name: "Republic P-47 Thunderbolt", category: "plane", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["P-47", "P47", "Thunderbolt", "Jug"],
     fact: "Pilots called it the Jug; it could absorb extraordinary damage.",
     images: [
@@ -756,7 +687,6 @@ const VEHICLES = [
   },
   {
     id: "p38", name: "Lockheed P-38 Lightning", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["P-38", "P38", "P-38 Lightning", "Fork-tailed devil"],
     fact: "German pilots called it the fork-tailed devil.",
     images: [
@@ -767,7 +697,6 @@ const VEHICLES = [
   },
   {
     id: "p40", name: "Curtiss P-40 Warhawk", category: "plane", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["P-40", "P40", "Warhawk", "Tomahawk", "Kittyhawk"],
     fact: "Wore the shark-mouth nose art of the Flying Tigers.",
     images: [
@@ -778,7 +707,6 @@ const VEHICLES = [
   },
   {
     id: "corsair", name: "Vought F4U Corsair", category: "plane", era: "WW2", difficulty: 1,
-    source: "photo",
     aliases: ["F4U", "Corsair", "F4U Corsair", "Whistling Death"],
     fact: "Its inverted gull wing was needed to clear a huge propeller.",
     images: [
@@ -789,7 +717,6 @@ const VEHICLES = [
   },
   {
     id: "hellcat", name: "Grumman F6F Hellcat", category: "plane", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["F6F", "Hellcat", "F6F Hellcat"],
     fact: "Built specifically to beat the Zero, and it did.",
     images: [
@@ -800,7 +727,6 @@ const VEHICLES = [
   },
   {
     id: "zero", name: "Mitsubishi A6M Zero", category: "plane", era: "WW2", difficulty: 1,
-    source: "photo",
     aliases: ["Zero", "A6M", "Zeke", "Mitsubishi Zero", "A6M Zero"],
     fact: "Extraordinary range and agility, bought by leaving armour off.",
     images: [
@@ -811,7 +737,6 @@ const VEHICLES = [
   },
   {
     id: "bf109", name: "Messerschmitt Bf 109", category: "plane", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["Bf 109", "Bf109", "Me 109", "Me109", "Messerschmitt 109", "109", "Messerschmidt Bf 109"],
     fact: "The most-produced fighter aircraft in history — nearly 34,000 built.",
     images: [
@@ -822,7 +747,6 @@ const VEHICLES = [
   },
   {
     id: "fw190", name: "Focke-Wulf Fw 190", category: "plane", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["Fw 190", "FW190", "Focke Wulf 190", "Butcher Bird", "Würger"],
     fact: "Outclassed the Spitfire V on arrival and forced a redesign.",
     images: [
@@ -833,7 +757,6 @@ const VEHICLES = [
   },
   {
     id: "me262", name: "Messerschmitt Me 262", category: "plane", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["Me 262", "Me262", "Schwalbe", "Sturmvogel"],
     fact: "The first operational jet fighter.",
     images: [
@@ -844,7 +767,6 @@ const VEHICLES = [
   },
   {
     id: "stuka", name: "Junkers Ju 87 Stuka", category: "plane", era: "WW2", difficulty: 1,
-    source: "photo",
     aliases: ["Stuka", "Ju 87", "Ju87", "Junkers Ju 87"],
     fact: "Its dive siren, the Jericho trumpet, existed purely to terrify.",
     images: [
@@ -855,7 +777,6 @@ const VEHICLES = [
   },
   {
     id: "he111", name: "Heinkel He 111", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["He 111", "He111", "Heinkel 111"],
     fact: "The glazed nose made the whole cockpit one glass dome.",
     images: [
@@ -866,7 +787,6 @@ const VEHICLES = [
   },
   {
     id: "ju52", name: "Junkers Ju 52", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Ju 52", "Ju52", "Tante Ju", "Iron Annie"],
     fact: "Corrugated metal skin and three engines.",
     images: [
@@ -877,7 +797,6 @@ const VEHICLES = [
   },
   {
     id: "b17", name: "Boeing B-17 Flying Fortress", category: "plane", era: "WW2", difficulty: 1,
-    source: "photo",
     aliases: ["B-17", "B17", "Flying Fortress", "Fortress", "B-17G", "Boeing B-17"],
     fact: "Named by a reporter who counted the machine guns bristling from it.",
     images: [
@@ -886,7 +805,6 @@ const VEHICLES = [
   },
   {
     id: "b24", name: "Consolidated B-24 Liberator", category: "plane", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["B-24", "B24", "Liberator"],
     fact: "Built in greater numbers than the B-17, if less celebrated.",
     images: [
@@ -897,7 +815,6 @@ const VEHICLES = [
   },
   {
     id: "b25", name: "North American B-25 Mitchell", category: "plane", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["B-25", "B25", "Mitchell"],
     fact: "Flew the Doolittle Raid off a carrier deck.",
     images: [
@@ -908,7 +825,6 @@ const VEHICLES = [
   },
   {
     id: "b29", name: "Boeing B-29 Superfortress", category: "plane", era: "WW2", difficulty: 1,
-    source: "photo",
     aliases: ["B-29", "B29", "Superfortress"],
     fact: "Pressurised and remote-controlled gun turrets — a generation ahead.",
     images: [
@@ -919,7 +835,6 @@ const VEHICLES = [
   },
   {
     id: "lancaster", name: "Avro Lancaster", category: "plane", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["Lancaster", "Lanc", "Avro Lanc"],
     fact: "The bomber of the Dambusters raid.",
     images: [
@@ -930,7 +845,6 @@ const VEHICLES = [
   },
   {
     id: "mosquito", name: "de Havilland Mosquito", category: "plane", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["Mosquito", "Mossie", "DH.98 Mosquito", "Wooden Wonder"],
     fact: "Built largely of plywood, and fast enough to outrun fighters.",
     images: [
@@ -941,7 +855,6 @@ const VEHICLES = [
   },
   {
     id: "wellington", name: "Vickers Wellington", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Wellington", "Wimpy"],
     fact: "A geodetic lattice airframe that survived remarkable damage.",
     images: [
@@ -952,7 +865,6 @@ const VEHICLES = [
   },
   {
     id: "c47", name: "Douglas C-47 Skytrain", category: "plane", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["C-47", "C47", "Skytrain", "Gooney Bird"],
     fact: "Dropped the paratroopers on D-Day.",
     images: [
@@ -963,7 +875,6 @@ const VEHICLES = [
   },
   {
     id: "il2", name: "Ilyushin Il-2", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Il-2", "IL2", "Sturmovik", "Shturmovik", "Il-2 Sturmovik"],
     fact: "The most-produced military aircraft ever built.",
     images: [
@@ -974,7 +885,6 @@ const VEHICLES = [
   },
   {
     id: "yak3", name: "Yakovlev Yak-3", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Yak-3", "Yak3"],
     fact: "Small and light, and deadly at low altitude.",
     images: [
@@ -984,7 +894,6 @@ const VEHICLES = [
   },
   {
     id: "sbd", name: "Douglas SBD Dauntless", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["SBD", "Dauntless", "SBD Dauntless"],
     fact: "Sank four Japanese carriers at Midway.",
     images: [
@@ -995,7 +904,6 @@ const VEHICLES = [
   },
   {
     id: "spruce_goose", name: "Hughes H-4 Hercules", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Spruce Goose", "H-4 Hercules", "Hughes Flying Boat"],
     fact: "Flew once, for about a mile, in 1947.",
     images: [
@@ -1005,7 +913,6 @@ const VEHICLES = [
   },
   {
     id: "f86", name: "F-86 Sabre", category: "plane", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["F-86", "F86", "Sabre", "Sabrejet"],
     fact: "Swept wings, and the MiG-15's opposite number over Korea.",
     images: [
@@ -1014,7 +921,6 @@ const VEHICLES = [
   },
   {
     id: "mig15", name: "MiG-15", category: "plane", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["MiG15", "Mig 15", "Fagot"],
     fact: "Its arrival over Korea shocked Western air forces.",
     images: [
@@ -1025,7 +931,6 @@ const VEHICLES = [
   },
   {
     id: "mig21", name: "MiG-21", category: "plane", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["MiG21", "Fishbed"],
     fact: "The most-produced supersonic aircraft in history.",
     images: [
@@ -1034,7 +939,6 @@ const VEHICLES = [
   },
   {
     id: "mig25", name: "MiG-25", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["MiG25", "Foxbat"],
     fact: "Built of steel, not titanium, and terrifyingly fast in a straight line.",
     images: [
@@ -1043,7 +947,6 @@ const VEHICLES = [
   },
   {
     id: "mig29", name: "MiG-29", category: "plane", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["MiG29", "Fulcrum"],
     fact: "Designed to match the F-16 and F/A-18.",
     images: [
@@ -1052,7 +955,6 @@ const VEHICLES = [
   },
   {
     id: "su27", name: "Su-27", category: "plane", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["Su27", "Sukhoi Su-27", "Flanker"],
     fact: "Large, long-ranged, and the basis for a whole family of jets.",
     images: [
@@ -1063,7 +965,6 @@ const VEHICLES = [
   },
   {
     id: "su25", name: "Su-25", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Su25", "Sukhoi Su-25", "Frogfoot", "Grach"],
     fact: "The Soviet answer to the A-10.",
     images: [
@@ -1072,7 +973,6 @@ const VEHICLES = [
   },
   {
     id: "f4_phantom", name: "F-4 Phantom II", category: "plane", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["F-4", "F4 Phantom", "Phantom", "Phantom II", "McDonnell Douglas F-4"],
     fact: "Bent wings and a drooping nose; flown by three US services at once.",
     images: [
@@ -1081,7 +981,6 @@ const VEHICLES = [
   },
   {
     id: "f14", name: "Grumman F-14 Tomcat", category: "plane", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["F-14", "F14", "Tomcat", "F-14D"],
     fact: "Its wings sweep back automatically as it accelerates.",
     images: [
@@ -1092,7 +991,6 @@ const VEHICLES = [
   },
   {
     id: "f15", name: "F-15 Eagle", category: "plane", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["F-15", "F15", "Eagle", "F-15C"],
     fact: "Has never been lost in air-to-air combat.",
     images: [
@@ -1101,7 +999,6 @@ const VEHICLES = [
   },
   {
     id: "f16", name: "General Dynamics F-16 Fighting Falcon", category: "plane", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["F-16", "F16", "Fighting Falcon", "Viper", "F-16 Falcon"],
     fact: "Pilots almost universally call it the Viper.",
     images: [
@@ -1112,7 +1009,6 @@ const VEHICLES = [
   },
   {
     id: "f18", name: "F/A-18 Hornet", category: "plane", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["F-18", "F18", "Hornet", "FA-18"],
     fact: "Twin tails canted outward; the Blue Angels' aircraft.",
     images: [
@@ -1123,7 +1019,6 @@ const VEHICLES = [
   },
   {
     id: "a4", name: "A-4 Skyhawk", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["A-4", "A4", "Skyhawk", "Scooter"],
     fact: "So small it needed no wing-folding to fit carrier lifts.",
     images: [
@@ -1132,7 +1027,6 @@ const VEHICLES = [
   },
   {
     id: "a10", name: "Fairchild Republic A-10 Thunderbolt II", category: "plane", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["A-10", "A10", "Warthog", "A-10 Warthog", "Thunderbolt II", "Hog", "A-10C"],
     fact: "The airframe was essentially built around its 30 mm rotary cannon.",
     images: [
@@ -1141,7 +1035,6 @@ const VEHICLES = [
   },
   {
     id: "f117", name: "F-117 Nighthawk", category: "plane", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["F-117", "F117", "Nighthawk", "Wobbly Goblin"],
     fact: "All those flat facets were what 1970s computers could model.",
     images: [
@@ -1150,7 +1043,6 @@ const VEHICLES = [
   },
   {
     id: "sr71", name: "Lockheed SR-71 Blackbird", category: "plane", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["SR-71", "SR71", "Blackbird", "Habu"],
     fact: "It leaked fuel on the ground — the panels only sealed once hot.",
     images: [
@@ -1159,7 +1051,6 @@ const VEHICLES = [
   },
   {
     id: "u2", name: "Lockheed U-2", category: "plane", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["U-2", "U2", "Dragon Lady"],
     fact: "Glider-like wings to loiter at 70,000 feet.",
     images: [
@@ -1170,7 +1061,6 @@ const VEHICLES = [
   },
   {
     id: "b52", name: "B-52 Stratofortress", category: "plane", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["B-52", "B52", "Stratofortress", "BUFF"],
     fact: "In service since 1955, and planned to fly into the 2050s.",
     images: [
@@ -1179,7 +1069,6 @@ const VEHICLES = [
   },
   {
     id: "b1", name: "B-1 Lancer", category: "plane", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["B-1", "B1", "Lancer", "B-1B", "Bone"],
     fact: "Swing-wing supersonic bomber; crews call it the Bone.",
     images: [
@@ -1188,7 +1077,6 @@ const VEHICLES = [
   },
   {
     id: "vulcan", name: "Avro Vulcan", category: "plane", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["Vulcan", "Vulcan bomber"],
     fact: "A huge delta wing, and Britain's airborne nuclear deterrent.",
     images: [
@@ -1197,7 +1085,6 @@ const VEHICLES = [
   },
   {
     id: "harrier", name: "Harrier", category: "plane", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["Harrier jump jet", "Hawker Siddeley Harrier", "Sea Harrier", "AV-8B"],
     fact: "Vectored thrust lets it take off vertically.",
     images: [
@@ -1208,7 +1095,6 @@ const VEHICLES = [
   },
   {
     id: "tornado", name: "Panavia Tornado", category: "plane", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["Tornado", "Tornado GR4"],
     fact: "A three-nation swing-wing strike aircraft.",
     images: [
@@ -1217,7 +1103,6 @@ const VEHICLES = [
   },
   {
     id: "ee_lightning", name: "English Electric Lightning", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["EE Lightning", "Lightning F6"],
     fact: "Two engines stacked vertically, and a ferocious climb rate.",
     images: [
@@ -1226,7 +1111,6 @@ const VEHICLES = [
   },
   {
     id: "mirage2000", name: "Dassault Mirage 2000", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Mirage 2000", "Mirage"],
     fact: "A tailless delta, like the Mirage III before it.",
     images: [
@@ -1235,7 +1119,6 @@ const VEHICLES = [
   },
   {
     id: "tu95", name: "Tupolev Tu-95", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Tu-95", "Tu95", "Bear"],
     fact: "Turboprop-driven and loud enough to be tracked by sound.",
     images: [
@@ -1244,7 +1127,6 @@ const VEHICLES = [
   },
   {
     id: "c130", name: "C-130 Hercules", category: "plane", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["C-130", "C130", "Hercules", "Herc", "Lockheed C-130"],
     fact: "Still in production after seventy years.",
     images: [
@@ -1253,7 +1135,6 @@ const VEHICLES = [
   },
   {
     id: "c5", name: "C-5 Galaxy", category: "plane", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["C-5", "C5", "Galaxy"],
     fact: "The nose hinges upward to swallow vehicles whole.",
     images: [
@@ -1262,7 +1143,6 @@ const VEHICLES = [
   },
   {
     id: "concorde", name: "Concorde", category: "plane", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["Aerospatiale/BAC Concorde", "BAC Concorde", "Concord", "Supersonic Concorde"],
     fact: "Cruised at Mach 2 — New York to London in under three hours.",
     images: [
@@ -1271,7 +1151,6 @@ const VEHICLES = [
   },
   {
     id: "b747", name: "Boeing 747", category: "plane", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["747", "Jumbo Jet", "Jumbo", "B747"],
     fact: "The hump is the upper deck behind the cockpit.",
     images: [
@@ -1280,7 +1159,6 @@ const VEHICLES = [
   },
   {
     id: "b2", name: "B-2 Spirit", category: "plane", era: "Modern", difficulty: 1,
-    source: "photo",
     aliases: ["B-2", "B2", "Spirit", "Stealth bomber"],
     fact: "A flying wing with no fuselage and no tail at all.",
     images: [
@@ -1289,7 +1167,6 @@ const VEHICLES = [
   },
   {
     id: "f22", name: "F-22 Raptor", category: "plane", era: "Modern", difficulty: 1,
-    source: "photo",
     aliases: ["F-22", "F22", "Raptor"],
     fact: "Cruises supersonically without using afterburner.",
     images: [
@@ -1298,7 +1175,6 @@ const VEHICLES = [
   },
   {
     id: "f35", name: "F-35 Lightning II", category: "plane", era: "Modern", difficulty: 1,
-    source: "photo",
     aliases: ["F-35", "F35", "Lightning II", "JSF", "Joint Strike Fighter"],
     fact: "One airframe in three versions, including a vertical-landing variant.",
     images: [
@@ -1307,7 +1183,6 @@ const VEHICLES = [
   },
   {
     id: "typhoon", name: "Eurofighter Typhoon", category: "plane", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["Typhoon", "Eurofighter"],
     fact: "Canards ahead of the wing, built by four nations.",
     images: [
@@ -1316,7 +1191,6 @@ const VEHICLES = [
   },
   {
     id: "rafale", name: "Dassault Rafale", category: "plane", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["Rafale"],
     fact: "France's carrier-capable multirole fighter.",
     images: [
@@ -1327,7 +1201,6 @@ const VEHICLES = [
   },
   {
     id: "gripen", name: "Saab JAS 39 Gripen", category: "plane", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Gripen", "JAS 39", "Saab Gripen"],
     fact: "Designed to operate from ordinary Swedish roads.",
     images: [
@@ -1338,7 +1211,6 @@ const VEHICLES = [
   },
   {
     id: "tu160", name: "Tupolev Tu-160", category: "plane", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Tu-160", "Tu160", "Blackjack", "White Swan"],
     fact: "The largest and heaviest combat aircraft ever built.",
     images: [
@@ -1349,7 +1221,6 @@ const VEHICLES = [
   },
   {
     id: "b737", name: "Boeing 737", category: "plane", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["737", "B737"],
     fact: "The best-selling jet airliner ever made.",
     images: [
@@ -1360,7 +1231,6 @@ const VEHICLES = [
   },
   {
     id: "a380", name: "Airbus A380", category: "plane", era: "Modern", difficulty: 1,
-    source: "photo",
     aliases: ["A380", "Airbus 380"],
     fact: "A full-length double deck; the largest passenger airliner.",
     images: [
@@ -1371,7 +1241,6 @@ const VEHICLES = [
   },
   {
     id: "an225", name: "Antonov An-225 Mriya", category: "plane", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["An-225", "An225", "Mriya"],
     fact: "Six engines; the heaviest aircraft ever built.",
     images: [
@@ -1382,7 +1251,6 @@ const VEHICLES = [
   },
   {
     id: "c172", name: "Cessna 172", category: "plane", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["Cessna 172 Skyhawk", "Cessna"],
     fact: "The most-produced aircraft in history.",
     images: [
@@ -1393,7 +1261,6 @@ const VEHICLES = [
   },
   {
     id: "dc3", name: "Douglas DC-3", category: "plane", era: "Pioneer", difficulty: 2,
-    source: "photo",
     aliases: ["DC-3", "DC3", "Dakota"],
     fact: "The airliner that made air travel pay for itself.",
     images: [
@@ -1404,7 +1271,6 @@ const VEHICLES = [
   },
   {
     id: "wright_flyer", name: "Wright Flyer", category: "plane", era: "Pioneer", difficulty: 1,
-    source: "photo",
     aliases: ["Wright Flyer I", "Kitty Hawk Flyer", "Wright brothers plane"],
     fact: "Twelve seconds and 120 feet, in December 1903.",
     images: [
@@ -1417,7 +1283,6 @@ const VEHICLES = [
   /* --------------------------------------------------- HELICOPTERS */
   {
     id: "huey", name: "Bell UH-1 Iroquois", category: "helicopter", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["Huey", "UH-1", "UH1", "UH-1 Huey", "Iroquois", "Bell UH-1", "Bell Huey"],
     fact: "Officially the Iroquois, but the 'HU-1' designation stuck as Huey.",
     images: [
@@ -1428,7 +1293,6 @@ const VEHICLES = [
   },
   {
     id: "cobra", name: "AH-1 Cobra", category: "helicopter", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["AH-1", "Cobra", "Huey Cobra", "AH-1G", "Snake"],
     fact: "The first helicopter designed from scratch as a gunship.",
     images: [
@@ -1439,7 +1303,6 @@ const VEHICLES = [
   },
   {
     id: "bell47", name: "Bell 47", category: "helicopter", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["Bell 47G", "MASH helicopter", "Sioux"],
     fact: "The bubble canopy made famous by M*A*S*H.",
     images: [
@@ -1450,7 +1313,6 @@ const VEHICLES = [
   },
   {
     id: "bell206", name: "Bell 206", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Bell 206 JetRanger", "JetRanger", "Jet Ranger"],
     fact: "The workhorse of news, police and charter flying.",
     images: [
@@ -1461,7 +1323,6 @@ const VEHICLES = [
   },
   {
     id: "blackhawk", name: "UH-60 Black Hawk", category: "helicopter", era: "Modern", difficulty: 1,
-    source: "photo",
     aliases: ["UH-60", "Black Hawk", "Blackhawk", "UH60"],
     fact: "Replaced the Huey as the US Army's utility helicopter.",
     images: [
@@ -1470,7 +1331,6 @@ const VEHICLES = [
   },
   {
     id: "apache", name: "Boeing AH-64 Apache", category: "helicopter", era: "Modern", difficulty: 1,
-    source: "photo",
     aliases: ["Apache", "AH-64", "AH64", "AH-64D", "Apache Longbow", "Longbow", "Hughes AH-64"],
     fact: "The mast-mounted radar dome lets it target from behind cover.",
     images: [
@@ -1481,7 +1341,6 @@ const VEHICLES = [
   },
   {
     id: "chinook", name: "Boeing CH-47 Chinook", category: "helicopter", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["Chinook", "CH-47", "CH47", "Wokka", "Boeing Chinook", "Vertol CH-47"],
     fact: "Tandem rotors mean no tail rotor — and a lot of lift.",
     images: [
@@ -1490,7 +1349,6 @@ const VEHICLES = [
   },
   {
     id: "ch46", name: "CH-46 Sea Knight", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["CH-46", "Sea Knight", "Phrog"],
     fact: "The Chinook's smaller Marine Corps cousin.",
     images: [
@@ -1501,7 +1359,6 @@ const VEHICLES = [
   },
   {
     id: "ch53", name: "CH-53E Super Stallion", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["CH-53", "Super Stallion", "Sea Stallion", "CH53"],
     fact: "The heaviest-lifting helicopter in Western service.",
     images: [
@@ -1512,7 +1369,6 @@ const VEHICLES = [
   },
   {
     id: "kiowa", name: "OH-58 Kiowa", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["OH-58", "Kiowa", "Kiowa Warrior"],
     fact: "A scout helicopter with a sensor ball above the rotor.",
     images: [
@@ -1523,7 +1379,6 @@ const VEHICLES = [
   },
   {
     id: "little_bird", name: "MH-6 Little Bird", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Little Bird", "MH-6", "AH-6", "Killer Egg"],
     fact: "Special forces ride on external benches, outside the cabin.",
     images: [
@@ -1534,7 +1389,6 @@ const VEHICLES = [
   },
   {
     id: "osprey", name: "V-22 Osprey", category: "helicopter", era: "Modern", difficulty: 1,
-    source: "photo",
     aliases: ["V-22", "Osprey", "MV-22", "Tiltrotor"],
     fact: "Rotors tilt forward so it can fly like a turboprop.",
     images: [
@@ -1545,7 +1399,6 @@ const VEHICLES = [
   },
   {
     id: "sea_king", name: "Sea King", category: "helicopter", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["SH-3 Sea King", "Westland Sea King", "Sikorsky SH-3"],
     fact: "A boat-shaped hull, for landing on water.",
     images: [
@@ -1556,7 +1409,6 @@ const VEHICLES = [
   },
   {
     id: "lynx", name: "Westland Lynx", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Lynx", "Westland WG.13"],
     fact: "Held the helicopter world speed record for two decades.",
     images: [
@@ -1567,7 +1419,6 @@ const VEHICLES = [
   },
   {
     id: "merlin", name: "AW101 Merlin", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Merlin", "AW101", "EH101", "AgustaWestland AW101"],
     fact: "Three engines, for flying long distances over water.",
     images: [
@@ -1578,7 +1429,6 @@ const VEHICLES = [
   },
   {
     id: "puma", name: "SA 330 Puma", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Puma", "Aerospatiale Puma", "SA330"],
     fact: "A French transport helicopter used across Africa and Europe.",
     images: [
@@ -1589,7 +1439,6 @@ const VEHICLES = [
   },
   {
     id: "euro_tiger", name: "Eurocopter Tiger", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["EC665 Tiger", "Airbus Tiger", "Tiger attack helicopter"],
     fact: "A Franco-German attack helicopter built largely of composites.",
     images: [
@@ -1600,7 +1449,6 @@ const VEHICLES = [
   },
   {
     id: "nh90", name: "NH90", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["NHIndustries NH90", "NH-90"],
     fact: "Fly-by-wire, and a European joint project.",
     images: [
@@ -1611,7 +1459,6 @@ const VEHICLES = [
   },
   {
     id: "r44", name: "Robinson R44", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["R44", "Robinson"],
     fact: "The best-selling civil helicopter of the 2000s.",
     images: [
@@ -1622,7 +1469,6 @@ const VEHICLES = [
   },
   {
     id: "mi8", name: "Mil Mi-8", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Mi-8", "Mi8", "Hip", "Mi-17"],
     fact: "The most-produced helicopter in history.",
     images: [
@@ -1631,7 +1477,6 @@ const VEHICLES = [
   },
   {
     id: "hind", name: "Mil Mi-24", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Mi-24", "Mi24", "Hind", "Mil Mi-24 Hind", "Mi-24 Hind", "Krokodil"],
     fact: "A gunship that also carries troops — crews called it the Crocodile.",
     images: [
@@ -1640,7 +1485,6 @@ const VEHICLES = [
   },
   {
     id: "mi26", name: "Mil Mi-26", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Mi-26", "Mi26", "Halo"],
     fact: "The largest helicopter ever to enter series production.",
     images: [
@@ -1651,7 +1495,6 @@ const VEHICLES = [
   },
   {
     id: "mi28", name: "Mil Mi-28", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Mi-28", "Mi28", "Havoc", "Night Hunter"],
     fact: "Russia's dedicated attack helicopter.",
     images: [
@@ -1660,7 +1503,6 @@ const VEHICLES = [
   },
   {
     id: "ka50", name: "Kamov Ka-50", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Ka-50", "Ka50", "Black Shark", "Hokum"],
     fact: "Coaxial rotors, no tail rotor, and an ejection seat.",
     images: [
@@ -1669,17 +1511,15 @@ const VEHICLES = [
   },
   {
     id: "ka52", name: "Kamov Ka-52", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Ka-52", "Ka52", "Alligator"],
     fact: "A two-seat Ka-50 with the crew sitting side by side.",
     images: [
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Kamov_Ka-52.jpg?width=1000", credit: "Alex Beltyukov / Wikimedia Commons (CC BY-SA 3.0)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Kamov_Ka-52%2C_Russia_-_Air_Force_AN1676203.jpg?width=1000", credit: "Oleg V. Belyakov - AirTeamImages / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Kamov_Ka-52.jpg?width=1000", credit: "Alex Beltyukov / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
     id: "huey_cobra_z", name: "AH-1Z Viper", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["AH-1Z", "Zulu Cobra"],
     fact: "The Cobra line's final four-bladed descendant.",
     images: [
@@ -1690,7 +1530,6 @@ const VEHICLES = [
   /* ------------------------------------------------ CARS AND SHIPS */
   {
     id: "model_t", name: "Ford Model T", category: "car", era: "Pioneer", difficulty: 1,
-    source: "photo",
     aliases: ["Model T", "Tin Lizzie", "T-Ford", "Ford T", "ModelT"],
     fact: "15 million built — the car that put the world on wheels.",
     images: [
@@ -1701,7 +1540,6 @@ const VEHICLES = [
   },
   {
     id: "beetle", name: "Volkswagen Beetle", category: "car", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["VW Beetle", "Beetle", "Bug", "VW Bug", "Käfer", "Kafer", "Volkswagen Type 1", "Type 1", "VW Kafer"],
     fact: "Production ran for 65 years, ending in Mexico in 2003.",
     images: [
@@ -1712,7 +1550,6 @@ const VEHICLES = [
   },
   {
     id: "mustang_car", name: "Ford Mustang", category: "car", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["Mustang", "Mustang 1965", "1965 Mustang", "Ford Mustang GT"],
     fact: "Created the 'pony car' class; 400,000 sold in its first year.",
     images: [
@@ -1723,7 +1560,6 @@ const VEHICLES = [
   },
   {
     id: "countach", name: "Lamborghini Countach", category: "car", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["Countach", "Lambo Countach", "Lamborghini Contach", "Countach LP400"],
     fact: "Its name is a Piedmontese exclamation roughly meaning 'wow'.",
     images: [
@@ -1732,7 +1568,6 @@ const VEHICLES = [
   },
   {
     id: "2cv", name: "Citroën 2CV", category: "car", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["2CV", "Citroen 2CV", "Deux Chevaux", "2 CV", "Duck", "Ente", "Tin Snail"],
     fact: "Designed to carry a farmer and eggs across a ploughed field unbroken.",
     images: [
@@ -1741,7 +1576,6 @@ const VEHICLES = [
   },
   {
     id: "mini", name: "Mini", category: "car", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Classic Mini", "Morris Mini-Minor", "Mini Minor", "Austin Seven", "Mini Cooper", "BMC Mini", "Morris Mini"],
     fact: "Its transverse engine layout became the template for small cars.",
     images: [
@@ -1752,7 +1586,6 @@ const VEHICLES = [
   },
   {
     id: "willys_jeep", name: "Willys MB Jeep", category: "car", era: "WW2", difficulty: 1,
-    source: "photo",
     aliases: ["Jeep", "Willys Jeep", "Willys MB", "Willys", "MB Jeep", "Army jeep"],
     fact: "Eisenhower named it one of the decisive weapons of the war.",
     images: [
@@ -1763,7 +1596,6 @@ const VEHICLES = [
   },
   {
     id: "uss_missouri", name: "USS Missouri", category: "ship", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["Missouri", "BB-63", "Mighty Mo", "USS Missouri BB-63", "Big Mo", "Iowa class battleship"],
     fact: "Japan's formal surrender was signed on her deck in Tokyo Bay, 1945.",
     images: [
@@ -1774,7 +1606,6 @@ const VEHICLES = [
   },
   {
     id: "hms_victory", name: "HMS Victory", category: "ship", era: "Age of Sail", difficulty: 2,
-    source: "photo",
     aliases: ["Victory", "Nelson's flagship", "HMS Victory 1765"],
     fact: "Nelson's flagship at Trafalgar — still a commissioned warship today.",
     images: [
@@ -1785,7 +1616,6 @@ const VEHICLES = [
   },
   {
     id: "titanic", name: "RMS Titanic", category: "ship", era: "Pioneer", difficulty: 1,
-    source: "photo",
     aliases: ["Titanic", "SS Titanic", "RMS Titanic 1912"],
     fact: "Her sister ships Olympic and Britannic looked near-identical.",
     images: [
@@ -1794,7 +1624,6 @@ const VEHICLES = [
   },
   {
     id: "nimitz", name: "USS Nimitz", category: "ship", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Nimitz", "CVN-68", "USS Nimitz CVN-68", "Nimitz class carrier", "Nimitz-class aircraft carrier"],
     fact: "Two reactors let her steam for over 20 years without refuelling.",
     images: [
@@ -1805,7 +1634,6 @@ const VEHICLES = [
   /* -------------------------- MISSILES, ARTILLERY AND EARLY ARMOUR */
   {
     id: "v2", name: "V-2 rocket", category: "missile", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["V2", "A4 rocket", "Vergeltungswaffe 2", "V-2"],
     fact: "The first man-made object to reach the edge of space.",
     images: [
@@ -1816,7 +1644,6 @@ const VEHICLES = [
   },
   {
     id: "v1", name: "V-1 flying bomb", category: "missile", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["V1", "Buzz bomb", "Doodlebug", "Fieseler Fi 103"],
     fact: "Londoners learned that when the buzzing stopped, it was falling.",
     images: [
@@ -1827,7 +1654,6 @@ const VEHICLES = [
   },
   {
     id: "katyusha", name: "Katyusha", category: "missile", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["BM-13", "Katyusha rocket launcher", "Stalin's organ"],
     fact: "German troops named its shriek the Stalin organ.",
     images: [
@@ -1837,7 +1663,6 @@ const VEHICLES = [
   },
   {
     id: "panzerfaust", name: "Panzerfaust", category: "missile", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["Panzerfaust 60", "Panzer faust"],
     fact: "A disposable tube that let one infantryman kill a tank.",
     images: [
@@ -1847,7 +1672,6 @@ const VEHICLES = [
   },
   {
     id: "bazooka", name: "Bazooka", category: "missile", era: "WW2", difficulty: 1,
-    source: "photo",
     aliases: ["M1 Bazooka", "M9 Bazooka", "Rocket launcher M1"],
     fact: "Named after a comedian's home-made musical instrument.",
     images: [
@@ -1856,7 +1680,6 @@ const VEHICLES = [
   },
   {
     id: "rpg7", name: "RPG-7", category: "missile", era: "Cold War", difficulty: 1,
-    source: "photo",
     aliases: ["RPG", "RPG7", "Rocket propelled grenade"],
     fact: "Produced in the millions and still in use everywhere.",
     images: [
@@ -1866,7 +1689,6 @@ const VEHICLES = [
   },
   {
     id: "scud", name: "Scud", category: "missile", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["R-11", "R-17", "Scud-B", "SS-1 Scud"],
     fact: "A Soviet ballistic missile better known from the 1991 Gulf War.",
     images: [
@@ -1877,7 +1699,6 @@ const VEHICLES = [
   },
   {
     id: "sidewinder", name: "AIM-9 Sidewinder", category: "missile", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["AIM-9", "Sidewinder"],
     fact: "Heat-seeking, and named after the snake that hunts by warmth.",
     images: [
@@ -1888,7 +1709,6 @@ const VEHICLES = [
   },
   {
     id: "tow", name: "BGM-71 TOW", category: "missile", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["TOW", "BGM-71", "TOW missile"],
     fact: "Steered down a pair of wires trailing behind it.",
     images: [
@@ -1899,7 +1719,6 @@ const VEHICLES = [
   },
   {
     id: "minuteman", name: "LGM-30 Minuteman", category: "missile", era: "Cold War", difficulty: 2,
-    source: "photo",
     aliases: ["Minuteman", "LGM-30", "Minuteman III"],
     fact: "Sits in a silo on alert, and has done since 1962.",
     images: [
@@ -1910,7 +1729,6 @@ const VEHICLES = [
   },
   {
     id: "polaris", name: "UGM-27 Polaris", category: "missile", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Polaris", "UGM-27"],
     fact: "The first ballistic missile fired from beneath the sea.",
     images: [
@@ -1921,7 +1739,6 @@ const VEHICLES = [
   },
   {
     id: "exocet", name: "Exocet", category: "missile", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["AM39 Exocet", "MM38 Exocet"],
     fact: "Sea-skimming, and infamous from the Falklands War.",
     images: [
@@ -1932,7 +1749,6 @@ const VEHICLES = [
   },
   {
     id: "s300", name: "S-300", category: "missile", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["S-300 missile system", "SA-10", "S300"],
     fact: "A long-range Soviet surface-to-air system.",
     images: [
@@ -1943,7 +1759,6 @@ const VEHICLES = [
   },
   {
     id: "harpoon", name: "AGM-84 Harpoon", category: "missile", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Harpoon", "AGM-84", "Harpoon missile"],
     fact: "An anti-ship missile that flies low to stay under radar.",
     images: [
@@ -1952,7 +1767,6 @@ const VEHICLES = [
   },
   {
     id: "patriot", name: "MIM-104 Patriot", category: "missile", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["Patriot", "MIM-104", "Patriot missile"],
     fact: "Built for aircraft, now best known for shooting down missiles.",
     images: [
@@ -1963,7 +1777,6 @@ const VEHICLES = [
   },
   {
     id: "stinger", name: "FIM-92 Stinger", category: "missile", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["Stinger", "FIM-92"],
     fact: "Shoulder-launched, and heavy enough to be a two-hand job.",
     images: [
@@ -1974,7 +1787,6 @@ const VEHICLES = [
   },
   {
     id: "javelin", name: "FGM-148 Javelin", category: "missile", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["Javelin", "FGM-148"],
     fact: "Climbs then dives onto the thin armour on top of a tank.",
     images: [
@@ -1985,7 +1797,6 @@ const VEHICLES = [
   },
   {
     id: "tomahawk", name: "Tomahawk", category: "missile", era: "Modern", difficulty: 1,
-    source: "photo",
     aliases: ["BGM-109", "Tomahawk cruise missile", "TLAM"],
     fact: "Navigates by comparing the ground below with a stored map.",
     images: [
@@ -1996,7 +1807,6 @@ const VEHICLES = [
   },
   {
     id: "hellfire", name: "AGM-114 Hellfire", category: "missile", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["Hellfire", "AGM-114"],
     fact: "The Apache's tank-killer, guided by laser.",
     images: [
@@ -2007,7 +1817,6 @@ const VEHICLES = [
   },
   {
     id: "amraam", name: "AIM-120 AMRAAM", category: "missile", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["AIM-120", "AMRAAM", "Slammer"],
     fact: "Carries its own radar, so the launching jet can turn away.",
     images: [
@@ -2018,7 +1827,6 @@ const VEHICLES = [
   },
   {
     id: "trident", name: "Trident", category: "missile", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Trident II", "UGM-133", "D5 missile"],
     fact: "Submarine-launched, and the core of two nations' deterrents.",
     images: [
@@ -2027,7 +1835,6 @@ const VEHICLES = [
   },
   {
     id: "kornet", name: "9M133 Kornet", category: "missile", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Kornet", "AT-14", "9M133"],
     fact: "A laser-guided Russian anti-tank missile.",
     images: [
@@ -2037,7 +1844,6 @@ const VEHICLES = [
   },
   {
     id: "nlaw", name: "NLAW", category: "missile", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["MBT LAW", "Main Battle Tank and Light Anti-tank Weapon"],
     fact: "Fired from the shoulder and flies just over the target.",
     images: [
@@ -2048,7 +1854,6 @@ const VEHICLES = [
   },
   {
     id: "stormshadow", name: "Storm Shadow", category: "missile", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["SCALP EG", "Storm Shadow missile"],
     fact: "An air-launched cruise missile that burrows before exploding.",
     images: [
@@ -2059,7 +1864,6 @@ const VEHICLES = [
   },
   {
     id: "irondome", name: "Iron Dome", category: "missile", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["Iron Dome system", "Tamir"],
     fact: "Works out where a rocket will land, and ignores it if it will miss.",
     images: [
@@ -2070,7 +1874,6 @@ const VEHICLES = [
   },
   {
     id: "flak88", name: "8.8 cm Flak", category: "artillery", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["Flak 88", "Acht-acht", "Eighty-eight", "88mm Flak", "Flak 36"],
     fact: "An anti-aircraft gun that turned out to be a superb tank killer.",
     images: [
@@ -2081,7 +1884,6 @@ const VEHICLES = [
   },
   {
     id: "gustav", name: "Schwerer Gustav", category: "artillery", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Gustav", "Dora", "80 cm gun"],
     fact: "An 80 cm railway gun; the largest calibre ever used in combat.",
     images: [
@@ -2090,7 +1892,6 @@ const VEHICLES = [
   },
   {
     id: "karl", name: "Karl-Gerät", category: "artillery", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Karl Gerat", "Morser Karl", "Thor"],
     fact: "A 60 cm self-propelled mortar built to crack fortresses.",
     images: [
@@ -2100,7 +1901,6 @@ const VEHICLES = [
   },
   {
     id: "m101", name: "M101 howitzer", category: "artillery", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["M101", "M2A1 howitzer", "105mm howitzer"],
     fact: "The standard American field gun of the Second World War.",
     images: [
@@ -2111,7 +1911,6 @@ const VEHICLES = [
   },
   {
     id: "bofors", name: "Bofors 40 mm gun", category: "artillery", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Bofors 40mm", "Bofors gun", "Bofors"],
     fact: "The anti-aircraft gun of choice on both sides' warships.",
     images: [
@@ -2121,7 +1920,6 @@ const VEHICLES = [
   },
   {
     id: "parisgun", name: "Paris Gun", category: "artillery", era: "WW1", difficulty: 3,
-    source: "photo",
     aliases: ["Paris-Geschütz", "Kaiser Wilhelm Geschütz"],
     fact: "Shelled Paris from 120 km away, its shells reaching the stratosphere.",
     images: [
@@ -2132,7 +1930,6 @@ const VEHICLES = [
   },
   {
     id: "d30", name: "D-30 howitzer", category: "artillery", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["D-30", "2A18"],
     fact: "Its three-legged carriage lets it traverse a full circle.",
     images: [
@@ -2142,7 +1939,6 @@ const VEHICLES = [
   },
   {
     id: "grad", name: "BM-21 Grad", category: "artillery", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["BM-21", "Grad"],
     fact: "Forty rockets off a truck bed in twenty seconds.",
     images: [
@@ -2152,7 +1948,6 @@ const VEHICLES = [
   },
   {
     id: "m109", name: "M109 howitzer", category: "artillery", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["M109", "Paladin", "M109A6"],
     fact: "The West's standard self-propelled howitzer for sixty years.",
     images: [
@@ -2163,7 +1958,6 @@ const VEHICLES = [
   },
   {
     id: "mlrs", name: "M270 MLRS", category: "artillery", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["M270", "MLRS"],
     fact: "Tracked, armoured, and carrying twelve guided rockets.",
     images: [
@@ -2174,7 +1968,6 @@ const VEHICLES = [
   },
   {
     id: "m777", name: "M777 howitzer", category: "artillery", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["M777"],
     fact: "Built largely of titanium so a helicopter can lift it.",
     images: [
@@ -2185,7 +1978,6 @@ const VEHICLES = [
   },
   {
     id: "himars", name: "M142 HIMARS", category: "artillery", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["HIMARS", "M142"],
     fact: "The MLRS on wheels — lighter, and it can fly in a C-130.",
     images: [
@@ -2196,7 +1988,6 @@ const VEHICLES = [
   },
   {
     id: "pzh2000", name: "Panzerhaubitze 2000", category: "artillery", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["PzH 2000", "Panzerhaubitze"],
     fact: "Can put three shells in the air before the first one lands.",
     images: [
@@ -2207,7 +1998,6 @@ const VEHICLES = [
   },
   {
     id: "caesar", name: "CAESAR howitzer", category: "artillery", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["CAESAR", "Caesar gun"],
     fact: "A 155 mm gun bolted onto an ordinary truck chassis.",
     images: [
@@ -2216,7 +2006,6 @@ const VEHICLES = [
   },
   {
     id: "msta", name: "2S19 Msta", category: "artillery", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["2S19", "Msta-S"],
     fact: "Russia's tracked 152 mm self-propelled howitzer.",
     images: [
@@ -2227,7 +2016,6 @@ const VEHICLES = [
   },
   {
     id: "markiv", name: "Mark IV tank", category: "tank", era: "WW1", difficulty: 2,
-    source: "photo",
     aliases: ["Mark IV", "Mk IV tank", "British Mark IV"],
     fact: "The rhomboid shape was designed to cross wide trenches.",
     images: [
@@ -2236,7 +2024,6 @@ const VEHICLES = [
   },
   {
     id: "renaultft", name: "Renault FT", category: "tank", era: "WW1", difficulty: 2,
-    source: "photo",
     aliases: ["Renault FT-17", "FT-17", "FT17"],
     fact: "The first tank with a turret that turned all the way round.",
     images: [
@@ -2246,7 +2033,6 @@ const VEHICLES = [
   },
   {
     id: "a7v", name: "A7V", category: "tank", era: "WW1", difficulty: 3,
-    source: "photo",
     aliases: ["Sturmpanzerwagen A7V"],
     fact: "Germany's only tank of the war; about twenty were built.",
     images: [
@@ -2257,7 +2043,6 @@ const VEHICLES = [
   },
   {
     id: "whippet", name: "Medium Mark A Whippet", category: "tank", era: "WW1", difficulty: 3,
-    source: "photo",
     aliases: ["Whippet", "Medium Mark A"],
     fact: "Built for speed, which meant all of eight miles an hour.",
     images: [
@@ -2267,7 +2052,6 @@ const VEHICLES = [
   },
   {
     id: "stchamond", name: "Saint-Chamond", category: "tank", era: "WW1", difficulty: 3,
-    source: "photo",
     aliases: ["Saint Chamond", "St Chamond"],
     fact: "Its hull overhung the tracks so far it bellied on every trench.",
     images: [
@@ -2278,7 +2062,6 @@ const VEHICLES = [
   },
   {
     id: "schneider", name: "Schneider CA1", category: "tank", era: "WW1", difficulty: 3,
-    source: "photo",
     aliases: ["Schneider CA", "CA1"],
     fact: "France's first tank, with a nose like a ship's bow.",
     images: [
@@ -2289,7 +2072,6 @@ const VEHICLES = [
   },
   {
     id: "camel", name: "Sopwith Camel", category: "plane", era: "WW1", difficulty: 1,
-    source: "photo",
     aliases: ["Camel", "Sopwith F.1 Camel"],
     fact: "Shot down more enemy aircraft than any other Allied fighter.",
     images: [
@@ -2300,7 +2082,6 @@ const VEHICLES = [
   },
   {
     id: "fokkerdr1", name: "Fokker Dr.I", category: "plane", era: "WW1", difficulty: 1,
-    source: "photo",
     aliases: ["Fokker Dr1", "Dr.I", "Fokker triplane", "Red Baron triplane"],
     fact: "The Red Baron's triplane, though he scored most of his kills in others.",
     images: [
@@ -2311,7 +2092,6 @@ const VEHICLES = [
   },
   {
     id: "spad13", name: "SPAD S.XIII", category: "plane", era: "WW1", difficulty: 3,
-    source: "photo",
     aliases: ["SPAD XIII", "Spad 13", "SPAD"],
     fact: "Fast and strong in a dive, and flown by most Allied aces.",
     images: [
@@ -2322,7 +2102,6 @@ const VEHICLES = [
   },
   {
     id: "fokkerdvii", name: "Fokker D.VII", category: "plane", era: "WW1", difficulty: 3,
-    source: "photo",
     aliases: ["Fokker DVII", "D.VII"],
     fact: "The Armistice named it specifically among equipment to be handed over.",
     images: [
@@ -2333,7 +2112,6 @@ const VEHICLES = [
   },
   {
     id: "albatros", name: "Albatros D.III", category: "plane", era: "WW1", difficulty: 3,
-    source: "photo",
     aliases: ["Albatros DIII", "D.III", "Albatros"],
     fact: "Its plywood fuselage gave it a sleek, shark-like body.",
     images: [
@@ -2342,7 +2120,6 @@ const VEHICLES = [
   },
   {
     id: "se5a", name: "S.E.5", category: "plane", era: "WW1", difficulty: 3,
-    source: "photo",
     aliases: ["SE5a", "S.E.5a", "SE.5"],
     fact: "Steadier than the Camel, and far less likely to kill its own pilot.",
     images: [
@@ -2353,7 +2130,6 @@ const VEHICLES = [
   },
   {
     id: "bristolf2", name: "Bristol F.2 Fighter", category: "plane", era: "WW1", difficulty: 3,
-    source: "photo",
     aliases: ["Bristol Fighter", "F.2B", "Brisfit"],
     fact: "A two-seater that could dogfight like a single-seat scout.",
     images: [
@@ -2364,7 +2140,6 @@ const VEHICLES = [
   },
   {
     id: "nieuport17", name: "Nieuport 17", category: "plane", era: "WW1", difficulty: 3,
-    source: "photo",
     aliases: ["Nieuport 17 C.1", "Nieuport"],
     fact: "Its narrow lower wing made it nimble, and fragile in a dive.",
     images: [
@@ -2377,7 +2152,6 @@ const VEHICLES = [
   /* ---------------------------------------------- FURTHER VEHICLES */
   {
     id: "m26_pershing", name: "M26 Pershing", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Pershing", "M26"],
     fact: "Arrived in 1945, at last a match for a Panther.",
     images: [
@@ -2388,7 +2162,6 @@ const VEHICLES = [
   },
   {
     id: "m24_chaffee", name: "M24 Chaffee", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Chaffee", "M24"],
     fact: "A light tank with a 75 mm gun taken from a bomber.",
     images: [
@@ -2399,7 +2172,6 @@ const VEHICLES = [
   },
   {
     id: "m22", name: "M22 Locust", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Locust", "M22"],
     fact: "Small enough to be carried into battle by glider.",
     images: [
@@ -2410,7 +2182,6 @@ const VEHICLES = [
   },
   {
     id: "kv2", name: "KV-2", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["KV2"],
     fact: "A gun howitzer in a turret the size of a small room.",
     images: [
@@ -2419,7 +2190,6 @@ const VEHICLES = [
   },
   {
     id: "su152", name: "SU-152", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["SU152", "Zveroboy"],
     fact: "Crews called it the beast killer.",
     images: [
@@ -2430,7 +2200,6 @@ const VEHICLES = [
   },
   {
     id: "isu152", name: "ISU-152", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["ISU152"],
     fact: "A 152 mm gun on an IS hull, for knocking down buildings.",
     images: [
@@ -2441,7 +2210,6 @@ const VEHICLES = [
   },
   {
     id: "jagdtiger", name: "Jagdtiger", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Jagd Tiger", "Sd Kfz 186"],
     fact: "The heaviest armoured vehicle to see service in the war.",
     images: [
@@ -2452,7 +2220,6 @@ const VEHICLES = [
   },
   {
     id: "sturmtiger", name: "Sturmtiger", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Sturmmörser Tiger", "Sturmmorser"],
     fact: "Fired 380 mm rocket shells meant for sinking submarines.",
     images: [
@@ -2463,7 +2230,6 @@ const VEHICLES = [
   },
   {
     id: "nashorn", name: "Nashorn", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Hornisse"],
     fact: "A thin-skinned platform for a very big anti-tank gun.",
     images: [
@@ -2474,7 +2240,6 @@ const VEHICLES = [
   },
   {
     id: "marder3", name: "Marder III", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Marder 3"],
     fact: "A captured Czech chassis with a Soviet gun bolted on top.",
     images: [
@@ -2485,7 +2250,6 @@ const VEHICLES = [
   },
   {
     id: "wespe", name: "Wespe", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Sd Kfz 124"],
     fact: "A Panzer II turned into a mobile 105 mm howitzer.",
     images: [
@@ -2496,7 +2260,6 @@ const VEHICLES = [
   },
   {
     id: "brummbar", name: "Brummbär", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Sturmpanzer IV", "Brummbar"],
     fact: "A Panzer IV rebuilt to demolish buildings at close range.",
     images: [
@@ -2506,7 +2269,6 @@ const VEHICLES = [
   },
   {
     id: "charb1", name: "Char B1", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Char B1 bis", "B1 bis"],
     fact: "Heavily armoured, with a hull gun aimed by steering the tank.",
     images: [
@@ -2517,7 +2279,6 @@ const VEHICLES = [
   },
   {
     id: "somua", name: "SOMUA S35", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["S35", "Somua"],
     fact: "Arguably the best tank in France in 1940, and poorly used.",
     images: [
@@ -2528,7 +2289,6 @@ const VEHICLES = [
   },
   {
     id: "panzer_i", name: "Panzer I", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Panzer 1", "PzKpfw I", "Pz I"],
     fact: "Built as a training tank, then sent to war anyway.",
     images: [
@@ -2539,7 +2299,6 @@ const VEHICLES = [
   },
   {
     id: "t26", name: "T-26", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["T26"],
     fact: "The most numerous tank in the world in the late 1930s.",
     images: [
@@ -2550,7 +2309,6 @@ const VEHICLES = [
   },
   {
     id: "bt7", name: "BT-7", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["BT7"],
     fact: "Could shed its tracks and run on road wheels alone.",
     images: [
@@ -2559,7 +2317,6 @@ const VEHICLES = [
   },
   {
     id: "hago", name: "Type 95 Ha-Go", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Ha-Go", "Type 95"],
     fact: "Light and thinly armoured, like most Japanese tanks.",
     images: [
@@ -2568,7 +2325,6 @@ const VEHICLES = [
   },
   {
     id: "semovente", name: "Semovente da 75/18", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Semovente"],
     fact: "Italy's best armoured vehicle of the war.",
     images: [
@@ -2577,7 +2333,6 @@ const VEHICLES = [
   },
   {
     id: "m1340", name: "Fiat M13/40", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["M13/40"],
     fact: "Riveted armour that shattered when hit.",
     images: [
@@ -2587,7 +2342,6 @@ const VEHICLES = [
   },
   {
     id: "vickers6ton", name: "Vickers 6-Ton", category: "tank", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Vickers Mark E", "Vickers 6 Ton"],
     fact: "Never bought by Britain, but copied around the world.",
     images: [
@@ -2598,7 +2352,6 @@ const VEHICLES = [
   },
   {
     id: "is3", name: "IS-3", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["IS3", "JS-3"],
     fact: "Its pike nose shocked Western observers in 1945.",
     images: [
@@ -2609,7 +2362,6 @@ const VEHICLES = [
   },
   {
     id: "t10", name: "T-10", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["T10"],
     fact: "The last Soviet heavy tank.",
     images: [
@@ -2618,7 +2370,6 @@ const VEHICLES = [
   },
   {
     id: "m41", name: "M41 Walker Bulldog", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Walker Bulldog", "M41"],
     fact: "A fast light tank named after a general killed in Korea.",
     images: [
@@ -2629,7 +2380,6 @@ const VEHICLES = [
   },
   {
     id: "conqueror", name: "Conqueror", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["FV214 Conqueror"],
     fact: "Built to out-range the IS-3, and hardly ever used.",
     images: [
@@ -2640,7 +2390,6 @@ const VEHICLES = [
   },
   {
     id: "strv103", name: "Stridsvagn 103", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["S-tank", "Strv 103"],
     fact: "No turret at all — the whole tank aims the gun.",
     images: [
@@ -2651,7 +2400,6 @@ const VEHICLES = [
   },
   {
     id: "type59", name: "Type 59", category: "tank", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Type 59 tank", "WZ-120"],
     fact: "China's copy of the T-54, built in the tens of thousands.",
     images: [
@@ -2660,7 +2408,6 @@ const VEHICLES = [
   },
   {
     id: "type96", name: "Type 96", category: "tank", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Type 96 tank", "ZTZ-96"],
     fact: "China's most numerous modern tank.",
     images: [
@@ -2669,7 +2416,6 @@ const VEHICLES = [
   },
   {
     id: "arjun", name: "Arjun", category: "tank", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Arjun MBT"],
     fact: "India's home-built main battle tank, decades in the making.",
     images: [
@@ -2680,7 +2426,6 @@ const VEHICLES = [
   },
   {
     id: "pt91", name: "PT-91 Twardy", category: "tank", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["PT-91", "Twardy"],
     fact: "A Polish rebuild of the T-72 with reactive armour.",
     images: [
@@ -2689,7 +2434,6 @@ const VEHICLES = [
   },
   {
     id: "sdkfz251", name: "Sd.Kfz. 251", category: "afv", era: "WW2", difficulty: 2,
-    source: "photo",
     aliases: ["Hanomag", "SdKfz 251", "251 halftrack"],
     fact: "The half-track that carried German infantry alongside the tanks.",
     images: [
@@ -2698,7 +2442,6 @@ const VEHICLES = [
   },
   {
     id: "m3_halftrack", name: "M3 Half-track", category: "afv", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["M3 halftrack", "White half-track"],
     fact: "Wheels at the front, tracks at the back, armour all over.",
     images: [
@@ -2707,7 +2450,6 @@ const VEHICLES = [
   },
   {
     id: "lvt", name: "LVT", category: "afv", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Amtrac", "Landing Vehicle Tracked", "Alligator"],
     fact: "Tracks shaped like paddles, so it swims ashore then drives.",
     images: [
@@ -2716,7 +2458,6 @@ const VEHICLES = [
   },
   {
     id: "fv432", name: "FV432", category: "afv", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["FV 432", "Trojan"],
     fact: "Britain's answer to the M113.",
     images: [
@@ -2727,7 +2468,6 @@ const VEHICLES = [
   },
   {
     id: "bmd1", name: "BMD-1", category: "afv", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["BMD1"],
     fact: "An IFV light enough to be parachuted with its crew inside.",
     images: [
@@ -2736,7 +2476,6 @@ const VEHICLES = [
   },
   {
     id: "boxer", name: "Boxer", category: "afv", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["GTK Boxer", "Boxer AFV"],
     fact: "A drive module with swappable mission modules bolted on.",
     images: [
@@ -2747,7 +2486,6 @@ const VEHICLES = [
   },
   {
     id: "puma_ifv", name: "Puma", category: "afv", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Schützenpanzer Puma", "Puma IFV"],
     fact: "Armour that can be added or removed to suit the airlift.",
     images: [
@@ -2757,7 +2495,6 @@ const VEHICLES = [
   },
   {
     id: "typhoon_hawker", name: "Hawker Typhoon", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Tiffy", "Hawker Tiffy"],
     fact: "A troubled fighter that became a superb ground attacker.",
     images: [
@@ -2766,7 +2503,6 @@ const VEHICLES = [
   },
   {
     id: "tempest", name: "Hawker Tempest", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Tempest"],
     fact: "Fast enough at low level to catch V-1 flying bombs.",
     images: [
@@ -2775,7 +2511,6 @@ const VEHICLES = [
   },
   {
     id: "beaufighter", name: "Bristol Beaufighter", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Beaufighter", "Beau", "Whispering Death"],
     fact: "Quiet enough on the approach to earn the name Whispering Death.",
     images: [
@@ -2786,7 +2521,6 @@ const VEHICLES = [
   },
   {
     id: "halifax", name: "Handley Page Halifax", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Halifax"],
     fact: "The Lancaster's less celebrated four-engined stablemate.",
     images: [
@@ -2795,7 +2529,6 @@ const VEHICLES = [
   },
   {
     id: "stirling", name: "Short Stirling", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Stirling"],
     fact: "Its wings were shortened to fit existing hangars.",
     images: [
@@ -2804,7 +2537,6 @@ const VEHICLES = [
   },
   {
     id: "havoc", name: "Douglas A-20 Havoc", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["A-20", "Havoc", "Boston"],
     fact: "A fast light bomber flown by half a dozen air forces.",
     images: [
@@ -2813,7 +2545,6 @@ const VEHICLES = [
   },
   {
     id: "marauder", name: "Martin B-26 Marauder", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["B-26", "Marauder", "Widowmaker"],
     fact: "Landed so fast that crews called it the Widowmaker.",
     images: [
@@ -2822,7 +2553,6 @@ const VEHICLES = [
   },
   {
     id: "airacobra", name: "Bell P-39 Airacobra", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["P-39", "Airacobra"],
     fact: "Engine behind the pilot, and a cannon firing through the propeller hub.",
     images: [
@@ -2831,7 +2561,6 @@ const VEHICLES = [
   },
   {
     id: "blackwidow", name: "Northrop P-61 Black Widow", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["P-61", "Black Widow"],
     fact: "The first American aircraft designed from the start as a night fighter.",
     images: [
@@ -2840,7 +2569,6 @@ const VEHICLES = [
   },
   {
     id: "avenger", name: "Grumman TBF Avenger", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["TBF", "TBM Avenger", "Avenger"],
     fact: "George H. W. Bush was shot down flying one.",
     images: [
@@ -2849,7 +2577,6 @@ const VEHICLES = [
   },
   {
     id: "wildcat", name: "Grumman F4F Wildcat", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["F4F", "Wildcat"],
     fact: "Outclassed by the Zero, and flown in tactics that beat it anyway.",
     images: [
@@ -2858,7 +2585,6 @@ const VEHICLES = [
   },
   {
     id: "helldiver", name: "Curtiss SB2C Helldiver", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["SB2C", "Helldiver"],
     fact: "Crews read the SB2C as 'son of a bitch, second class'.",
     images: [
@@ -2867,7 +2593,6 @@ const VEHICLES = [
   },
   {
     id: "swordfish", name: "Fairey Swordfish", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Swordfish", "Stringbag"],
     fact: "An obsolete biplane that crippled the Bismarck.",
     images: [
@@ -2876,7 +2601,6 @@ const VEHICLES = [
   },
   {
     id: "catalina", name: "Consolidated PBY Catalina", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["PBY", "Catalina"],
     fact: "A flying boat that spotted the Bismarck and rescued downed crews.",
     images: [
@@ -2887,7 +2611,6 @@ const VEHICLES = [
   },
   {
     id: "betty", name: "Mitsubishi G4M", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["G4M", "Betty"],
     fact: "Long-ranged and so prone to fire it was called the flying lighter.",
     images: [
@@ -2898,7 +2621,6 @@ const VEHICLES = [
   },
   {
     id: "oscar", name: "Nakajima Ki-43", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Ki-43", "Oscar", "Hayabusa"],
     fact: "Often mistaken for the Zero, and even lighter.",
     images: [
@@ -2909,7 +2631,6 @@ const VEHICLES = [
   },
   {
     id: "la5", name: "Lavochkin La-5", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["La-5", "La5"],
     fact: "A wooden airframe that finally matched the Fw 190 low down.",
     images: [
@@ -2918,7 +2639,6 @@ const VEHICLES = [
   },
   {
     id: "pe2", name: "Petlyakov Pe-2", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Pe-2", "Pe2"],
     fact: "Designed in a prison bureau, and fast enough to outrun fighters.",
     images: [
@@ -2927,7 +2647,6 @@ const VEHICLES = [
   },
   {
     id: "do17", name: "Dornier Do 17", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Do 17", "Flying Pencil"],
     fact: "So slim it was nicknamed the Flying Pencil.",
     images: [
@@ -2936,7 +2655,6 @@ const VEHICLES = [
   },
   {
     id: "fw200", name: "Focke-Wulf Fw 200 Condor", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Fw 200", "Condor"],
     fact: "An airliner turned maritime raider Churchill called the scourge of the Atlantic.",
     images: [
@@ -2947,7 +2665,6 @@ const VEHICLES = [
   },
   {
     id: "me163", name: "Messerschmitt Me 163 Komet", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Me 163", "Komet"],
     fact: "Rocket-powered, with about eight minutes of fuel.",
     images: [
@@ -2956,7 +2673,6 @@ const VEHICLES = [
   },
   {
     id: "ar234", name: "Arado Ar 234", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Ar 234", "Blitz"],
     fact: "The first jet bomber to fly an operational mission.",
     images: [
@@ -2966,7 +2682,6 @@ const VEHICLES = [
   },
   {
     id: "he162", name: "Heinkel He 162", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["He 162", "Volksjäger", "Salamander"],
     fact: "Designed and flown within about three months.",
     images: [
@@ -2975,7 +2690,6 @@ const VEHICLES = [
   },
   {
     id: "ho229", name: "Horten Ho 229", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Ho 229", "Horten flying wing"],
     fact: "A flying wing thirty years before the B-2.",
     images: [
@@ -2986,7 +2700,6 @@ const VEHICLES = [
   },
   {
     id: "meteor", name: "Gloster Meteor", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Meteor"],
     fact: "The only Allied jet to fly combat missions in the war.",
     images: [
@@ -2997,7 +2710,6 @@ const VEHICLES = [
   },
   {
     id: "constellation", name: "Lockheed Constellation", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Connie", "Super Constellation", "L-1049"],
     fact: "Three tail fins, so it fitted in existing hangars.",
     images: [
@@ -3008,7 +2720,6 @@ const VEHICLES = [
   },
   {
     id: "piper_cub", name: "Piper J-3 Cub", category: "plane", era: "WW2", difficulty: 3,
-    source: "photo",
     aliases: ["Piper Cub", "J-3 Cub"],
     fact: "Bright yellow, and the aircraft most pilots first flew.",
     images: [
@@ -3019,7 +2730,6 @@ const VEHICLES = [
   },
   {
     id: "f100", name: "F-100 Super Sabre", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["F-100", "Super Sabre", "Hun"],
     fact: "The first American fighter to go supersonic in level flight.",
     images: [
@@ -3030,7 +2740,6 @@ const VEHICLES = [
   },
   {
     id: "f104", name: "F-104 Starfighter", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["F-104", "Starfighter"],
     fact: "Wings so short and sharp they were covered on the ground.",
     images: [
@@ -3041,7 +2750,6 @@ const VEHICLES = [
   },
   {
     id: "f105", name: "F-105 Thunderchief", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["F-105", "Thunderchief", "Thud"],
     fact: "Crews called it the Thud; it carried more bombs than a B-17.",
     images: [
@@ -3052,7 +2760,6 @@ const VEHICLES = [
   },
   {
     id: "f111", name: "F-111 Aardvark", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["F-111", "Aardvark"],
     fact: "Swing wings, side-by-side seats, and an escape capsule.",
     images: [
@@ -3063,7 +2770,6 @@ const VEHICLES = [
   },
   {
     id: "a6", name: "A-6 Intruder", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["A-6", "Intruder"],
     fact: "Could find a target at night in bad weather, which was rare then.",
     images: [
@@ -3074,7 +2780,6 @@ const VEHICLES = [
   },
   {
     id: "a7", name: "A-7 Corsair II", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["A-7", "Corsair II", "SLUF"],
     fact: "Subsonic and unglamorous, and very accurate.",
     images: [
@@ -3085,7 +2790,6 @@ const VEHICLES = [
   },
   {
     id: "a1", name: "A-1 Skyraider", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["A-1", "Skyraider", "Sandy"],
     fact: "A piston-engined attacker that outlasted early jets in Vietnam.",
     images: [
@@ -3096,7 +2800,6 @@ const VEHICLES = [
   },
   {
     id: "b47", name: "B-47 Stratojet", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["B-47", "Stratojet"],
     fact: "Swept wings and podded engines set the pattern for every jet airliner.",
     images: [
@@ -3107,7 +2810,6 @@ const VEHICLES = [
   },
   {
     id: "b58", name: "B-58 Hustler", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["B-58", "Hustler"],
     fact: "A delta-winged bomber that cruised at twice the speed of sound.",
     images: [
@@ -3118,7 +2820,6 @@ const VEHICLES = [
   },
   {
     id: "kc135", name: "KC-135 Stratotanker", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["KC-135", "Stratotanker"],
     fact: "The flying petrol station that makes long-range air power work.",
     images: [
@@ -3129,7 +2830,6 @@ const VEHICLES = [
   },
   {
     id: "f5", name: "F-5 Tiger II", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["F-5", "Tiger II", "Freedom Fighter"],
     fact: "Small, cheap, and still flown as an aggressor trainer.",
     images: [
@@ -3140,7 +2840,6 @@ const VEHICLES = [
   },
   {
     id: "t38", name: "T-38 Talon", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["T-38", "Talon"],
     fact: "Where most American fast-jet pilots learn the job.",
     images: [
@@ -3151,7 +2850,6 @@ const VEHICLES = [
   },
   {
     id: "ov10", name: "OV-10 Bronco", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["OV-10", "Bronco"],
     fact: "Twin booms and a greenhouse canopy, built for spotting.",
     images: [
@@ -3162,7 +2860,6 @@ const VEHICLES = [
   },
   {
     id: "mig19", name: "MiG-19", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["MiG19", "Farmer"],
     fact: "The Soviet Union's first supersonic production fighter.",
     images: [
@@ -3173,7 +2870,6 @@ const VEHICLES = [
   },
   {
     id: "mig23", name: "MiG-23", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["MiG23", "Flogger"],
     fact: "Swing wings, built in enormous numbers and widely exported.",
     images: [
@@ -3183,7 +2879,6 @@ const VEHICLES = [
   },
   {
     id: "su24", name: "Su-24", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Su24", "Fencer"],
     fact: "The Soviet answer to the F-111.",
     images: [
@@ -3194,7 +2889,6 @@ const VEHICLES = [
   },
   {
     id: "tu16", name: "Tu-16", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Tu16", "Badger"],
     fact: "Still flying in Chinese service as the H-6.",
     images: [
@@ -3205,7 +2899,6 @@ const VEHICLES = [
   },
   {
     id: "tu22m", name: "Tu-22M", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Tu22M", "Backfire"],
     fact: "A swing-wing bomber built to hunt carrier groups.",
     images: [
@@ -3216,7 +2909,6 @@ const VEHICLES = [
   },
   {
     id: "il76", name: "Il-76", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Il76", "Candid"],
     fact: "The Soviet heavy airlifter, glazed nose and all.",
     images: [
@@ -3227,7 +2919,6 @@ const VEHICLES = [
   },
   {
     id: "mirage3", name: "Mirage III", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Dassault Mirage III", "Mirage 3"],
     fact: "The delta that made Dassault's name.",
     images: [
@@ -3238,7 +2929,6 @@ const VEHICLES = [
   },
   {
     id: "jaguar", name: "SEPECAT Jaguar", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Jaguar"],
     fact: "An Anglo-French strike jet that flew very low and very fast.",
     images: [
@@ -3249,7 +2939,6 @@ const VEHICLES = [
   },
   {
     id: "buccaneer", name: "Blackburn Buccaneer", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Buccaneer", "Brick"],
     fact: "Built to fly under radar at wave-top height.",
     images: [
@@ -3260,7 +2949,6 @@ const VEHICLES = [
   },
   {
     id: "canberra", name: "English Electric Canberra", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Canberra"],
     fact: "So good the Americans built it under licence as the B-57.",
     images: [
@@ -3271,7 +2959,6 @@ const VEHICLES = [
   },
   {
     id: "vampire", name: "de Havilland Vampire", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Vampire"],
     fact: "Twin booms and a plywood nose.",
     images: [
@@ -3280,7 +2967,6 @@ const VEHICLES = [
   },
   {
     id: "hunter", name: "Hawker Hunter", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Hunter"],
     fact: "Widely held to be one of the most beautiful jets ever built.",
     images: [
@@ -3291,7 +2977,6 @@ const VEHICLES = [
   },
   {
     id: "victor", name: "Handley Page Victor", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Victor"],
     fact: "The crescent-winged member of Britain's V-force.",
     images: [
@@ -3302,7 +2987,6 @@ const VEHICLES = [
   },
   {
     id: "hawk", name: "BAE Hawk", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Hawk", "Hawk trainer"],
     fact: "The Red Arrows' aircraft.",
     images: [
@@ -3313,7 +2997,6 @@ const VEHICLES = [
   },
   {
     id: "x1", name: "Bell X-1", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["X-1", "Glamorous Glennis"],
     fact: "First through the sound barrier, in 1947.",
     images: [
@@ -3324,7 +3007,6 @@ const VEHICLES = [
   },
   {
     id: "x15", name: "North American X-15", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["X-15"],
     fact: "Reached Mach 6.7 and the edge of space, on a rocket motor.",
     images: [
@@ -3333,7 +3015,6 @@ const VEHICLES = [
   },
   {
     id: "tu144", name: "Tu-144", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Tu144", "Concordski"],
     fact: "Beat Concorde into the air by two months.",
     images: [
@@ -3344,7 +3025,6 @@ const VEHICLES = [
   },
   {
     id: "b707", name: "Boeing 707", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["707"],
     fact: "The aircraft that made the jet age ordinary.",
     images: [
@@ -3355,7 +3035,6 @@ const VEHICLES = [
   },
   {
     id: "dc10", name: "DC-10", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["McDonnell Douglas DC-10", "DC10"],
     fact: "Three engines, one of them in the tail fin.",
     images: [
@@ -3364,7 +3043,6 @@ const VEHICLES = [
   },
   {
     id: "l1011", name: "Lockheed TriStar", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["L-1011", "TriStar"],
     fact: "Technically superb, and outsold by the DC-10 anyway.",
     images: [
@@ -3375,7 +3053,6 @@ const VEHICLES = [
   },
   {
     id: "comet", name: "de Havilland Comet", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Comet"],
     fact: "The first jet airliner, grounded after metal fatigue crashes.",
     images: [
@@ -3386,7 +3063,6 @@ const VEHICLES = [
   },
   {
     id: "an2", name: "Antonov An-2", category: "plane", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["An-2", "Colt"],
     fact: "A biplane still in production sixty years after its first flight.",
     images: [
@@ -3397,7 +3073,6 @@ const VEHICLES = [
   },
   {
     id: "mig31", name: "MiG-31", category: "plane", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["MiG31", "Foxhound"],
     fact: "Built to catch cruise missiles over the Arctic.",
     images: [
@@ -3408,7 +3083,6 @@ const VEHICLES = [
   },
   {
     id: "su34", name: "Su-34", category: "plane", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Su34", "Fullback"],
     fact: "Side-by-side seats, and a galley and toilet for long sorties.",
     images: [
@@ -3417,7 +3091,6 @@ const VEHICLES = [
   },
   {
     id: "su57", name: "Su-57", category: "plane", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Su57", "Felon"],
     fact: "Russia's stealth fighter programme.",
     images: [
@@ -3428,7 +3101,6 @@ const VEHICLES = [
   },
   {
     id: "c17", name: "C-17 Globemaster III", category: "plane", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["C-17", "Globemaster"],
     fact: "Can land a full load on a short dirt strip.",
     images: [
@@ -3439,7 +3111,6 @@ const VEHICLES = [
   },
   {
     id: "an124", name: "An-124", category: "plane", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["An124", "Ruslan"],
     fact: "The An-225's smaller and far more numerous sibling.",
     images: [
@@ -3448,7 +3119,6 @@ const VEHICLES = [
   },
   {
     id: "j20", name: "Chengdu J-20", category: "plane", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["J-20", "Mighty Dragon"],
     fact: "China's first stealth fighter.",
     images: [
@@ -3457,7 +3127,6 @@ const VEHICLES = [
   },
   {
     id: "j10", name: "Chengdu J-10", category: "plane", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["J-10", "Vigorous Dragon"],
     fact: "A delta-canard single-engine Chinese fighter.",
     images: [
@@ -3466,7 +3135,6 @@ const VEHICLES = [
   },
   {
     id: "b777", name: "Boeing 777", category: "plane", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["777", "Triple Seven"],
     fact: "The largest twinjet, with the biggest engines ever flown.",
     images: [
@@ -3477,7 +3145,6 @@ const VEHICLES = [
   },
   {
     id: "b787", name: "Boeing 787 Dreamliner", category: "plane", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["787", "Dreamliner"],
     fact: "Mostly carbon fibre, which lets the cabin sit at a lower altitude.",
     images: [
@@ -3488,7 +3155,6 @@ const VEHICLES = [
   },
   {
     id: "a320", name: "Airbus A320", category: "plane", era: "Modern", difficulty: 2,
-    source: "photo",
     aliases: ["A320"],
     fact: "The first airliner with fly-by-wire and a sidestick.",
     images: [
@@ -3499,7 +3165,6 @@ const VEHICLES = [
   },
   {
     id: "a350", name: "Airbus A350", category: "plane", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["A350"],
     fact: "Recognisable by the curved black mask around the cockpit.",
     images: [
@@ -3510,7 +3175,6 @@ const VEHICLES = [
   },
   {
     id: "spiritstlouis", name: "Spirit of St. Louis", category: "plane", era: "Pioneer", difficulty: 2,
-    source: "photo",
     aliases: ["Ryan NYP"],
     fact: "No forward windscreen — Lindbergh used a periscope.",
     images: [
@@ -3521,7 +3185,6 @@ const VEHICLES = [
   },
   {
     id: "mi6", name: "Mil Mi-6", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Mi-6", "Hook"],
     fact: "Had stub wings to offload the rotor in cruise.",
     images: [
@@ -3530,7 +3193,6 @@ const VEHICLES = [
   },
   {
     id: "ka27", name: "Kamov Ka-27", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Ka-27", "Helix"],
     fact: "Coaxial rotors keep it compact enough for a ship's deck.",
     images: [
@@ -3539,7 +3201,6 @@ const VEHICLES = [
   },
   {
     id: "h21", name: "Piasecki H-21", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["H-21", "Flying Banana", "Shawnee"],
     fact: "Bent in the middle, hence the Flying Banana.",
     images: [
@@ -3550,7 +3211,6 @@ const VEHICLES = [
   },
   {
     id: "h19", name: "Sikorsky H-19 Chickasaw", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["H-19", "Chickasaw"],
     fact: "Engine in the nose, crew above it.",
     images: [
@@ -3561,7 +3221,6 @@ const VEHICLES = [
   },
   {
     id: "oh6", name: "OH-6 Cayuse", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["OH-6", "Cayuse", "Loach"],
     fact: "The egg-shaped scout that became the Little Bird.",
     images: [
@@ -3572,7 +3231,6 @@ const VEHICLES = [
   },
   {
     id: "ch54", name: "CH-54 Tarhe", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["CH-54", "Tarhe", "Skycrane"],
     fact: "A flying spine with a cab, built to carry slung loads.",
     images: [
@@ -3583,7 +3241,6 @@ const VEHICLES = [
   },
   {
     id: "gazelle", name: "Aérospatiale Gazelle", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Gazelle", "SA 341"],
     fact: "Its shrouded fantail tail rotor made it unusually quiet.",
     images: [
@@ -3594,7 +3251,6 @@ const VEHICLES = [
   },
   {
     id: "alouette3", name: "Alouette III", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Alouette 3", "SE 3160"],
     fact: "A glass-nosed utility helicopter flown by dozens of air forces.",
     images: [
@@ -3605,7 +3261,6 @@ const VEHICLES = [
   },
   {
     id: "wessex", name: "Westland Wessex", category: "helicopter", era: "Cold War", difficulty: 3,
-    source: "photo",
     aliases: ["Wessex"],
     fact: "A licence-built Sea King forerunner with turbine engines.",
     images: [
@@ -3616,7 +3271,6 @@ const VEHICLES = [
   },
   {
     id: "superpuma", name: "AS332 Super Puma", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Super Puma", "AS332"],
     fact: "The offshore oil industry's workhorse.",
     images: [
@@ -3627,7 +3281,6 @@ const VEHICLES = [
   },
   {
     id: "s92", name: "Sikorsky S-92", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["S-92"],
     fact: "Flies heads of state and offshore crews alike.",
     images: [
@@ -3638,7 +3291,6 @@ const VEHICLES = [
   },
   {
     id: "ec135", name: "Eurocopter EC135", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["EC135", "H135"],
     fact: "The air ambulance you have probably seen overhead.",
     images: [
@@ -3649,7 +3301,6 @@ const VEHICLES = [
   },
   {
     id: "a129", name: "A129 Mangusta", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["A129", "Mangusta"],
     fact: "Europe's first purpose-built attack helicopter.",
     images: [
@@ -3658,7 +3309,6 @@ const VEHICLES = [
   },
   {
     id: "rooivalk", name: "Denel Rooivalk", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Rooivalk"],
     fact: "South African, and built around Puma parts.",
     images: [
@@ -3669,7 +3319,6 @@ const VEHICLES = [
   },
   {
     id: "z10", name: "CAIC Z-10", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Z-10"],
     fact: "China's dedicated attack helicopter.",
     images: [
@@ -3678,7 +3327,6 @@ const VEHICLES = [
   },
   {
     id: "dhruv", name: "HAL Dhruv", category: "helicopter", era: "Modern", difficulty: 3,
-    source: "photo",
     aliases: ["Dhruv"],
     fact: "India's home-grown utility helicopter.",
     images: [
@@ -3687,16 +3335,88 @@ const VEHICLES = [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/HAL_Dhruv_IA-1133_AB.JPG?width=1000", credit: "Adambro / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
+
+  /* ------------------------------------------ BUILT FROM WIKIPEDIA */
+  {
+    id: "isu122", name: "ISU-122", category: "tank", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The ISU-122 (acronym of Istrebitelnaja - or Iosif Stalin-based - Samokhodnaya Ustanovka 122) was a Soviet assault gun used during World War II, mostly in the anti-tank role.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/ISU-122_skos_RB.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
+    ]
+  },
+  {
+    id: "jagdpanzer4", name: "Jagdpanzer IV", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["JagdPz IV", "Gerät 820", "Jagpazer 4", "Sd.Kfz. 162", "Jagpanzer IV", "Jagdpazner IV", "Jagpanzer four", "Jagdpazer four"],
+    fact: "The Jagdpanzer IV / Sd.Kfz. 162, was a German tank destroyer based on the Panzer IV chassis and built in three main variants.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Panzermuseum_Munster_2010_0449.JPG?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
+    ]
+  },
+  {
+    id: "marder2", name: "Marder II", category: "tank", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The Marder II (marten in English) was a German tank destroyer of World War II based on the Panzer II chassis.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_101I-197-1238-16%2C_Russland-Mitte%2C_Panzerj%C3%A4ger_%22Marder_II%22.jpg?width=1000", credit: "Henisch / Wikimedia Commons (CC BY-SA 3.0 de)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_101I-197-1235-15%2C_Russland-Mitte%2C_Panzerj%C3%A4ger_%22Marder_II%22.jpg?width=1000", credit: "Henisch / Wikimedia Commons (CC BY-SA 3.0 de)" },
+    ]
+  },
+  {
+    id: "panzer35t", name: "Panzer 35", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["35t", "LT-35", "LT vz 35", "LT vz.35", "R-2 tank", "LT vz. 35", "PzKpfw 35"],
+    fact: "The Panzerkampfwagen 35(t), commonly shortened to Panzer 35(t) or abbreviated as Pz.Kpfw.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Panzer-35.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
+    ]
+  },
+  {
+    id: "stug4", name: "Sturmgeschütz IV", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["StuG IV", "Sturmgeschutz IV", "Sturmgeschuetz IV"],
+    fact: "The Sturmgeschütz IV (StuG IV) (Sd.Kfz.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sturmgeschutz_iv_Muzeum_Broni_Pancernej_CSWL_2.JPG?width=1000", credit: "Maciej Borun (Maciej.borun (talk)) / Wikimedia Commons (CC BY 3.0)" },
+    ]
+  },
+  {
+    id: "su76", name: "SU-76", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["Su85b", "SU-76M", "SU-76B", "OSU-76", "SU-85B", "SU-85A", "Samokhodnaja Ustanovka 76"],
+    fact: "The SU-76 (Samokhodnaya Ustanovka 76) was a Soviet light self-propelled gun used during and after World War II.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Su76_nn.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
+    ]
+  },
+  {
+    id: "su85", name: "SU-85", category: "tank", era: "WW2", difficulty: 3,
+    aliases: [],
+    fact: "The SU-85 (Samokhodnaya ustanovka 85) was a Soviet self-propelled gun used during World War II, based on the chassis of the T-34 medium tank.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SU-85_tank_destroyer_at_the_Muzeum_Polskiej_Techniki_Wojskowej_in_Warsaw.jpg?width=1000", credit: "SuperTank17 / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Su-85_TBiU_8_2.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
+    ]
+  },
+  {
+    id: "t44", name: "T-44", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["T44A", "T-44M", "T-44-85", "T-44-100", "T-44 tank", "Obiekt 136", "Object 136", "T-44A Tank"],
+    fact: "The T-44 was a medium tank developed and produced near the end of World War II by the Soviet Union.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T_44_in_Linija_Stalina_%28Belarus%29.jpg?width=1000", credit: "Yozas gubka / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T44_Moscow%2C_Poklonnaya_Hill_3.JPG?width=1000", credit: "Harveyqs / Wikimedia Commons (CC BY-SA 4.0)" },
+    ]
+  },
+  {
+    id: "t60", name: "T-60 tank", category: "tank", era: "WW2", difficulty: 3,
+    aliases: ["T-60", "T-60Z", "T-60 light tank", "T-60 scout tank"],
+    fact: "The T-60 scout tank was a light tank produced by the Soviet Union from 1941 to 1942.",
+    images: [
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T-60_%E2%80%98A_-_2317%E2%80%99_-_Patriot_Museum%2C_Kubinka_%2824524755458%29.jpg?width=1000", credit: "Alan Wilson from Stilton, Peterborough, Cambs, UK / Wikimedia Commons (CC BY-SA 2.0)" },
+    ]
+  },
 ];
 
 const CATEGORIES = ["tank", "afv", "plane", "helicopter", "missile", "artillery", "car", "ship"];
 const ERAS = ["Age of Sail", "Pioneer", "WW1", "WW2", "Cold War", "Modern"];
 
-/* Where a picture comes from. "photo" entries are photographs from Wikimedia
- * Commons; "render" entries are the vehicle renders from the War Thunder wiki,
- * which live in js/vehicles-wt.js and can be filtered out or removed wholesale. */
-const SOURCES = ["photo", "render"];
-const SOURCE_LABELS = { photo: "Photos", render: "Game renders" };
 
 /* Display names for categories whose id does not capitalise nicely. */
 const CATEGORY_LABELS = {
@@ -3711,5 +3431,5 @@ const CATEGORY_LABELS = {
 };
 
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { VEHICLES, CATEGORIES, ERAS, CATEGORY_LABELS, SOURCES, SOURCE_LABELS };
+  module.exports = { VEHICLES, CATEGORIES, ERAS, CATEGORY_LABELS };
 }

@@ -7,23 +7,18 @@ six eras from the Age of Sail to the present.
 Most entries carry two or three different photographs and a round shows one of
 them at random, so a vehicle cannot be answered by memorising one picture.
 
-Alongside the 352 photographed entries there are 2,249 more scraped from the
-**War Thunder wiki**, using the vehicle render Gaijin publishes for each unit.
-They are a separate set — see *Picture sources* below — and can be filtered out
-in one click, because they change the game quite a lot: they cover variants down
-to the mark ("Sherman II", "Panther A"), so they are far harder and far less
-famous than the curated set.
-
 No build step, no dependencies. Open `index.html` in a browser and play.
 
 ```
 index.html          markup for the three screens (setup, game, results)
 css/style.css       styles
-js/vehicles.js      the curated dataset — photographs
-js/vehicles-wt.js   War Thunder wiki units — game renders
+js/vehicles.js      the dataset
+js/candidates.js    pictures with no name yet, for the entry builder
 js/match.js         answer matching
 js/picker.js        which vehicle to ask about next
 js/corrections.js   player-supplied fixes to the dataset
+js/drafts.js        entries the player creates
+js/builder.js       the entry builder screen
 js/game.js          game loop, scoring, filters, persistence
 tests/data.test.js         dataset integrity — node tests/data.test.js
 tests/match.test.js        matcher — node tests/match.test.js
@@ -102,15 +97,9 @@ smaller than the number of rounds, something has to repeat eventually. The first
 version of that test asserted the blanket rule and failed, which is how the real
 boundary got written down.
 
-The cross-match sweep runs in full over the curated set, and in full for every
-render entry against every curated one — that boundary is what matters, since a
-render must not steal a photographed vehicle's answer. Render against render is
-not swept: it is 2,249 squared, and the set deliberately contains near-identical
-marks that the designation rules already separate.
-
-`node tests/data.test.js` checks the shape of all 2,601 records: unique ids,
-known category, era and source, between one and three images, every image with a
-credit and no credit leaking a filename.
+`node tests/data.test.js` checks the shape of every record: unique ids, a known
+category and era, between one and three images, every image with a credit, and
+no credit leaking a filename. It also checks the builder's candidate queue.
 
 `node tests/corrections.test.js` covers the corrections overlay separately:
 that renaming leaves the dataset row untouched, that a struck-off spelling
@@ -126,8 +115,8 @@ list is spelled out in the test file.
 
 ## Game
 
-- **Filters** — pick any mix of categories, eras, difficulty and picture source;
-  the pool count updates live.
+- **Filters** — pick any mix of categories, eras and difficulty; the pool count
+  updates live.
 - **Difficulty scaling** — the first rounds stay on well-known vehicles, then the
   ceiling lifts and later rounds favour the harder end of what is open.
 - **No repeats of what you know** — a vehicle you name correctly does not come
@@ -171,33 +160,24 @@ back around, which is the half of the behaviour worth having.
 The setup screen shows how many you have named, and **Reset progress** clears
 that record without touching your high score or corrections.
 
-## Picture sources
+## Creating entries
 
-Two sets, filterable independently on the setup screen.
+**Create entries** on the setup screen opens a builder with three tabs. Anything
+made there is playable immediately, saved in `localStorage`, and exports as JSON
+so it can be folded into `js/vehicles.js` permanently.
 
-**Photos (352 entries).** Photographs from Wikimedia Commons, described below.
-Hand-written names, aliases, eras and difficulties, most with two or three
-pictures.
+- **Identify these** — a queue of photographs the harvester could not place.
+  They come from a vehicle's own Wikipedia article but their filename does not
+  name that vehicle, so they are usually a variant, a relative, a rival shown
+  for comparison, or something else entirely. The page shows one at a time, says
+  which article it came from, and asks what it is. Skip, or mark "not a vehicle",
+  and it leaves the queue.
+- **Add your own** — a picture (a link, or a file from the device) and a name.
+  Aliases, category, era, difficulty, a fact and a credit are all optional.
+- **Your entries** — what you have made, with export and import.
 
-**Game renders (2,249 entries).** Scraped from `wiki.warthunder.com`: every
-tank, aircraft and helicopter listed under its game roles, with the render
-Gaijin publishes for each unit. Era is mapped from the game's rank (I–III → WW2,
-IV–VI → Cold War, VII–VIII → Modern) and every entry is difficulty 3, since the
-set runs down to individual marks. Entries whose name the matcher already
-accepts for a curated entry are dropped, so no two records answer to the same
-string.
-
-> **Licensing.** These renders are Gaijin Entertainment's game assets, not
-> freely licensed material like the Commons photographs. The wiki's `robots.txt`
-> permits crawling, and each picture is credited in the game, but this is not
-> the same footing as a CC-licensed photo and it is worth checking before
-> publishing the game anywhere public. They are kept in their own file and
-> tagged `source: "render"` precisely so they can be removed wholesale: delete
-> `js/vehicles-wt.js` and its `<script>` tag and the curated game is untouched.
-
-Scraping cost 23 requests, not 3,201: the wiki's `collections/game_roles/*`
-pages each list every unit of one role in a table carrying id, name, class,
-country and rank, and the render URL is derivable from the unit id.
+Uploaded files are stored as data URLs, which browser storage puts a firm limit
+on, so the builder warns on a large file and suggests a URL instead.
 
 ## Correcting the data
 
@@ -268,8 +248,10 @@ demand, so no images are stored in this repo. Each photo carries its own credit
 domain, CC0, CC BY and CC BY-SA — and each file's Commons page carries the
 authoritative terms.
 
-They were harvested from each vehicle's Wikipedia article: the curated lead
-image, plus up to two more taken from the body of the article. Article images
+They were harvested from each vehicle's Wikipedia article: the lead image, plus
+up to two more taken from the body of the article. Names, aliases and facts come
+from the same place — aliases from the article's redirects, which are exactly the
+alternative names people use, so "Warthog" and "Stringbag" arrive on their own. Article images
 are not all usable, so candidates are filtered hard — raster photos only, big
 enough to be worth showing, and rejected if the filename looks like a diagram,
 a map, an insignia or a component shot, because a photograph of an engine is not
@@ -280,4 +262,10 @@ which is the cheapest relevance signal available, and return a real image when
 fetched.
 
 That still lets the occasional oddity through, which is part of why removing a
-single photo is one of the corrections a player can make.
+single photo is one of the corrections a player can make. The photographs the
+filter turns down are not thrown away: they become the entry builder's queue of
+pictures to identify.
+
+Wikimedia rate-limits heavily, so the harvester keeps to one request every few
+seconds, backs off for 30 seconds or more on a 429, and resumes from whatever it
+has already written rather than starting again.

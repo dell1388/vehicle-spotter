@@ -3,19 +3,16 @@
  * The dataset is generated from hand-written specs plus a harvest of Wikimedia
  * images, so this checks the shape of every record rather than its content: the
  * things that would break the game silently if one entry were malformed. */
-const { VEHICLES, CATEGORIES, ERAS, CATEGORY_LABELS,
-        SOURCES, SOURCE_LABELS } = require("../js/vehicles.js");
-const { RENDER_VEHICLES } = require("../js/vehicles-wt.js");
+const { VEHICLES, CATEGORIES, ERAS, CATEGORY_LABELS } = require("../js/vehicles.js");
+const { CANDIDATES } = require("../js/candidates.js");
 
-/* The game loads both files and plays them as one set, so check them as one. */
-const ALL = VEHICLES.concat(RENDER_VEHICLES);
+const ALL = VEHICLES;
 
 let pass = 0;
 const problems = [];
 function check(cond, message) { if (cond) pass++; else problems.push(message); }
 
-check(VEHICLES.length > 0, "the curated dataset is empty");
-check(RENDER_VEHICLES.length > 0, "the render dataset is empty");
+check(VEHICLES.length > 0, "the dataset is empty");
 
 const ids = Object.create(null);
 const categories = Object.create(null);
@@ -68,26 +65,18 @@ ALL.forEach(function (v, i) {
     check(typeof v.fact === "string" && v.fact.trim().length > 0, where + ": blank fact");
   }
 
-  check(SOURCES.indexOf(v.source) !== -1, where + ": unknown source " + v.source);
 });
 
-/* The two files must not disagree about who owns an id. */
-const curatedIds = new Set(VEHICLES.map(function (v) { return v.id; }));
-RENDER_VEHICLES.forEach(function (v) {
-  check(!curatedIds.has(v.id), v.id + ": id used by both the photo and render sets");
-  check(v.source === "render", v.id + ": render entries must be tagged as renders");
-  check(v.images.length === 1, v.id + ": render entries carry exactly one picture");
+/* The builder's candidate queue: pictures with no name yet, so only their
+ * shape can be checked. */
+CANDIDATES.forEach(function (c, i) {
+  const where = "candidate " + (c.id || "#" + i);
+  check(typeof c.id === "string" && c.id.length > 0, where + ": needs an id");
+  check(typeof c.url === "string" && c.url.indexOf("https://") === 0, where + ": url must be https");
+  check(typeof c.credit === "string" && c.credit.length > 0, where + ": needs a credit");
 });
-VEHICLES.forEach(function (v) {
-  check(v.source === "photo", v.id + ": curated entries must be tagged as photos");
-});
-
-SOURCES.forEach(function (s) {
-  check(typeof SOURCE_LABELS[s] === "string" && SOURCE_LABELS[s].length > 0,
-        "source '" + s + "' has no display label");
-  check(ALL.some(function (v) { return v.source === s; }),
-        "source '" + s + "' is declared but has no vehicles");
-});
+const candidateIds = CANDIDATES.map(function (c) { return c.id; });
+check(candidateIds.length === new Set(candidateIds).size, "duplicate candidate ids");
 
 /* Every declared category and era should actually be used, or the filter chip
  * offers an empty selection. */
@@ -102,9 +91,9 @@ ERAS.forEach(function (e) { check(eras[e], "era '" + e + "' is declared but has 
 check(VEHICLES.filter(function (v) { return v.difficulty === 1; }).length >= 10,
       "too few difficulty-1 vehicles for the opening rounds");
 
-console.log(`\n${VEHICLES.length} photo entries (${imageCount - RENDER_VEHICLES.length} photos, ` +
-            `${multiImage} with more than one) + ${RENDER_VEHICLES.length} render entries ` +
-            `= ${ALL.length} total; ${pass} checks passed`);
+console.log(`\n${VEHICLES.length} entries, ${imageCount} photos ` +
+            `(${multiImage} with more than one), ${CANDIDATES.length} candidates ` +
+            `awaiting a name; ${pass} checks passed`);
 if (problems.length) {
   console.log(`\n${problems.length} PROBLEMS:`);
   problems.slice(0, 40).forEach(function (p) { console.log("  - " + p); });

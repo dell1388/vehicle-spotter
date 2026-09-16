@@ -16,12 +16,13 @@
   const el = {
     setup: $("setupScreen"), game: $("gameScreen"), results: $("resultsScreen"),
     categoryChips: $("categoryChips"), eraChips: $("eraChips"),
-    difficultyChips: $("difficultyChips"), sourceChips: $("sourceChips"),
+    difficultyChips: $("difficultyChips"),
     timerToggle: $("timerToggle"), endlessToggle: $("endlessToggle"),
     skipLearnedToggle: $("skipLearnedToggle"),
     progressPanel: $("progressPanel"), progressNote: $("progressNote"),
     progressFill: $("progressFill"), resetProgressBtn: $("resetProgressBtn"),
     poolNote: $("poolNote"), startBtn: $("startBtn"), browseBtn: $("browseBtn"),
+    createBtn: $("createBtn"), create: $("createScreen"), createBackBtn: $("createBackBtn"),
     correctionsPanel: $("correctionsPanel"), correctionsList: $("correctionsList"),
     exportBtn: $("exportBtn"), clearCorrectionsBtn: $("clearCorrectionsBtn"),
     round: $("roundValue"), score: $("scoreValue"), streak: $("streakValue"),
@@ -105,9 +106,9 @@
   }
 
   function renderProgress() {
-    const total = VEHICLES.length;
+    const total = allVehicles().length;
     const known = Object.keys(store.learned).filter(function (id) {
-      return VEHICLES.some(function (v) { return v.id === id; });
+      return allVehicles().some(function (v) { return v.id === id; });
     }).length;
 
     el.progressPanel.hidden = known === 0;
@@ -127,8 +128,7 @@
   const filters = {
     categories: new Set(CATEGORIES),
     eras: new Set(ERAS),
-    difficulties: new Set([1, 2, 3]),
-    sources: new Set(SOURCES)
+    difficulties: new Set([1, 2, 3])
   };
 
   const DIFFICULTY_LABELS = { 1: "Easy", 2: "Medium", 3: "Hard" };
@@ -161,12 +161,16 @@
     });
   }
 
+  /* The shipped dataset plus anything the player has created. */
+  function allVehicles() {
+    return VEHICLES.concat(typeof Drafts !== "undefined" ? Drafts.all() : []);
+  }
+
   function pool() {
-    return VEHICLES.filter(function (v) {
+    return allVehicles().filter(function (v) {
       return filters.categories.has(v.category) &&
              filters.eras.has(v.era) &&
              filters.difficulties.has(v.difficulty) &&
-             filters.sources.has(v.source || "photo") &&
              !Corrections.isHidden(v.id);
     });
   }
@@ -213,7 +217,7 @@
     if (!items.length) return;
 
     const names = {};
-    VEHICLES.forEach(function (v) { names[v.id] = v.name; });   // the dataset's own name
+    allVehicles().forEach(function (v) { names[v.id] = v.name; });   // the dataset's own name
 
     el.correctionsList.innerHTML = items.map(function (item, i) {
       let what;
@@ -341,6 +345,7 @@
     el.setup.hidden = screen !== "setup";
     el.game.hidden = screen !== "game";
     el.results.hidden = screen !== "results";
+    el.create.hidden = screen !== "create";
     // Only the game screen is locked to the viewport; the others may scroll.
     document.body.classList.toggle("playing", screen === "game");
     if (screen === "setup") { renderCorrections(); renderProgress(); updatePoolNote(); }
@@ -715,7 +720,7 @@
   /* Names another entry in the set would also accept. */
   function clashesWith(text, exceptId) {
     if (!text) return [];
-    return VEHICLES.filter(function (v) {
+    return allVehicles().filter(function (v) {
       return v.id !== exceptId &&
              VSMatch.check(text, Corrections.apply(v)).verdict === "correct";
     }).map(function (v) { return Corrections.apply(v).name; });
@@ -913,7 +918,7 @@
     }
 
     function rows() {
-      const found = VEHICLES.filter(matches);
+      const found = allVehicles().filter(matches);
       const shown = found.slice(0, LIMIT);
       const list = shown.map(function (row) {
         const v = corrected(row);
@@ -957,7 +962,7 @@
     function wireRows() {
       Array.prototype.forEach.call(el.modalBody.querySelectorAll(".browse-row"), function (btn) {
         btn.addEventListener("click", function () {
-          const row = VEHICLES.filter(function (v) { return v.id === btn.getAttribute("data-id"); })[0];
+          const row = allVehicles().filter(function (v) { return v.id === btn.getAttribute("data-id"); })[0];
           closeModal();
           openFixDialog(row, function () { closeModal(); render(); });
         });
@@ -1086,9 +1091,7 @@
   /* --------------------------------------------------------------- wire -- */
 
   function countBy(field, value) {
-    return VEHICLES.filter(function (v) {
-      return (field === "source" ? (v.source || "photo") : v[field]) === value;
-    }).length;
+    return allVehicles().filter(function (v) { return v[field] === value; }).length;
   }
 
   buildChips(el.categoryChips, CATEGORIES, filters.categories, categoryLabel,
@@ -1098,9 +1101,6 @@
   buildChips(el.difficultyChips, [1, 2, 3], filters.difficulties,
              function (d) { return DIFFICULTY_LABELS[d]; },
              function (d) { return countBy("difficulty", d); });
-  buildChips(el.sourceChips, SOURCES, filters.sources,
-             function (s) { return SOURCE_LABELS[s] || s; },
-             function (s) { return countBy("source", s); });
 
   el.endlessToggle.addEventListener("change", updatePoolNote);
   el.skipLearnedToggle.addEventListener("change", updatePoolNote);
@@ -1128,6 +1128,18 @@
 
   el.startBtn.addEventListener("click", startGame);
   el.browseBtn.addEventListener("click", function () { openBrowser(""); });
+  el.createBtn.addEventListener("click", function () {
+    show("create");
+    Builder.refresh();
+  });
+  el.createBackBtn.addEventListener("click", function () { show("setup"); });
+
+  Builder.init({
+    openModal: openModal,
+    closeModal: closeModal,
+    // A new entry changes the pool, so the counts and note have to catch up.
+    onChange: function () { updatePoolNote(); renderProgress(); }
+  });
   el.form.addEventListener("submit", submitAnswer);
   el.hintBtn.addEventListener("click", takeHint);
   el.skipBtn.addEventListener("click", function () { resolve(null, "skipped"); });

@@ -23,7 +23,7 @@
     <p class="lede">
       Name what is in the photo — tanks, aircraft, helicopters, missiles and
       artillery. Spelling is forgiving: nicknames, designations and typos all
-      count, and each entry has several photos so you cannot go by the picture.
+      count, and most entries have several photos so you cannot go by the picture.
     </p>
 
     <div class="panel">
@@ -39,13 +39,6 @@
     <div class="panel">
       <h2 class="panel-title">Difficulty</h2>
       <div class="chips" id="difficultyChips"></div>
-    </div>
-
-    <div class="panel">
-      <h2 class="panel-title">Pictures</h2>
-      <div class="chips" id="sourceChips"></div>
-      <p class="panel-note">Photographs come from Wikimedia Commons. Game renders
-        come from the War Thunder wiki and cover far more variants.</p>
     </div>
 
     <div class="panel">
@@ -86,6 +79,7 @@
     <p class="pool-note" id="poolNote"></p>
     <button class="btn btn-primary btn-lg" id="startBtn">Start game</button>
     <button class="btn btn-lg btn-secondary" id="browseBtn">Browse &amp; fix entries</button>
+    <button class="btn btn-lg btn-secondary" id="createBtn">Create entries</button>
   </section>
 
   <!-- ------------------------------------------------------------- GAME -->
@@ -133,6 +127,89 @@
     </div>
   </section>
 
+  <!-- ----------------------------------------------------------- CREATE -->
+  <section class="screen" id="createScreen" hidden>
+    <div class="create-head">
+      <h2 class="results-title">Create entries</h2>
+      <button class="btn btn-ghost" type="button" id="createBackBtn">Back</button>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" id="tabIdentify" role="tab" aria-selected="true">Identify these</button>
+      <button class="tab" id="tabAdd" role="tab" aria-selected="false">Add your own</button>
+      <button class="tab" id="tabDrafts" role="tab" aria-selected="false">Your entries</button>
+    </div>
+
+    <!-- pictures the dataset could not place -->
+    <div class="tab-panel" id="identifyPanel">
+      <p class="lede lede-small" id="identifyIntro"></p>
+      <div class="candidate" id="candidateBox">
+        <div class="photo-frame candidate-frame">
+          <img id="candidateImage" alt="Unidentified vehicle">
+          <div class="photo-loading" id="candidateLoading">Loading…</div>
+        </div>
+        <p class="candidate-hint" id="candidateHint"></p>
+        <form class="stack" id="identifyForm" autocomplete="off">
+          <label class="field"><span>What is it?</span>
+            <input type="text" id="identifyName" placeholder="e.g. Hawker Hunter"
+                   autocapitalize="off" spellcheck="false"></label>
+          <div class="field-row" id="identifyMeta"></div>
+          <div class="create-actions">
+            <button class="btn btn-primary" type="submit">Save entry</button>
+            <button class="btn btn-ghost" type="button" id="identifySkip">Skip</button>
+            <button class="btn btn-ghost" type="button" id="identifyReject">Not a vehicle</button>
+          </div>
+        </form>
+      </div>
+      <p class="modal-quiet" id="identifyEmpty" hidden>
+        Nothing left in the queue. Add your own below, or reset the queue from
+        <em>Your entries</em>.
+      </p>
+    </div>
+
+    <!-- your own picture and name -->
+    <div class="tab-panel" id="addPanel" hidden>
+      <p class="lede lede-small">Give a picture and a name and the entry is
+        built around them. The picture can be a link, or a file from this device.</p>
+      <form class="stack" id="addForm" autocomplete="off">
+        <label class="field"><span>Picture URL</span>
+          <input type="text" id="addUrl" placeholder="https://…" spellcheck="false"></label>
+        <label class="field"><span>…or choose a file</span>
+          <input type="file" id="addFile" accept="image/*"></label>
+        <div class="photo-frame candidate-frame add-preview" id="addPreviewBox" hidden>
+          <img id="addPreview" alt="Preview of the picture you supplied">
+        </div>
+        <label class="field"><span>Name</span>
+          <input type="text" id="addName" placeholder="e.g. Centurion"
+                 autocapitalize="off" spellcheck="false"></label>
+        <label class="field"><span>Other accepted names, comma separated</span>
+          <input type="text" id="addAliases" placeholder="Cent, FV4007"
+                 autocapitalize="off" spellcheck="false"></label>
+        <div class="field-row" id="addMeta"></div>
+        <label class="field"><span>Fact shown after the answer (optional)</span>
+          <input type="text" id="addFact" maxlength="240" placeholder="Something worth knowing"></label>
+        <label class="field"><span>Picture credit (optional)</span>
+          <input type="text" id="addCredit" placeholder="Photographer / licence"></label>
+        <div class="create-actions">
+          <button class="btn btn-primary" type="submit">Add entry</button>
+          <span class="create-note" id="addNote"></span>
+        </div>
+      </form>
+    </div>
+
+    <!-- what you have made -->
+    <div class="tab-panel" id="draftsPanel" hidden>
+      <p class="lede lede-small" id="draftsIntro"></p>
+      <div class="drafts-list" id="draftsList"></div>
+      <div class="corrections-actions">
+        <button class="btn btn-ghost" type="button" id="draftsExport">Export</button>
+        <button class="btn btn-ghost" type="button" id="draftsImport">Import</button>
+        <button class="btn btn-ghost" type="button" id="draftsReset">Reset skipped</button>
+        <button class="btn btn-ghost" type="button" id="draftsClear">Delete all</button>
+      </div>
+    </div>
+  </section>
+
   <!-- ---------------------------------------------------------- RESULTS -->
   <section class="screen" id="resultsScreen" hidden>
     <h2 class="results-title" id="resultsTitle">Game over</h2>
@@ -172,10 +249,12 @@
 </footer>
 
 <script src="js/vehicles.js"></script>
-<script src="js/vehicles-wt.js"></script>
 <script src="js/match.js"></script>
 <script src="js/picker.js"></script>
+<script src="js/candidates.js"></script>
+<script src="js/drafts.js"></script>
 <script src="js/corrections.js"></script>
+<script src="js/builder.js"></script>
 <script src="js/game.js"></script>
 </body>
 </html>

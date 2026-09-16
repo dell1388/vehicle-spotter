@@ -235,6 +235,14 @@ const VSMatch = (function () {
     });
   }
 
+  /* Same word, allowing at most one typo. Two edits is enough to turn
+   * "Volksjäger" into "Volkswagen" and "Jagdpanther" into "Jagdpanzer", which
+   * are different machines, so the looser rules below hold to this. */
+  function tokensNearlyEqual(a, b) {
+    if (!tokensEqual(a, b)) return false;
+    return a === b || editDistance(a, b) <= 1;
+  }
+
   /* Fraction of two word-sets that pair up, each word used at most once. */
   function tokenSetScore(answerToks, targetToks) {
     if (!answerToks.length || !targetToks.length) return 0;
@@ -242,7 +250,7 @@ const VSMatch = (function () {
     let paired = 0;
     for (let i = 0; i < answerToks.length; i++) {
       for (let j = 0; j < targetToks.length; j++) {
-        if (!used[j] && tokensEqual(answerToks[i], targetToks[j])) {
+        if (!used[j] && tokensNearlyEqual(answerToks[i], targetToks[j])) {
           used[j] = true;
           paired++;
           break;
@@ -262,15 +270,8 @@ const VSMatch = (function () {
     const key = distinctiveTokens(targetToks);
     if (!key.length) return false;
 
-    /* One edit at most on a key word. Two is enough to turn "Volksjäger" into
-     * "Volkswagen", and the gist rule has no other evidence to lean on. */
-    const closeEnough = function (a, k) {
-      if (!tokensEqual(a, k)) return false;
-      return a === k || editDistance(a, k) <= 1;
-    };
-
     const covered = key.every(function (k) {
-      return answerToks.some(function (a) { return closeEnough(a, k); });
+      return answerToks.some(function (a) { return tokensNearlyEqual(a, k); });
     });
     if (!covered) return false;
 
