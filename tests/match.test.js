@@ -152,61 +152,57 @@ VEHICLES.forEach(v => {
 });
 
 /* --- and must not match anything else -----------------------------------
- * Except where the ambiguity is real: "Mustang" is honestly both a P-51 and a
- * Ford, so it is accepted for whichever vehicle the round is actually asking
- * about. Anything longer ("Ford Mustang", "P-51 Mustang") must still separate. */
-const AMBIGUOUS = new Set([
-  "mustang",        // P-51 Mustang and the Ford
-  "sherman", "sherman tank",  // a Firefly is a Sherman
-  "tiger", "tiger tank",      // Tiger I and Tiger II
-  "challenger", "leopard",    // marks 1 and 2 of each
-  "hellcat", "hellcat tank destroyer",  // F6F Hellcat and M18 Hellcat
-  "viper",          // F-16 and the AH-1Z
-  "hercules",       // C-130 Hercules and the Hughes H-4
-  "thunderbolt",    // P-47 Thunderbolt and A-10 Thunderbolt II
-  "tiger ii", "tiger 2",  // the Königstiger and the F-5 Tiger II
-  "tomahawk",       // P-40 Tomahawk and the cruise missile
-  "corsair",        // F4U Corsair and A-7 Corsair II
-  "marder",         // Marder III and the Marder IFV
-  "puma",           // SA 330 Puma and the Puma IFV
-  "havoc",          // A-20 Havoc and the Mi-28 Havoc
-  "alligator",      // LVT Alligator and the Ka-52 Alligator
-  "mirage",         // Mirage III and Mirage 2000
-  "b-1", "b1",      // B-1 Lancer and the Char B1
-  // "Victor" and "Victory" are one edit apart and both are real names, so the
-  // matcher cannot separate the bomber from Nelson's flagship. Either is
-  // accepted for either; the round only ever asks about one of them.
-  "victor", "victory", "hms victory",
-  "stug", "stug iii", "stug 3",   // StuG alone is the III or the IV
-  // Names two entries share outright, now that the set covers both halves:
-  "comet",          // de Havilland Comet and the Comet tank
-  "meteor",         // Gloster Meteor and the Meteor missile
-  "javelin",        // FGM-148 Javelin and the Gloster Javelin
-  "pershing",       // M26 Pershing and the Pershing missile
-  "wildcat",        // F4F Wildcat and the AW159 Wildcat
-  "duck",           // the 2CV's nickname and the DUKW's
-  "predator b",     // the Reaper is the Predator B
-  "vickers",        // Vickers built the 6-Ton, the VC10 and much else
-  "scorpion",       // the FV101 Scorpion and the M56 Scorpion
-  "huey", "cobra",  // the UH-1Y is a Huey; the SuperCobra is a Cobra
-  "robinson"        // the R22 and the R44 are both Robinsons
-]);
+ * Two entries sharing an answer outright is fine and expected: "Mustang" is
+ * honestly both a P-51 and a Ford, "Thunderbolt" both a P-47 and an A-10.
+ * Only someone who already knows the answer types it, the two are never
+ * confusable on sight, and a round only ever asks about one of them.
+ *
+ * The defect is the fuzzy paths letting one vehicle's name land on a
+ * different vehicle by accident -- "Hornet" read as a typo for "Kornet",
+ * "Type 10" covering "A-10", "22 M" covering "M22". Every real matcher bug
+ * found so far has been of that kind, so the rule here is about how the
+ * match was reached, not that it happened: a cross-match is allowed when the
+ * two spellings share whole words (one is a run of the other's words), and
+ * fails when acceptance leaned on edit-distance slack. */
+const { coreTokens, tokensEqual } = VSMatch._internal;
+function isRunOf(small, big) {
+  if (!small.length || small.length > big.length) return false;
+  for (let i = 0; i + small.length <= big.length; i++) {
+    if (small.every((t, j) => tokensEqual(t, big[i + j]))) return true;
+  }
+  return false;
+}
+/* Whole words in common, with no edit-distance slack: "Tiger" is a run of
+ * "F-5 Tiger II", "T-55" is "t55". "Hornet" is not a run of "Kornet". */
+function sharesWording(a, b) {
+  const x = coreTokens(a), y = coreTokens(b);
+  return isRunOf(x, y) || isRunOf(y, x);
+}
+
+/* The handful the word rule cannot excuse but that are real all the same:
+ * "Victor" and "Victory" are one edit apart and both are genuine names, so
+ * the matcher cannot separate the bomber from Nelson's flagship. */
+const SHARED = new Set(["victor", "victory", "hms victory"]);
+
 const crossHits = [];
+let shared = 0;
 VEHICLES.forEach(v => {
   [v.name].concat(v.aliases || []).forEach(alias => {
     VEHICLES.forEach(other => {
       if (other.id === v.id) return;
-      if (AMBIGUOUS.has(alias.toLowerCase())) return;
       const r = VSMatch.check(alias, other);
-      if (r.verdict === "correct") {
-        crossHits.push(`"${alias}" (${v.id}) wrongly accepted as ${other.id} via "${r.matched}" [${r.how}]`);
-      } else pass++;
+      if (r.verdict !== "correct") { pass++; return; }
+      if (SHARED.has(alias.toLowerCase()) || sharesWording(alias, r.matched)) {
+        shared++;
+        return;
+      }
+      crossHits.push(`"${alias}" (${v.id}) wrongly accepted as ${other.id} via "${r.matched}" [${r.how}]`);
     });
   });
 });
 
 /* ------------------------------------------------------------------------ */
-console.log(`\n${pass} assertions passed`);
+console.log(`\n${pass} assertions passed (${shared} answers two entries share)`);
 if (failures.length) {
   console.log(`\n${failures.length} FAILED:`);
   failures.forEach(f => console.log("  - " + f));

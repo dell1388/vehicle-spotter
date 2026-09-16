@@ -36,6 +36,14 @@ const Corrections = (function () {
     return { names: {}, aliases: {}, dropped: {}, images: {}, added: {}, hidden: {} };
   }
 
+  /* A correction is only ever keyed by a vehicle id. An earlier version could
+   * store one under a missing id, which then applied to nothing and could not
+   * be found again to undo; those keys are dropped on load and refused here. */
+  function usableId(id) {
+    return typeof id === "string" && id.trim() !== "" &&
+      id !== "undefined" && id !== "null";
+  }
+
   function strings(value, cap) {
     if (!Array.isArray(value)) return null;
     const out = value.filter(function (a) { return typeof a === "string" && a.trim(); });
@@ -56,6 +64,7 @@ const Corrections = (function () {
 
     if (parsed.names && typeof parsed.names === "object") {
       Object.keys(parsed.names).forEach(function (id) {
+        if (!usableId(id)) return;
         const rec = parsed.names[id];
         if (rec && typeof rec.to === "string" && rec.to.trim()) {
           out.names[id] = { to: rec.to.trim().slice(0, MAX_NAME_LENGTH), keepOld: !!rec.keepOld };
@@ -66,12 +75,14 @@ const Corrections = (function () {
       const src = parsed[field];
       if (!src || typeof src !== "object") return;
       Object.keys(src).forEach(function (id) {
+        if (!usableId(id)) return;
         const list = strings(src[id], 50);
         if (list) out[field][id] = list;
       });
     });
     if (parsed.added && typeof parsed.added === "object") {
       Object.keys(parsed.added).forEach(function (id) {
+        if (!usableId(id)) return;
         const list = parsed.added[id];
         if (!Array.isArray(list)) return;
         const good = list.filter(function (i) {
@@ -82,7 +93,11 @@ const Corrections = (function () {
         if (good.length) out.added[id] = good;
       });
     }
-    if (parsed.hidden && typeof parsed.hidden === "object") out.hidden = parsed.hidden;
+    if (parsed.hidden && typeof parsed.hidden === "object") {
+      Object.keys(parsed.hidden).forEach(function (id) {
+        if (usableId(id)) out.hidden[id] = parsed.hidden[id];
+      });
+    }
     return out;
   }
 
@@ -182,6 +197,7 @@ const Corrections = (function () {
 
   /* Rename an entry. Returns a refusal message, or null on success. */
   function rename(vehicle, newName, keepOld) {
+    if (!vehicle || !usableId(vehicle.id)) return "That entry cannot be corrected.";
     const clean = String(newName || "").trim().replace(/\s+/g, " ");
     if (!clean) return "A name cannot be empty.";
     if (clean.length > MAX_NAME_LENGTH) return "That is too long to be a name.";
@@ -196,7 +212,10 @@ const Corrections = (function () {
     return null;
   }
 
-  function clearName(id) { delete state.names[id]; save(); }
+  function clearName(id) {
+    if (!usableId(id)) return;
+    delete state.names[id]; save();
+  }
 
   /* ------------------------------------------------------------ aliases -- */
 
@@ -204,6 +223,7 @@ const Corrections = (function () {
 
   /* Adds an accepted spelling. Returns a refusal message, or null on success. */
   function addAlias(id, text) {
+    if (!usableId(id)) return "That entry cannot be corrected.";
     const clean = String(text || "").trim().replace(/\s+/g, " ");
     if (!clean) return "Type an answer first.";
     if (clean.length > MAX_ALIAS_LENGTH) return "That is too long to be a name.";
@@ -223,6 +243,7 @@ const Corrections = (function () {
   }
 
   function removeAlias(id, text) {
+    if (!usableId(id)) return;
     const list = state.aliases[id];
     if (!list) return;
     state.aliases[id] = list.filter(function (a) { return !sameText(a, text); });
@@ -232,6 +253,7 @@ const Corrections = (function () {
 
   /* Suppress an alias that came with the dataset. */
   function dropAlias(id, text) {
+    if (!usableId(id)) return;
     const clean = String(text || "").trim();
     if (!clean) return;
     const list = state.dropped[id] || [];
@@ -241,6 +263,7 @@ const Corrections = (function () {
   }
 
   function restoreAlias(id, text) {
+    if (!usableId(id)) return;
     const list = state.dropped[id];
     if (!list) return;
     state.dropped[id] = list.filter(function (d) { return !sameText(d, text); });
@@ -255,6 +278,7 @@ const Corrections = (function () {
   /* -------------------------------------------------------------- images -- */
 
   function dropImage(id, url) {
+    if (!usableId(id)) return;
     if (!url) return;
     /* A picture the player attached is removed outright rather than struck off:
      * striking off is for pictures the dataset shipped. */
@@ -269,6 +293,7 @@ const Corrections = (function () {
   }
 
   function restoreImage(id, url) {
+    if (!usableId(id)) return;
     const list = state.images[id];
     if (!list) return;
     state.images[id] = list.filter(function (u) { return u !== url; });
@@ -282,6 +307,7 @@ const Corrections = (function () {
 
   /* Attach a photograph to an entry. Returns a refusal message, or null. */
   function addImage(id, url, credit) {
+    if (!usableId(id)) return "That entry cannot be corrected.";
     if (!url) return "No picture to add.";
     const list = state.added[id] || [];
     if (list.some(function (i) { return i.url === url; })) return "Already added.";

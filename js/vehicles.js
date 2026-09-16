@@ -159,7 +159,7 @@ const VEHICLES = [
   },
   {
     id: "kv1", name: "KV-1", category: "tank", era: "WW2", difficulty: 3,
-    aliases: ["KV1", "Kliment Voroshilov", "KV"],
+    aliases: ["KV1", "Kliment Voroshilov", "KV", "kv1s"],
     fact: "Early German anti-tank guns simply bounced off it.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%9A%D0%92-1_%D1%83_%D0%B4%D0%B8%D0%BE%D1%80%D0%B0%D0%BC%D1%8B_%C2%AB%D0%9F%D1%80%D0%BE%D1%80%D1%8B%D0%B2_%D0%B1%D0%BB%D0%BE%D0%BA%D0%B0%D0%B4%D1%8B_%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3%D1%80%D0%B0%D0%B4%D0%B0%C2%BB._%D0%92%D0%B8%D0%B4_%D1%81%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B8-%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%B0.JPG?width=1000", credit: "WolfDW / Wikimedia Commons (Public domain)" },
@@ -244,7 +244,7 @@ const VEHICLES = [
   },
   {
     id: "m3_lee", name: "M3 Lee", category: "tank", era: "WW2", difficulty: 3,
-    aliases: ["Lee", "M3 Grant", "Grant", "General Lee"],
+    aliases: ["Lee", "M3 Grant", "Grant", "General Lee", "m3"],
     fact: "Its main gun sat in a side sponson rather than the turret.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/AlfredPalmerM3tank1942b_crop2.jpg?width=1000", credit: "Alfred T. Palmer / Wikimedia Commons (Public domain)" },
@@ -254,7 +254,7 @@ const VEHICLES = [
   },
   {
     id: "m3_stuart", name: "M3 Stuart", category: "tank", era: "WW2", difficulty: 3,
-    aliases: ["Stuart", "Honey", "Light Tank M3"],
+    aliases: ["Stuart", "Honey", "Light Tank M3", "m3"],
     fact: "British crews nicknamed it the Honey for its smooth ride.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Stuart_tankfest_2023.JPG?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
@@ -300,7 +300,7 @@ const VEHICLES = [
   },
   {
     id: "t55", name: "T-54/55", category: "tank", era: "Cold War", difficulty: 2,
-    aliases: ["T-55", "T-54", "T55", "T54"],
+    aliases: ["T-55", "T-54", "T55", "T54", "type 59"],
     fact: "The most-produced tank in history.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T-55_4.jpg?width=1000", credit: "John Harwood / Wikimedia Commons (CC BY 2.0)" },
@@ -482,7 +482,6 @@ const VEHICLES = [
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T-90SM_-_RAE2013-04.jpg?width=1000", credit: "Aleksey Kitaev / Wikimedia Commons (CC BY-SA 3.0)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Firing_T-90A_main_battle_tank.jpg?width=1000", credit: "Vitaly V. Kuzmin / Wikimedia Commons (CC BY-SA 4.0)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IA_T-90_in_action.jpg?width=1000", credit: "cell105 / Wikimedia Commons (CC BY 2.0)" },
     ]
   },
   {
@@ -496,7 +495,7 @@ const VEHICLES = [
   },
   {
     id: "merkava", name: "Merkava", category: "tank", era: "Modern", difficulty: 2,
-    aliases: ["Merkava Mk4", "Merkava 4"],
+    aliases: ["Merkava Mk4", "Merkava 4", "merkava mk 4m"],
     fact: "Engine mounted at the front to shield the crew.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Merkava-Mk4m-whiteback01.jpg?width=1000", credit: "Source: Israel Defense Forces Spokesperson UnitDerivative: User:MathKnight / Wikimedia Commons (CC BY-SA 4.0)" },
@@ -703,7 +702,6 @@ const VEHICLES = [
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Curtiss_P-40M_Warhawk_%272104590_-_44%27_%28G-KITT%29_%2826830598751%29.jpg?width=1000", credit: "Alan Wilson from Stilton, Peterborough, Cambs, UK / Wikimedia Commons (CC BY-SA 2.0)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Curtiss_P-40N-5-CU_Warhawk.jpg?width=1000", credit: "Geographer / Wikimedia Commons (CC BY-SA 4.0)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Jacqueline_Cochran_in_a_Curtiss_P-40_Warhawk.jpg?width=1000", credit: "Unknown authorUnknown author. / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -762,7 +760,6 @@ const VEHICLES = [
     fact: "The first operational jet fighter.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Messerschmitt_Me_262A_at_the_National_Museum_of_the_USAF_%28cropped%29.jpg?width=1000", credit: "USAF museum / Wikimedia Commons (Public domain)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Messerschmitt_Me_262_HG_III_pic1.JPG?width=1000", credit: "Alf van Beem / Wikimedia Commons (CC0)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Messerschmitt_Me_262A_Schwalbe_%2827789624790%29.jpg?width=1000", credit: "Clemens Vasters from Viersen, Germany, Germany / Wikimedia Commons (CC BY 2.0)" },
     ]
   },
@@ -966,7 +963,7 @@ const VEHICLES = [
   },
   {
     id: "su25", name: "Su-25", category: "plane", era: "Cold War", difficulty: 3,
-    aliases: ["Su25", "Sukhoi Su-25", "Frogfoot", "Grach"],
+    aliases: ["Su25", "Sukhoi Su-25", "Frogfoot", "Grach", "rook"],
     fact: "The Soviet answer to the A-10.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sukhoi_Su-25_of_the_Russian_Air_Force_landing_at_Vladivostok_%288683076150%29.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
@@ -1176,7 +1173,7 @@ const VEHICLES = [
   },
   {
     id: "f35", name: "F-35 Lightning II", category: "plane", era: "Modern", difficulty: 1,
-    aliases: ["F-35", "F35", "Lightning II", "JSF", "Joint Strike Fighter"],
+    aliases: ["F-35", "F35", "Lightning II", "JSF", "Joint Strike Fighter", "fat amy"],
     fact: "One airframe in three versions, including a vertical-landing variant.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/F-35A_flight_%28cropped%29.jpg?width=1000", credit: "U.S. Air Force photo by Master Sgt. Donald R. Allen / Wikimedia Commons (Public domain)" },
@@ -1205,7 +1202,6 @@ const VEHICLES = [
     aliases: ["Gripen", "JAS 39", "Saab Gripen"],
     fact: "Designed to operate from ordinary Swedish roads.",
     images: [
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Saab_JAS-39C_Gripen_MFD_at_ADAS_2018.jpg?width=1000", credit: "Rhk111 / Wikimedia Commons (CC BY-SA 4.0)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Saab_JAS-39_Gripen_%2853079484003%29.jpg?width=1000", credit: "Airwolfhound from Hertfordshire, UK / Wikimedia Commons (CC BY-SA 2.0)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Saab_JAS_39_Gripen_at_Kaivopuisto_Air_Show%2C_June_2017_%28altered%29_copy.jpg?width=1000", credit: "Tuomo Salonen / SIMFinnish Aviation Museum / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
@@ -1237,7 +1233,6 @@ const VEHICLES = [
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Qatar_Airways_Airbus_A380-800_at_Heathrow_Airport_Terminal_4_before_Flying_to_Doha%2C_6_Jan_2015.jpg?width=1000", credit: "Mohammed Tawsif Salam / Wikimedia Commons (CC BY-SA 3.0)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Airbus_A380_9H-MIP%2C_HiFly%2C_at_Paris_Airshow%2C_June_2019_%286%29.jpg?width=1000", credit: "Ibex73 / Wikimedia Commons (CC BY-SA 4.0)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Paris_Air_Show_2017_Airbus_A380plus_winglet.jpg?width=1000", credit: "Marc Lacoste / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
   },
   {
@@ -1440,7 +1435,7 @@ const VEHICLES = [
   },
   {
     id: "euro_tiger", name: "Eurocopter Tiger", category: "helicopter", era: "Modern", difficulty: 3,
-    aliases: ["EC665 Tiger", "Airbus Tiger", "Tiger attack helicopter"],
+    aliases: ["EC665 Tiger", "Airbus Tiger", "Tiger attack helicopter", "tiger"],
     fact: "A Franco-German attack helicopter built largely of composites.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/20170810034242%21Eurocopter_EC-665_Tiger_UHT%2C_Germany_-_Army_AN1547188_%282%29.jpg?width=1000", credit: "Alan Lebeda / Wikimedia Commons (CC BY-SA 4.0)" },
@@ -1639,7 +1634,6 @@ const VEHICLES = [
     fact: "The first man-made object to reach the edge of space.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Fus%C3%A9e_V2_%28cropped%29.jpg?width=1000", credit: "AElfwine / Wikimedia Commons (CC BY-SA 3.0)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Damage_Caused_by_V2_Rocket_Attacks_in_Britain%2C_1945_HU88803.jpg?width=1000", credit: "Unknown authorUnknown author / Wikimedia Commons (Public domain)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/V-2_rocket_at_the_AWM_Treloar_Centre_Annex_b.jpg?width=1000", credit: "Bidgee Georgfotoart / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
@@ -1649,7 +1643,6 @@ const VEHICLES = [
     fact: "Londoners learned that when the buzzing stopped, it was falling.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_146-1975-117-26%2C_Marschflugk%C3%B6rper_V1_vor_Start.jpg?width=1000", credit: "Lysiak / Wikimedia Commons (CC BY-SA 3.0 de)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Flying_Bomb-_V1_Bomb_Damage_in_London%2C_England%2C_UK%2C_1944_D21237.jpg?width=1000", credit: "Ministry of Information Photo Division Photographer / Wikimedia Commons (Public domain)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/V-1_flying_bomb_on_display_at_Imperial_War_Museum.jpg?width=1000", credit: "Peter Trimming / Wikimedia Commons (CC BY-SA 2.0)" },
     ]
   },
@@ -1714,7 +1707,6 @@ const VEHICLES = [
     fact: "Steered down a pair of wires trailing behind it.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Hires_090509-A-4842R-001a.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/BGM-71F_TOW_missile_beacon.jpg?width=1000", credit: "Lance Cpl. Emily De La Torre / Wikimedia Commons (Public domain)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/BGM-71_TOW%2C_Iran-Iraq_War.jpg?width=1000", credit: "Unknown authorUnknown author / Wikimedia Commons (GFDL)" },
     ]
   },
@@ -1724,8 +1716,6 @@ const VEHICLES = [
     fact: "Sits in a silo on alert, and has done since 1962.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/LGM-30-Minuteman-II.jpg?width=1000", credit: "US Air Force / Wikimedia Commons (Public domain)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Unarmed_Minuteman_III_ICBM_launch_-_operational_test_-_Vandenberg_Space_Force_Base_-_May_21_2025.jpg?width=1000", credit: "A1C Jack Rodriguez Escamilla, USAF / Wikimedia Commons (Public domain)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Minuteman_guidance_computer_%281%29.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -1793,7 +1783,6 @@ const VEHICLES = [
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Javelin_with_checkout_equipment.jpg?width=1000", credit: "U.S. Army Missile Command, Redstone Arsenal / Wikimedia Commons (Public domain)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/FGM-148_Javelin_missile_launch.jpg?width=1000", credit: "Lance Cpl. Jonathan Willcox / Wikimedia Commons (Public domain)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/FGM-148_Javelin_-_ID_030206-M-5753Q-004.jpg?width=1000", credit: "Lance Cpl. Kevin Quihuis Jr. / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -1822,8 +1811,6 @@ const VEHICLES = [
     fact: "Carries its own radar, so the launching jet can turn away.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/20180328_AIM-120_Udvar-Hazy.jpg?width=1000", credit: "Balon Greyjoy / Wikimedia Commons (CC0)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/AIM-120_AMRAAM_P6230147.JPG?width=1000", credit: "Captainm 14:50, 24 June 2007 (UTC) / Wikimedia Commons (CC BY-SA 3.0)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/AIM-120_first_kill.jpg?width=1000", credit: "U.S. Air Force / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -1869,8 +1856,6 @@ const VEHICLES = [
     fact: "Works out where a rocket will land, and ignores it if it will miss.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IDF_Iron_Dome_2021.jpg?width=1000", credit: "IDF Spokesperson's Unit photographer / Wikimedia Commons (CC BY-SA 3.0)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IronDome-intercepted-rockets-over-Tel-Aviv-2014-07-24.jpg?width=1000", credit: "MathKnight-at-TAU / Wikimedia Commons (CC BY 4.0)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IronDome245.jpg?width=1000", credit: "Emanuel Yellin , עמנואל ילין / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
@@ -1925,7 +1910,6 @@ const VEHICLES = [
     fact: "Shelled Paris from 120 km away, its shells reaching the stratosphere.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Photograph_Q65801A.jpg?width=1000", credit: "Unknown authorUnknown author / Wikimedia Commons (Public domain)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Eglise_St_Gervais_Paris_bombardement_1918_%28cropped%29.jpg?width=1000", credit: "Agence Rol / Wikimedia Commons (Public domain)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Pariser_Ferngesch%C3%BCtz.jpg?width=1000", credit: "powidl / Wikimedia Commons (Public domain)" },
     ]
   },
@@ -2017,7 +2001,7 @@ const VEHICLES = [
   },
   {
     id: "markiv", name: "Mark IV tank", category: "tank", era: "WW1", difficulty: 2,
-    aliases: ["Mark IV", "Mk IV tank", "British Mark IV"],
+    aliases: ["Mark IV", "Mk IV tank", "British Mark IV", "mk 4"],
     fact: "The rhomboid shape was designed to cross wide trenches.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MarkIVTankWithUnditchingBeam1917.jpg?width=1000", credit: "Unidentified British Government photographer. / Wikimedia Commons (Public domain)" },
@@ -2044,7 +2028,7 @@ const VEHICLES = [
   },
   {
     id: "whippet", name: "Medium Mark A Whippet", category: "tank", era: "WW1", difficulty: 3,
-    aliases: ["Whippet", "Medium Mark A"],
+    aliases: ["Whippet", "Medium Mark A", "medium a"],
     fact: "Built for speed, which meant all of eight miles an hour.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Whippet_tank_Base_Borden_Military_Museum_3.jpg?width=1000", credit: "JustSomePics / Wikimedia Commons (CC BY-SA 4.0)" },
@@ -2126,7 +2110,6 @@ const VEHICLES = [
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/RAF_SE5a_F904_%28G-EBIA%29_%286736738219%29.jpg?width=1000", credit: "Alan Wilson / Wikimedia Commons (CC BY-SA 2.0)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Shuttleworth_SE5A02.jpg?width=1000", credit: "TSRL / Wikimedia Commons (CC BY-SA 3.0)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SE5HighSeatBall.jpg?width=1000", credit: "Unknown - probably a serving member of 56 squadron RFC / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -2136,7 +2119,6 @@ const VEHICLES = [
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bristol_F2b_Fighter_%E2%80%98D8096_D%E2%80%99_%28G-AEPH%29_%2830273241577%29.jpg?width=1000", credit: "Alan Wilson from Stilton, Peterborough, Cambs, UK / Wikimedia Commons (CC BY-SA 2.0)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bristol_F2_Fighter_REJS.jpg?width=1000", credit: "Ian Dunster / Wikimedia Commons (CC BY-SA 2.0 uk)" },
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Bristol_Fighter_on_field_of_Agincourt.jpg?width=1000", credit: "Unknown authorUnknown author / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -2153,7 +2135,7 @@ const VEHICLES = [
   /* ---------------------------------------------- FURTHER VEHICLES */
   {
     id: "m26_pershing", name: "M26 Pershing", category: "tank", era: "WW2", difficulty: 3,
-    aliases: ["Pershing", "M26"],
+    aliases: ["Pershing", "M26", "t26e5"],
     fact: "Arrived in 1945, at last a match for a Panther.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Flickr_-_davehighbury_-_Bovington_Tank_Museum_246_M26.jpg?width=1000", credit: "DAVID HOLT from London, England / Wikimedia Commons (CC BY-SA 2.0)" },
@@ -2186,7 +2168,7 @@ const VEHICLES = [
     aliases: ["KV2"],
     fact: "A gun howitzer in a turret the size of a small room.",
     images: [
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%9A%D0%92-1_%D1%83_%D0%B4%D0%B8%D0%BE%D1%80%D0%B0%D0%BC%D1%8B_%C2%AB%D0%9F%D1%80%D0%BE%D1%80%D1%8B%D0%B2_%D0%B1%D0%BB%D0%BE%D0%BA%D0%B0%D0%B4%D1%8B_%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3%D1%80%D0%B0%D0%B4%D0%B0%C2%BB._%D0%92%D0%B8%D0%B4_%D1%81%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B8-%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%B0.JPG?width=1000", credit: "WolfDW / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%9A%D0%B2-2_3.jpg?width=1000", credit: "Gandvik / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
@@ -2270,7 +2252,7 @@ const VEHICLES = [
   },
   {
     id: "charb1", name: "Char B1", category: "tank", era: "WW2", difficulty: 3,
-    aliases: ["Char B1 bis", "B1 bis"],
+    aliases: ["Char B1 bis", "B1 bis", "b1"],
     fact: "Heavily armoured, with a hull gun aimed by steering the tank.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Renault_B1_bis%2CTanks_in_the_Mus%C3%A9e_des_Blind%C3%A9s%2C_France%2C_pic-9.jpg?width=1000", credit: "Alf van Beem / Wikimedia Commons (Public domain)" },
@@ -2313,7 +2295,7 @@ const VEHICLES = [
     aliases: ["BT7"],
     fact: "Could shed its tracks and run on road wheels alone.",
     images: [
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Soviet_cavalry_tank_BT-7m.jpg?width=1000", credit: "Unknown / Wikimedia Commons (PD-Ukraine)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/BT_7_Pyshma.jpg?width=1000", credit: "Tygydymhorse / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
@@ -2326,7 +2308,7 @@ const VEHICLES = [
   },
   {
     id: "semovente", name: "Semovente da 75/18", category: "tank", era: "WW2", difficulty: 3,
-    aliases: ["Semovente"],
+    aliases: ["Semovente", "75/18 semovente"],
     fact: "Italy's best armoured vehicle of the war.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Semovente_M42.Saumur.0008fefh.jpg?width=1000", credit: "User:Fat yankey / Wikimedia Commons (CC BY-SA 2.5)" },
@@ -2371,7 +2353,7 @@ const VEHICLES = [
   },
   {
     id: "m41", name: "M41 Walker Bulldog", category: "tank", era: "Cold War", difficulty: 3,
-    aliases: ["Walker Bulldog", "M41"],
+    aliases: ["Walker Bulldog", "M41", "bulldog"],
     fact: "A fast light tank named after a general killed in Korea.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/M41_Bulldog_Fort_Meade.jpg?width=1000", credit: "Wilson44691 / Wikimedia Commons (CC0)" },
@@ -2401,7 +2383,7 @@ const VEHICLES = [
   },
   {
     id: "type59", name: "Type 59", category: "tank", era: "Cold War", difficulty: 3,
-    aliases: ["Type 59 tank", "WZ-120"],
+    aliases: ["Type 59 tank", "WZ-120", "t55"],
     fact: "China's copy of the T-54, built in the tens of thousands.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Type_59_tank_in_Military_Museum_of_the_Chinese_People%27s_Revolution_20180219.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
@@ -2496,7 +2478,7 @@ const VEHICLES = [
   },
   {
     id: "typhoon_hawker", name: "Hawker Typhoon", category: "plane", era: "WW2", difficulty: 3,
-    aliases: ["Tiffy", "Hawker Tiffy"],
+    aliases: ["Tiffy", "Hawker Tiffy", "typhoon"],
     fact: "A troubled fighter that became a superb ground attacker.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/The_Royal_Air_Force_in_Britain%2C_May_1943_TR1091.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Unknown)" },
@@ -2615,7 +2597,6 @@ const VEHICLES = [
     aliases: ["G4M", "Betty"],
     fact: "Long-ranged and so prone to fire it was called the flying lighter.",
     images: [
-      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mitsubishi_G4M_is_shot_down_in_May_1944.jpg?width=1000", credit: "U.S. Navy / Wikimedia Commons (Public domain)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mitsubishi_G4M_burning_on_ground.jpg?width=1000", credit: "U.S. Office of War Information / Wikimedia Commons (Public domain)" },
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Betty_bomber.jpg?width=1000", credit: "Motoki Kurabayashi / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
@@ -2900,7 +2881,7 @@ const VEHICLES = [
   },
   {
     id: "tu22m", name: "Tu-22M", category: "plane", era: "Cold War", difficulty: 3,
-    aliases: ["Tu22M", "Backfire"],
+    aliases: ["Tu22M", "Backfire", "Tu-22"],
     fact: "A swing-wing bomber built to hunt carrier groups.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Tupolev_Tu-22M3M_GEFEST_%2819230388334%29.jpg?width=1000", credit: "Dmitry Terekhov from Odintsovo, Russian Federation / Wikimedia Commons (CC BY-SA 2.0)" },
@@ -3340,10 +3321,12 @@ const VEHICLES = [
   /* ------------------------------------------ BUILT FROM WIKIPEDIA */
   {
     id: "a3", name: "Douglas A-3 Skywarrior", category: "plane", era: "Cold War", difficulty: 3,
-    aliases: ["EA-3B", "TA-3B", "KA-3B", "RA-3B", "ERA-3B", "Skywarrior", "Skywarrier"],
+    aliases: ["EA-3B", "TA-3B", "KA-3B", "RA-3B", "ERA-3B", "Skywarrior", "Skywarrier", "Sky warrior"],
     fact: "The Douglas A-3 Skywarrior is a jet-powered strategic bomber that was developed and produced by the Douglas Aircraft Company.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/EA-3B_VQ-1_in_flight_South_China_Sea_1974.jpeg?width=1000", credit: "U.S. Navy / Wikimedia Commons (PDM)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/A3D-2_nose_wheel_collapse_USS_Saratoga.jpg?width=1000", credit: "U.S. Navy / Wikimedia Commons (PDM)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/A-3B_VAH-4_dropping_Mk_83_bomb_Vietnam_1965.jpeg?width=1000", credit: "U.S. Navy / Wikimedia Commons (PDM)" },
     ]
   },
   {
@@ -3376,6 +3359,8 @@ const VEHICLES = [
     fact: "The North American A-5 Vigilante is an American carrier-based supersonic bomber and reconnaissance aircraft designed and built by North American Aviation (NAA) for the United States Navy.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/A-5_Vigilante_ECN-231.jpg?width=1000", credit: "NASA Dryden Flight Research Center / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/A3J-1s_VAH-7_CVAN-65_NAN11-62.jpg?width=1000", credit: "USN / Wikimedia Commons (PDM)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/RA-5C_RVAH-12_off_Vietnam_1967.jpg?width=1000", credit: "U.S. Navy / Wikimedia Commons (PDM)" },
     ]
   },
   {
@@ -3384,6 +3369,8 @@ const VEHICLES = [
     fact: "The Assault Amphibious Vehicle ( AAV )—official designation AAV7 ( Assault Amphibious Vehicle, Model 7 ), formerly known as LVT7 ( Landing Vehicle, Tracked, Model 7 )—is a fully tr",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/170606-N-PF515-398_%2834973155842%29.jpg?width=1000", credit: "Commander, U.S. Naval Forces Europe-Africa/U.S. 6th Fleet / Wikimedia Commons (PDM)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/AAV-australia.jpg?width=1000", credit: "Petty Officer 1st Class Daniel E. Smith, U.S. Navy / Wikimedia Commons (PDM)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/AAV_Survivability_Upgrade_%28SU%29.jpg?width=1000", credit: "Sgt. Eric Keenan / Wikimedia Commons (PDM)" },
     ]
   },
   {
@@ -3433,6 +3420,7 @@ const VEHICLES = [
     fact: "The Al-Khalid/VT-1A ( Urdu: الخالد ٹینک — Al-Xālid Ṫaiŋk, pronounced [ əlˈxaːlɪd̪ ʈɛːŋk ], literal translation</span>\"}]],\"parts\":[{\"template\":{\"target\":{\"wt\":\"Lit\",\"href\":\"./Templ",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Al-Khalid_IDEAS_2012.jpg?width=1000", credit: "Photo by Guy Martin / Pakistan and China to jointly market Al Khalid tank / Wikimedia Commons (CC BY 1.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Chinese_90-IIM_MBT.JPG?width=1000", credit: "NATIONAL WAR COLLEGE MILITARY IMAGE COLLECTION / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -3603,6 +3591,7 @@ const VEHICLES = [
     fact: "The Cessna O-1 Bird Dog is a liaison and observation aircraft that first flew on December 14, 1949, and entered service in 1950 as the L-19 in the Korean War.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Cessna_O-1A_Bird_Dog_US_Army_in_flight.jpg?width=1000", credit: "U.S. Army / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Army_L-19_FAC_1968.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (CC BY-SA 2.0)" },
     ]
   },
   {
@@ -3706,6 +3695,7 @@ const VEHICLES = [
     fact: "The Fairchild C-119 Flying Boxcar (Navy and Marine Corps designation R4Q ) is an American military transport aircraft developed from the World War II -era Fairchild C-82 Packet, de",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Fairchild_C-119B_of_the_314th_Troop_Carrier_Group_in_flight%2C_1952_%28021001-O-9999G-016%29.jpg?width=1000", credit: "U.S. Air Force / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/R4Q-1_USMC_NAN8-50.jpg?width=1000", credit: "USN / Wikimedia Commons (PDM)" },
     ]
   },
   {
@@ -3722,6 +3712,7 @@ const VEHICLES = [
     fact: "The Curtiss C-46 Commando is a low-wing, twin-engine aircraft derived from the Curtiss CW-20 pressurized high-altitude airliner design.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/C-46_Commando.jpg?width=1000", credit: "usaf / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/C-46F_Quicktrans_Busanda_%286287464059%29.jpg?width=1000", credit: "Bill Larkins / Wikimedia Commons (CC BY-SA 2.0)" },
     ]
   },
   {
@@ -3746,6 +3737,7 @@ const VEHICLES = [
     fact: "Challenger 3 ( CR3 ) is a British fourth-generation main battle tank in development for the British Army.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Challenger_3_ATD.jpg?width=1000", credit: "Sergeant Ben Beale / Wikimedia Commons (OGL 3)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/DES_2024_100_0104.jpg?width=1000", credit: "Ministry of Defence / Wikimedia Commons (OGL v1.0)" },
     ]
   },
   {
@@ -3774,7 +3766,7 @@ const VEHICLES = [
   },
   {
     id: "comet_tank", name: "Comet", category: "tank", era: "WW2", difficulty: 3,
-    aliases: ["A-34 Comet", "Cruiser Tank Comet"],
+    aliases: ["A-34 Comet", "Comet tank", "Comet Tanks", "Cruiser Tank Comet"],
     fact: "The Comet tank or Tank, Cruiser, Comet I (A34) was a British cruiser tank that first saw use near the end of the Second World War, during the Western Allied invasion of Germany.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Comet_tank_tankfest_2023.JPG?width=1000", credit: "Geni / Wikimedia Commons (CC BY-SA 4.0)" },
@@ -3786,6 +3778,7 @@ const VEHICLES = [
     fact: "The Fiat CR.42 Falco (Falcon, plural: Falchi ) is a single-seat sesquiplane fighter developed and produced by Italian aircraft manufacturer Fiat Aviazione.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Fiat_CR.42_-_Aegean_Islands.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (PDM)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/CR-42_82a_Squadriglia.jpg?width=1000", credit: "Martin Čížek / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
   },
   {
@@ -3794,6 +3787,8 @@ const VEHICLES = [
     fact: "The Combat Vehicle 90 ( CV90 ) ( Swedish: stridsfordon 90, strf 90 or Stridsfordon 90) is a family of Swedish tracked armoured combat vehicles designed by the Swedish Defence Mater",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Stridsfordon_90_Revinge_2012-2.jpg?width=1000", credit: "Jorchr / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/CV_90_Mk_IV_SIAF-2022.jpg?width=1000", credit: "Boevaya mashina / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/CV90120%2C_MSPO_2007%2C_photo_2.JPG?width=1000", credit: "Łukasz Golowanow & Maciek Hypś, Konflikty.pl / Wikimedia Commons (Attribution)" },
     ]
   },
   {
@@ -3818,6 +3813,7 @@ const VEHICLES = [
     fact: "The Douglas DC-8 (sometimes McDonnell Douglas DC-8 ) is an early long-range narrow-body jetliner designed and produced by the American Douglas Aircraft Company.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/DC-8_Airborne_Laboratory_in_flight_over_snow-capped_Sierra_Nevada_mountain_range.jpg?width=1000", credit: "NASA Photo by: Jim Ross / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/USN_DC-8_C-24_EC-24_%288435059326%29.jpg?width=1000", credit: "clipperarctic / Wikimedia Commons (CC BY-SA 2.0)" },
     ]
   },
   {
@@ -3862,7 +3858,7 @@ const VEHICLES = [
   },
   {
     id: "dukw", name: "DUKW", category: "afv", era: "WW2", difficulty: 2,
-    aliases: ["Duck boats", "DUKW amphibious truck", "Duplex Universal Karrier, Wheeled"],
+    aliases: ["Duck boat", "Duck boats", "DUKW amphibious truck", "Duplex Universal Karrier, Wheeled"],
     fact: "The DUKW (GMC type nomenclature, colloquially known as Duck ) is a six-wheel-drive amphibious modification of the GMC CCKW \"deuce-and-a-half\" 2½-ton trucks used by the US military",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/DUKW.image2.army.jpg?width=1000", credit: "Unknown / Wikimedia Commons (Public domain)" },
@@ -3874,6 +3870,7 @@ const VEHICLES = [
     fact: "The Northrop Grumman E-2 Hawkeye is an American all-weather, carrier-capable, tactical airborne early warning (AEW) aircraft.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/E-2D_Advanced_Hawkeye_aircraft_conduct_a_test_flight.jpg?width=1000", credit: "US Navy / Wikimedia Commons (PDM)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/USS_Theodore_Roosevelt_%28CVN_71%29_conducts_flight_operations._%2849122248696%29.jpg?width=1000", credit: "Official U.S. Navy Page from United States of America MC2 Pyoung Yi/U.S. Navy / Wikimedia Commons (PDM)" },
     ]
   },
   {
@@ -3898,6 +3895,8 @@ const VEHICLES = [
     fact: "The Northrop Grumman (formerly Grumman ) EA-6B Prowler is a twin-engined, four-seat, mid-wing electronic-warfare aircraft.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Prowler_Final_Flight_division_flight_%28cropped%29.jpg?width=1000", credit: "Cpl. Neysa Huertas Quinones / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/EA-6A_and_EA-6B_of_VMAQ-2_in_flight_c1977.jpg?width=1000", credit: "U.S. Navy / Wikimedia Commons (PDM)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/EA-6B_AIP.jpg?width=1000", credit: "US Navy / Wikimedia Commons (PDM)" },
     ]
   },
   {
@@ -3938,6 +3937,7 @@ const VEHICLES = [
     fact: "The Convair F-106 Delta Dart is an all-weather interceptor aircraft designed and produced by the American aircraft manufacturer Convair, a division of General Dynamics.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/F-106A_Chase_Dart.JPEG?width=1000", credit: "Staff Sgt. John K. McDowell / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mercury_Seven_astronauts_with_aircraft.jpg?width=1000", credit: "NASA / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -3962,6 +3962,8 @@ const VEHICLES = [
     fact: "The Republic F-84 Thunderjet is an American turbojet fighter-bomber aircraft.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/F-84E_of_9th_Fighter-Bomber_Squadron_in_Korea.jpg?width=1000", credit: "USAF / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/F-84g-51-1231-48fbg-chm-0853.jpg?width=1000", credit: "Original uploader was Bwmoll3 at en.wikipedia / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/14fw-f-84-1948.jpg?width=1000", credit: "USAF / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -3970,6 +3972,7 @@ const VEHICLES = [
     fact: "The Northrop F-89 Scorpion is an all-weather, twin-engined interceptor aircraft designed and produced by the American aircraft manufacturer Northrop Corporation.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/59fis-f-89-goosebay.jpg?width=1000", credit: "USAF / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/F-89J_Hampton_Air_Power_Park_VA_2007.jpg?width=1000", credit: "William Grimes at English Wikipedia . Later version(s) were uploaded by Ian Dunster at en.wikipedia .9 January / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -4118,6 +4121,8 @@ const VEHICLES = [
     fact: "The Lockheed Hudson is a light bomber and coastal reconnaissance aircraft built by the American Lockheed Aircraft Corporation.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Lockheed_A-29_Hudson_USAAF_in_flight_c1941.jpg?width=1000", credit: "USAAF / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/PBO-1_VP-82_NAS_Argentia.jpg?width=1000", credit: "USN / Wikimedia Commons (PDM)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/RAAF_13_Sqn_%28AWM_AC0069%29.jpg?width=1000", credit: "John Thomas Harrison / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -4134,6 +4139,8 @@ const VEHICLES = [
     fact: "The Polikarpov I-16 ( Russian: Поликарпов И-16 ) is a Soviet single-engine single-seat fighter aircraft.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Polikarpov_I-16_republicano.jpg?width=1000", credit: "Angelmersaenz / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Soviet_volunteer.jpg?width=1000", credit: "The original uploader was DCTT at English Wikipedia . / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Khalkhin_Gol_Soviet_pilots_august_1939.jpg?width=1000", credit: "soviet reporter / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -4184,6 +4191,7 @@ const VEHICLES = [
     fact: "The Ilyushin Il-4 (DB-3F) ( Russian: Ильюшин Ил-4 (ДБ-3Ф); NATO reporting name: Bob ) is a Soviet twin-engined long-range bomber and torpedo bomber, widely used by the Soviet Air F",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Il-4_front_view_Moscow.jpg?width=1000", credit: "Mike1979 Russia / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Iljushin_DB-3F_%28SA-kuva_148731%29.jpg?width=1000", credit: "Sot.virk. Niilo Helander / Wikimedia Commons (CC BY 4.0)" },
     ]
   },
   {
@@ -4239,7 +4247,7 @@ const VEHICLES = [
   },
   {
     id: "javelin_jet", name: "Gloster Javelin", category: "plane", era: "Cold War", difficulty: 3,
-    aliases: ["Gloster G.A.5", "Javelin FAW Mk.1", "Javelin FAW Mk.8", "Gloster Javelin FAW1", "Gloster Javelin FAW.1", "Gloster Javelin FAW Mk.7", "Gloster Javelin FAW Mk.8"],
+    aliases: ["Gloster G.A.5", "Javelin fighter", "Javelin FAW Mk.1", "Javelin FAW Mk.8", "Gloster Javelin FAW1", "Gloster Javelin FAW.1", "Gloster Javelin FAW Mk.7", "Gloster Javelin FAW Mk.8"],
     fact: "The Gloster Javelin is a twin-engined all-weather interceptor aircraft designed and produced by the Gloster Aircraft Company.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Gloster_Javelin_46_Sqn_line_up%2C_XA628_nearest._%2851458866291%29.jpg?width=1000", credit: "tormentor4555 / Wikimedia Commons (PDM-owner)" },
@@ -4307,6 +4315,7 @@ const VEHICLES = [
     fact: "The McDonnell Douglas KC-10 Extender is an American tanker and cargo aircraft that was operated by the United States Air Force (USAF) from 1981 to 2024.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/KC-10_Extender_%282151957820%29.jpg?width=1000", credit: "U.S. Air Force photo by Staff Sgt. Jerry Morrison / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/240926-F-OY799-1632.jpg?width=1000", credit: "Kenneth Abbate / Wikimedia Commons (PDM)" },
     ]
   },
   {
@@ -4371,6 +4380,8 @@ const VEHICLES = [
     fact: "The Lavochkin La-7 ( Russian: Лавочкин Ла-7; NATO reporting name: Fin ) is a piston-engined single-seat fighter aircraft developed by the Soviet Union during World War II by the La",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Lavochkin_La-7_%E2%80%9927_white%E2%80%99_%2825168790698%29.jpg?width=1000", credit: "Alan Wilson from Stilton, Peterborough, Cambs, UK / Wikimedia Commons (CC BY-SA 2.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/2007-08-cesko-317.jpg?width=1000", credit: "Ralf Roletschek ( talk ) / Wikimedia Commons (GFDL 1.2)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/La-7_4_ld.jpg?width=1000", credit: "Martin Čížek / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
   },
   {
@@ -4429,6 +4440,8 @@ const VEHICLES = [
     fact: "The M1128 mobile gun system (MGS) is an eight-wheeled assault gun of the Stryker family, mounting a 105 mm tank gun, based on the Canadian LAV III light-armored vehicle manufacture",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Exercise_Allied_Spirit_I%2C_Day_5_150117-A-EM105-337.jpg?width=1000", credit: "Sgt. William Tanner / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Flickr_-_DVIDSHUB_-_Third_Army_Moving_Strykers_to_Afghanistan.jpg?width=1000", credit: "DVIDSHUB / Wikimedia Commons (CC BY 2.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Flickr_-_The_U.S._Army_-_Range_fire.jpg?width=1000", credit: "The U.S. Army / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -4655,6 +4668,8 @@ const VEHICLES = [
     fact: "Namer ( Hebrew: נָמֵר, pronounced [ naˈmeʁ ]; meaning \" leopard,\" and also a syllabic abbreviation of \" Na gmash\" (APC) and \" Mer kava\") is an Israeli armoured personnel carrier ba",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Flickr_-_Israel_Defense_Forces_-_13th_Battalion_of_the_Golani_Brigade_Holds_Drill_at_Golan_Heights_%288%29.jpg?width=1000", credit: "https://www.flickr.com/people/45644610@N03 / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IM000656.jpg?width=1000", credit: "Ereshkigal1 / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Nammer004.jpg?width=1000", credit: "MathKnight / Wikimedia Commons (GFDL)" },
     ]
   },
   {
@@ -4667,7 +4682,7 @@ const VEHICLES = [
   },
   {
     id: "nike_hercules", name: "Nike Hercules", category: "missile", era: "Cold War", difficulty: 3,
-    aliases: [],
+    aliases: ["hercules"],
     fact: "The Nike Hercules, initially designated SAM-A-25 and later MIM-14, was a surface-to-air missile (SAM) used by US and NATO armed forces for medium- and high-altitude long-range air defense.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MIM-14_Nike-Hercules_02.jpg?width=1000", credit: "U.S. Army / Wikimedia Commons (Public domain)" },
@@ -4695,6 +4710,8 @@ const VEHICLES = [
     fact: "The T-84 is a Ukrainian main battle tank (MBT), based on the Soviet T-80 MBT introduced in 1976, specifically the diesel engine version: T-80UD.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Strong_Europe_Tank_Challenge_2018_%2842054365704%29_%28cropped%29.jpg?width=1000", credit: "7th Army Training Command from Grafenwoehr, Germany / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/BM_Oplot%2C_Kyiv_2018%2C_04.jpg?width=1000", credit: "VoidWanderer / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/2012_Eurosatory_Ukraine_tank.JPG?width=1000", credit: "Copyleft / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
@@ -4711,6 +4728,7 @@ const VEHICLES = [
     fact: "The Boeing P-26 \"Peashooter\" is the first American production all-metal fighter aircraft and the first pursuit monoplane to enter squadron service with the United States Army Air Corps.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Peashooter.arp.750pix.jpg?width=1000", credit: "Unknown photographer Unknown photographer / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/P-26_Maloney.jpg?width=1000", credit: "Martin Čížek / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
   },
   {
@@ -4786,6 +4804,7 @@ const VEHICLES = [
     fact: "The Patria AMV ( Armoured Modular Vehicle ) is an 8×8 multi-role military vehicle produced by the Finnish defence industry company Patria.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Pansarterr%C3%A4ngbil_360_Revinge_2015-7.jpg?width=1000", credit: "Jorchr / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Presentation_of_Svarun_8x8.jpg?width=1000", credit: "Mors / Wikimedia Commons (CC BY 3.0)" },
     ]
   },
   {
@@ -4814,7 +4833,7 @@ const VEHICLES = [
   },
   {
     id: "phalanx", name: "Phalanx CIWS", category: "missile", era: "Modern", difficulty: 2,
-    aliases: ["MK 15 Phalanx", "Vulcan Phalanx", "Phalanx weapon system", "Phalanx Close-In Weapon System", "Phalanx close-in weapons systems"],
+    aliases: ["MK 15 Phalanx", "Vulcan Phalanx", "Phalanx weapon system", "Phalanx Close-In Weapon System", "Phalanx close-in weapons systems", "cram"],
     fact: "The Phalanx CIWS ( SEE -wiz ) is an automated gun-based \" Close-In Weapon System \" to defend military watercraft automatically against incoming threats such as aircraft, missiles, and small boats.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Phalanx_CIWS_Block_1B_Full_Sized_USS_Elrod_FFG-55.jpg?width=1000", credit: "Chuck Homler d/b/a FocusOnWildlife / Wikimedia Commons (CC BY 4.0)" },
@@ -4846,7 +4865,7 @@ const VEHICLES = [
   },
   {
     id: "prachand", name: "HAL Prachand", category: "helicopter", era: "Modern", difficulty: 3,
-    aliases: ["HAL LCH", "HAL Light Combat Helicopter"],
+    aliases: ["HAL LCH", "Light Combat Helicopter", "HAL Light Combat Helicopter"],
     fact: "The HAL Prachand ( literal translation</span>\"}]],\"parts\":[{\"template\":{\"target\":{\"wt\":\"Lit\",\"href\":\"./Template:Lit\"},\"params\":{\"1\":{\"wt\":\"Fierce/Intense\"}},\"i\":0}}]}'>lit.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/HAL_Prachand_%28ZF_4834%29.jpg?width=1000", credit: "IAF / Wikimedia Commons (GODL-India)" },
@@ -4854,7 +4873,7 @@ const VEHICLES = [
   },
   {
     id: "predator", name: "General Atomics MQ-1 Predator", category: "plane", era: "Modern", difficulty: 2,
-    aliases: ["MQ1", "RQ-1", "MQ-1", "RQ-1 Mariner", "Predator uav", "Q-1 Predator", "MQ1 Predator"],
+    aliases: ["MQ1", "RQ-1", "MQ-1", "Predator A", "RQ-1 Mariner", "Predator uav", "Q-1 Predator", "MQ1 Predator"],
     fact: "The General Atomics MQ-1 Predator (often referred to as the Predator drone ) is an American remotely piloted aircraft (RPA) built by General Atomics that was used primarily by the",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MQ-1_Predator%2C_armed_with_AGM-114_Hellfire_missiles.jpg?width=1000", credit: "Lt. Col. Leslie Pratt / Wikimedia Commons (Public domain)" },
@@ -4939,6 +4958,8 @@ const VEHICLES = [
     fact: "The KTO Rosomak ( Polish: Kołowy Transporter Opancerzony Rosomak, lit.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/KTO_Rosomak_IFV_with_ZSSW-30_RCWS.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (CC BY 3.0 pl)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Tag_der_polnischen_Streikr%C3%A4fte_%2848616742787%29.jpg?width=1000", credit: "Gerrit Burow from Berlin, Deutschland / Wikimedia Commons (CC BY 2.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SMK_120mm_RAK%2C_testy%2C_poligon_Nowa_D%C4%99ba_2019_01.jpg?width=1000", credit: "Jarosław Wolski / Wikimedia Commons (CC BY-SA 4.0)" },
     ]
   },
   {
@@ -5043,6 +5064,7 @@ const VEHICLES = [
     fact: "The Supermarine Seafire is a naval version of the Supermarine Spitfire fighter adapted for operation from aircraft carriers.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Seafire_1.jpg?width=1000", credit: "Royal Canadian Air Force / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Fleet_Air_Arm_Trials%2C_Aboard_HMS_Victorious._23-25_September_1942._A12119.jpg?width=1000", credit: "Priest, L C (Lt) / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -5083,6 +5105,7 @@ const VEHICLES = [
     fact: "The Savoia-Marchetti SM.79 Sparviero (Italian for sparrowhawk ) is a three-engined medium bomber developed and manufactured by the Italian aviation company Savoia-Marchetti.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Savoia_Marchetti_SM_79_Sparviero_in_volo.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SM79_193.jpg?width=1000", credit: "Andrea Nicola / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
@@ -5099,6 +5122,8 @@ const VEHICLES = [
     fact: "The Sopwith Triplane is a British single-seat fighter aircraft designed and manufactured by the Sopwith Aviation Company during the First World War.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sopwith_Triplane_G-BOCK.jpg?width=1000", credit: "TSRL / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SopTri5.jpg?width=1000", credit: "ADMIRALTY COLLECTION / Wikimedia Commons (PDM)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/SopTri3.jpg?width=1000", credit: "Unknown / Wikimedia Commons (PDM)" },
     ]
   },
   {
@@ -5237,11 +5262,13 @@ const VEHICLES = [
     fact: "The Lockheed T-33 Shooting Star (or T-Bird ) is a subsonic jet trainer designed and produced by the American aircraft manufacturer Lockheed.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Gjirokastra_US_airplane.jpg?width=1000", credit: "Marc Morell / Wikimedia Commons (GFDL)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T-33A-10-T-Bird.jpg?width=1000", credit: "Museum Pusat TNI AU Dirgantara Mandala, Yogyakarta, Indonesia / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/T-33_Boliviano.jpg?width=1000", credit: "Mateo33 / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
     id: "t35", name: "T-35", category: "tank", era: "WW2", difficulty: 3,
-    aliases: ["T-35 Landship"],
+    aliases: ["T-35 tank", "T-35 Landship", "T-35 heavy tank"],
     fact: "The T-35 was a Soviet multi- turreted heavy tank of the interwar period and early Second World War that saw limited service with the Red Army.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/P68l.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (Public domain)" },
@@ -5270,6 +5297,8 @@ const VEHICLES = [
     fact: "The North American Aviation T-6 Texan is a single-engined advanced trainer aircraft designed and produced by the American aircraft manufacturer North American Aviation.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/AT-6C_Texans_in_flight_1943.jpg?width=1000", credit: "USAAF / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Noorduyn_AT-16_Harvard_IIB%2C_UK_-_Air_Force_AN1449396.jpg?width=1000", credit: "Mike Freer - Touchdown-aviation / Wikimedia Commons (GFDL 1.2)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/FAC_T-6_with_phosphor_rockets_in_Korea.jpg?width=1000", credit: "USAF / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -5336,6 +5365,8 @@ const VEHICLES = [
     fact: "The Ford Trimotor (also called the \"Tri-Motor\", and nicknamed the \"Tin Goose\" ) is an American three-engined transport aircraft.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Ford_Trimotor_EAA.jpg?width=1000", credit: "Alexf / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Womens_City_Club_flyers_at_Wash._Airport.jpg?width=1000", credit: "Harris & Ewing / Wikimedia Commons (PD-1923)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/EL-2002-00560.jpg?width=1000", credit: "NASA Langley / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -5376,6 +5407,7 @@ const VEHICLES = [
     fact: "The Type 15 ( Chinese: 15式轻型坦克; pinyin: yīwǔ shì qīngxíng tǎnkè, also designated ZTQ15 ), codenamed the Black Panther ( Chinese: 黑豹; pinyin: hēi bào ), is a Chinese third generatio",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Type_15_tank_20221020.jpg?width=1000", credit: "颐园居 / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/VT-5_light_tank_of_Bangladesh_Army.jpg?width=1000", credit: "Nafis Fuad Ayon / Wikimedia Commons (CC BY-SA 2.0)" },
     ]
   },
   {
@@ -5384,6 +5416,7 @@ const VEHICLES = [
     fact: "The Type 16 MCV ( 16式機動戦闘車, ichirokushiki kidousentousha; Type 16 Maneuver Combat Vehicle) is a wheeled armored fighting vehicle of the Japan Ground Self-Defense Force (JGSDF).",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/JGSDF_Type_16_Maneuver_Combat_Vehicle_%2826-7978%29_left_front_view_at_JASDF_Hamamatsu_Air_Base_October_23%2C_2022_01.jpg?width=1000", credit: "Hunini / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Kidousentousha.jpg?width=1000", credit: "Ministry of Defense - Japan / Technical Research and Development Institute (TRDI) / Wikimedia Commons (CC BY 4.0)" },
     ]
   },
   {
@@ -5400,6 +5433,8 @@ const VEHICLES = [
     fact: "The Type 74 ( 74式戦車, nana-yon-shiki-sensha ) was a main battle tank (MBT) of the Japan Ground Self-Defense Force (JGSDF).",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Tank_type74_ja02.jpg?width=1000", credit: "Miya.m / Wikimedia Commons (CC BY-SA 2.1 jp)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/STB-1_STB-2.jpg?width=1000", credit: "1Panzerjager1 / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Type_74_Tank_rear.JPEG?width=1000", credit: "LCPL CHANCE W. HAWORTH, USMC / Wikimedia Commons (PDM)" },
     ]
   },
   {
@@ -5408,6 +5443,8 @@ const VEHICLES = [
     fact: "The Type 90 tank ( 90式戦車, Kyū-maru-shiki-sensha ) is a main battle tank (MBT) of the Japan Ground Self-Defense Force (JGSDF).",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Firing_Type_90_tank.jpg?width=1000", credit: "refeia / Wikimedia Commons (CC BY 2.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/JGSDF_MBT_Type_90_at_JGSDF_PI_center_3.jpg?width=1000", credit: "hohoho / Wikimedia Commons (CC BY-SA 2.5)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Japanese_Type_90_Tank_-_2.jpg?width=1000", credit: "User:Megapixie / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -5483,6 +5520,7 @@ const VEHICLES = [
     fact: "The Yakovlev Yak-1 ( Russian: Яковлев Як-1 ) was a Soviet fighter aircraft of World War II.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/I-26.jpg?width=1000", credit: "Unknown author Unknown author / Wikimedia Commons (PDM)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%98%D1%81%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D0%B8_%D0%AF%D0%BA-1%D0%91_14-%D0%B3%D0%BE_%D0%93%D0%98%D0%90%D0%9F_%D0%BD%D0%B0_%D0%BF%D0%BE%D0%BB%D0%B5%D0%B2%D0%BE%D0%BC_%D0%B0%D1%8D%D1%80%D0%BE%D0%B4%D1%80%D0%BE%D0%BC%D0%B5_%D0%BF%D0%B5%D1%80%D0%B5%D0%B4_%D0%B1%D0%BE%D0%B5%D0%B2%D1%8B%D0%BC_%D0%B2%D1%8B%D0%BB%D0%B5%D1%82%D0%BE%D0%BC.jpg?width=1000", credit: "Михаил Трахман / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -5499,6 +5537,8 @@ const VEHICLES = [
     fact: "The Yakovlev Yak-9 ( Russian: Яковлев Як-9; NATO reporting name: Frank ) is a single- engine, single-seat multipurpose fighter aircraft used by the Soviet Union and its allies duri",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Yak-9U_at_Central_Air_Force_Museum_Monino_pic1.JPG?width=1000", credit: "Alf van Beem / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%98%D1%81%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D0%B8_%D0%AF%D0%BA-9%D0%94_%D0%BD%D0%B0%D0%B4_%D0%A1%D0%B5%D0%B2%D0%B0%D1%81%D1%82%D0%BE%D0%BF%D0%BE%D0%BB%D0%B5%D0%BC_%286%29.jpg?width=1000", credit: "Yevgeny Khaldei (1916–1997) / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%98%D1%81%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D0%B8_%D0%AF%D0%BA-9%D0%A2_%D0%BD%D0%B0_%D0%B0%D1%8D%D1%80%D0%BE%D0%B4%D1%80%D0%BE%D0%BC%D0%B5_%D0%9F%D0%BE%D1%80%D1%82-%D0%90%D1%80%D1%82%D1%83%D1%80%D0%B0.jpg?width=1000", credit: "Yevgeny Khaldei (1916–1997) / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -5519,7 +5559,7 @@ const VEHICLES = [
   },
   {
     id: "zsu572", name: "ZSU-57-2", category: "afv", era: "Cold War", difficulty: 3,
-    aliases: ["57 ITPSV SU 57-2", "ZSU-57-2 Ob'yekt 500"],
+    aliases: ["57 ITPSV SU 57-2", "ZSU-57-2 Ob'yekt 500", "Sparka"],
     fact: "The ZSU-57-2 Ob'yekt 500 is a Soviet self-propelled anti-aircraft gun (SPAAG), armed with two 57 mm autocannons.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/ZSU-57-2_Hun_2010_02.jpg?width=1000", credit: "User:VargaA / Wikimedia Commons (CC BY-SA 4.0)" },
@@ -5560,9 +5600,9 @@ const VEHICLES = [
     ]
   },
   {
-    id: "sparka", name: "Sparka", category: "afv", era: "Cold War", difficulty: 3,
-    aliases: ["ZSU-57-2 Sparka", "Type 80 SPAAG"],
-    fact: "A twin 57 mm self-propelled anti-aircraft gun; 'sparka' is Russian for a coupled pair.",
+    id: "sparka", name: "Type 80 SPAAG", category: "afv", era: "Cold War", difficulty: 3,
+    aliases: ["Type 80", "WZ305", "Sparka", "Type 80 anti-aircraft"],
+    fact: "China's twin 57 mm anti-aircraft tank, closely modelled on the Soviet ZSU-57-2 and built on a Type 69 hull.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Type_80_57mm_anti-aircraft_artillery_20251112.jpg?width=1000", credit: "颐园居 / Wikimedia Commons (CC BY-SA 4.0)" },
     ]

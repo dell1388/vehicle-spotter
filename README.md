@@ -81,9 +81,9 @@ trustworthy if the player can see why it let something through.
 
 ### Tests
 
-`node tests/match.test.js` runs ~128,000 assertions. Alongside the hand-written
-cases it sweeps every alias of every vehicle against every *other* vehicle and
-fails on any cross-match. That sweep is what found every strictness rule above:
+`node tests/match.test.js` runs ~1.9 million assertions. Alongside the
+hand-written cases it sweeps every alias of every vehicle against every *other*
+vehicle. That sweep is what found every strictness rule above:
 `fork`/`ford` and `M4A1`/`M1A1` at 32 vehicles, then `CH-47`/`M47`/`P-47`,
 `AH-64`/`T-64` and `blackjack`/`blackhawk` when the set grew to 171. It also
 caught a subtler one — `A-10` and `IS-2` lose their designation entirely if "a"
@@ -98,20 +98,29 @@ version of that test asserted the blanket rule and failed, which is how the real
 boundary got written down.
 
 `node tests/data.test.js` checks the shape of every record: unique ids, a known
-category and era, between one and three images, every image with a credit, and
+category and era, between one and four images, every image with a credit, and
 no credit leaking a filename. It also checks the builder's candidate queue.
 
 `node tests/corrections.test.js` covers the corrections overlay separately:
 that renaming leaves the dataset row untouched, that a struck-off spelling
 really stops being accepted, that corrections survive a reload, that every kind
-can be undone, and that corrupt or hostile stored JSON is ignored rather than
-trusted.
+can be undone, that corrupt or hostile stored JSON is ignored rather than
+trusted, and that a correction stored under a missing id — which would apply to
+no vehicle and could never be found again to undo — is dropped on load and
+refused on write.
 
-Some ambiguity is allowed through on purpose, because it is real: "Mustang" is
-honestly both a P-51 and a Ford, "Tiger" is both marks of Tiger, "Hellcat" is
-an F6F and an M18, and a Firefly *is* a Sherman. Each is accepted for whichever
-vehicle the round is asking about; anything longer still separates them. The
-list is spelled out in the test file.
+Two entries sharing an answer is fine and expected, so the sweep does not fail
+on it: "Mustang" is honestly both a P-51 and a Ford, "Thunderbolt" both a P-47
+and an A-10, "Comet" both an airliner and a tank. Only someone who already
+knows the answer types one of those, the two are never confusable on sight, and
+a round only ever asks about one of them. 78 answers currently land that way.
+
+What the sweep does fail on is a cross-match the fuzzy paths reached by
+*accident* — "Hornet" read as a typo for "Kornet", "Type 10" covering "A-10",
+"22 M" covering "M22". So the rule is about how the match was reached, not that
+it happened: a cross-match passes when the two spellings share whole words (one
+is a run of the other's, with no edit-distance slack) and fails otherwise.
+Every real matcher bug so far has been of the second kind.
 
 ## Game
 

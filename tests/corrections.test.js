@@ -222,6 +222,26 @@ const spitfire = VEHICLES.find((v) => v.id === "spitfire");
   check("non-string aliases rejected on load", odd.C.apply(spitfire) === spitfire, true);
 }
 
+/* --- corrections stored under a missing id -------------------------------
+ * An earlier version could key a rename by an undefined id; such an entry
+ * applies to no vehicle and cannot be found again to undo it, so it is
+ * dropped on load and refused on write. */
+{
+  const stray = freshCorrections(
+    '{"names":{"undefined":{"to":"A129"}},"aliases":{"null":["x"]},' +
+    '"added":{"":[{"url":"http://e/x.jpg"}]},"hidden":{"undefined":true}}');
+  check("stray-id corrections dropped on load", stray.C.count(), 0);
+
+  const live = freshCorrections();
+  check("rename with no vehicle refused",
+    typeof live.C.rename(undefined, "A129"), "string");
+  check("alias under a stray id refused",
+    typeof live.C.addAlias(undefined, "Mangusta"), "string");
+  check("photo under a stray id refused",
+    typeof live.C.addImage(undefined, "http://e/x.jpg", "someone"), "string");
+  check("nothing was stored", live.C.count(), 0);
+}
+
 /* ------------------------------------------------------------------------ */
 console.log(`\n${pass} assertions passed`);
 if (failures.length) {
