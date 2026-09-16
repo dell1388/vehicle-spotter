@@ -86,6 +86,10 @@ const Builder = (function () {
       ? "Found on the <strong>" + escapeHtml(current.hint) + "</strong> page, but the " +
         "filename did not match it, so it may be a variant, a relative, or something else entirely."
       : "";
+    /* The article the picture came from is a fair opening guess. */
+    if (current.category) $("identifyCategory").value = current.category;
+    if (current.era) $("identifyEra").value = current.era;
+
     $("identifyName").value = "";
     $("identifyName").focus();
   }
