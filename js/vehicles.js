@@ -3429,6 +3429,7 @@ const VEHICLES = [
     fact: "The Dassault/Dornier Alpha Jet is a light attack jet and advanced jet trainer co-manufactured by Dassault Aviation of France and Dornier Flugzeugwerke of Germany.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Alpha_Jet_-_RIAT_2007_%282544737153%29.jpg?width=1000", credit: "Tim Felce (Airwolfhound) / Wikimedia Commons (CC BY-SA 2.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Alfa.jpg?width=1000", credit: "SoAres / Wikimedia Commons (CC BY-SA 2.5)" },
     ]
   },
   {
@@ -3469,6 +3470,7 @@ const VEHICLES = [
     fact: "The Antonov An-22 \"Antei\" ( Russian: Ан-22 Антей, romanized: An-22 Antey; literal translation</span>\"}]],\"parts\":[{\"template\":{\"target\":{\"wt\":\"lit\",\"href\":\"./Template:Lit\"},\"params",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Antonov_An-22A_Antei%2C_Russia_-_Air_Force_AN2203462.jpg?width=1000", credit: "Toshi Aoki - JP Spotters / Wikimedia Commons (CC BY-SA 3.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/An-22._Bottom_view.jpg?width=1000", credit: "Ministry of Defense of Russia / Wikimedia Commons (CC BY 4.0)" },
     ]
   },
   {
@@ -3854,6 +3856,8 @@ const VEHICLES = [
     fact: "The Saab 35 Draken ( IPA: [ ²drɑːkɛn ]; The Kite, ambiguous with The Dragon ) is a Swedish fighter-interceptor developed and manufactured by Svenska Aeroplan Aktiebolaget ( SAAB )",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/J_35F_1972_%28cropped%2C_removal_of_damage_and_dirt_using_clone_tool%29.jpg?width=1000", credit: "Blockhaj / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/A-sample-of-the-new-Swedish-fighter-plane-Dragon-391772991791.jpg?width=1000", credit: "Unknown photographer / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/FVMF.002888_%28cropped%29.jpg?width=1000", credit: "Unknown author / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -4005,6 +4009,7 @@ const VEHICLES = [
     fact: "The Fiat G.91 is a jet fighter aircraft designed and built by the Italian aircraft manufacturer Fiat Aviazione, which later merged into Aeritalia.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Luftwaffe_Museum_Fiat_G91_2007.jpg?width=1000", credit: "Pajx / Wikimedia Commons (CC BY-SA 2.5)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/G-91_at_Malignani.JPG?width=1000", credit: "Endeavour88 at English Wikipedia / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -4175,6 +4180,7 @@ const VEHICLES = [
     fact: "The Ilyushin Il-18 ( Russian: Илью́шин Ил-18; NATO reporting name: Coot ) is a large turboprop airliner that first flew in 1957 and became one of the best known Soviet aircraft of its era.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Rossiya_Ilyushin_Il-18.jpg?width=1000", credit: "Sergey Riabsev / Wikimedia Commons (GFDL 1.2)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IL-18-700px.jpg?width=1000", credit: "Unknown / Wikimedia Commons (CC BY-SA 2.5)" },
     ]
   },
   {
@@ -4612,6 +4618,7 @@ const VEHICLES = [
     fact: "The Mikoyan-Gurevich MiG-17 ( Russian: Микоян и Гуревич МиГ-17; NATO reporting name: Fresco ) is a transonic fighter aircraft that was produced in the Soviet Union from 1952 and wa",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MiG-17_Takes_to_the_Sky_%28cropped%29.jpg?width=1000", credit: "Balon Greyjoy / Wikimedia Commons (CC0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/PZL-Mielec_Lim-5_%27408%27_%2813291122204%29.jpg?width=1000", credit: "Alan Wilson / Wikimedia Commons (CC BY-SA 2.0)" },
     ]
   },
   {
@@ -4620,6 +4627,7 @@ const VEHICLES = [
     fact: "The Mikoyan MiG-27 ( Russian: Микоян МиГ-27; NATO reporting name: Flogger-D/J ) is a variable-sweep ground-attack aircraft, originally built by the Mikoyan-Gurevich design bureau i",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/MiG-27_%28cropped%29.jpg?width=1000", credit: "Rob Schleiffert / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sri_Lanka_Military_0031.jpg?width=1000", credit: "Chamal Pathirana / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
@@ -4720,6 +4728,7 @@ const VEHICLES = [
     fact: "The Dassault M.D.450 Ouragan ( French: Hurricane ) is a French fighter-bomber developed and produced by Dassault Aviation.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Dassault_Ouragan.jpg?width=1000", credit: "Groumfy69 / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/IC578_%2813988546811%29.jpg?width=1000", credit: "Alec Wilson from Hampton-in-Arden, UK / Wikimedia Commons (CC BY-SA 2.0)" },
     ]
   },
   {
@@ -5048,6 +5057,7 @@ const VEHICLES = [
     fact: "The Hawker Sea Fury is a British fighter aircraft designed and manufactured by Hawker Aircraft.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Hawker_Fury_FB.11_%E2%80%98SR661%E2%80%99_%28G-CBEL%29_%2835902999510%29.jpg?width=1000", credit: "Alan Wilson from Stilton, Peterborough, Cambs, UK / Wikimedia Commons (CC BY-SA 2.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Airplane_in_Museo_Giron.jpg?width=1000", credit: "Panther / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
@@ -5189,6 +5199,8 @@ const VEHICLES = [
     fact: "The Sukhoi Su-17 ( Russian: Су-17; NATO reporting name: Fitter ) is a variable-sweep wing fighter-bomber developed for the Soviet military.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Vietnamese_Su-22M4_with_Kh-25s.jpg?width=1000", credit: "Hoangprs5 / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Su-17M.jpg?width=1000", credit: "Unknown / Wikimedia Commons (PDM)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Su-20_Military_Museum_of_Egypt.jpg?width=1000", credit: "LeCaire / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -5213,6 +5225,7 @@ const VEHICLES = [
     fact: "The Sukhoi Su-7 ( NATO designation name: Fitter-A ) is a swept wing, supersonic fighter aircraft developed by the Soviet Union in 1955.",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sukhoi_Su-7BKL%2C_Poland_-_Air_Force_AN2202869.jpg?width=1000", credit: "Mike Freer - Touchdown-aviation / Wikimedia Commons (GFDL 1.2)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Su-7B_Fitter_A.jpg?width=1000", credit: "Victor12 at en.wikipedia, derivative by F l a n k e r / Wikimedia Commons (Public domain)" },
     ]
   },
   {
@@ -5246,6 +5259,7 @@ const VEHICLES = [
     fact: "The Dassault-Breguet Super Étendard ( Étendard is French for \" battle flag \", cognate to English \"standard\") is a French retired carrier-borne strike fighter aircraft designed and",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Super_Etendard_-_RIAT_2005_%28cropped%29.jpg?width=1000", credit: "Tim Felce (Airwolfhound) / Wikimedia Commons (CC BY-SA 2.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/CdG-photo173.jpg?width=1000", credit: "Guillaume Rueda / Wikimedia Commons (CC BY-SA 3.0)" },
     ]
   },
   {
@@ -5399,6 +5413,8 @@ const VEHICLES = [
     fact: "The Saab 29 Tunnan (\"The Barrel\"), colloquially Flygande Tunnan, or The Flying Barrel in English, is an early jet-powered fighter aircraft designed and produced by the Swedish airc",
     images: [
       { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Saab_J_29F_Tunnan_29670_SE-DXB_p%C3%A5_uppvisning_i_Karlstad_2025_%28cropped%29.jpg?width=1000", credit: "TunaFish Spotting / Wikimedia Commons (CC BY-SA 4.0)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/J-29_jets_in_the_Congo.jpg?width=1000", credit: "unknown, Swedish Air Force / Wikimedia Commons (Public domain)" },
+      { url: "https://commons.wikimedia.org/wiki/Special:FilePath/J_29A2.jpg?width=1000", credit: "Unknown author / Wikimedia Commons (Public domain)" },
     ]
   },
   {
