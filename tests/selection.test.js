@@ -25,17 +25,20 @@ function play(pool, rounds, opts) {
     used: Object.create(null),
     correctIds: Object.create(null),
     learned: o.learned || Object.create(null),
+    due: o.due || Object.create(null),
     skipLearned: o.skipLearned !== false
   };
   const shown = [];
+  let reviews = 0;
   for (let i = 0; i < rounds; i++) {
     const v = Picker.chooseNext({
       available: pool, used: state.used, correctIds: state.correctIds,
-      learned: state.learned, skipLearned: state.skipLearned,
-      roundIndex: i, random: random
+      learned: state.learned, due: state.due, reviewsSoFar: reviews,
+      skipLearned: state.skipLearned, roundIndex: i, random: random
     });
     if (!v) break;
     state.used[v.id] = true;
+    if (state.learned[v.id]) reviews += 1;
     shown.push(v.id);
     if (o.getRight ? o.getRight(v, i) : true) {
       state.correctIds[v.id] = true;
@@ -167,6 +170,48 @@ const tanks = VEHICLES.filter((v) => v.category === "tank");
   }
   ok("40 rounds over the full set repeat nothing" + (repeated ? ` (seed ${repeated})` : ""),
      !repeated);
+}
+
+/* --- vehicles due for review are asked before new material --------------- */
+{
+  const twenty = tanks.slice(0, 20);
+  const learned = Object.create(null);
+  const due = Object.create(null);
+  twenty.slice(0, 3).forEach((v) => { learned[v.id] = { n: 1 }; due[v.id] = true; });
+  // Six more are known but not yet due, so they must stay out of the way.
+  twenty.slice(3, 9).forEach((v) => { learned[v.id] = { n: 1 }; });
+
+  const { shown } = play(twenty, 6, { learned, due, getRight: () => false });
+  ok("the first round is a review", !!due[shown[0]]);
+  eq("all three due ones appear", shown.filter((id) => due[id]).length, 3);
+  eq("none of the not-yet-due known ones appear",
+     shown.filter((id) => learned[id] && !due[id]), []);
+}
+
+/* --- but a game is never all revision ------------------------------------ */
+{
+  const forty = tanks.slice(0, 40);
+  const learned = Object.create(null);
+  const due = Object.create(null);
+  forty.slice(0, 30).forEach((v) => { learned[v.id] = { n: 1 }; due[v.id] = true; });
+
+  const { shown } = play(forty, 10, { learned, due, getRight: () => false });
+  const reviewed = shown.filter((id) => due[id]).length;
+  ok(`at most half a game goes on review (was ${reviewed}/10)`,
+     reviewed <= Math.ceil(10 * Picker.REVIEW_SHARE));
+  ok("the rest is new material", shown.length === 10 && reviewed < 10);
+}
+
+/* --- with nothing new left, review fills the game ------------------------ */
+{
+  const five = tanks.slice(0, 5);
+  const learned = Object.create(null);
+  const due = Object.create(null);
+  five.forEach((v) => { learned[v.id] = { n: 1 }; due[v.id] = true; });
+
+  const { shown } = play(five, 5, { learned, due, getRight: () => false });
+  eq("every round is a review when everything is known", shown.length, 5);
+  eq("and nothing repeats while others are unseen", new Set(shown).size, 5);
 }
 
 /* --- an empty pool ends the game rather than looping --------------------- */

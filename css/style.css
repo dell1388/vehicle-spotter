@@ -789,3 +789,74 @@ body.playing .sitefoot { display: none; }
 .draft-body { display: flex; flex-direction: column; gap: 2px; flex: 1 1 auto; min-width: 0; }
 .draft-name { font-weight: 600; }
 .draft-meta { color: var(--text-faint); font-size: 12px; }
+
+/* ------------------------------------------------------------- your record */
+
+.stats-bars { display: grid; gap: 6px; margin: 10px 0 4px; }
+
+.stats-row {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.stats-label { color: var(--text-dim); }
+
+.stats-track {
+  height: 6px;
+  background: var(--bg-sunk);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stats-fill { display: block; height: 100%; background: var(--good); border-radius: 3px; }
+
+.stats-value { color: var(--text-dim); font-variant-numeric: tabular-nums; }
+.stats-value small { color: var(--text-faint); }
+
+.stats-head {
+  margin: 14px 0 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  font-weight: 600;
+}
+
+.stats-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.stats-list strong { color: var(--text); font-weight: 600; }
+
+/* --------------------------------------------------------- daily challenge */
+
+.share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+}
+
+.share-grid {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  font-family: inherit;
+  white-space: pre-wrap;
+  word-break: break-all;
+  text-align: center;
+}
+
+@media (max-width: 420px) {
+  .stats-row { grid-template-columns: 76px 1fr auto; font-size: 12px; }
+  .share-grid { font-size: 18px; letter-spacing: 1px; }
+}

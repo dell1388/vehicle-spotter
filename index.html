@@ -24,6 +24,8 @@
       Name what is in the photo — tanks, aircraft, helicopters, missiles and
       artillery. Spelling is forgiving: nicknames, designations and typos all
       count, and most entries have several photos so you cannot go by the picture.
+      Anything you miss comes back next game; anything you get right comes back
+      later, at widening intervals, so it sticks.
     </p>
 
     <div class="panel">
@@ -53,8 +55,8 @@
       </label>
       <label class="toggle">
         <input type="checkbox" id="skipLearnedToggle" checked>
-        <span>Hold back ones you know <em>— vehicles you have named correctly
-          wait until the rest have been seen</em></span>
+        <span>New material first <em>— ones you have named correctly come back
+          only when they are due for review</em></span>
       </label>
     </div>
 
@@ -76,8 +78,19 @@
       </div>
     </div>
 
+    <div class="panel" id="statsPanel" hidden>
+      <h2 class="panel-title">Your record</h2>
+      <p class="progress-note" id="statsOverall"></p>
+      <div class="stats-bars" id="statsByCategory"></div>
+      <div id="statsConfusions"></div>
+      <div class="corrections-actions">
+        <button class="btn btn-ghost" type="button" id="resetStatsBtn">Clear record</button>
+      </div>
+    </div>
+
     <p class="pool-note" id="poolNote"></p>
     <button class="btn btn-primary btn-lg" id="startBtn">Start game</button>
+    <button class="btn btn-lg btn-secondary" id="dailyBtn">Daily challenge</button>
     <button class="btn btn-lg btn-secondary" id="browseBtn">Browse &amp; fix entries</button>
     <button class="btn btn-lg btn-secondary" id="createBtn">Create entries</button>
   </section>
@@ -220,6 +233,10 @@
       <div class="stat"><span class="stat-label">Best streak</span><span class="stat-value" id="finalStreak">0</span></div>
       <div class="stat"><span class="stat-label">High score</span><span class="stat-value" id="finalBest">0</span></div>
     </div>
+    <div class="share" id="sharePanel" hidden>
+      <pre class="share-grid" id="shareGrid"></pre>
+      <button class="btn btn-secondary" type="button" id="shareBtn">Copy result</button>
+    </div>
     <div class="review" id="review"></div>
     <div class="results-actions">
       <button class="btn btn-primary btn-lg" id="againBtn">Play again</button>
@@ -252,10 +269,22 @@
 <script src="js/vehicles.js"></script>
 <script src="js/match.js"></script>
 <script src="js/picker.js"></script>
+<script src="js/srs.js"></script>
+<script src="js/daily.js"></script>
 <script src="js/candidates.js"></script>
 <script src="js/drafts.js"></script>
 <script src="js/corrections.js"></script>
 <script src="js/builder.js"></script>
 <script src="js/game.js"></script>
+<script>
+/* Photos come from Wikimedia Commons, which rate-limits hard; a cached run
+ * survives that, and works with no connection at all. Needs a real origin, so
+ * it is skipped when the page is opened straight off disk. */
+if ("serviceWorker" in navigator && location.protocol.indexOf("http") === 0) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("sw.js").catch(function () { /* fine without */ });
+  });
+}
+</script>
 </body>
 </html>

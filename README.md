@@ -16,13 +16,18 @@ js/vehicles.js      the dataset
 js/candidates.js    pictures with no name yet, for the entry builder
 js/match.js         answer matching
 js/picker.js        which vehicle to ask about next
+js/srs.js           the review schedule, and what you keep getting wrong
+js/daily.js         the daily challenge: the date picks the game
 js/corrections.js   player-supplied fixes to the dataset
 js/drafts.js        entries the player creates
 js/builder.js       the entry builder screen
 js/game.js          game loop, scoring, filters, persistence
+sw.js               offline cache: app shell and every photo you have seen
 tests/data.test.js         dataset integrity — node tests/data.test.js
 tests/match.test.js        matcher — node tests/match.test.js
 tests/selection.test.js    round selection — node tests/selection.test.js
+tests/srs.test.js          review schedule and stats — node tests/srs.test.js
+tests/daily.test.js        daily challenge — node tests/daily.test.js
 tests/corrections.test.js  corrections overlay — node tests/corrections.test.js
 ```
 
@@ -128,8 +133,10 @@ Every real matcher bug so far has been of the second kind.
   updates live.
 - **Difficulty scaling** — the first rounds stay on well-known vehicles, then the
   ceiling lifts and later rounds favour the harder end of what is open.
-- **No repeats of what you know** — a vehicle you name correctly does not come
-  round again (see below).
+- **Spaced review** — miss a vehicle and it is back in the next game; name it
+  and it waits longer each time before returning (see below).
+- **Daily challenge** — ten vehicles chosen by the date, the same ten for
+  everyone, playable once a day, with a grid you can paste anywhere.
 - **Timer mode** — 30 seconds a round, with a speed bonus for answering fast.
 - **Hints** — reveal one letter at a time, 25 points each.
 - **Scoring** — 100 × difficulty, plus 10 per streak step (capped at 10), plus up
@@ -137,6 +144,11 @@ Every real matcher bug so far has been of the second kind.
 - **Endless mode** — keep going until you stop; otherwise a game is 10 rounds.
 - **High score and best streak** persist in `localStorage`, guarded so the game
   still works where site data is blocked.
+- **Your record** — accuracy per category, the vehicles still catching you out,
+  and the pairs you mix up most ("called the MiG-27 a MiG-23").
+- **Works offline** — a service worker keeps the app and every photo you have
+  already been shown, which also sidesteps Commons rate-limiting mid-game. It
+  needs a real origin, so it is skipped when the page is opened off disk.
 
 The game screen is pinned to the viewport height: the photo shrinks to make room
 for the answer panel rather than pushing it down the page, so nothing scrolls
@@ -145,29 +157,68 @@ between questions and the vehicle stays visible while you read what it was.
 The photo credit is deliberately held back until after you answer — photographer
 names and filenames give the answer away more often than you would think.
 
-## What you already know
+## Coming back round
 
-Being asked the same vehicle twice in one sitting, after getting it right the
-first time, is the annoying case. So a vehicle named correctly is not asked
-again, and the record persists: **Hold back ones you know** (on by default)
-keeps vehicles you have already named waiting until the rest have been seen.
+The first version retired a vehicle for good the moment you named it. That is
+the wrong shape for something you are meant to learn from: the repetition that
+makes a name stick is the one a week later, when you have half forgotten it, and
+that repetition never happened.
+
+So every answered round, right or wrong, schedules the vehicle's next showing.
+A correct answer widens the gap — 1 game, then 3, then 7, 16, 35 — and a miss
+resets it to the very next game. The clock is **games played, not calendar
+time**: someone who plays three games on Sunday and nothing until Friday should
+get the same sequence either way, and games played is the only clock that
+behaves like that.
 
 Rounds are chosen one at a time rather than as a queue up front, because the
 choice has to react to what you actually get right. Each round takes the first
 tier that has anything in it:
 
-1. not seen this game, and never named correctly before
-2. not seen this game — known ones, once the unknown run out
-3. seen this game but *not* named correctly — the ones you are still missing
-4. anything, when the filters leave too small a pool to do better
+1. due for review — missed last game, or the spacing has come round
+2. not seen this game, and never named correctly before
+3. due for review, once this game's share of revision is spent
+4. not seen this game — known ones, when the new material runs out
+5. seen this game but *not* named correctly — the ones you are still missing
+6. anything, when the filters leave too small a pool to do better
 
-Tier 3 is the one that does the work: a vehicle you named correctly can only
-reappear via tier 4, which needs every other tier to be empty — meaning you have
-named everything the filters allow. Tier 3 also means the ones you *missed* come
-back around, which is the half of the behaviour worth having.
+Tier 5 is what stops a vehicle you just named from coming round again inside the
+same game: it is only reachable from tier 6, which needs every other tier to be
+empty — meaning you have named everything the filters allow.
 
-The setup screen shows how many you have named, and **Reset progress** clears
-that record without touching your high score or corrections.
+The cap in tier 3 matters as much as the schedule. With a long history almost
+everything can be due at once, and a session that is nothing but revision stops
+teaching, so at most half a game goes on vehicles you have seen before
+(`Picker.REVIEW_SHARE`). **New material first** (on by default) is what puts new
+vehicles ahead of early reviews; turn it off and reviews come first throughout.
+
+The setup screen shows how many you have named and how many are due, and
+**Reset progress** clears the schedule without touching your high score,
+your record or your corrections.
+
+## The daily challenge
+
+Ten vehicles, the same ten for everyone, derived from the date and nothing else
+— no server, no list to download. The date string seeds a small PRNG
+(mulberry32) which picks from the set sorted by id, so the dataset's own
+ordering cannot leak into the choice. Filters and the review schedule are
+ignored: the point is that two people can compare the same round.
+
+It is playable once a day; after that the day's result comes back instead, with
+a grid (🟩 right, 🟨 timed out, 🟥 wrong) you can copy. The share text never
+names a vehicle, so pasting it cannot spoil the day for anyone.
+
+Adding vehicles does change what an unplayed day would have asked. Freezing a
+list would avoid that, but a growing set is worth more than a stable past.
+
+## Your record
+
+Every answered round is counted, and when you get one wrong the matcher is run
+over the rest of the set to work out which vehicle your answer *would* have been
+right for. "Wrong" teaches nothing; "you called the MiG-27 a MiG-23, twice"
+teaches quite a lot. The setup screen shows accuracy per category, the vehicles
+you miss most often, and the pairs you mix up — and **Clear record** empties it
+without disturbing the review schedule.
 
 ## Creating entries
 

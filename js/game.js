@@ -22,6 +22,10 @@
     progressPanel: $("progressPanel"), progressNote: $("progressNote"),
     progressFill: $("progressFill"), resetProgressBtn: $("resetProgressBtn"),
     poolNote: $("poolNote"), startBtn: $("startBtn"), browseBtn: $("browseBtn"),
+    dailyBtn: $("dailyBtn"), statsPanel: $("statsPanel"), statsOverall: $("statsOverall"),
+    statsByCategory: $("statsByCategory"), statsConfusions: $("statsConfusions"),
+    resetStatsBtn: $("resetStatsBtn"),
+    sharePanel: $("sharePanel"), shareGrid: $("shareGrid"), shareBtn: $("shareBtn"),
     createBtn: $("createBtn"), create: $("createScreen"), createBackBtn: $("createBackBtn"),
     correctionsPanel: $("correctionsPanel"), correctionsList: $("correctionsList"),
     exportBtn: $("exportBtn"), clearCorrectionsBtn: $("clearCorrectionsBtn"),
@@ -54,7 +58,10 @@
   /* Private browsing and blocked site data both make localStorage throw, so
    * every access is guarded and the game plays fine without it. */
   function loadStore() {
-    const blank = { highScore: 0, bestStreak: 0, learned: {} };
+    const blank = {
+      highScore: 0, bestStreak: 0, games: 0,
+      learned: {}, stats: SRS.blankStats(), daily: {}
+    };
     let parsed;
     try {
       const raw = window.localStorage.getItem(STORE_KEY);
@@ -65,18 +72,64 @@
     }
     if (!parsed || typeof parsed !== "object") return blank;
 
+    /* Records written before the review schedule existed carry only n and at.
+     * They are kept and treated as due: a vehicle named once long ago is
+     * exactly what the player should be asked again. */
     const learned = {};
     if (parsed.learned && typeof parsed.learned === "object") {
       Object.keys(parsed.learned).forEach(function (id) {
         const rec = parsed.learned[id];
         const times = Number(rec && rec.n);
-        if (times > 0) learned[id] = { n: times, at: Number(rec.at) || 0 };
+        if (!(times > 0)) return;
+        learned[id] = {
+          n: times,
+          at: Number(rec.at) || 0,
+          right: Number(rec.right) || times,
+          wrong: Number(rec.wrong) || 0,
+          streak: Number(rec.streak) || 0,
+          due: Number(rec.due) || 0
+        };
       });
     }
+
+    const stats = SRS.blankStats();
+    const seen = parsed.stats && parsed.stats.seen;
+    if (seen && typeof seen === "object") {
+      Object.keys(seen).forEach(function (id) {
+        const asked = Number(seen[id] && seen[id].asked);
+        if (asked > 0) {
+          stats.seen[id] = { asked: asked, right: Number(seen[id].right) || 0 };
+        }
+      });
+    }
+    const confused = parsed.stats && parsed.stats.confused;
+    if (confused && typeof confused === "object") {
+      Object.keys(confused).forEach(function (key) {
+        const n = Number(confused[key]);
+        if (n > 0 && key.indexOf(">") > 0) stats.confused[key] = n;
+      });
+    }
+
+    const daily = {};
+    if (parsed.daily && typeof parsed.daily === "object") {
+      Object.keys(parsed.daily).forEach(function (key) {
+        const rec = parsed.daily[key];
+        if (rec && typeof rec === "object" && typeof rec.marks === "string") {
+          daily[key] = { score: Number(rec.score) || 0,
+                         right: Number(rec.right) || 0,
+                         rounds: Number(rec.rounds) || 0,
+                         marks: rec.marks };
+        }
+      });
+    }
+
     return {
       highScore: Number(parsed.highScore) || 0,
       bestStreak: Number(parsed.bestStreak) || 0,
-      learned: learned
+      games: Number(parsed.games) || 0,
+      learned: learned,
+      stats: stats,
+      daily: daily
     };
   }
 
@@ -91,13 +144,35 @@
   /* A vehicle counts as known once it has been named correctly. The record is
    * kept so the picker can hold it back in later games too, not just this one. */
   function isLearned(id) {
-    return Object.prototype.hasOwnProperty.call(store.learned, id);
+    const rec = store.learned[id];
+    return !!(rec && rec.n > 0);
   }
 
-  function markLearned(id) {
-    const prev = store.learned[id];
-    store.learned[id] = { n: (prev ? prev.n : 0) + 1, at: Date.now() };
+  /* Every answered round, right or wrong, moves the vehicle along its review
+   * schedule and goes into the stats. A miss sets the record's due to the next
+   * game, which is what brings missed vehicles straight back. */
+  function recordAnswer(id, wasCorrect, guessedId) {
+    store.learned[id] = SRS.schedule(store.learned[id], wasCorrect, store.games);
+    if (!wasCorrect && !store.learned[id].n) {
+      // Never named correctly: keep the schedule, but it is not "learned" yet,
+      // so the progress count and the skip-learned filter ignore it.
+      store.learned[id].n = 0;
+    }
+    store.stats = SRS.record(store.stats, id, wasCorrect, guessedId);
     saveStore(store);
+  }
+
+  /* Which vehicle the player's answer would have been right for, when it was
+   * right for something. Only runs on a wrong answer, once per round. */
+  function whatTheyMeant(answer, exceptId) {
+    const text = String(answer || "").trim();
+    if (text.length < 2) return null;
+    const all = allVehicles();
+    for (let i = 0; i < all.length; i++) {
+      if (all[i].id === exceptId) continue;
+      if (VSMatch.check(text, corrected(all[i])).verdict === "correct") return all[i].id;
+    }
+    return null;
   }
 
   /* Known vehicles that the current filters could actually show. */
@@ -108,14 +183,70 @@
   function renderProgress() {
     const total = allVehicles().length;
     const known = Object.keys(store.learned).filter(function (id) {
-      return allVehicles().some(function (v) { return v.id === id; });
+      return isLearned(id) && allVehicles().some(function (v) { return v.id === id; });
     }).length;
 
     el.progressPanel.hidden = known === 0;
     if (!known) return;
 
-    el.progressNote.textContent = known + " of " + total + " named correctly.";
+
+    const due = SRS.dueCount(store.learned, store.games, allVehicles());
+    el.progressNote.textContent = known + " of " + total + " named correctly" +
+      (due ? " — " + due + " due for review." : ".");
     el.progressFill.style.width = Math.round(known / total * 100) + "%";
+  }
+
+  /* What the player keeps getting wrong, which is the part worth showing. */
+  function renderStats() {
+    const all = allVehicles();
+    const totals = SRS.totals(store.stats);
+    el.statsPanel.hidden = totals.asked < 5;
+    if (el.statsPanel.hidden) return;
+
+    const pct = Math.round(totals.right / totals.asked * 100);
+    el.statsOverall.textContent =
+      totals.right + " right out of " + totals.asked + " asked (" + pct + "%)" +
+      ", across " + store.games + " game" + (store.games === 1 ? "" : "s") + ".";
+
+    const byCat = SRS.byCategory(store.stats, all);
+    el.statsByCategory.innerHTML = Object.keys(byCat).sort(function (a, b) {
+      return byCat[b].asked - byCat[a].asked;
+    }).map(function (cat) {
+      const row = byCat[cat];
+      const share = Math.round(row.right / row.asked * 100);
+      return '<div class="stats-row">' +
+        '<span class="stats-label">' + escapeHtml(categoryLabel(cat)) + "</span>" +
+        '<span class="stats-track"><span class="stats-fill" style="width:' +
+        share + '%"></span></span>' +
+        '<span class="stats-value">' + share + "% <small>of " + row.asked + "</small></span>" +
+        "</div>";
+    }).join("");
+
+    const names = {};
+    all.forEach(function (v) { names[v.id] = corrected(v).name; });
+
+    const pairs = SRS.confusions(store.stats, 5).filter(function (c) {
+      return names[c.was] && names[c.said];
+    });
+    const weak = SRS.weakest(store.stats, 5).filter(function (w) { return names[w.id]; });
+
+    let html = "";
+    if (pairs.length) {
+      html += '<h3 class="stats-head">Most often mixed up</h3><ul class="stats-list">' +
+        pairs.map(function (c) {
+          return "<li>Called the <strong>" + escapeHtml(names[c.was]) +
+                 "</strong> a <strong>" + escapeHtml(names[c.said]) + "</strong>" +
+                 (c.times > 1 ? " ×" + c.times : "") + "</li>";
+        }).join("") + "</ul>";
+    }
+    if (weak.length) {
+      html += '<h3 class="stats-head">Still catching you out</h3><ul class="stats-list">' +
+        weak.map(function (w) {
+          return "<li><strong>" + escapeHtml(names[w.id]) + "</strong> — " +
+                 w.right + " of " + w.asked + "</li>";
+        }).join("") + "</ul>";
+    }
+    el.statsConfusions.innerHTML = html;
   }
 
   function renderBest() {
@@ -330,21 +461,84 @@
     history: [], current: null, upcoming: null, hintsUsed: 0, retried: false,
     timerId: null, remaining: 0, endless: false, timed: false, awaiting: false,
     lastAnswer: "", resolvedAs: null, image: null, upcomingImage: null,
-    used: Object.create(null), correctIds: Object.create(null), skipLearned: true
+    used: Object.create(null), correctIds: Object.create(null), skipLearned: true,
+    reviews: 0, daily: null, queue: null, pending: null
   };
 
   /* Round selection lives in js/picker.js so its rules can be tested directly.
    * Selection happens a round at a time rather than up front, because the
    * choice has to react to what the player actually gets right. */
   function chooseNext(roundIndex) {
+    // The daily challenge is a fixed list, so the picker sits it out.
+    if (game.queue) return game.queue[roundIndex] || null;
+
     return Picker.chooseNext({
       available: pool(),
       used: game.used,
       correctIds: game.correctIds,
       learned: store.learned,
+      due: SRS.dueMap(store.learned, store.games),
+      reviewsSoFar: game.reviews,
       skipLearned: game.skipLearned,
       roundIndex: roundIndex
     });
+  }
+
+  /* ------------------------------------------------------- daily challenge -- */
+
+  function startDaily() {
+    const key = Daily.todayKey();
+    const done = store.daily[key];
+    if (done) {
+      showDailyResult(key, done);
+      return;
+    }
+    const queue = Daily.pick(allVehicles(), key, Daily.ROUNDS);
+    if (!queue.length) return;
+    startGame({ daily: key, queue: queue });
+  }
+
+  function showDailyResult(key, rec) {
+    openModal("Today's challenge is done",
+      "<p>" + rec.right + " of " + rec.rounds + " for " + rec.score + " points.</p>" +
+      '<pre class="share-grid">' + escapeHtml(rec.marks) + "</pre>" +
+      '<p class="modal-quiet">A new one appears after midnight.</p>', [
+      { label: "Copy result", onClick: function () {
+          copyText(dailyShare(key, rec));
+        } },
+      { label: "Close", primary: true, onClick: closeModal }
+    ]);
+  }
+
+  function dailyShare(key, rec) {
+    return "Vehicle Spotter " + key + "  " + rec.right + "/" + rec.rounds +
+           "\n" + rec.marks + "\n" + rec.score + " points";
+  }
+
+  /* navigator.clipboard needs a secure context and is not there on file://, so
+   * the textarea fallback matters more than usual here. */
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        showToast("Copied.", null);
+      }, function () { fallbackCopy(text); });
+      return;
+    }
+    fallbackCopy(text);
+  }
+
+  function fallbackCopy(text) {
+    const box = document.createElement("textarea");
+    box.value = text;
+    box.setAttribute("readonly", "readonly");
+    box.style.position = "fixed";
+    box.style.opacity = "0";
+    document.body.appendChild(box);
+    box.select();
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    document.body.removeChild(box);
+    showToast(ok ? "Copied." : "Copy did not work.", null);
   }
 
   function show(screen) {
@@ -354,13 +548,19 @@
     el.create.hidden = screen !== "create";
     // Only the game screen is locked to the viewport; the others may scroll.
     document.body.classList.toggle("playing", screen === "game");
-    if (screen === "setup") { renderCorrections(); renderProgress(); updatePoolNote(); }
+    if (screen === "setup") {
+      renderCorrections(); renderProgress(); renderStats(); updatePoolNote();
+    }
   }
 
-  function startGame() {
-    game.endless = el.endlessToggle.checked;
+  function startGame(options) {
+    const opts = options || {};
+    game.daily = opts.daily || null;
+    game.queue = opts.queue || null;
+    game.endless = !game.queue && el.endlessToggle.checked;
     game.timed = el.timerToggle.checked;
     game.skipLearned = el.skipLearnedToggle.checked;
+    game.reviews = 0;
     game.used = Object.create(null);
     game.correctIds = Object.create(null);
     game.upcoming = null;
@@ -370,6 +570,7 @@
     game.bestStreak = 0;
     game.correct = 0;
     game.history = [];
+    game.pending = null;
     show("game");
     el.timerStat.hidden = !game.timed;
     el.timerTrack.hidden = !game.timed;
@@ -379,6 +580,7 @@
 
   function nextRound() {
     stopTimer();
+    flushRound();
     if (!game.endless && game.round >= ROUNDS_PER_GAME) return endGame();
 
     // The lookahead was already chosen (and its photo fetched) last round.
@@ -388,6 +590,9 @@
     game.upcomingImage = null;
     if (!game.current) return endGame();
     game.used[game.current.id] = true;
+    // Anything with a record has been asked before, whether it was named or
+    // missed, so it counts against the share of the game given to revision.
+    if (store.learned[game.current.id]) game.reviews += 1;
 
     game.hintsUsed = 0;
     game.retried = false;
@@ -534,6 +739,7 @@
       game.resolvedAs = { outcome: "correct", points: pts, result: result };
     } else {
       game.streak = 0;
+      recordMiss(game.lastAnswer);
       game.resolvedAs = { outcome: outcome, points: 0, result: result };
     }
 
@@ -548,11 +754,27 @@
     renderFeedback();
   }
 
-  /* Named correctly: keep it out of the rest of this game, and remember it for
-   * later games so the picker can hold it back there too. */
+  /* Named correctly: keep it out of the rest of this game. The review schedule
+   * is written when the round is left behind rather than here, because the
+   * player can still overturn the verdict from the feedback panel. */
   function recordCorrect() {
     game.correctIds[game.current.id] = true;
-    markLearned(game.current.id);
+    game.pending = { id: game.current.id, correct: true, said: "" };
+  }
+
+  /* Missed: what the player said is kept so the confusion table can work out
+   * which vehicle they actually named. */
+  function recordMiss(answer) {
+    game.pending = { id: game.current.id, correct: false, said: answer };
+  }
+
+  /* Write the finished round to the review schedule and the stats. One record
+   * per round, and only once the round is genuinely over. */
+  function flushRound() {
+    const p = game.pending;
+    game.pending = null;
+    if (!p) return;
+    recordAnswer(p.id, p.correct, p.correct ? null : whatTheyMeant(p.said, p.id));
   }
 
   function renderFeedback() {
@@ -1065,6 +1287,8 @@
 
   function endGame() {
     stopTimer();
+    flushRound();
+    store.games += 1;
     if (game.score > store.highScore) store.highScore = game.score;
     if (game.bestStreak > store.bestStreak) store.bestStreak = game.bestStreak;
     saveStore(store);
@@ -1089,6 +1313,20 @@
              said + "</div>";
     }).join("");
 
+    if (game.daily) {
+      const rec = {
+        score: game.score, right: game.correct, rounds: game.history.length,
+        marks: Daily.marks(game.history)
+      };
+      store.daily[game.daily] = rec;
+      saveStore(store);
+      el.resultsTitle.textContent = "Daily challenge — " + game.daily;
+      el.shareGrid.textContent = rec.marks;
+      el.sharePanel.hidden = false;
+    } else {
+      el.sharePanel.hidden = true;
+    }
+
     renderProgress();
     show("results");
     el.againBtn.focus();
@@ -1112,11 +1350,12 @@
   el.skipLearnedToggle.addEventListener("change", updatePoolNote);
   renderCorrections();
   renderProgress();
+  renderStats();
   updatePoolNote();
   renderBest();
 
   el.resetProgressBtn.addEventListener("click", function () {
-    const known = Object.keys(store.learned).length;
+    const known = Object.keys(store.learned).filter(isLearned).length;
     openModal("Reset progress",
       "<p>Forget the " + known + " vehicle" + (known === 1 ? "" : "s") +
       " you have named correctly, so every one is treated as new again?</p>" +
@@ -1132,7 +1371,27 @@
     ]);
   });
 
-  el.startBtn.addEventListener("click", startGame);
+  el.startBtn.addEventListener("click", function () { startGame(); });
+  el.dailyBtn.addEventListener("click", startDaily);
+  el.shareBtn.addEventListener("click", function () {
+    const rec = game.daily && store.daily[game.daily];
+    if (rec) copyText(dailyShare(game.daily, rec));
+  });
+  el.resetStatsBtn.addEventListener("click", function () {
+    openModal("Clear record",
+      "<p>Forget what you have been asked and what you got wrong?</p>" +
+      '<p class="modal-quiet">The review schedule, your high score and your ' +
+      "corrections are kept.</p>", [
+      { label: "Cancel", onClick: closeModal },
+      { label: "Clear", primary: true, onClick: function () {
+          store.stats = SRS.blankStats();
+          saveStore(store);
+          closeModal();
+          renderProgress();
+          renderStats();
+        } }
+    ]);
+  });
   el.browseBtn.addEventListener("click", function () { openBrowser(""); });
   el.createBtn.addEventListener("click", function () {
     show("create");
@@ -1152,7 +1411,7 @@
   el.skipBtn.addEventListener("click", function () { resolve(null, "skipped"); });
   el.badPicBtn.addEventListener("click", reportBadPicture);
   el.endBtn.addEventListener("click", endGame);
-  el.againBtn.addEventListener("click", startGame);
+  el.againBtn.addEventListener("click", function () { startGame(); });
   el.changeBtn.addEventListener("click", function () { show("setup"); });
 
   el.exportBtn.addEventListener("click", function () {
