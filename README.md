@@ -4,8 +4,8 @@ A browser quiz: name what is in the photo. Tanks, armoured fighting vehicles,
 aircraft, helicopters, missiles and artillery, plus a few cars and ships, across
 six eras from the Age of Sail to the present.
 
-626 entries. Many carry several different photographs and a round shows one of
-them at random, so a vehicle cannot be answered by memorising one picture.
+909 entries and 2,022 photographs. Most carry more than one, and a round shows
+one of them at random, so a vehicle cannot be answered by memorising a picture.
 
 No build step, no dependencies. Open `index.html` in a browser and play.
 
@@ -86,7 +86,7 @@ trustworthy if the player can see why it let something through.
 
 ### Tests
 
-`node tests/match.test.js` runs ~1.9 million assertions. Alongside the
+`node tests/match.test.js` runs ~4.2 million assertions. Alongside the
 hand-written cases it sweeps every alias of every vehicle against every *other*
 vehicle. That sweep is what found every strictness rule above:
 `fork`/`ford` and `M4A1`/`M1A1` at 32 vehicles, then `CH-47`/`M47`/`P-47`,
@@ -118,7 +118,7 @@ Two entries sharing an answer is fine and expected, so the sweep does not fail
 on it: "Mustang" is honestly both a P-51 and a Ford, "Thunderbolt" both a P-47
 and an A-10, "Comet" both an airliner and a tank. Only someone who already
 knows the answer types one of those, the two are never confusable on sight, and
-a round only ever asks about one of them. 78 answers currently land that way.
+a round only ever asks about one of them. 119 answers currently land that way.
 
 What the sweep does fail on is a cross-match the fuzzy paths reached by
 *accident* — "Hornet" read as a typo for "Kornet", "Type 10" covering "A-10",
@@ -219,6 +219,27 @@ right for. "Wrong" teaches nothing; "you called the MiG-27 a MiG-23, twice"
 teaches quite a lot. The setup screen shows accuracy per category, the vehicles
 you miss most often, and the pairs you mix up — and **Clear record** empties it
 without disturbing the review schedule.
+
+## Where the photographs come from
+
+Two sources. The original harvest took whatever photograph a vehicle's own
+Wikipedia article used, which for most vehicles is exactly one. The rest come
+from the vehicle's Commons category, which usually holds dozens, filtered down
+in three passes:
+
+1. **The filename has to name the vehicle** as a whole word, or start a word
+   with one of its designation codes — "T-90M" and "SH-60B" count for the T-90
+   and the SH-60, "B-17" does not count for the B-1. Plain substring matching is
+   what put a painting of a Greek archer on the Archer tank destroyer.
+2. **A filename that admits to being useless** is dropped: production lines,
+   cockpit and undercarriage close-ups, handover ceremonies, paintings,
+   monuments, cutaway diagrams.
+3. **Every surviving photograph was looked at**, in contact sheets, before it
+   shipped. That pass rejected 129 of 1,303 — about one in ten. A filename test
+   cannot tell a Bloodhound missile from a bloodhound, the Comet tank from the
+   comet, Oliver Cromwell from the Cromwell, or the Black Prince from the Black
+   Prince; and no test at all catches a photograph that is of the right vehicle
+   but shows a tail fin, a radio set or the back of someone's head.
 
 ## Creating entries
 
